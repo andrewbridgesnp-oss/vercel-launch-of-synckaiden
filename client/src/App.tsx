@@ -126,6 +126,7 @@ import Contact from "./pages/Contact";
 import RequestApp from "./pages/RequestApp";
 import AdminDashboard from "./pages/AdminDashboard";
 import SecretsManagement from "./pages/SecretsManagement";
+import AppDevelopmentDashboard from "./pages/AppDevelopmentDashboard";
 
 function Router() {
   return (
@@ -147,6 +148,7 @@ function Router() {
       <Route path="/request-app" component={RequestApp} />
       <Route path="/admin" component={AdminDashboard} />
       <Route path="/admin/secrets" component={SecretsManagement} />
+      <Route path="/admin/app-development" component={AppDevelopmentDashboard} />
       
       {/* E-commerce */}
       <Route path="/boutique" component={BougieBoutique} />

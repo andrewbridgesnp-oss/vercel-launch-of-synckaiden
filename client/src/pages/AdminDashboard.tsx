@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { trpc } from "@/lib/trpc";
 import { 
   Users, DollarSign, TrendingUp, Activity, 
-  Package, AlertCircle, CheckCircle, Clock 
+  Package, AlertCircle, CheckCircle, Clock, Code 
 } from "lucide-react";
 import { useEffect } from "react";
 import { useLocation } from "wouter";
@@ -43,9 +43,15 @@ export default function AdminDashboard() {
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5">
       <div className="container mx-auto px-6 py-8">
         {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold mb-2">Admin Dashboard</h1>
-          <p className="text-muted-foreground">Platform analytics and system monitoring</p>
+        <div className="mb-8 flex items-center justify-between">
+          <div>
+            <h1 className="text-4xl font-bold mb-2">Admin Dashboard</h1>
+            <p className="text-muted-foreground">Platform analytics and system monitoring</p>
+          </div>
+          <Button onClick={() => setLocation("/admin/app-development")} className="flex items-center gap-2">
+            <Code className="w-4 h-4" />
+            App Development
+          </Button>
         </div>
 
         {/* Stats Grid */}

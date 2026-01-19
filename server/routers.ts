@@ -34,6 +34,7 @@ import { leadManagementRouter } from "./routers/leadManagement";
 import { helpDeskRouter } from "./routers/helpDesk";
 import { inventoryManagerRouter } from "./routers/inventoryManager";
 import { orderManagementRouter } from "./routers/orderManagement";
+import { appAuditRouter } from "./routers/appAudit";
 import {
   getAllProducts,
   getProductBySlug,
@@ -97,6 +98,7 @@ export const appRouter = router({
   helpDesk: helpDeskRouter,
   inventoryManager: inventoryManagerRouter,
   orderManagement: orderManagementRouter,
+  appAudit: appAuditRouter,
   
   auth: router({
     me: publicProcedure.query(opts => opts.ctx.user),

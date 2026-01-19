@@ -541,3 +541,28 @@
 - [ ] Landing Page Builder
 - [ ] Survey Builder
 - [ ] SEO Optimizer
+
+
+## 🏠 HOMEPAGE REDESIGN - 3 PILLARS WITH CAROUSELS
+- [ ] Redesign homepage hero section with 3 main pillars
+- [ ] Pillar 1: App Store - Showcase all 66+ premium apps with categories
+- [ ] Pillar 2: Synced Sites - Carousel tabs for Builder, Transport, and hosting services
+- [ ] Pillar 3: E-commerce - Carousel tabs for Bougie Boutique, Sigma Strength, Women's/Kids collections
+- [ ] Add carousel/tab component for each pillar section
+- [ ] Restore Premium Apps button linking to full app catalog
+- [ ] Verify all 66 apps are accessible from homepage
+- [ ] Extract and integrate Builder website design
+- [ ] Extract and integrate Luxury Transport design
+- [ ] Test all carousel navigation and links
+
+
+## 📊 APP DEVELOPMENT DASHBOARD - COMPLETED ✅
+- [x] Create backend router to fetch app completion status
+- [x] Build App Development Dashboard frontend page
+- [x] Add visual progress bars for completion percentages
+- [x] Add filtering by status (Complete, Partial, Missing)
+- [x] Add filtering by ROI tier (Tier 1, Tier 2, Tier 3)
+- [x] Add filtering by category (AI, Business, CRM, etc.)
+- [x] Display total completion stats (20/66 complete)
+- [x] Add drill-down view for each app showing backend/frontend/database status
+- [x] Make it accessible from admin dashboard
