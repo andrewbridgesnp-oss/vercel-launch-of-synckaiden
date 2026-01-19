@@ -122,6 +122,7 @@ import SpamSlayer from "@/pages/apps/SpamSlayer";
 import MarketingOS from "@/pages/apps/MarketingOS";
 import CreativeClashLiveApp from "@/pages/apps/CreativeClashLive";
 import YouTubeAutomation from "@/pages/apps/YouTubeAutomation";
+import LLCFormationApp from "@/pages/apps/LLCFormation";
 import Contact from "./pages/Contact";
 import RequestApp from "./pages/RequestApp";
 import AdminDashboard from "./pages/AdminDashboard";
@@ -254,7 +255,8 @@ function Router() {
       <Route path="/app/marketing-os" component={MarketingOS} />
       <Route path="/app/creative-clash-live" component={CreativeClashLiveApp} />
       <Route path="/creative-clash" component={CreativeClashLiveMain} />
-      <Route path="/app/youtube-automation" component={YouTubeAutomation} />
+      <Route path="/apps/youtube" component={YouTubeAutomation} />
+      <Route path="/apps/llc-formation" component={LLCFormationApp} />
       
       {/* 404 */}
       <Route path="/404" component={NotFound} />
