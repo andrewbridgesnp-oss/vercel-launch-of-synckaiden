@@ -132,7 +132,7 @@ export default function BougieBoutique() {
     setSelectedColor("");
   };
 
-  // const createGuestCheckout = trpc.stripe.createGuestCheckout.useMutation();
+  const createGuestCheckout = trpc.stripe.createGuestCheckout.useMutation();
   const createPrintfulOrder = trpc.printful.createDropshipOrder.useMutation();
 
   const handleCheckout = async () => {
@@ -156,10 +156,7 @@ export default function BougieBoutique() {
       const productNames = cart.map(item => `${item.name} (${item.size}, ${item.color})`).join(", ");
 
       // Use guest checkout - no login required!
-      // TODO: Re-enable when Stripe integration is complete
-      toast.error("Checkout temporarily disabled", { id: "checkout" });
-      return;
-      /* const result = await createGuestCheckout.mutateAsync({
+      const result = await createGuestCheckout.mutateAsync({
         productName: `Bougie Boutique Order (${cart.length} items)`,
         productDescription: productNames,
         priceInCents: Math.round(cartTotal),
@@ -178,7 +175,7 @@ export default function BougieBoutique() {
         window.location.href = result.url;
       } else {
         toast.error("Failed to create checkout", { id: "checkout" });
-      } */
+      }
     } catch (error) {
       console.error("Checkout error:", error);
       toast.error("Checkout failed. Please try again.", { id: "checkout" });

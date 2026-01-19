@@ -15,6 +15,20 @@
       "when": 1768814492007,
       "tag": "0001_silky_bishop",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1768822771345,
+      "tag": "0002_icy_mastermind",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1768822986733,
+      "tag": "0003_dark_bug",
+      "breakpoints": true
     }
   ]
 }
