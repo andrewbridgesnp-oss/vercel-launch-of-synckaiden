@@ -285,3 +285,7 @@
 - [ ] Integrate Stripe payment processing
 - [ ] Test complete shopping flow end-to-end
 - [ ] Seed database with all 25+ products from both stores
+
+- [x] Add Spotify widget to homepage showing user's currently playing music
+- [ ] Implement Spotify OAuth connection flow (future enhancement)
+- [ ] Create backend tRPC router for Spotify API integration (future enhancement)

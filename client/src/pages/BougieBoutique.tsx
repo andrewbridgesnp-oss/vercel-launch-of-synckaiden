@@ -218,13 +218,17 @@ export default function BougieBoutique() {
           </Button>
         </div>
 
-        {/* Hero Image Banner */}
+        {/* Hero Video Banner */}
         <div className="relative h-[500px] overflow-hidden rounded-3xl shadow-2xl mb-12">
-          <img
-            src="/bougie-hero.jpg"
-            alt="Bougie Boutique - Children's Mental Health Awareness Apparel"
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
             className="w-full h-full object-cover"
-          />
+          >
+            <source src="/bougie-hero-video.mp4" type="video/mp4" />
+          </video>
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent flex items-end justify-center pb-12">
             <div className="text-center text-white">
               <h1 className="text-6xl font-bold mb-4 drop-shadow-2xl">Bougie Boutique</h1>
@@ -318,6 +322,25 @@ export default function BougieBoutique() {
           </Card>
         </div>
 
+        {/* Product Showcase Video */}
+        <div className="relative h-[400px] overflow-hidden rounded-3xl shadow-2xl mb-12 max-w-6xl mx-auto">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+          >
+            <source src="/bougie-products-video.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-r from-pink-900/40 to-purple-900/40 flex items-center justify-center">
+            <div className="text-center text-white px-6">
+              <h2 className="text-5xl font-bold mb-4 drop-shadow-2xl">Premium Quality Apparel</h2>
+              <p className="text-xl drop-shadow-lg">Soft, comfortable, and built to last</p>
+            </div>
+          </div>
+        </div>
+
         {/* Emilie's Story */}
         <Card className="p-8 bg-white/80 backdrop-blur-sm border-pink-200 shadow-xl mb-12 max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-purple-800 mb-4 text-center">Emilie's Story</h2>
@@ -344,6 +367,25 @@ export default function BougieBoutique() {
 
         {/* Products Section */}
         <div className="mb-12">
+          {/* Impact Story Video */}
+          <div className="relative h-[400px] overflow-hidden rounded-3xl shadow-2xl mb-12 max-w-6xl mx-auto">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover"
+            >
+              <source src="/bougie-impact-video.mp4" type="video/mp4" />
+            </video>
+            <div className="absolute inset-0 bg-gradient-to-t from-purple-900/60 via-transparent to-transparent flex items-end justify-center pb-12">
+              <div className="text-center text-white px-6">
+                <h2 className="text-4xl font-bold mb-3 drop-shadow-2xl">Making a Real Difference</h2>
+                <p className="text-lg drop-shadow-lg">Every purchase supports children's mental health programs</p>
+              </div>
+            </div>
+          </div>
+
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold text-purple-800 mb-2">Shop With Purpose</h2>
             <p className="text-purple-600">
