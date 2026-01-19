@@ -2417,3 +2417,87 @@ export const orderManagementItems = mysqlTable("orderManagementItems", {
 
 export type OrderManagementItem = typeof orderManagementItems.$inferSelect;
 export type InsertOrderManagementItem = typeof orderManagementItems.$inferInsert;
+
+
+// ============= COMPREHENSIVE TAX APP TABLES =============
+
+export const taxReturns = mysqlTable("taxReturns", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  taxYear: int("taxYear").notNull(),
+  filingStatus: mysqlEnum("filingStatus", ["single", "married_joint", "married_separate", "head_of_household"]).notNull(),
+  status: mysqlEnum("status", ["draft", "in_progress", "review", "filed", "accepted", "rejected"]).default("draft").notNull(),
+  federalRefund: int("federalRefund").default(0), // cents
+  stateRefund: int("stateRefund").default(0), // cents
+  filedDate: timestamp("filedDate"),
+  dueDate: timestamp("dueDate").notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+}, (table) => ({
+  userIdIdx: index("tax_return_userId_idx").on(table.userId),
+  taxYearIdx: index("tax_return_taxYear_idx").on(table.taxYear),
+  statusIdx: index("tax_return_status_idx").on(table.status),
+}));
+
+export type TaxReturn = typeof taxReturns.$inferSelect;
+export type InsertTaxReturn = typeof taxReturns.$inferInsert;
+
+export const taxDocuments = mysqlTable("taxDocuments", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  taxYear: int("taxYear").notNull(),
+  type: mysqlEnum("type", ["W2", "1099", "1098", "K1", "other"]).notNull(),
+  fileName: varchar("fileName", { length: 255 }).notNull(),
+  fileUrl: varchar("fileUrl", { length: 500 }).notNull(),
+  fileKey: varchar("fileKey", { length: 500 }).notNull(), // S3 key
+  processed: boolean("processed").default(false),
+  uploadedAt: timestamp("uploadedAt").defaultNow().notNull(),
+}, (table) => ({
+  userIdIdx: index("tax_document_userId_idx").on(table.userId),
+  taxYearIdx: index("tax_document_taxYear_idx").on(table.taxYear),
+  typeIdx: index("tax_document_type_idx").on(table.type),
+}));
+
+export type TaxDocument = typeof taxDocuments.$inferSelect;
+export type InsertTaxDocument = typeof taxDocuments.$inferInsert;
+
+export const taxDeductions = mysqlTable("taxDeductions", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  taxReturnId: int("taxReturnId"),
+  category: varchar("category", { length: 100 }).notNull(),
+  amount: int("amount").notNull(), // cents
+  description: text("description").notNull(),
+  eligible: boolean("eligible").default(true),
+  claimed: boolean("claimed").default(false),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+}, (table) => ({
+  userIdIdx: index("tax_deduction_userId_idx").on(table.userId),
+  taxReturnIdIdx: index("tax_deduction_taxReturnId_idx").on(table.taxReturnId),
+  categoryIdx: index("tax_deduction_category_idx").on(table.category),
+}));
+
+export type TaxDeduction = typeof taxDeductions.$inferSelect;
+export type InsertTaxDeduction = typeof taxDeductions.$inferInsert;
+
+export const taxEstimates = mysqlTable("taxEstimates", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  taxYear: int("taxYear").notNull(),
+  income: int("income").notNull(), // cents
+  filingStatus: varchar("filingStatus", { length: 50 }).notNull(),
+  state: varchar("state", { length: 2 }),
+  taxableIncome: int("taxableIncome").notNull(), // cents
+  federalTax: int("federalTax").notNull(), // cents
+  stateTax: int("stateTax").default(0), // cents
+  totalTax: int("totalTax").notNull(), // cents
+  effectiveRate: int("effectiveRate").notNull(), // basis points (e.g., 2250 = 22.50%)
+  estimatedRefund: int("estimatedRefund").default(0), // cents
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+}, (table) => ({
+  userIdIdx: index("tax_estimate_userId_idx").on(table.userId),
+  taxYearIdx: index("tax_estimate_taxYear_idx").on(table.taxYear),
+}));
+
+export type TaxEstimate = typeof taxEstimates.$inferSelect;
+export type InsertTaxEstimate = typeof taxEstimates.$inferInsert;
