@@ -2208,3 +2208,212 @@ export const appointmentSchedulerAppointments = mysqlTable("appointmentScheduler
 
 export type AppointmentSchedulerAppointment = typeof appointmentSchedulerAppointments.$inferSelect;
 export type InsertAppointmentSchedulerAppointment = typeof appointmentSchedulerAppointments.$inferInsert;
+
+
+// ============= TIME TRACKER TABLES =============
+
+export const timeTrackerProjects = mysqlTable("timeTrackerProjects", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  name: varchar("name", { length: 255 }).notNull(),
+  description: text("description"),
+  color: varchar("color", { length: 7 }),
+  billableRate: int("billableRate"), // cents per hour
+  isActive: boolean("isActive").default(true),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+}, (table) => ({
+  userIdIdx: index("time_tracker_project_userId_idx").on(table.userId),
+}));
+
+export type TimeTrackerProject = typeof timeTrackerProjects.$inferSelect;
+export type InsertTimeTrackerProject = typeof timeTrackerProjects.$inferInsert;
+
+export const timeTrackerEntries = mysqlTable("timeTrackerEntries", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  projectId: int("projectId").notNull(),
+  description: text("description"),
+  startTime: timestamp("startTime").notNull(),
+  endTime: timestamp("endTime"),
+  duration: int("duration"), // seconds
+  isBillable: boolean("isBillable").default(true),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+}, (table) => ({
+  userIdIdx: index("time_tracker_entry_userId_idx").on(table.userId),
+  projectIdIdx: index("time_tracker_entry_projectId_idx").on(table.projectId),
+  startTimeIdx: index("time_tracker_entry_startTime_idx").on(table.startTime),
+}));
+
+export type TimeTrackerEntry = typeof timeTrackerEntries.$inferSelect;
+export type InsertTimeTrackerEntry = typeof timeTrackerEntries.$inferInsert;
+
+// ============= LEAD MANAGEMENT TABLES =============
+
+export const leadManagementLeads = mysqlTable("leadManagementLeads", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  firstName: varchar("firstName", { length: 100 }).notNull(),
+  lastName: varchar("lastName", { length: 100 }).notNull(),
+  email: varchar("email", { length: 320 }).notNull(),
+  phone: varchar("phone", { length: 20 }),
+  company: varchar("company", { length: 255 }),
+  title: varchar("title", { length: 255 }),
+  source: varchar("source", { length: 100 }),
+  status: mysqlEnum("status", ["new", "contacted", "qualified", "proposal", "negotiation", "won", "lost"]).default("new").notNull(),
+  score: int("score").default(0), // 0-100
+  estimatedValue: int("estimatedValue"), // cents
+  notes: text("notes"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+}, (table) => ({
+  userIdIdx: index("lead_mgmt_lead_userId_idx").on(table.userId),
+  statusIdx: index("lead_mgmt_lead_status_idx").on(table.status),
+  scoreIdx: index("lead_mgmt_lead_score_idx").on(table.score),
+}));
+
+export type LeadManagementLead = typeof leadManagementLeads.$inferSelect;
+export type InsertLeadManagementLead = typeof leadManagementLeads.$inferInsert;
+
+export const leadManagementActivities = mysqlTable("leadManagementActivities", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  leadId: int("leadId").notNull(),
+  type: mysqlEnum("type", ["call", "email", "meeting", "note", "task"]).notNull(),
+  subject: varchar("subject", { length: 255 }).notNull(),
+  description: text("description"),
+  completedAt: timestamp("completedAt"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+}, (table) => ({
+  userIdIdx: index("lead_mgmt_activity_userId_idx").on(table.userId),
+  leadIdIdx: index("lead_mgmt_activity_leadId_idx").on(table.leadId),
+}));
+
+export type LeadManagementActivity = typeof leadManagementActivities.$inferSelect;
+export type InsertLeadManagementActivity = typeof leadManagementActivities.$inferInsert;
+
+// ============= HELP DESK TABLES =============
+
+export const helpDeskTickets = mysqlTable("helpDeskTickets", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  customerName: varchar("customerName", { length: 255 }).notNull(),
+  customerEmail: varchar("customerEmail", { length: 320 }).notNull(),
+  subject: varchar("subject", { length: 500 }).notNull(),
+  description: text("description").notNull(),
+  priority: mysqlEnum("priority", ["low", "medium", "high", "urgent"]).default("medium").notNull(),
+  status: mysqlEnum("status", ["open", "in_progress", "waiting", "resolved", "closed"]).default("open").notNull(),
+  category: varchar("category", { length: 100 }),
+  assignedTo: int("assignedTo"),
+  resolvedAt: timestamp("resolvedAt"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+}, (table) => ({
+  userIdIdx: index("help_desk_ticket_userId_idx").on(table.userId),
+  statusIdx: index("help_desk_ticket_status_idx").on(table.status),
+  priorityIdx: index("help_desk_ticket_priority_idx").on(table.priority),
+  assignedToIdx: index("help_desk_ticket_assignedTo_idx").on(table.assignedTo),
+}));
+
+export type HelpDeskTicket = typeof helpDeskTickets.$inferSelect;
+export type InsertHelpDeskTicket = typeof helpDeskTickets.$inferInsert;
+
+export const helpDeskReplies = mysqlTable("helpDeskReplies", {
+  id: int("id").autoincrement().primaryKey(),
+  ticketId: int("ticketId").notNull(),
+  userId: int("userId"),
+  isStaff: boolean("isStaff").default(false),
+  message: text("message").notNull(),
+  attachments: json("attachments").$type<string[]>(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+}, (table) => ({
+  ticketIdIdx: index("help_desk_reply_ticketId_idx").on(table.ticketId),
+}));
+
+export type HelpDeskReply = typeof helpDeskReplies.$inferSelect;
+export type InsertHelpDeskReply = typeof helpDeskReplies.$inferInsert;
+
+// ============= INVENTORY MANAGER TABLES =============
+
+export const inventoryProducts = mysqlTable("inventoryProducts", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  sku: varchar("sku", { length: 100 }).notNull(),
+  name: varchar("name", { length: 255 }).notNull(),
+  description: text("description"),
+  category: varchar("category", { length: 100 }),
+  currentStock: int("currentStock").default(0).notNull(),
+  minStock: int("minStock").default(0),
+  maxStock: int("maxStock"),
+  unitCost: int("unitCost"), // cents
+  unitPrice: int("unitPrice"), // cents
+  location: varchar("location", { length: 255 }),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+}, (table) => ({
+  userIdIdx: index("inventory_product_userId_idx").on(table.userId),
+  skuIdx: index("inventory_product_sku_idx").on(table.sku),
+}));
+
+export type InventoryProduct = typeof inventoryProducts.$inferSelect;
+export type InsertInventoryProduct = typeof inventoryProducts.$inferInsert;
+
+export const inventoryMovements = mysqlTable("inventoryMovements", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  productId: int("productId").notNull(),
+  type: mysqlEnum("type", ["purchase", "sale", "adjustment", "return", "transfer"]).notNull(),
+  quantity: int("quantity").notNull(),
+  reference: varchar("reference", { length: 255 }),
+  notes: text("notes"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+}, (table) => ({
+  userIdIdx: index("inventory_movement_userId_idx").on(table.userId),
+  productIdIdx: index("inventory_movement_productId_idx").on(table.productId),
+  typeIdx: index("inventory_movement_type_idx").on(table.type),
+}));
+
+export type InventoryMovement = typeof inventoryMovements.$inferSelect;
+export type InsertInventoryMovement = typeof inventoryMovements.$inferInsert;
+
+// ============= ORDER MANAGEMENT TABLES =============
+
+export const orderManagementOrders = mysqlTable("orderManagementOrders", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  orderNumber: varchar("orderNumber", { length: 50 }).notNull().unique(),
+  customerName: varchar("customerName", { length: 255 }).notNull(),
+  customerEmail: varchar("customerEmail", { length: 320 }).notNull(),
+  customerPhone: varchar("customerPhone", { length: 20 }),
+  shippingAddress: json("shippingAddress").$type<{street: string, city: string, state: string, zip: string, country: string}>(),
+  status: mysqlEnum("status", ["pending", "processing", "shipped", "delivered", "cancelled", "refunded"]).default("pending").notNull(),
+  subtotal: int("subtotal").notNull(), // cents
+  tax: int("tax").default(0), // cents
+  shipping: int("shipping").default(0), // cents
+  total: int("total").notNull(), // cents
+  notes: text("notes"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+}, (table) => ({
+  userIdIdx: index("order_mgmt_order_userId_idx").on(table.userId),
+  orderNumberIdx: index("order_mgmt_order_orderNumber_idx").on(table.orderNumber),
+  statusIdx: index("order_mgmt_order_status_idx").on(table.status),
+}));
+
+export type OrderManagementOrder = typeof orderManagementOrders.$inferSelect;
+export type InsertOrderManagementOrder = typeof orderManagementOrders.$inferInsert;
+
+export const orderManagementItems = mysqlTable("orderManagementItems", {
+  id: int("id").autoincrement().primaryKey(),
+  orderId: int("orderId").notNull(),
+  productName: varchar("productName", { length: 255 }).notNull(),
+  sku: varchar("sku", { length: 100 }),
+  quantity: int("quantity").notNull(),
+  unitPrice: int("unitPrice").notNull(), // cents
+  total: int("total").notNull(), // cents
+}, (table) => ({
+  orderIdIdx: index("order_mgmt_item_orderId_idx").on(table.orderId),
+}));
+
+export type OrderManagementItem = typeof orderManagementItems.$inferSelect;
+export type InsertOrderManagementItem = typeof orderManagementItems.$inferInsert;

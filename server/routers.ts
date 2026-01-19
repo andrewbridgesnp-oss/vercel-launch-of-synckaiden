@@ -29,6 +29,11 @@ import { projectManagerRouter } from "./routers/projectManager";
 import { emailMarketingRouter } from "./routers/emailMarketing";
 import { contractGeneratorRouter } from "./routers/contractGenerator";
 import { appointmentSchedulerRouter } from "./routers/appointmentScheduler";
+import { timeTrackerRouter } from "./routers/timeTracker";
+import { leadManagementRouter } from "./routers/leadManagement";
+import { helpDeskRouter } from "./routers/helpDesk";
+import { inventoryManagerRouter } from "./routers/inventoryManager";
+import { orderManagementRouter } from "./routers/orderManagement";
 import {
   getAllProducts,
   getProductBySlug,
@@ -87,6 +92,11 @@ export const appRouter = router({
   emailMarketing: emailMarketingRouter,
   contractGenerator: contractGeneratorRouter,
   appointmentScheduler: appointmentSchedulerRouter,
+  timeTracker: timeTrackerRouter,
+  leadManagement: leadManagementRouter,
+  helpDesk: helpDeskRouter,
+  inventoryManager: inventoryManagerRouter,
+  orderManagement: orderManagementRouter,
   
   auth: router({
     me: publicProcedure.query(opts => opts.ctx.user),
