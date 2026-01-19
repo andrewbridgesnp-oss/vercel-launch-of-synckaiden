@@ -210,3 +210,13 @@
 - [ ] Implement backend validation (exactly 8 apps)
 - [ ] Update pricing page with 8-app bundle option
 - [ ] Test bundle selection and checkout flow
+
+
+## 💰 COST OPTIMIZATION & REVENUE
+- [ ] Identify 21 low-cost apps (no token/API costs)
+- [ ] Update pricing: 21 apps to $0.99/mo
+- [ ] Add usage tracking per app (token/credit meters)
+- [ ] Implement cost protection (block operations exceeding limits)
+- [ ] Add affiliate link infrastructure
+- [ ] Create "Recommended Tools" sections with affiliate links
+- [ ] Track affiliate clicks and conversions
