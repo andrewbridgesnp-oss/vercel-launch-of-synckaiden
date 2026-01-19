@@ -3,11 +3,10 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Sparkles, Clock, Users, Trophy, Zap, Youtube, Play, ArrowRight } from 'lucide-react';
 import { Link } from 'wouter';
-import { useAuth } from '@/contexts/AuthContext';
 import { getLoginUrl } from '@/const';
 
 export default function CreativeClashLive() {
-  const { isAuthenticated } = useAuth();
+  const isAuthenticated = false; // Simplified for now
   const [timeToNext, setTimeToNext] = useState({ minutes: 0, seconds: 0 });
   const [sessionStatus, setSessionStatus] = useState<'LIVE' | 'OFF'>('OFF');
 

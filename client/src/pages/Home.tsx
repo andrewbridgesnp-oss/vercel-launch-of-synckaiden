@@ -10,7 +10,7 @@ export default function Home() {
     document.title = "Synckaiden - Premium Digital Marketplace & AI Business Suite";
   }, []);
   
-  const { user, isAuthenticated } = useAuth();
+  const isAuthenticated = false; // Simplified - auth not yet configured
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
@@ -108,23 +108,30 @@ export default function Home() {
           <div className="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             
             {/* Bougie Boutique */}
-            <Link href="/store">
-              <div className="group relative bg-gradient-to-br from-slate-900 to-slate-800 border border-slate-700 rounded-2xl p-8 hover:border-amber-500/50 transition-all duration-300 cursor-pointer overflow-hidden h-full">
-                <div className="absolute inset-0 bg-gradient-to-br from-amber-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="relative z-10">
-                  <div className="w-16 h-16 bg-gradient-to-br from-amber-600 to-yellow-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <ShoppingBag className="w-8 h-8 text-white" />
-                  </div>
-                  <h2 className="text-3xl font-bold text-white mb-4">Bougie Boutique</h2>
-                  <p className="text-slate-400 mb-6">
-                    Curated premium digital assets, templates, courses, and exclusive products for discerning entrepreneurs.
-                  </p>
-                  <div className="flex items-center text-amber-500 font-semibold group-hover:translate-x-2 transition-transform">
-                    Shop Now <ArrowRight className="ml-2 w-5 h-5" />
-                  </div>
+            <div className="group relative bg-gradient-to-br from-slate-900 to-slate-800 border border-slate-700 rounded-2xl p-8 hover:border-amber-500/50 transition-all duration-300 overflow-hidden h-full">
+              <div className="absolute inset-0 bg-gradient-to-br from-amber-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="relative z-10">
+                <div className="w-16 h-16 bg-gradient-to-br from-amber-600 to-yellow-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <ShoppingBag className="w-8 h-8 text-white" />
+                </div>
+                <h2 className="text-3xl font-bold text-white mb-4">Bougie Boutique</h2>
+                <p className="text-slate-400 mb-6">
+                  Premium mental health awareness apparel. Two collections supporting youth and men's mental wellness.
+                </p>
+                <div className="space-y-3">
+                  <Link href="/boutique">
+                    <Button className="w-full bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-700 hover:to-purple-700">
+                      Children's Collection
+                    </Button>
+                  </Link>
+                  <Link href="/sigma-strength">
+                    <Button className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700">
+                      Men's Collection
+                    </Button>
+                  </Link>
                 </div>
               </div>
-            </Link>
+            </div>
 
             {/* Executive Suite */}
             <Link href="/pricing">

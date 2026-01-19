@@ -97,7 +97,7 @@ export default function BougieBoutique() {
     { id: 21, name: "Delulu? Nah, Hopeful", category: "T-Shirt", design: "Rainbow clouds", image: "/products/delulu-hopeful-tshirt.png", available: true },
     { id: 22, name: "Hits Different When You're Kind", category: "T-Shirt", design: "Music note hearts", image: "/products/hits-different-tshirt.png", available: true },
     { id: 23, name: "Unalive The Stigma", category: "Hoodie", design: "Breaking chains", image: "/products/unalive-stigma-hoodie.png", available: true },
-    { id: 24, name: "Mental Health Check ✓", category: "T-Shirt", design: "Checklist with hearts", image: "/products/mental-health-check-tshirt.png", available: true },
+    { id: 24, name: "Mental Health Check", category: "T-Shirt", design: "Checklist with hearts", image: "/bougie-products.png", available: true },
     { id: 26, name: "Bougie Boutique Logo", category: "Hoodie", design: "Official Bougie Boutique branding", image: "/products/bougie-boutique-logo-hoodie.png", available: true },
     { id: 27, name: "No Cap (67)", category: "Trucker Hat", design: "Unisex trucker hat with 67 embroidery", image: "/products/no-cap-67-trucker-hat.png", available: true },
     { id: 27, name: "kaiden Logo", category: "T-Shirt", design: "Official kaiden AI branding", image: "/products/kayden-ai-logo-tshirt.png", available: true },

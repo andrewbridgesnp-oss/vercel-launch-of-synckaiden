@@ -5,8 +5,9 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 
 // Main pages
+import Home from "./pages/Home";
 import CoxAndCo from "./pages/CoxAndCo";
-import CreativeClashLive from "./pages/CreativeClashLive";
+import CreativeClashLiveMain from "./pages/CreativeClashLive";
 import Dashboard from "./pages/Dashboard";
 import DashboardNew from "./pages/DashboardNew";
 import AppDetail from "./pages/AppDetail";
@@ -20,6 +21,7 @@ import Tour from "./pages/Tour";
 
 // E-commerce
 import BougieBoutique from "./pages/BougieBoutique";
+import SigmaStrength from "./pages/SigmaStrength";
 import Shop from "./pages/Shop";
 import Products from "./pages/Products";
 import Orders from "./pages/Orders";
@@ -113,7 +115,7 @@ import AudioMastering from "./pages/apps/AudioMastering";
 import HealthSyncScribe from "./pages/apps/HealthSyncScribe";
 import SpamSlayer from "@/pages/apps/SpamSlayer";
 import MarketingOS from "@/pages/apps/MarketingOS";
-import CreativeClashLive from "@/pages/apps/CreativeClashLive";
+import CreativeClashLiveApp from "@/pages/apps/CreativeClashLive";
 import YouTubeAutomation from "@/pages/apps/YouTubeAutomation";
 import Contact from "./pages/Contact";
 import RequestApp from "./pages/RequestApp";
@@ -141,6 +143,7 @@ function Router() {
       
       {/* E-commerce */}
       <Route path="/boutique" component={BougieBoutique} />
+      <Route path="/sigma-strength" component={SigmaStrength} />
       <Route path="/shop" component={Shop} />
       <Route path="/products" component={Products} />
       <Route path="/orders" component={Orders} />
@@ -237,8 +240,8 @@ function Router() {
       <Route path="/apps/healthsync-scribe" component={HealthSyncScribe} />
       <Route path="/app/spam-slayer" component={SpamSlayer} />
       <Route path="/app/marketing-os" component={MarketingOS} />
-      <Route path="/app/creative-clash-live" component={CreativeClashLive} />
-      <Route path="/creative-clash" component={CreativeClashLive} />
+      <Route path="/app/creative-clash-live" component={CreativeClashLiveApp} />
+      <Route path="/creative-clash" component={CreativeClashLiveMain} />
       <Route path="/app/youtube-automation" component={YouTubeAutomation} />
       
       {/* 404 */}
