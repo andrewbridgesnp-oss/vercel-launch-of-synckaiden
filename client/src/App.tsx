@@ -4,9 +4,8 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 
-// Main pages
-import Home from "./pages/Home";
-import Dashboard from "./pages/Dashboard";
+// Main pagesimport Store from "./pages/Store";
+import CoxAndCo from "./pages/CoxAndCo";import Dashboard from "./pages/Dashboard";
 import DashboardNew from "./pages/DashboardNew";
 import AppDetail from "./pages/AppDetail";
 import NotFound from "./pages/NotFound";
@@ -130,7 +129,8 @@ function Router() {
       <Route path="/pricing-new" component={PricingNew} />
       <Route path="/privacy" component={Privacy} />
       <Route path="/terms" component={Terms} />
-      <Route path="/tour" component={Tour} />
+    <Route path="/store" component={Store} />
+          <Route path="/coxandco" component={CoxAndCo} />
       <Route path="/contact" component={Contact} />
       <Route path="/request-app" component={RequestApp} />
       <Route path="/admin" component={AdminDashboard} />
