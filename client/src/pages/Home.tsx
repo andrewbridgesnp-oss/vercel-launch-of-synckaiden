@@ -5,8 +5,12 @@ import { getLoginUrl } from "@/const";
 import { trpc } from "@/lib/trpc";
 import { ArrowRight, Check, Sparkles, Zap, Shield, Rocket } from "lucide-react";
 import { Link } from "wouter";
+import { useEffect } from "react";
 
 export default function Home() {
+  useEffect(() => {
+    document.title = "Synckaiden - 66 AI-Powered Business Apps for Modern Entrepreneurs";
+  }, []);
   const { user, isAuthenticated } = useAuth();
   const { data: products, isLoading: productsLoading } = trpc.products.list.useQuery();
   const { data: entitlements } = trpc.entitlements.list.useQuery(undefined, {
