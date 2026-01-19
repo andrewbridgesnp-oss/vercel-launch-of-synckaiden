@@ -1955,3 +1955,256 @@ export const invoiceGenPayments = mysqlTable("invoiceGenPayments", {
 
 export type InvoiceGenPayment = typeof invoiceGenPayments.$inferSelect;
 export type InsertInvoiceGenPayment = typeof invoiceGenPayments.$inferInsert;
+
+
+// ============= EXPENSE TRACKER TABLES =============
+
+export const expenseTrackerCategories = mysqlTable("expenseTrackerCategories", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  name: varchar("name", { length: 100 }).notNull(),
+  icon: varchar("icon", { length: 50 }),
+  color: varchar("color", { length: 7 }),
+  budget: int("budget"), // monthly budget in cents
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+}, (table) => ({
+  userIdIdx: index("expense_tracker_category_userId_idx").on(table.userId),
+}));
+
+export type ExpenseTrackerCategory = typeof expenseTrackerCategories.$inferSelect;
+export type InsertExpenseTrackerCategory = typeof expenseTrackerCategories.$inferInsert;
+
+export const expenseTrackerExpenses = mysqlTable("expenseTrackerExpenses", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  categoryId: int("categoryId").notNull(),
+  amount: int("amount").notNull(), // in cents
+  description: text("description"),
+  date: timestamp("date").notNull(),
+  receiptUrl: varchar("receiptUrl", { length: 500 }),
+  merchant: varchar("merchant", { length: 255 }),
+  paymentMethod: varchar("paymentMethod", { length: 50 }),
+  tags: json("tags"), // Array of strings
+  isRecurring: boolean("isRecurring").default(false),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+}, (table) => ({
+  userIdIdx: index("expense_tracker_expense_userId_idx").on(table.userId),
+  categoryIdIdx: index("expense_tracker_expense_categoryId_idx").on(table.categoryId),
+  dateIdx: index("expense_tracker_expense_date_idx").on(table.date),
+}));
+
+export type ExpenseTrackerExpense = typeof expenseTrackerExpenses.$inferSelect;
+export type InsertExpenseTrackerExpense = typeof expenseTrackerExpenses.$inferInsert;
+
+// ============= PROJECT MANAGER TABLES =============
+
+export const projectManagerProjects = mysqlTable("projectManagerProjects", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  name: varchar("name", { length: 255 }).notNull(),
+  description: text("description"),
+  status: mysqlEnum("status", ["planning", "active", "on_hold", "completed", "cancelled"]).default("planning").notNull(),
+  startDate: timestamp("startDate"),
+  endDate: timestamp("endDate"),
+  budget: int("budget"), // in cents
+  color: varchar("color", { length: 7 }),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+}, (table) => ({
+  userIdIdx: index("project_manager_project_userId_idx").on(table.userId),
+  statusIdx: index("project_manager_project_status_idx").on(table.status),
+}));
+
+export type ProjectManagerProject = typeof projectManagerProjects.$inferSelect;
+export type InsertProjectManagerProject = typeof projectManagerProjects.$inferInsert;
+
+export const projectManagerTasks = mysqlTable("projectManagerTasks", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  projectId: int("projectId").notNull(),
+  title: varchar("title", { length: 255 }).notNull(),
+  description: text("description"),
+  status: mysqlEnum("status", ["todo", "in_progress", "review", "done"]).default("todo").notNull(),
+  priority: mysqlEnum("priority", ["low", "medium", "high", "urgent"]).default("medium").notNull(),
+  assignee: varchar("assignee", { length: 255 }),
+  dueDate: timestamp("dueDate"),
+  estimatedHours: decimal("estimatedHours", { precision: 5, scale: 2 }),
+  actualHours: decimal("actualHours", { precision: 5, scale: 2 }),
+  parentTaskId: int("parentTaskId"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+}, (table) => ({
+  userIdIdx: index("project_manager_task_userId_idx").on(table.userId),
+  projectIdIdx: index("project_manager_task_projectId_idx").on(table.projectId),
+  statusIdx: index("project_manager_task_status_idx").on(table.status),
+}));
+
+export type ProjectManagerTask = typeof projectManagerTasks.$inferSelect;
+export type InsertProjectManagerTask = typeof projectManagerTasks.$inferInsert;
+
+export const projectManagerMilestones = mysqlTable("projectManagerMilestones", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  projectId: int("projectId").notNull(),
+  title: varchar("title", { length: 255 }).notNull(),
+  description: text("description"),
+  dueDate: timestamp("dueDate").notNull(),
+  isCompleted: boolean("isCompleted").default(false),
+  completedAt: timestamp("completedAt"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+}, (table) => ({
+  userIdIdx: index("project_manager_milestone_userId_idx").on(table.userId),
+  projectIdIdx: index("project_manager_milestone_projectId_idx").on(table.projectId),
+}));
+
+export type ProjectManagerMilestone = typeof projectManagerMilestones.$inferSelect;
+export type InsertProjectManagerMilestone = typeof projectManagerMilestones.$inferInsert;
+
+// ============= EMAIL MARKETING SUITE TABLES =============
+
+export const emailMarketingLists = mysqlTable("emailMarketingLists", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  name: varchar("name", { length: 255 }).notNull(),
+  description: text("description"),
+  subscriberCount: int("subscriberCount").default(0),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+}, (table) => ({
+  userIdIdx: index("email_marketing_list_userId_idx").on(table.userId),
+}));
+
+export type EmailMarketingList = typeof emailMarketingLists.$inferSelect;
+export type InsertEmailMarketingList = typeof emailMarketingLists.$inferInsert;
+
+export const emailMarketingSubscribers = mysqlTable("emailMarketingSubscribers", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  listId: int("listId").notNull(),
+  email: varchar("email", { length: 320 }).notNull(),
+  firstName: varchar("firstName", { length: 100 }),
+  lastName: varchar("lastName", { length: 100 }),
+  status: mysqlEnum("status", ["subscribed", "unsubscribed", "bounced", "complained"]).default("subscribed").notNull(),
+  tags: json("tags"),
+  customFields: json("customFields"),
+  subscribedAt: timestamp("subscribedAt").defaultNow().notNull(),
+  unsubscribedAt: timestamp("unsubscribedAt"),
+}, (table) => ({
+  userIdIdx: index("email_marketing_subscriber_userId_idx").on(table.userId),
+  listIdIdx: index("email_marketing_subscriber_listId_idx").on(table.listId),
+  emailIdx: index("email_marketing_subscriber_email_idx").on(table.email),
+}));
+
+export type EmailMarketingSubscriber = typeof emailMarketingSubscribers.$inferSelect;
+export type InsertEmailMarketingSubscriber = typeof emailMarketingSubscribers.$inferInsert;
+
+export const emailMarketingCampaigns = mysqlTable("emailMarketingCampaigns", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  listId: int("listId").notNull(),
+  name: varchar("name", { length: 255 }).notNull(),
+  subject: varchar("subject", { length: 255 }).notNull(),
+  previewText: varchar("previewText", { length: 255 }),
+  htmlContent: text("htmlContent").notNull(),
+  status: mysqlEnum("status", ["draft", "scheduled", "sending", "sent", "cancelled"]).default("draft").notNull(),
+  scheduledAt: timestamp("scheduledAt"),
+  sentAt: timestamp("sentAt"),
+  sentCount: int("sentCount").default(0),
+  openCount: int("openCount").default(0),
+  clickCount: int("clickCount").default(0),
+  bounceCount: int("bounceCount").default(0),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+}, (table) => ({
+  userIdIdx: index("email_marketing_campaign_userId_idx").on(table.userId),
+  listIdIdx: index("email_marketing_campaign_listId_idx").on(table.listId),
+  statusIdx: index("email_marketing_campaign_status_idx").on(table.status),
+}));
+
+export type EmailMarketingCampaign = typeof emailMarketingCampaigns.$inferSelect;
+export type InsertEmailMarketingCampaign = typeof emailMarketingCampaigns.$inferInsert;
+
+// ============= CONTRACT GENERATOR TABLES =============
+
+export const contractGenTemplates = mysqlTable("contractGenTemplates", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  name: varchar("name", { length: 255 }).notNull(),
+  category: varchar("category", { length: 100 }),
+  content: text("content").notNull(),
+  variables: json("variables"), // Array of {name, type, description}
+  isPublic: boolean("isPublic").default(false),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+}, (table) => ({
+  userIdIdx: index("contract_gen_template_userId_idx").on(table.userId),
+  categoryIdx: index("contract_gen_template_category_idx").on(table.category),
+}));
+
+export type ContractGenTemplate = typeof contractGenTemplates.$inferSelect;
+export type InsertContractGenTemplate = typeof contractGenTemplates.$inferInsert;
+
+export const contractGenContracts = mysqlTable("contractGenContracts", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  templateId: int("templateId"),
+  title: varchar("title", { length: 255 }).notNull(),
+  content: text("content").notNull(),
+  status: mysqlEnum("status", ["draft", "pending_signature", "signed", "expired", "cancelled"]).default("draft").notNull(),
+  parties: json("parties").notNull(), // Array of {name, email, role}
+  signedBy: json("signedBy"), // Array of {partyEmail, signedAt, signatureUrl}
+  expiresAt: timestamp("expiresAt"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+}, (table) => ({
+  userIdIdx: index("contract_gen_contract_userId_idx").on(table.userId),
+  templateIdIdx: index("contract_gen_contract_templateId_idx").on(table.templateId),
+  statusIdx: index("contract_gen_contract_status_idx").on(table.status),
+}));
+
+export type ContractGenContract = typeof contractGenContracts.$inferSelect;
+export type InsertContractGenContract = typeof contractGenContracts.$inferInsert;
+
+// ============= APPOINTMENT SCHEDULER TABLES =============
+
+export const appointmentSchedulerServices = mysqlTable("appointmentSchedulerServices", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  name: varchar("name", { length: 255 }).notNull(),
+  description: text("description"),
+  duration: int("duration").notNull(), // minutes
+  price: int("price"), // in cents
+  color: varchar("color", { length: 7 }),
+  isActive: boolean("isActive").default(true),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+}, (table) => ({
+  userIdIdx: index("appointment_scheduler_service_userId_idx").on(table.userId),
+}));
+
+export type AppointmentSchedulerService = typeof appointmentSchedulerServices.$inferSelect;
+export type InsertAppointmentSchedulerService = typeof appointmentSchedulerServices.$inferInsert;
+
+export const appointmentSchedulerAppointments = mysqlTable("appointmentSchedulerAppointments", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  serviceId: int("serviceId").notNull(),
+  clientName: varchar("clientName", { length: 255 }).notNull(),
+  clientEmail: varchar("clientEmail", { length: 320 }).notNull(),
+  clientPhone: varchar("clientPhone", { length: 20 }),
+  startTime: timestamp("startTime").notNull(),
+  endTime: timestamp("endTime").notNull(),
+  status: mysqlEnum("status", ["scheduled", "confirmed", "cancelled", "completed", "no_show"]).default("scheduled").notNull(),
+  notes: text("notes"),
+  reminderSent: boolean("reminderSent").default(false),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+}, (table) => ({
+  userIdIdx: index("appointment_scheduler_appointment_userId_idx").on(table.userId),
+  serviceIdIdx: index("appointment_scheduler_appointment_serviceId_idx").on(table.serviceId),
+  startTimeIdx: index("appointment_scheduler_appointment_startTime_idx").on(table.startTime),
+  statusIdx: index("appointment_scheduler_appointment_status_idx").on(table.status),
+}));
+
+export type AppointmentSchedulerAppointment = typeof appointmentSchedulerAppointments.$inferSelect;
+export type InsertAppointmentSchedulerAppointment = typeof appointmentSchedulerAppointments.$inferInsert;
