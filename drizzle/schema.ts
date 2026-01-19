@@ -1641,3 +1641,71 @@ export const onboardingProgress = mysqlTable("onboardingProgress", {
 
 export type OnboardingProgress = typeof onboardingProgress.$inferSelect;
 export type InsertOnboardingProgress = typeof onboardingProgress.$inferInsert;
+
+// ============= BUILDWEALTH PRO TABLES =============
+
+export const wealthAccounts = mysqlTable("wealthAccounts", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  accountName: varchar("accountName", { length: 255 }).notNull(),
+  accountType: mysqlEnum("accountType", ["brokerage", "retirement_401k", "retirement_ira", "roth_ira", "hsa", "real_estate", "crypto", "other"]).notNull(),
+  institution: varchar("institution", { length: 255 }),
+  accountNumber: varchar("accountNumber", { length: 100 }),
+  currentBalance: int("currentBalance").notNull(), // in cents
+  targetAllocation: json("targetAllocation"),
+  status: mysqlEnum("status", ["active", "closed", "frozen"]).default("active").notNull(),
+  metadata: json("metadata"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+}, (table) => ({
+  userIdIdx: index("wealth_account_userId_idx").on(table.userId),
+  statusIdx: index("wealth_account_status_idx").on(table.status),
+}));
+
+export type WealthAccount = typeof wealthAccounts.$inferSelect;
+export type InsertWealthAccount = typeof wealthAccounts.$inferInsert;
+
+export const wealthTransactions = mysqlTable("wealthTransactions", {
+  id: int("id").autoincrement().primaryKey(),
+  accountId: int("accountId").notNull(),
+  transactionType: mysqlEnum("transactionType", ["contribution", "withdrawal", "dividend", "interest", "capital_gain", "fee", "transfer"]).notNull(),
+  amount: int("amount").notNull(), // in cents
+  transactionDate: timestamp("transactionDate").notNull(),
+  description: text("description"),
+  category: varchar("category", { length: 100 }),
+  ticker: varchar("ticker", { length: 20 }), // Stock/fund ticker symbol
+  shares: decimal("shares", { precision: 18, scale: 8 }),
+  pricePerShare: int("pricePerShare"), // in cents
+  metadata: json("metadata"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+}, (table) => ({
+  accountIdIdx: index("wealth_transaction_accountId_idx").on(table.accountId),
+  transactionDateIdx: index("wealth_transaction_date_idx").on(table.transactionDate),
+}));
+
+export type WealthTransaction = typeof wealthTransactions.$inferSelect;
+export type InsertWealthTransaction = typeof wealthTransactions.$inferInsert;
+
+export const wealthGoals = mysqlTable("wealthGoals", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  goalName: varchar("goalName", { length: 255 }).notNull(),
+  goalType: mysqlEnum("goalType", ["retirement", "home_purchase", "education", "emergency_fund", "other"]).notNull(),
+  targetAmount: int("targetAmount").notNull(), // in cents
+  currentAmount: int("currentAmount").default(0).notNull(), // in cents
+  targetDate: timestamp("targetDate"),
+  monthlyContribution: int("monthlyContribution"), // in cents
+  description: text("description"),
+  status: mysqlEnum("status", ["active", "completed", "paused", "abandoned"]).default("active").notNull(),
+  progress: int("progress").default(0), // percentage 0-100
+  metadata: json("metadata"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+}, (table) => ({
+  userIdIdx: index("wealth_goal_userId_idx").on(table.userId),
+  statusIdx: index("wealth_goal_status_idx").on(table.status),
+  targetDateIdx: index("wealth_goal_targetDate_idx").on(table.targetDate),
+}));
+
+export type WealthGoal = typeof wealthGoals.$inferSelect;
+export type InsertWealthGoal = typeof wealthGoals.$inferInsert;

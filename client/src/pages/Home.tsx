@@ -119,12 +119,6 @@ export default function Home() {
         <section className="min-h-screen flex items-center justify-center pt-20 px-6">
           <div className="container mx-auto">
             <div className="text-center mb-12">
-              <div className="inline-block px-6 py-2 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 mb-6 shadow-lg">
-                <div className="flex items-center gap-2">
-                  <span className="text-white/90 font-medium">Premium Digital Ecosystem</span>
-                </div>
-              </div>
-
               <p className="text-2xl text-white/90 mb-12 max-w-3xl mx-auto drop-shadow-lg backdrop-blur-sm bg-black/20 px-8 py-4 rounded-2xl border border-white/10">
                 Premium digital products, AI-powered business tools, and professional website hosting—all in one luxurious platform.
               </p>
@@ -283,6 +277,9 @@ export default function Home() {
         {/* Footer */}
         <footer className="py-12 px-6 bg-black/40 backdrop-blur-xl border-t border-white/10">
           <div className="container mx-auto text-center">
+            <div className="inline-block px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 mb-4 shadow-lg">
+              <span className="text-white/90 text-sm font-medium">Premium Digital Ecosystem</span>
+            </div>
             <p className="text-white/60">© 2026 Synckaiden. All rights reserved.</p>
           </div>
         </footer>
