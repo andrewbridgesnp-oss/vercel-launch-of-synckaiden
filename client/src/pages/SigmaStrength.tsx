@@ -64,22 +64,32 @@ export default function SigmaStrength() {
   }, []);
 
   const products = [
-    { id: 1, name: "Sigma Kindness Grindset", category: "T-Shirt", design: "Lion with heart emblem", image: "/apparel-designs-1.png", available: true },
-    { id: 2, name: "NPC Energy? I Think Not", category: "Hoodie", design: "Character level up design", image: "/apparel-designs-1.png", available: true },
-    { id: 3, name: "Lowkey Struggling, Highkey Surviving", category: "Hoodie", design: "Mountain peak resilience", image: "/apparel-designs-1.png", available: true },
-    { id: 4, name: "Fanum Tax The Negativity", category: "T-Shirt", design: "Trash negativity design", image: "/apparel-designs-1.png", available: true },
-    { id: 5, name: "Bussin' Boundaries", category: "Tank Top", design: "Shield protection icon", image: "/apparel-designs-1.png", available: true },
-    { id: 6, name: "Understood The Assignment (Self-Care)", category: "Long Sleeve", design: "Checkmark with stars", image: "/apparel-designs-1.png", available: true },
-    { id: 7, name: "Main Character Energy", category: "T-Shirt", design: "Star burst confidence", image: "/apparel-designs-1.png", available: true },
-    { id: 8, name: "Caught in 4K Being Kind", category: "Hoodie", design: "Camera with heart lens", image: "/apparel-designs-1.png", available: true },
-    { id: 9, name: "Ate & Left No Crumbs (Self-Worth)", category: "T-Shirt", design: "Crown and confidence", image: "/apparel-designs-2.png", available: true },
-    { id: 10, name: "Unalive The Stigma", category: "Hoodie", design: "Breaking mental health chains", image: "/apparel-designs-2.png", available: true },
-    { id: 11, name: "Mental Health Check", category: "T-Shirt", design: "Checklist with strength", image: "/apparel-designs-2.png", available: true },
-    { id: 12, name: "Delulu? Nah, Hopeful", category: "Long Sleeve", design: "Optimistic mindset", image: "/apparel-designs-2.png", available: true },
-    { id: 13, name: "Hits Different When You're Kind", category: "T-Shirt", design: "Music note compassion", image: "/apparel-designs-2.png", available: true },
-    { id: 14, name: "Era: Healing", category: "Hoodie", design: "Transformation journey", image: "/apparel-designs-3.png", available: true },
-    { id: 15, name: "Rent Free: Self-Love", category: "T-Shirt", design: "House with heart foundation", image: "/apparel-designs-1.png", available: true },
-    { id: 16, name: "W Friend, L Bully", category: "Tank Top", design: "Gaming scoreboard style", image: "/apparel-designs-1.png", available: true },
+    // Men's Mental Health Awareness Collection
+    { id: 1, name: "Strength in Vulnerability", category: "Hoodie", design: "Bold typography with shield emblem", image: "/BOUGIE.png", available: true },
+    { id: 2, name: "Real Men Talk", category: "T-Shirt", design: "Conversation bubble design", image: "/BOUGIE.png", available: true },
+    { id: 3, name: "Break the Stigma", category: "Hoodie", design: "Shattered chains graphic", image: "/BOUGIE.png", available: true },
+    { id: 4, name: "Mental Warrior", category: "T-Shirt", design: "Warrior helmet with mental health ribbon", image: "/BOUGIE.png", available: true },
+    { id: 5, name: "It's Okay Not to Be Okay", category: "Long Sleeve", design: "Minimalist text design", image: "/BOUGIE.png", available: true },
+    { id: 6, name: "Therapy is Strength", category: "Hoodie", design: "Dumbbell with brain icon", image: "/BOUGIE.png", available: true },
+    { id: 7, name: "Mind Over Matter", category: "T-Shirt", design: "Brain with lightning bolts", image: "/BOUGIE.png", available: true },
+    { id: 8, name: "Brotherhood Heals", category: "Hoodie", design: "Interlocking hands graphic", image: "/BOUGIE.png", available: true },
+    { id: 9, name: "Normalize Asking for Help", category: "T-Shirt", design: "Raised hand solidarity", image: "/BOUGIE2.png", available: true },
+    { id: 10, name: "Healing is Not Linear", category: "Long Sleeve", design: "Winding path graphic", image: "/BOUGIE2.png", available: true },
+    { id: 11, name: "Check on Your Strong Friend", category: "Hoodie", design: "Checkmark with heart", image: "/BOUGIE2.png", available: true },
+    { id: 12, name: "Mental Health Matters", category: "T-Shirt", design: "Bold statement typography", image: "/BOUGIE2.png", available: true },
+    { id: 13, name: "Vulnerability is Courage", category: "Hoodie", design: "Lion with open heart", image: "/BOUGIE2.png", available: true },
+    { id: 14, name: "Man Up = Speak Up", category: "T-Shirt", design: "Megaphone graphic", image: "/BOUGIE2.png", available: true },
+    { id: 15, name: "Progress Not Perfection", category: "Long Sleeve", design: "Upward arrow with steps", image: "/BOUGIE2.png", available: true },
+    { id: 16, name: "Emotional Intelligence", category: "Hoodie", design: "Brain with heart fusion", image: "/BOUGIE2.png", available: true },
+    { id: 17, name: "Self-Care is Masculine", category: "T-Shirt", design: "Grooming tools with strength icon", image: "/BOUGIE2.png", available: true },
+    { id: 18, name: "You Are Not Alone", category: "Hoodie", design: "Connected figures silhouette", image: "/BOUGIE2.png", available: true },
+    { id: 19, name: "Feelings Are Valid", category: "T-Shirt", design: "Emotional spectrum design", image: "/BOUGIE2.png", available: true },
+    { id: 20, name: "Suicide Prevention Advocate", category: "Long Sleeve", design: "Semicolon with lifeline", image: "/BOUGIE2.png", available: true },
+    { id: 21, name: "Depression Warrior", category: "Hoodie", design: "Sword breaking through darkness", image: "/BOUGIE2.png", available: true },
+    { id: 22, name: "Anxiety Doesn't Define Me", category: "T-Shirt", design: "Calm waves over storm", image: "/BOUGIE2.png", available: true },
+    { id: 23, name: "PTSD Survivor", category: "Hoodie", design: "Phoenix rising design", image: "/BOUGIE2.png", available: true },
+    { id: 24, name: "Men's Mental Health Month", category: "T-Shirt", design: "June awareness ribbon", image: "/BOUGIE2.png", available: true },
+    { id: 25, name: "Sigma Strength Founder Edition", category: "Hoodie", design: "Premium embroidered logo", image: "/BOUGIE2.png", available: true },
   ];
 
   const handleAddToCart = () => {
@@ -103,254 +113,243 @@ export default function SigmaStrength() {
     setSelectedColor("");
   };
 
+  const handleCheckout = () => {
+    if (cart.length === 0) {
+      toast.error("Cart is empty");
+      return;
+    }
+    
+    const total = cart.reduce((sum, item) => sum + item.price, 0);
+    toast.success(`Checkout initiated! Total: $${total.toFixed(2)}`);
+  };
+
+  const pricing = selectedProduct ? PRODUCT_PRICING[selectedProduct.category as keyof typeof PRODUCT_PRICING] : null;
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-cyan-950 to-slate-950">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-cyan-800/30">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <Link href="/">
-              <div className="flex items-center space-x-2 cursor-pointer">
-                <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-lg flex items-center justify-center">
-                  <Shield className="w-5 h-5 text-white" />
-                </div>
-                <span className="text-2xl font-bold text-white">Sigma Strength Co.</span>
-              </div>
-            </Link>
-
-            <div className="flex items-center space-x-4">
-              <Link href="/">
-                <Button variant="ghost" className="text-slate-300 hover:text-white">
-                  <ArrowLeft className="mr-2 w-4 h-4" />
-                  Back to Home
-                </Button>
-              </Link>
-              <Button variant="outline" className="border-blue-500 text-blue-500 hover:bg-blue-500/10 relative">
-                <ShoppingCart className="w-5 h-5" />
-                {cart.length > 0 && (
-                  <span className="absolute -top-2 -right-2 bg-blue-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-                    {cart.length}
-                  </span>
-                )}
+              <Button variant="ghost" className="text-cyan-400 hover:text-cyan-300">
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                Back to Home
               </Button>
+            </Link>
+            <div className="flex items-center space-x-2">
+              <Shield className="w-6 h-6 text-cyan-500" />
+              <span className="text-2xl font-bold text-white">Sigma Strength Co.</span>
             </div>
+            <Button 
+              onClick={handleCheckout}
+              className="bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700"
+            >
+              <ShoppingCart className="w-4 h-4 mr-2" />
+              Cart ({cart.length})
+            </Button>
           </div>
         </div>
       </nav>
 
-      {/* Hero Image Banner */}
-      <section className="relative pt-24 pb-0">
-        <div className="container mx-auto px-6">
-          <div className="relative h-[500px] overflow-hidden rounded-3xl shadow-2xl">
-            <img
-              src="/sigma-hero.jpg"
-              alt="Sigma Strength Co. - Men's Mental Health Awareness Apparel"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex items-end justify-center pb-12">
-              <div className="text-center text-white">
-                <h1 className="text-6xl font-bold mb-4 drop-shadow-2xl">Sigma Strength Co.</h1>
-                <p className="text-2xl drop-shadow-lg">Strength in Vulnerability</p>
-              </div>
+      {/* Main Content */}
+      <div className="container mx-auto px-6 pt-32 pb-20">
+        {/* Hero Banner */}
+        <div className="relative h-[500px] overflow-hidden rounded-3xl shadow-2xl mb-12">
+          <img
+            src="/sigma-hero.jpg"
+            alt="Sigma Strength Co. - Men's Mental Health Awareness Apparel"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent flex items-end justify-center pb-12">
+            <div className="text-center text-white">
+              <h1 className="text-6xl font-bold mb-4 drop-shadow-2xl">Sigma Strength Co.</h1>
+              <p className="text-2xl drop-shadow-lg">Real Men Talk About Mental Health</p>
             </div>
           </div>
         </div>
-      </section>
 
-      {/* Hero Section */}
-      <section className="relative pt-20 pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=1920')] bg-cover bg-center opacity-5" />
-        
-        <div className="container relative z-10 mx-auto px-6">
-          <div className="max-w-5xl mx-auto text-center">
-            <div className="inline-flex items-center space-x-2 bg-slate-800/50 border border-slate-700 rounded-full px-6 py-2 mb-8">
-              <Shield className="w-4 h-4 text-blue-500" />
-              <span className="text-sm font-medium text-blue-500">Men's Mental Health Apparel</span>
+        {/* Mission Statement */}
+        <Card className="p-8 bg-cyan-950/30 backdrop-blur-sm border-cyan-800/30 shadow-xl mb-12">
+          <div className="flex items-start gap-4">
+            <Shield className="w-12 h-12 text-cyan-500 flex-shrink-0" />
+            <div>
+              <h2 className="text-3xl font-bold text-cyan-400 mb-4">Our Mission</h2>
+              <p className="text-cyan-100 text-lg leading-relaxed">
+                Sigma Strength Co. breaks the silence around men's mental health. Every purchase supports 
+                mental health programs specifically designed for men, funding therapy access, support groups, 
+                and suicide prevention initiatives. We believe vulnerability is strength, and asking for help 
+                is the most masculine thing a man can do.
+              </p>
             </div>
-
-            <h1 className="text-6xl md:text-8xl font-bold mb-6 leading-tight">
-              <span className="bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-600 bg-clip-text text-transparent">
-                Sigma Strength Co.
-              </span>
-            </h1>
-
-            <p className="text-xl md:text-2xl text-slate-300 mb-12 max-w-3xl mx-auto">
-              Premium men's mental health apparel. Strength through vulnerability. Every purchase supports men's mental wellness initiatives.
-            </p>
-
-            {/* Donation Counter */}
-            <Card className="inline-block p-8 bg-gradient-to-br from-slate-900 to-slate-800 border-2 border-blue-500/30">
-              <div className="text-center">
-                <div className="text-sm text-slate-400 mb-2">Total Raised for Men's Mental Health</div>
-                <div className="text-5xl font-bold bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">
-                  ${animatedTotal.toFixed(2)}
-                </div>
-              </div>
-            </Card>
           </div>
-        </div>
-      </section>
+        </Card>
 
-      {/* Mission Statement */}
-      <section className="py-12 bg-slate-900/50">
-        <div className="container mx-auto px-6">
-          <Card className="max-w-4xl mx-auto p-8 bg-gradient-to-br from-slate-900 to-slate-800 border border-slate-700">
-            <h2 className="text-3xl font-bold text-white mb-6 text-center">Breaking The Silence</h2>
-            <p className="text-slate-300 text-lg text-center mb-6">
-              Men's mental health matters. Sigma Strength Co. creates bold, unapologetic apparel that normalizes conversations about mental wellness, vulnerability, and emotional strength.
+        {/* Products Section */}
+        <div className="mb-12">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold text-cyan-400 mb-2">Shop With Purpose</h2>
+            <p className="text-cyan-200">
+              Premium apparel that starts conversations and saves lives
             </p>
-            <div className="grid md:grid-cols-3 gap-6 mt-8">
-              <div className="text-center">
-                <div className="text-4xl font-bold text-blue-500 mb-2">15%</div>
-                <div className="text-slate-400 text-sm">of profits to men's mental health organizations</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold text-cyan-500 mb-2">100%</div>
-                <div className="text-slate-400 text-sm">premium quality materials and construction</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold text-blue-500 mb-2">24/7</div>
-                <div className="text-slate-400 text-sm">crisis helpline info on every tag</div>
-              </div>
-            </div>
-          </Card>
-        </div>
-      </section>
+          </div>
 
-      {/* Products Grid */}
-      <section className="py-20">
-        <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold text-white text-center mb-12">Shop The Collection</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             {products.map((product) => (
-              <Card
-                key={product.id}
-                className="bg-gradient-to-br from-slate-900 to-slate-800 border border-slate-700 overflow-hidden hover:border-blue-500/50 transition-all cursor-pointer group"
+              <Card 
+                key={product.id} 
+                className="p-4 bg-slate-900/80 backdrop-blur-sm border-cyan-800/30 transition-all hover:shadow-lg hover:scale-105 cursor-pointer"
                 onClick={() => setSelectedProduct(product)}
               >
-                <div className="relative aspect-square bg-slate-800">
-                  <img
-                    src={product.image}
+                <div className="aspect-square bg-gradient-to-br from-cyan-900/20 to-blue-900/20 rounded-lg mb-3 flex items-center justify-center relative overflow-hidden">
+                  <img 
+                    src={product.image} 
                     alt={product.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                    className="w-full h-full object-cover"
                   />
-                  {product.available && (
-                    <div className="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">
-                      IN STOCK
-                    </div>
-                  )}
-                </div>
-                <div className="p-6">
-                  <div className="text-xs text-blue-500 font-semibold mb-2">{product.category}</div>
-                  <h3 className="text-lg font-bold text-white mb-2">{product.name}</h3>
-                  <p className="text-sm text-slate-400 mb-4">{product.design}</p>
-                  <div className="flex items-center justify-between">
-                    <div className="text-2xl font-bold text-blue-500">
-                      ${PRODUCT_PRICING[product.category as keyof typeof PRODUCT_PRICING].retail}
-                    </div>
-                    <Button size="sm" className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700">
-                      <ShoppingBag className="w-4 h-4" />
-                    </Button>
+                  <div className="absolute bottom-2 left-2 right-2 text-center">
+                    <span className="text-xs bg-cyan-950/80 px-2 py-1 rounded text-cyan-300 font-medium">
+                      {product.category}
+                    </span>
                   </div>
+                </div>
+                <h3 className="font-semibold text-cyan-300 text-sm mb-1 line-clamp-2">
+                  {product.name}
+                </h3>
+                <div className="flex items-center justify-between mt-2">
+                  <span className="font-bold text-cyan-400">
+                    ${PRODUCT_PRICING[product.category as keyof typeof PRODUCT_PRICING].retail}
+                  </span>
+                  <ShoppingBag className="w-4 h-4 text-cyan-500" />
                 </div>
               </Card>
             ))}
           </div>
         </div>
-      </section>
 
-      {/* Product Detail Dialog */}
+        {/* Impact Section */}
+        <div className="grid md:grid-cols-2 gap-6 mb-12">
+          <Card className="p-6 bg-cyan-950/30 backdrop-blur-sm border-cyan-800/30 shadow-xl">
+            <h2 className="text-2xl font-bold text-cyan-400 mb-4">Where Your Money Goes</h2>
+            <div className="space-y-4">
+              <div>
+                <h3 className="font-semibold text-cyan-300 mb-2">Sigma Strength Sales:</h3>
+                <ul className="space-y-2 text-cyan-200 text-sm">
+                  <li className="flex items-center gap-2">
+                    <span className="bg-cyan-900/50 text-cyan-400 font-bold px-2 py-0.5 rounded">10%</span>
+                    <span>Men's Mental Health Programs & Suicide Prevention</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="bg-blue-900/50 text-blue-400 font-bold px-2 py-0.5 rounded">90%</span>
+                    <span>Operations & Product Development</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </Card>
+
+          <Card className="p-6 bg-gradient-to-br from-cyan-600 to-blue-600 text-white shadow-xl">
+            <div className="flex items-center gap-3 mb-4">
+              <Shield className="w-8 h-8" />
+              <h2 className="text-2xl font-bold">Quarterly Impact</h2>
+            </div>
+            <div className="text-center py-4">
+              <div className="text-5xl font-bold mb-2">
+                ${animatedTotal.toFixed(2)}
+              </div>
+              <p className="text-white/80">Raised for Men's Mental Health</p>
+              <p className="text-sm text-white/60 mt-2">Q4 2024 • Updates quarterly</p>
+            </div>
+            <div className="mt-4 pt-4 border-t border-white/20">
+              <p className="text-sm text-white/80 text-center">
+                Supporting men's therapy access, support groups, and suicide prevention hotlines nationwide
+              </p>
+            </div>
+          </Card>
+        </div>
+      </div>
+
+      {/* Product Detail Modal */}
       <Dialog open={!!selectedProduct} onOpenChange={() => setSelectedProduct(null)}>
-        <DialogContent className="bg-slate-900 border-slate-700 text-white max-w-2xl">
+        <DialogContent className="bg-slate-900 border-cyan-800/30 text-white max-w-2xl">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold text-cyan-400">{selectedProduct?.name}</DialogTitle>
+            <DialogDescription className="text-cyan-200">
+              {selectedProduct?.design}
+            </DialogDescription>
+          </DialogHeader>
+          
           {selectedProduct && (
-            <>
-              <DialogHeader>
-                <DialogTitle className="text-2xl font-bold text-white">{selectedProduct.name}</DialogTitle>
-                <DialogDescription className="text-slate-400">
-                  {selectedProduct.design}
-                </DialogDescription>
-              </DialogHeader>
+            <div className="space-y-6">
+              <div className="aspect-square bg-gradient-to-br from-cyan-900/20 to-blue-900/20 rounded-lg flex items-center justify-center overflow-hidden">
+                <img 
+                  src={selectedProduct.image} 
+                  alt={selectedProduct.name}
+                  className="w-full h-full object-cover"
+                />
+              </div>
 
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="aspect-square bg-slate-800 rounded-lg overflow-hidden">
-                  <img
-                    src={selectedProduct.image}
-                    alt={selectedProduct.name}
-                    className="w-full h-full object-cover"
-                  />
+              <div className="space-y-4">
+                <div>
+                  <label className="text-sm font-medium text-cyan-300 mb-2 block">Size</label>
+                  <Select value={selectedSize} onValueChange={setSelectedSize}>
+                    <SelectTrigger className="bg-slate-800 border-cyan-800/30 text-white">
+                      <SelectValue placeholder="Select size" />
+                    </SelectTrigger>
+                    <SelectContent className="bg-slate-800 border-cyan-800/30">
+                      {pricing?.sizes.map((size) => (
+                        <SelectItem key={size} value={size} className="text-white">
+                          {size}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                 </div>
 
-                <div className="space-y-6">
-                  <div>
-                    <div className="text-3xl font-bold text-blue-500 mb-2">
-                      ${PRODUCT_PRICING[selectedProduct.category as keyof typeof PRODUCT_PRICING].retail}
-                    </div>
-                    <div className="text-sm text-slate-400">
-                      Category: {selectedProduct.category}
-                    </div>
+                <div>
+                  <label className="text-sm font-medium text-cyan-300 mb-2 block">Color</label>
+                  <div className="grid grid-cols-3 gap-2">
+                    {COLORS.map((color) => (
+                      <button
+                        key={color.name}
+                        onClick={() => setSelectedColor(color.name)}
+                        className={`p-3 rounded-lg border-2 transition-all ${
+                          selectedColor === color.name
+                            ? "border-cyan-500 bg-cyan-950/30"
+                            : "border-slate-700 bg-slate-800 hover:border-cyan-700"
+                        }`}
+                      >
+                        <div className="flex items-center gap-2">
+                          <div 
+                            className="w-6 h-6 rounded-full border-2 border-white/20" 
+                            style={{ backgroundColor: color.hex }}
+                          />
+                          <span className="text-sm text-white">{color.name}</span>
+                        </div>
+                      </button>
+                    ))}
                   </div>
+                </div>
 
-                  <div>
-                    <label className="block text-sm font-medium text-slate-300 mb-2">Size</label>
-                    <Select value={selectedSize} onValueChange={setSelectedSize}>
-                      <SelectTrigger className="bg-slate-800 border-slate-700 text-white">
-                        <SelectValue placeholder="Select size" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {PRODUCT_PRICING[selectedProduct.category as keyof typeof PRODUCT_PRICING].sizes.map((size) => (
-                          <SelectItem key={size} value={size}>
-                            {size}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
+                <div className="pt-4 border-t border-cyan-800/30">
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-lg font-semibold text-cyan-300">Price:</span>
+                    <span className="text-2xl font-bold text-cyan-400">${pricing?.retail}</span>
                   </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-slate-300 mb-2">Color</label>
-                    <div className="grid grid-cols-6 gap-2">
-                      {COLORS.map((color) => (
-                        <button
-                          key={color.name}
-                          onClick={() => setSelectedColor(color.name)}
-                          className={`w-10 h-10 rounded-full border-2 transition-all ${
-                            selectedColor === color.name
-                              ? 'border-blue-500 scale-110'
-                              : 'border-slate-600 hover:border-slate-500'
-                          }`}
-                          style={{ backgroundColor: color.hex }}
-                          title={color.name}
-                        />
-                      ))}
-                    </div>
-                  </div>
-
-                  <Button
+                  <Button 
                     onClick={handleAddToCart}
-                    className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700"
+                    className="w-full bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700"
+                    size="lg"
                   >
-                    <ShoppingBag className="mr-2 w-5 h-5" />
+                    <ShoppingBag className="w-5 h-5 mr-2" />
                     Add to Cart
                   </Button>
                 </div>
               </div>
-            </>
+            </div>
           )}
         </DialogContent>
       </Dialog>
-
-      {/* Footer */}
-      <footer className="border-t border-slate-800 py-12">
-        <div className="container mx-auto px-6">
-          <div className="text-center text-slate-500 text-sm">
-            <p>© 2026 Sigma Strength Co. by Synckaiden. All rights reserved.</p>
-            <p className="mt-2">Part of the Synckaiden Digital Empire - Empowering Men's Mental Wellness</p>
-            <p className="mt-4 text-slate-400">
-              Crisis Support: <span className="text-blue-500 font-semibold">988 Suicide & Crisis Lifeline</span>
-            </p>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }

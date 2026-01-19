@@ -22,6 +22,9 @@ import Tour from "./pages/Tour";
 // E-commerce
 import BougieBoutique from "./pages/BougieBoutique";
 import SigmaStrength from "./pages/SigmaStrength";
+import WomensCollection from "./pages/WomensCollection";
+import HatsCollection from "./pages/HatsCollection";
+import StickersCollection from "./pages/StickersCollection";
 import Shop from "./pages/Shop";
 import Products from "./pages/Products";
 import Orders from "./pages/Orders";
@@ -144,6 +147,9 @@ function Router() {
       {/* E-commerce */}
       <Route path="/boutique" component={BougieBoutique} />
       <Route path="/sigma-strength" component={SigmaStrength} />
+      <Route path="/womens-collection" component={WomensCollection} />
+      <Route path="/hats-collection" component={HatsCollection} />
+      <Route path="/stickers-collection" component={StickersCollection} />
       <Route path="/shop" component={Shop} />
       <Route path="/products" component={Products} />
       <Route path="/orders" component={Orders} />

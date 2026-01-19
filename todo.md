@@ -289,3 +289,12 @@
 - [x] Add Spotify widget to homepage showing user's currently playing music
 - [ ] Implement Spotify OAuth connection flow (future enhancement)
 - [ ] Create backend tRPC router for Spotify API integration (future enhancement)
+
+- [ ] Update Sigma Strength Co. product galleries with men's designs (remove kids products)
+- [ ] Create 25+ men's mental health apparel products with proper descriptions
+
+- [x] Create Women's Mental Health Apparel collection page
+- [x] Create Hats Collection page (baseball caps, beanies, trucker hats)
+- [x] Create Stickers Collection page with all designs
+- [ ] Integrate Printful API for sticker fulfillment (future enhancement)
+- [ ] Update homepage to showcase all 5 collections (Kids, Men's, Women's, Hats, Stickers)
