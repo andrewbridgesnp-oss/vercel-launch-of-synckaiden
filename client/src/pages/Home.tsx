@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { LuxuryButton } from "@/components/LuxuryButton";
 import { getLoginUrl } from "@/const";
 import { ArrowRight, ShoppingBag, Briefcase, Globe } from "lucide-react";
 import { Link } from "wouter";
@@ -78,10 +79,9 @@ export default function Home() {
               <div className="flex items-center space-x-4">
                 {/* Premium Apps Button */}
                 <Link href="/premium-apps">
-                  <button className="px-6 py-2.5 rounded-xl bg-gradient-to-br from-white/10 to-white/5 hover:from-white/20 hover:to-white/10 backdrop-blur-2xl transition-all border border-white/30 hover:border-white/40 shadow-2xl hover:shadow-amber-500/40 hover:scale-105 relative overflow-hidden group">
-                    <div className="absolute inset-0 bg-gradient-to-r from-amber-500/20 via-rose-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <span className="relative text-sm font-semibold bg-gradient-to-r from-amber-300 via-rose-300 to-purple-300 bg-clip-text text-transparent">Premium Apps ✨</span>
-                  </button>
+                  <LuxuryButton variant="premium" className="text-sm px-6 py-2">
+                    Premium Apps ✨
+                  </LuxuryButton>
                 </Link>
                 
                 {/* Spotify Button */}
@@ -107,15 +107,15 @@ export default function Home() {
                   </>
                 ) : (
                   <>
-                    <a href={getLoginUrl()}>
-                      <Button variant="ghost" className="text-white/90 hover:text-white hover:bg-white/10 backdrop-blur-xl">Sign In</Button>
-                    </a>
-                    <a href={getLoginUrl()}>
-                      <Button className="bg-white/10 hover:bg-white/20 backdrop-blur-xl border border-white/20 shadow-lg hover:shadow-amber-500/30 text-white">
-                        Get Started
-                        <ArrowRight className="ml-2 w-4 h-4" />
-                      </Button>
-                    </a>
+                <a href={getLoginUrl()}>
+                  <LuxuryButton variant="signin">Sign In</LuxuryButton>
+                </a>
+                <a href={getLoginUrl()}>
+                  <LuxuryButton variant="getstarted">
+                    Get Started
+                    <ArrowRight className="ml-2 w-4 h-4" />
+                  </LuxuryButton>
+                </a>
                   </>
                 )}
               </div>
@@ -138,15 +138,15 @@ export default function Home() {
 
               <div className="flex flex-col items-center gap-4 mb-8">
                 <a href={getLoginUrl()}>
-                  <Button size="lg" className="bg-white/10 hover:bg-white/20 backdrop-blur-xl border-2 border-white/20 shadow-2xl hover:shadow-white/30 text-white text-lg px-12 py-6 rounded-2xl transition-all hover:scale-105">
+                  <LuxuryButton variant="business">
                     Start Your Empire
                     <ArrowRight className="ml-3 w-6 h-6" />
-                  </Button>
+                  </LuxuryButton>
                 </a>
                 <Link href="/app-store">
-                  <Button size="lg" variant="outline" className="bg-gradient-to-r from-purple-500/20 to-blue-500/20 hover:from-purple-500/30 hover:to-blue-500/30 backdrop-blur-xl border-2 border-white/30 shadow-2xl hover:shadow-purple-500/30 text-white text-lg px-12 py-6 rounded-2xl transition-all hover:scale-105">
+                  <LuxuryButton variant="brand">
                     Sneak Peek 👀
-                  </Button>
+                  </LuxuryButton>
                 </Link>
               </div>
 
