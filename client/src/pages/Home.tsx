@@ -42,7 +42,7 @@ export default function Home() {
           style={{ playbackRate: 0.5 }}
           onLoadedMetadata={(e) => {
             const videoElement = e.currentTarget;
-            videoElement.playbackRate = 0.3; // Slow down to 30% speed
+            videoElement.playbackRate = 0.6; // Smooth 60% speed
           }}
           className={`fixed inset-0 w-full h-full object-cover transition-opacity duration-2000 ${
             index === currentVideoIndex ? "opacity-100 z-0" : "opacity-0 z-0"

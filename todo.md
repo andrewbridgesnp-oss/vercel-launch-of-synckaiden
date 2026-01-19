@@ -370,3 +370,5 @@
 - [ ] Add database tables for 48 remaining apps to shared schema
 - [ ] Build tRPC routers for 48 apps (Sales CRM, Employee OS, Invoice Generator, + 45 others)
 - [ ] Test all 48 app routers with shared authentication and entitlement system
+
+- [x] Increase all background video playback speed from 0.3x to 0.6x for smooth performance
