@@ -112,6 +112,10 @@ import SpamSlayer from "@/pages/apps/SpamSlayer";
 import MarketingOS from "@/pages/apps/MarketingOS";
 import CreativeClashLive from "@/pages/apps/CreativeClashLive";
 import YouTubeAutomation from "@/pages/apps/YouTubeAutomation";
+import Contact from "./pages/Contact";
+import RequestApp from "./pages/RequestApp";
+import AdminDashboard from "./pages/AdminDashboard";
+import SecretsManagement from "./pages/SecretsManagement";
 
 function Router() {
   return (
@@ -127,6 +131,10 @@ function Router() {
       <Route path="/privacy" component={Privacy} />
       <Route path="/terms" component={Terms} />
       <Route path="/tour" component={Tour} />
+      <Route path="/contact" component={Contact} />
+      <Route path="/request-app" component={RequestApp} />
+      <Route path="/admin" component={AdminDashboard} />
+      <Route path="/admin/secrets" component={SecretsManagement} />
       
       {/* E-commerce */}
       <Route path="/boutique" component={BougieBoutique} />

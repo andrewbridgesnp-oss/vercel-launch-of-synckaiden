@@ -92,11 +92,12 @@ export default function Home() {
             </div>
 
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+              <span className="text-foreground">The </span>
               <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
-                Unified Platform
+                Executive Suite
               </span>
               <br />
-              <span className="text-foreground">for Modern Entrepreneurs</span>
+              <span className="text-foreground">of AI-Powered Business Intelligence</span>
             </h1>
 
             <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
