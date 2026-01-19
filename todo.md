@@ -320,3 +320,23 @@
 - [x] Make all buttons liquid glass style
 - [x] Link Music button to Personality Sync page
 - [x] Rename "Kaiden Builds" to "Synced Sites by Kaiden"
+
+- [x] Add Bougie Boutique logo to page header
+- [x] Slow Bougie Boutique videos to 25% speed (0.25x playback rate)
+
+
+## 🖨️ PRINTFUL API INTEGRATION
+- [ ] Request PRINTFUL_API_KEY via Settings → Secrets
+- [ ] Extract all logo designs as transparent PNGs
+- [ ] Build Printful API backend integration (server/routers/printful.ts)
+- [ ] Create tRPC procedures for product creation and sync
+- [ ] Upload transparent logos to Printful via API
+- [ ] Create products in Printful (t-shirts, hoodies, hats) with transparent logos
+- [ ] Sync Printful product IDs to local database
+- [ ] Test end-to-end product creation and order fulfillment
+
+- [x] Fix duplicate React key error in BougieBoutique (two products with ID 27)
+- [x] Move logo video below hero video banner
+- [x] Increase hero video speed to 0.30x (20% faster)
+- [x] Increase product showcase video speed to 0.30x (20% faster)
+- [x] Increase impact video speed to 0.275x (10% faster)

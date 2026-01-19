@@ -100,7 +100,7 @@ export default function BougieBoutique() {
     { id: 24, name: "Mental Health Check", category: "T-Shirt", design: "Checklist with hearts", image: "/bougie-products.png", available: true },
     { id: 26, name: "Bougie Boutique Logo", category: "Hoodie", design: "Official Bougie Boutique branding", image: "/products/bougie-boutique-logo-hoodie.png", available: true },
     { id: 27, name: "No Cap (67)", category: "Trucker Hat", design: "Unisex trucker hat with 67 embroidery", image: "/products/no-cap-67-trucker-hat.png", available: true },
-    { id: 27, name: "kaiden Logo", category: "T-Shirt", design: "Official kaiden AI branding", image: "/products/kayden-ai-logo-tshirt.png", available: true },
+    { id: 29, name: "kaiden Logo", category: "T-Shirt", design: "Official kaiden AI branding", image: "/products/kayden-ai-logo-tshirt.png", available: true },
     { id: 28, name: "Syndica Solutions Logo", category: "Hoodie", design: "Official Syndica Solutions branding", image: "/products/syndica-solutions-hoodie.png", available: true },
   ].map(p => ({
     ...p,
@@ -225,6 +225,10 @@ export default function BougieBoutique() {
             loop
             muted
             playsInline
+            onLoadedMetadata={(e) => {
+              const videoElement = e.currentTarget;
+              videoElement.playbackRate = 0.30;
+            }}
             className="w-full h-full object-cover"
           >
             <source src="/bougie-hero-video.mp4" type="video/mp4" />
@@ -235,6 +239,23 @@ export default function BougieBoutique() {
               <p className="text-2xl drop-shadow-lg">Empowering Kids Through Fashion</p>
             </div>
           </div>
+        </div>
+
+        {/* Bougie Boutique Logo Video */}
+        <div className="text-center mb-12">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            onLoadedMetadata={(e) => {
+              const videoElement = e.currentTarget;
+              videoElement.playbackRate = 0.25;
+            }}
+            className="w-72 h-72 mx-auto rounded-3xl shadow-2xl shadow-pink-500/50 object-cover"
+          >
+            <source src="/bougie-logo.mp4" type="video/mp4" />
+          </video>
         </div>
 
         {/* Hero Section with NEW logo */}
@@ -329,6 +350,10 @@ export default function BougieBoutique() {
             loop
             muted
             playsInline
+            onLoadedMetadata={(e) => {
+              const videoElement = e.currentTarget;
+              videoElement.playbackRate = 0.30;
+            }}
             className="w-full h-full object-cover"
           >
             <source src="/bougie-products-video.mp4" type="video/mp4" />
@@ -374,6 +399,10 @@ export default function BougieBoutique() {
               loop
               muted
               playsInline
+              onLoadedMetadata={(e) => {
+                const videoElement = e.currentTarget;
+                videoElement.playbackRate = 0.275;
+              }}
               className="w-full h-full object-cover"
             >
               <source src="/bougie-impact-video.mp4" type="video/mp4" />
