@@ -61,9 +61,9 @@ export default function Home() {
         <nav className="fixed top-0 left-0 right-0 z-50 bg-white/5 backdrop-blur-xl border-b border-white/10 shadow-2xl">
           <div className="container mx-auto px-6 py-4">
             <div className="flex items-center justify-between">
-              <Link href="/">
+              <Link href="/personality-sync">
                 <div className="flex items-center space-x-2 cursor-pointer group">
-                  {/* Rose Gold Kaiden Logo */}
+                  {/* Rose Gold Kaiden Logo - Links to Chat */}
                   <div className="w-12 h-12 rounded-xl overflow-hidden shadow-lg group-hover:scale-110 transition-transform">
                     <img 
                       src="/kaiden-logo-ribbons.png" 
@@ -76,15 +76,15 @@ export default function Home() {
               </Link>
 
               <div className="flex items-center space-x-4">
-                {/* Personality Sync Button */}
-                <Link href="/personality-sync">
-                  <button className="flex items-center space-x-2 px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 backdrop-blur-xl transition-all border border-white/20 hover:border-white/30 shadow-lg hover:shadow-purple-500/20">
-                    <svg className="w-5 h-5 text-purple-400" fill="currentColor" viewBox="0 0 24 24">
+                {/* Spotify Button */}
+                <a href="https://open.spotify.com" target="_blank" rel="noopener noreferrer">
+                  <button className="flex items-center space-x-2 px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 backdrop-blur-xl transition-all border border-white/20 hover:border-white/30 shadow-lg hover:shadow-green-500/20">
+                    <svg className="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
                     </svg>
-                    <span className="text-sm font-medium text-purple-300">Personality Sync</span>
+                    <span className="text-sm font-medium text-green-300">Spotify</span>
                   </button>
-                </Link>
+                </a>
               
                 {isAuthenticated ? (
                   <>
@@ -121,12 +121,6 @@ export default function Home() {
             <div className="text-center mb-12">
               <div className="inline-block px-6 py-2 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 mb-6 shadow-lg">
                 <div className="flex items-center gap-2">
-                  {/* Kaiden Icon Video 1 */}
-                  <div className="w-6 h-6 rounded-full overflow-hidden">
-                    <video autoPlay loop muted playsInline className="w-full h-full object-cover">
-                      <source src="/kaiden-icon-1.mp4" type="video/mp4" />
-                    </video>
-                  </div>
                   <span className="text-white/90 font-medium">Premium Digital Ecosystem</span>
                 </div>
               </div>
@@ -137,11 +131,9 @@ export default function Home() {
 
               <div className="flex flex-wrap items-center justify-center gap-4 mb-12">
                 <div className="flex items-center gap-2 text-white/80 bg-white/10 backdrop-blur-xl px-4 py-2 rounded-xl border border-white/20 shadow-lg">
-                  <svg className="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/></svg>
                   <span>No credit card required</span>
                 </div>
                 <div className="flex items-center gap-2 text-white/80 bg-white/10 backdrop-blur-xl px-4 py-2 rounded-xl border border-white/20 shadow-lg">
-                  <svg className="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/></svg>
                   <span>Cancel anytime</span>
                 </div>
               </div>
@@ -168,7 +160,7 @@ export default function Home() {
               {/* Bougie Boutique */}
               <Link href="/boutique">
                 <div className="group cursor-pointer">
-                  <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-pink-500/20 to-purple-500/20 backdrop-blur-2xl border border-white/20 shadow-2xl hover:shadow-pink-500/30 transition-all hover:scale-105 p-8 h-full">
+                  <div className="relative overflow-hidden rounded-3xl bg-white/5 backdrop-blur-3xl border border-white/20 shadow-2xl hover:shadow-pink-500/30 transition-all hover:scale-105 p-8 h-full">
                     <div className="absolute inset-0 bg-gradient-to-br from-pink-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                     <div className="relative z-10">
                       {/* Bougie Boutique Logo Video */}
@@ -201,7 +193,7 @@ export default function Home() {
               {/* Executive Suite */}
               <Link href="/apps">
                 <div className="group cursor-pointer">
-                  <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 backdrop-blur-2xl border border-white/20 shadow-2xl hover:shadow-cyan-500/30 transition-all hover:scale-105 p-8 h-full">
+                  <div className="relative overflow-hidden rounded-3xl bg-white/5 backdrop-blur-3xl border border-white/20 shadow-2xl hover:shadow-cyan-500/30 transition-all hover:scale-105 p-8 h-full">
                     <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                     <div className="relative z-10">
                       {/* Kaiden Icon Video 2 */}
@@ -228,7 +220,7 @@ export default function Home() {
               {/* Synced Sites by Kaiden */}
               <Link href="/cox-and-co">
                 <div className="group cursor-pointer">
-                  <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-amber-500/20 to-orange-500/20 backdrop-blur-2xl border border-white/20 shadow-2xl hover:shadow-amber-500/30 transition-all hover:scale-105 p-8 h-full">
+                  <div className="relative overflow-hidden rounded-3xl bg-white/5 backdrop-blur-3xl border border-white/20 shadow-2xl hover:shadow-amber-500/30 transition-all hover:scale-105 p-8 h-full">
                     <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                     <div className="relative z-10">
                       {/* Kaiden Icon Video 3 */}
@@ -258,7 +250,7 @@ export default function Home() {
         {/* CTA Section - MOVED TO BOTTOM with Toroidal Background */}
         <section className="py-24 px-6">
           <div className="container mx-auto">
-            <div className="relative overflow-hidden rounded-3xl backdrop-blur-2xl border border-white/30 shadow-2xl p-16 text-center">
+            <div className="relative overflow-hidden rounded-3xl bg-white/5 backdrop-blur-3xl border border-white/30 shadow-2xl p-16 text-center">
               {/* Toroidal Sphere Background */}
               <div className="absolute inset-0 opacity-30">
                 <img 
@@ -275,7 +267,7 @@ export default function Home() {
                   Join thousands of entrepreneurs leveraging Synckaiden's premium ecosystem
                 </p>
                 <p className="text-lg text-white/80 mb-8 font-semibold">
-                  🎁 3-Day Limited Free Trial
+                  3-Day Limited Free Trial
                 </p>
                 <a href={getLoginUrl()}>
                   <Button size="lg" className="bg-white/10 hover:bg-white/20 backdrop-blur-xl border-2 border-white/30 text-white text-lg px-12 py-6 rounded-2xl shadow-2xl hover:shadow-white/30 transition-all hover:scale-105">

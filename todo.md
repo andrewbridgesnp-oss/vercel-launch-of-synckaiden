@@ -350,3 +350,12 @@
 - [x] Remove backgrounds and create transparent PNG versions (38 RGBA PNGs created)
 - [x] Name files appropriately matching product descriptions
 - [x] Organize extracted logos in /client/public/logos/ directory (38 total logos)
+
+
+## 🏠 HOMEPAGE REFINEMENTS
+- [x] Remove all emojis from homepage
+- [x] Change Personality Sync button to link to Spotify
+- [x] Change Synckaiden logo/button to link to chat page (Personality Sync)
+- [x] Change Get Started button to create account/signup flow (already links to getLoginUrl)
+- [x] Make Pillars of Success cards almost transparent liquid glass (bg-white/5)
+- [x] Make "Ready to Build Your Empire" CTA section almost transparent liquid glass (bg-white/5)
