@@ -185,3 +185,28 @@
 - [ ] Admin analytics router
 - [ ] Secrets management router (admin only)
 - [ ] Notification system router
+
+
+## 💰 PRICING TIER UPDATES
+- [ ] Update individual app prices: $9.99-$19.99/month (based on category/value)
+- [ ] Create 8-app bundle: $39.99/month
+- [ ] Update Sync Bundle (all 66 apps): $79.99/month
+- [ ] Update seed-all-66-apps.mjs with new pricing
+- [ ] Run seed script to update database
+
+## 🎬 PREMIUM ANIMATIONS
+- [ ] Add semi-transparent video background to homepage hero
+- [ ] Create app category carousel with smooth transitions
+- [ ] Add dropdown menus for each category in carousel
+- [ ] Implement smooth scroll animations
+- [ ] Add fade-in effects for app cards
+- [ ] Test animations on different screen sizes
+
+
+## 📦 8-APP BUNDLE ($39.99/mo)
+- [ ] Create 8-app bundle product in database
+- [ ] Add bundle selection table (user_bundle_selections)
+- [ ] Create bundle selection UI component
+- [ ] Implement backend validation (exactly 8 apps)
+- [ ] Update pricing page with 8-app bundle option
+- [ ] Test bundle selection and checkout flow

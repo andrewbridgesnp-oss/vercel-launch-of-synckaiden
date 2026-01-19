@@ -32,7 +32,7 @@ try {
   // Insert Sync Bundle Price
   await connection.execute(
     'INSERT INTO prices (productId, amount, currency, `interval`, active, stripePriceId) VALUES (?, ?, ?, ?, ?, ?)',
-    [bundleId, 3999, 'USD', 'month', true, 'price_sync_bundle_monthly']
+    [bundleId, 7999, 'USD', 'month', true, 'price_sync_bundle_monthly']
   );
 
   // Define ALL 66 apps organized by category
@@ -136,7 +136,7 @@ try {
       description: 'Complete HR management system. Handle hiring, onboarding, time tracking, payroll, and performance reviews.',
       category: 'Business',
       icon: '👥',
-      price: 2499,
+      price: 1999,
       features: ['Applicant Tracking', 'Onboarding Workflows', 'Time & Attendance', 'Payroll Integration', 'Performance Management']
     },
     {
@@ -248,7 +248,7 @@ try {
       description: 'Estate planning and trust management tool. Plan dynasty trusts with jurisdiction comparison and attorney review.',
       category: 'Finance',
       icon: '🏛️',
-      price: 2499,
+      price: 1999,
       features: ['Trust Planning', 'Jurisdiction Comparison', 'Beneficiary Management', 'Asset Protection', 'Attorney Review']
     },
     {
@@ -313,7 +313,7 @@ try {
       description: 'Multi-vendor marketplace platform. Manage vendors, products, orders, and commissions in one system.',
       category: 'E-commerce',
       icon: '🏪',
-      price: 2499,
+      price: 1999,
       features: ['Vendor Management', 'Commission Tracking', 'Product Catalog', 'Order Processing', 'Analytics Dashboard']
     },
     {
@@ -499,7 +499,7 @@ try {
       description: 'Healthcare billing and claims management. Automate medical billing, coding, and insurance claims.',
       category: 'Health',
       icon: '💊',
-      price: 2499,
+      price: 1999,
       features: ['Claims Processing', 'Insurance Verification', 'Coding Assistance', 'Payment Tracking', 'Compliance Tools']
     },
 
