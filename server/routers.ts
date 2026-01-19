@@ -5,6 +5,17 @@ import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, protectedProcedure, router } from "./_core/trpc";
 import { printfulRouter } from "./api/routers/printful";
+import { youtubeRouter } from "./routers/youtube";
+import { socialMediaRouter } from "./routers/socialMedia";
+import { marketingOSRouter } from "./routers/marketingOS";
+import { financialCoPilotRouter } from "./routers/financialCoPilot";
+import { taxAppRouter } from "./routers/taxApp";
+import { aiFundingBrokerageRouter } from "./routers/aiFundingBrokerage";
+import { vitalSyncRouter } from "./routers/vitalSync";
+import { atlasAcademyRouter } from "./routers/atlasAcademy";
+import { averyAIRouter } from "./routers/averyAI";
+import { agentSwarmRouter, pantryInventoryRouter, audioMasteringRouter, healthSyncScribeRouter, spamSlayerRouter } from "./routers/remainingApps";
+import { creativeClashLiveRouter } from "./routers/creativeClashLive";
 import {
   getAllProducts,
   getProductBySlug,
@@ -35,6 +46,21 @@ import { createCheckoutSession, createPortalSession } from "./billing/stripe";
 
 export const appRouter = router({
   system: systemRouter,
+  youtube: youtubeRouter,
+  socialMedia: socialMediaRouter,
+  marketingOS: marketingOSRouter,
+  financialCoPilot: financialCoPilotRouter,
+  taxApp: taxAppRouter,
+  aiFundingBrokerage: aiFundingBrokerageRouter,
+  vitalSync: vitalSyncRouter,
+  atlasAcademy: atlasAcademyRouter,
+  averyAI: averyAIRouter,
+  agentSwarm: agentSwarmRouter,
+  pantryInventory: pantryInventoryRouter,
+  audioMastering: audioMasteringRouter,
+  healthSyncScribe: healthSyncScribeRouter,
+  spamSlayer: spamSlayerRouter,
+  creativeClashLive: creativeClashLiveRouter,
   
   auth: router({
     me: publicProcedure.query(opts => opts.ctx.user),
@@ -296,16 +322,7 @@ export const appRouter = router({
   }),
 
   // ============= YOUTUBE AUTOMATION ROUTES =============
-  
-  youtube: router({
-    channels: protectedProcedure.query(async ({ ctx }) => {
-      return await getUserYoutubeChannels(ctx.user.id);
-    }),
-    
-    videos: protectedProcedure.query(async ({ ctx }) => {
-      return await getUserYoutubeVideos(ctx.user.id);
-    }),
-  }),
+  // (Moved to youtube router imported above)
 
   // ============= PRINTFUL INTEGRATION =============
   
@@ -328,20 +345,7 @@ export const appRouter = router({
   }),
 
   // ============= SOCIAL MEDIA AUTOPILOT ROUTES =============
-  
-  socialMedia: router({
-    drafts: protectedProcedure.query(async ({ ctx }) => {
-      return await getUserVideoDrafts(ctx.user.id);
-    }),
-    
-    pendingApprovals: protectedProcedure.query(async ({ ctx }) => {
-      return await getPendingVideoDrafts(ctx.user.id);
-    }),
-    
-    scheduledPosts: protectedProcedure.query(async ({ ctx }) => {
-      return await getScheduledPostPlans(ctx.user.id);
-    }),
-  }),
+  // (Moved to socialMedia router imported above)
 });
 
 export type AppRouter = typeof appRouter;
