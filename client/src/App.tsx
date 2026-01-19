@@ -4,8 +4,10 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 
-// Main pagesimport Store from "./pages/Store";
-import CoxAndCo from "./pages/CoxAndCo";import Dashboard from "./pages/Dashboard";
+// Main pages
+import CoxAndCo from "./pages/CoxAndCo";
+import CreativeClashLive from "./pages/CreativeClashLive";
+import Dashboard from "./pages/Dashboard";
 import DashboardNew from "./pages/DashboardNew";
 import AppDetail from "./pages/AppDetail";
 import NotFound from "./pages/NotFound";
@@ -58,6 +60,8 @@ import Leads from "./pages/Leads";
 import Marketing from "./pages/Marketing";
 import Videos from "./pages/Videos";
 import YouTubeChannel from "./pages/YouTubeChannel";
+import YouTubeManager from "./pages/YouTubeManager";
+import AdsSuite from "./pages/AdsSuite";
 import Websites from "./pages/Websites";
 import Templates from "./pages/Templates";
 import CreativeContentEngine from "./pages/CreativeContentEngine";
@@ -129,8 +133,7 @@ function Router() {
       <Route path="/pricing-new" component={PricingNew} />
       <Route path="/privacy" component={Privacy} />
       <Route path="/terms" component={Terms} />
-    <Route path="/store" component={Store} />
-          <Route path="/coxandco" component={CoxAndCo} />
+    <Route path="/coxandco" component={CoxAndCo} />
       <Route path="/contact" component={Contact} />
       <Route path="/request-app" component={RequestApp} />
       <Route path="/admin" component={AdminDashboard} />
@@ -178,6 +181,8 @@ function Router() {
       <Route path="/marketing" component={Marketing} />
       <Route path="/videos" component={Videos} />
       <Route path="/youtube" component={YouTubeChannel} />
+      <Route path="/youtube-manager" component={YouTubeManager} />
+      <Route path="/ads" component={AdsSuite} />
       <Route path="/websites" component={Websites} />
       <Route path="/templates" component={Templates} />
       <Route path="/creative-engine" component={CreativeContentEngine} />
@@ -233,6 +238,7 @@ function Router() {
       <Route path="/app/spam-slayer" component={SpamSlayer} />
       <Route path="/app/marketing-os" component={MarketingOS} />
       <Route path="/app/creative-clash-live" component={CreativeClashLive} />
+      <Route path="/creative-clash" component={CreativeClashLive} />
       <Route path="/app/youtube-automation" component={YouTubeAutomation} />
       
       {/* 404 */}
