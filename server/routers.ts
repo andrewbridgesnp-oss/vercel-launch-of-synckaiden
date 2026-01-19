@@ -16,6 +16,7 @@ import { atlasAcademyRouter } from "./routers/atlasAcademy";
 import { averyAIRouter } from "./routers/averyAI";
 import { agentSwarmRouter, pantryInventoryRouter, audioMasteringRouter, healthSyncScribeRouter, spamSlayerRouter } from "./routers/remainingApps";
 import { creativeClashLiveRouter } from "./routers/creativeClashLive";
+import { profileRouter } from "./routers/profile";
 import {
   getAllProducts,
   getProductBySlug,
@@ -46,6 +47,7 @@ import { createCheckoutSession, createPortalSession } from "./billing/stripe";
 
 export const appRouter = router({
   system: systemRouter,
+  profile: profileRouter,
   youtube: youtubeRouter,
   socialMedia: socialMediaRouter,
   marketingOS: marketingOSRouter,

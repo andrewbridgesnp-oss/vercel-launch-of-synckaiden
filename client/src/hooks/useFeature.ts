@@ -1,5 +1,5 @@
 import { useAuth } from "@/_core/hooks/useAuth";
-import { hasFeature, getMinimumTierForFeature, FEATURES, type FeatureName, type SubscriptionTier } from "../../../shared/features.config";
+import { hasFeature, getMinimumTierForFeature, FEATURES, type FeatureName, type SubscriptionTier } from "../../shared/features.config";
 
 export interface UseFeatureResult {
   hasAccess: boolean;

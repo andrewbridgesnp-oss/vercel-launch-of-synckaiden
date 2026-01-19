@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Loader2, CreditCard, Check, AlertCircle } from "lucide-react";
 import { trpc } from "@/lib/trpc";
 import { toast } from "sonner";
-import type { FeatureName } from "../../../shared/features.config";
+import type { FeatureName } from "../../shared/features.config";
 
 interface SingleUsePurchaseModalProps {
   open: boolean;

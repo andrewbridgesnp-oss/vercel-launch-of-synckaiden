@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Lock, TrendingUp, Zap } from "lucide-react";
 import { Link } from "wouter";
-import type { FeatureName } from "../../../shared/features.config";
+import type { FeatureName } from "../../shared/features.config";
 import { SingleUsePurchaseModal } from "./SingleUsePurchaseModal";
 
 interface FeatureGateProps {

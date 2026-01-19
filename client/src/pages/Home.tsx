@@ -1,464 +1,421 @@
-import { useState, useEffect, useRef } from "react";
 import { useAuth } from "@/_core/hooks/useAuth";
-import { trpc } from "@/lib/trpc";
 import { Button } from "@/components/ui/button";
-import { PsychologicalSync } from "@/components/PsychologicalSync";
-import { KaidenVerification } from "@/components/KaidenVerification";
-import { PersonalityTypeSelection } from "@/components/PersonalityTypeSelection";
-import { LegalDisclaimers } from "@/components/LegalDisclaimers";
-import { WalkthroughVideo } from "@/components/WalkthroughVideo";
-import { useLocation } from "wouter";
-import { Link } from "wouter";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { getLoginUrl } from "@/const";
-import { Play, Zap, Users } from "lucide-react";
+import { trpc } from "@/lib/trpc";
+import { ArrowRight, Check, Sparkles, Zap, Shield, Rocket } from "lucide-react";
+import { Link } from "wouter";
 
 export default function Home() {
-  const { user, loading, isAuthenticated } = useAuth();
-  const { data: profile, refetch: refetchProfile } = trpc.profile.getProfile.useQuery(
-    undefined,
-    { enabled: isAuthenticated }
-  );
+  const { user, isAuthenticated } = useAuth();
+  const { data: products, isLoading: productsLoading } = trpc.products.list.useQuery();
+  const { data: entitlements } = trpc.entitlements.list.useQuery(undefined, {
+    enabled: isAuthenticated,
+  });
 
-  const [showContent, setShowContent] = useState(false);
-  const [showButtons, setShowButtons] = useState(false);
-  const [showLanding, setShowLanding] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [, setLocation] = useLocation();
-
-  // SYNC flow state
-  const [syncStep, setSyncStep] = useState<'sync' | 'verify' | 'personality' | 'legal' | 'walkthrough' | null>(null);
-  const [syncData, setSyncData] = useState<{
-    responses: string[];
-    personalityType: string;
-    insights: string[];
-  } | null>(null);
-
-  const completeSyncMutation = trpc.profile.completeOnboarding.useMutation();
-  
-  // Add CSS for gradient animation
-  const styleSheet = document.createElement('style');
-  if (!document.querySelector('style[data-gradient-animation]')) {
-    styleSheet.setAttribute('data-gradient-animation', 'true');
-    styleSheet.textContent = `
-      @keyframes gradient {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-      }
-      @keyframes slideUp {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-    `;
-    document.head.appendChild(styleSheet);
-  }
-
-  // Show SYNC flow for authenticated users without completed profile
-  if (isAuthenticated && profile !== undefined && !profile?.onboardingCompleted) {
-    // Start SYNC flow
-    if (syncStep === null) {
-      setSyncStep('sync');
-    }
-
-    if (syncStep === 'sync') {
-      return (
-        <PsychologicalSync
-          onComplete={(data) => {
-            setSyncData(data);
-            setSyncStep('verify');
-          }}
-        />
-      );
-    }
-
-    if (syncStep === 'verify' && syncData) {
-      return (
-        <KaidenVerification
-          responses={syncData.responses}
-          personalityType={syncData.personalityType}
-          insights={syncData.insights}
-          onConfirm={() => setSyncStep('personality')}
-          onEdit={() => setSyncStep('sync')}
-        />
-      );
-    }
-
-    if (syncStep === 'personality' && syncData) {
-      return (
-        <PersonalityTypeSelection
-          suggestedType={syncData.personalityType}
-          onConfirm={(selectedType) => {
-            setSyncData({ ...syncData, personalityType: selectedType });
-            setSyncStep('legal');
-          }}
-        />
-      );
-    }
-
-    if (syncStep === 'legal') {
-      return (
-        <LegalDisclaimers
-          onAccept={() => setSyncStep('walkthrough')}
-        />
-      );
-    }
-
-    if (syncStep === 'walkthrough' && syncData) {
-      return (
-        <WalkthroughVideo
-          onComplete={async () => {
-            // Complete onboarding in database
-            await completeSyncMutation.mutateAsync({
-              companyName: "",
-              industry: syncData.personalityType,
-              businessGoals: syncData.insights.join(', '),
-              teamSize: "1",
-            });
-            await refetchProfile();
-            setLocation('/dashboard');
-          }}
-        />
-      );
-    }
-  }
-
-  // Video sequence: play 3s, fade, then show landing
-  useEffect(() => {
-    const contentTimer = setTimeout(() => {
-      setShowContent(true);
-    }, 3000);
-
-    const landingTimer = setTimeout(() => {
-      setShowLanding(true);
-    }, 4500);
-
-    const buttonTimer = setTimeout(() => {
-      setShowButtons(true);
-    }, 5000);
-
-    return () => {
-      clearTimeout(contentTimer);
-      clearTimeout(landingTimer);
-      clearTimeout(buttonTimer);
-    };
-  }, []);
-
-  // Speed up video to 3 seconds total
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.playbackRate = 2.0;
-      const fadeTimer = setTimeout(() => {
-        setShowContent(true);
-      }, 3000);
-      return () => clearTimeout(fadeTimer);
-    }
-  }, []);
+  const syncBundle = products?.find(p => p.type === 'bundle' && p.slug === 'sync-bundle');
+  const apps = products?.filter(p => p.type === 'app') || [];
 
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-black">
-      {/* SEO Headings - Always in DOM for search engines */}
-      <div className="sr-only">
-        <h1>KAIDEN - AI Business Consultant and Automation Platform</h1>
-        <h2>Approval-Gated Business Automation</h2>
-        <h2>AI-Powered Business Operations</h2>
-        <h2>Time Restoration for Entrepreneurs</h2>
-      </div>
-      {/* Video Background - Fades after 3 seconds */}
-      <video
-        ref={videoRef}
-        className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000"
-        style={{ 
-          opacity: showContent ? 0 : 0.9,
-          filter: 'brightness(0.8) contrast(1.1)',
-        }}
-        autoPlay
-        loop={false}
-        muted
-        playsInline
-      >
-        <source src="/kayden-hero-video.mp4" type="video/mp4" />
-      </video>
-      
-      {/* Background Gradient - Appears after video fades */}
-      <div 
-        className="absolute inset-0 w-full h-full transition-opacity duration-1000"
-        style={{
-          opacity: showContent ? 1 : 0,
-          background: 'linear-gradient(135deg, #0a0e27 0%, #1a1f3a 25%, #0f1428 50%, #1a1f3a 75%, #0a0e27 100%)',
-          backgroundSize: '400% 400%',
-          animation: showContent ? 'gradient 15s ease infinite' : 'none',
-        }}
-      />
+    <div className="min-h-screen bg-background">
+      {/* Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 glass border-b border-border/50">
+        <div className="container mx-auto px-6 py-4">
+          <div className="flex items-center justify-between">
+            <Link href="/">
+              <div className="flex items-center space-x-2 cursor-pointer">
+                <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center">
+                  <Sparkles className="w-5 h-5 text-primary-foreground" />
+                </div>
+                <span className="text-2xl font-bold text-foreground">Synckaiden</span>
+              </div>
+            </Link>
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 transition-opacity duration-1000" style={{ opacity: showContent ? 0.3 : 1 }} />
-      
-      {/* Vignette */}
-      <div className="absolute inset-0" style={{
-        background: 'radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.4) 100%)',
-        opacity: showContent ? 0.2 : 1,
-        transition: 'opacity 1s ease-out',
-      }} />
-
-      {/* LANDING PAGE - Shows after video fades */}
-      {showLanding && (
-        <div className="relative z-20 flex flex-col items-center justify-center min-h-screen px-4 py-20">
-          
-          {/* Logo/Branding */}
-          <div className="mb-12 text-center" style={{ animation: 'slideUp 0.8s ease-out' }}>
-            <div className="text-7xl md:text-8xl font-bold tracking-tighter mb-4"
-              style={{
-                fontFamily: "'Playfair Display', serif",
-                background: 'linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(150,200,255,0.8) 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-              }}
-              role="heading"
-              aria-level={1}
-            >
-              KAIDEN
-            </div>
-            <p className="text-xl md:text-2xl font-light tracking-widest text-cyan-300/80 mb-2">
-              YOUR BUSINESS OPERATOR
-            </p>
-            <p className="text-base md:text-lg text-gray-400 max-w-2xl mx-auto">
-              Approval-gated automation that restores your time and keeps you in control
-            </p>
-          </div>
-
-          {/* Main CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 mb-12 flex-wrap justify-center" 
-            style={{ 
-              opacity: showButtons ? 1 : 0,
-              transform: showButtons ? 'translateY(0)' : 'translateY(20px)',
-              transition: 'all 1s ease-out',
-            }}
-          >
-            {/* SYNC Button - Enter App */}
-            {isAuthenticated ? (
-              <Link href="/dashboard">
-                <Button
-                  size="lg"
-                  className="px-12 py-7 text-lg font-semibold rounded-full transition-all duration-300 hover:scale-105 flex items-center gap-2"
-                  style={{
-                    background: "linear-gradient(135deg, #00d9ff 0%, #0099cc 100%)",
-                    color: "#000",
-                    boxShadow: "0 0 30px rgba(0,217,255,0.4)",
-                  }}
-                >
-                  <Zap className="w-5 h-5" />
-                  SYNC
-                </Button>
-              </Link>
-            ) : (
-              <a href={getLoginUrl()}>
-                <Button
-                  size="lg"
-                  className="px-12 py-7 text-lg font-semibold rounded-full transition-all duration-300 hover:scale-105 flex items-center gap-2"
-                  style={{
-                    background: "linear-gradient(135deg, #00d9ff 0%, #0099cc 100%)",
-                    color: "#000",
-                    boxShadow: "0 0 30px rgba(0,217,255,0.4)",
-                  }}
-                >
-                  <Zap className="w-5 h-5" />
-                  SYNC
-                </Button>
+            <div className="hidden md:flex items-center space-x-8">
+              <a href="#apps" className="text-muted-foreground hover:text-foreground transition-colors">
+                Apps
               </a>
-            )}
-
-            {/* SUBSCRIBE Button - Pricing/Plans */}
-            <Link href="/pricing">
-              <Button
-                size="lg"
-                className="px-12 py-7 text-lg font-semibold rounded-full transition-all duration-300 hover:scale-105"
-                style={{
-                  background: "linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 100%)",
-                  backdropFilter: "blur(20px)",
-                  border: "2px solid rgba(0,217,255,0.5)",
-                  color: "rgba(255,255,255,0.95)",
-                  boxShadow: "0 8px 32px rgba(0,0,0,0.3)",
-                }}
-              >
-                SUBSCRIBE
-              </Button>
-            </Link>
-
-            {/* TOUR Button - Video Tour */}
-            <Link href="/tour">
-              <Button
-                size="lg"
-                className="px-12 py-7 text-lg font-semibold rounded-full transition-all duration-300 hover:scale-105 flex items-center gap-2"
-                style={{
-                  background: "transparent",
-                  border: "2px solid rgba(255,255,255,0.3)",
-                  color: "rgba(255,255,255,0.9)",
-                }}
-              >
-                <Play className="w-5 h-5" />
-                TOUR
-              </Button>
-            </Link>
-          </div>
-
-          {/* Secondary Actions */}
-          <div className="flex flex-col sm:flex-row gap-3 flex-wrap justify-center"
-            style={{ 
-              opacity: showButtons ? 1 : 0,
-              transform: showButtons ? 'translateY(0)' : 'translateY(20px)',
-              transition: 'all 1s ease-out 0.2s',
-            }}
-          >
-            {/* Free Trial */}
-            <Link href="/pricing">
-              <Button
-                variant="outline"
-                className="px-8 py-5 text-sm font-medium rounded-full"
-                style={{
-                  background: "rgba(34,197,94,0.1)",
-                  border: "1px solid rgba(34,197,94,0.5)",
-                  color: "#22c55e",
-                }}
-              >
-                Start Free Trial
-              </Button>
-            </Link>
-
-            {/* Go Shopping */}
-            <Link href="/bougie-boutique">
-              <Button
-                variant="outline"
-                className="px-8 py-5 text-sm font-medium rounded-full flex items-center gap-2"
-                style={{
-                  background: "rgba(236,72,153,0.1)",
-                  border: "1px solid rgba(236,72,153,0.5)",
-                  color: "#ec4899",
-                }}
-              >
-                🛍️ GO SHOPPING
-              </Button>
-            </Link>
-
-            {/* VIPs Post Your Site */}
-            <Link href="/vip-directory">
-              <Button
-                variant="outline"
-                className="px-8 py-5 text-sm font-medium rounded-full flex items-center gap-2"
-                style={{
-                  background: "rgba(168,85,247,0.1)",
-                  border: "1px solid rgba(168,85,247,0.5)",
-                  color: "#a855f7",
-                }}
-              >
-                <Users className="w-4 h-4" />
-                VIPs POST YOUR SITE
-              </Button>
-            </Link>
-          </div>
-
-          {/* Integrated Apps Showcase */}
-          <div className="mt-20 w-full max-w-6xl mx-auto px-4"
-            style={{ 
-              opacity: showButtons ? 1 : 0,
-              transition: 'opacity 1s ease-out 0.6s',
-            }}
-          >
-            <h2 className="text-3xl font-bold text-center mb-4 text-white">Integrated Platforms</h2>
-            <p className="text-center text-gray-400 mb-12">Access powerful tools built right into Kaiden</p>
-            
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-              {/* Kaiden Academy */}
-              <Link href="/capabilities">
-                <div className="p-6 rounded-2xl bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border border-cyan-500/30 hover:border-cyan-500/60 transition-all hover:scale-105 cursor-pointer">
-                  <div className="w-12 h-12 bg-cyan-500/20 rounded-lg flex items-center justify-center mb-4">
-                    <svg className="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                    </svg>
-                  </div>
-                  <h3 className="text-xl font-semibold mb-2 text-white">Kaiden Academy</h3>
-                  <p className="text-gray-400 text-sm">Learn business skills, automation strategies, and growth tactics with curated courses and resources.</p>
-                </div>
-              </Link>
-
-              {/* Where's My Tribe */}
-              <a href="https://wheresmytribe.com" target="_blank" rel="noopener noreferrer">
-                <div className="p-6 rounded-2xl bg-gradient-to-br from-purple-500/10 to-pink-500/10 border border-purple-500/30 hover:border-purple-500/60 transition-all hover:scale-105 cursor-pointer">
-                  <div className="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center mb-4">
-                    <svg className="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                    </svg>
-                  </div>
-                  <h3 className="text-xl font-semibold mb-2 text-white">Where's My Tribe</h3>
-                  <p className="text-gray-400 text-sm">Connect with like-minded entrepreneurs, find collaborators, and build your business community.</p>
-                </div>
+              <a href="#pricing" className="text-muted-foreground hover:text-foreground transition-colors">
+                Pricing
               </a>
-
-              {/* VitalSync */}
-              <Link href="/medical-billing">
-                <div className="p-6 rounded-2xl bg-gradient-to-br from-green-500/10 to-emerald-500/10 border border-green-500/30 hover:border-green-500/60 transition-all hover:scale-105 cursor-pointer">
-                  <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mb-4">
-                    <svg className="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                    </svg>
-                  </div>
-                  <h3 className="text-xl font-semibold mb-2 text-white">VitalSync</h3>
-                  <p className="text-gray-400 text-sm">Telehealth platform with medical billing, appointment scheduling, and patient management tools.</p>
-                </div>
-              </Link>
-
-              {/* Social Media Autopilot */}
-              <Link href="/integrations">
-                <div className="p-6 rounded-2xl bg-gradient-to-br from-green-500/10 to-emerald-500/10 border border-green-500/30 hover:border-green-500/60 transition-all hover:scale-105 cursor-pointer">
-                  <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mb-4">
-                    <svg className="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
-                    </svg>
-                  </div>
-                  <h3 className="text-xl font-semibold mb-2 text-white">Revenue Engine</h3>
-                  <p className="text-gray-400 text-sm">Monetize content with automated affiliate marketing, sponsorship matching, and revenue optimization.</p>
-                </div>
-              </Link>
-
-              {/* AI YouTube */}
-              <Link href="/youtube-channel">
-                <div className="p-6 rounded-2xl bg-gradient-to-br from-red-500/10 to-pink-500/10 border border-red-500/30 hover:border-red-500/60 transition-all hover:scale-105 cursor-pointer">
-                  <div className="w-12 h-12 bg-red-500/20 rounded-lg flex items-center justify-center mb-4">
-                    <svg className="w-6 h-6 text-red-400" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                    </svg>
-                  </div>
-                  <h3 className="text-xl font-semibold mb-2 text-white">AI YouTube</h3>
-                  <p className="text-gray-400 text-sm">AI-powered video creation, editing, and optimization for YouTube growth and monetization.</p>
-                </div>
-              </Link>
-
-              {/* Creative Content Engine */}
-              <Link href="/creative-content-engine">
-                <div className="p-6 rounded-2xl bg-gradient-to-br from-purple-500/10 to-pink-500/10 border border-purple-500/30 hover:border-purple-500/60 transition-all hover:scale-105 cursor-pointer">
-                  <div className="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center mb-4">
-                    <svg className="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                  <h3 className="text-xl font-semibold mb-2 text-white">Creative Content Engine</h3>
-                  <p className="text-gray-400 text-sm">AI-powered content creation with agent swarm for video, copy, graphics, and multi-platform distribution.</p>
-                </div>
-              </Link>
+              <a href="#features" className="text-muted-foreground hover:text-foreground transition-colors">
+                Features
+              </a>
             </div>
-          </div>
 
-          {/* Trust Indicators */}
-          <div className="mt-16 text-center text-sm text-gray-500"
-            style={{ 
-              opacity: showButtons ? 1 : 0,
-              transition: 'opacity 1s ease-out 0.4s',
-            }}
-          >
-            <p>✓ No credit card required for trial • ✓ Cancel anytime • ✓ 100% approval-gated automation</p>
+            <div className="flex items-center space-x-4">
+              {isAuthenticated ? (
+                <>
+                  <Link href="/dashboard">
+                    <Button variant="ghost">Dashboard</Button>
+                  </Link>
+                  <div className="flex items-center space-x-2">
+                    <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
+                      <span className="text-sm font-semibold text-primary">
+                        {user?.name?.charAt(0).toUpperCase() || 'U'}
+                      </span>
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <a href={getLoginUrl()}>
+                    <Button variant="ghost">Sign In</Button>
+                  </a>
+                  <a href={getLoginUrl()}>
+                    <Button className="bg-primary hover:bg-primary/90">
+                      Get Started
+                      <ArrowRight className="ml-2 w-4 h-4" />
+                    </Button>
+                  </a>
+                </>
+              )}
+            </div>
           </div>
         </div>
-      )}
+      </nav>
+
+      {/* Hero Section */}
+      <section className="relative pt-32 pb-20 overflow-hidden">
+        <div className="absolute inset-0 animated-gradient opacity-50" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(56,189,248,0.1),transparent_50%)]" />
+        
+        <div className="container relative z-10 mx-auto px-6">
+          <div className="max-w-4xl mx-auto text-center fade-in-up">
+            <div className="inline-flex items-center space-x-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-2 mb-8">
+              <Sparkles className="w-4 h-4 text-primary" />
+              <span className="text-sm font-medium text-primary">The Future of AI-Powered Business</span>
+            </div>
+
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+              <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
+                Unified Platform
+              </span>
+              <br />
+              <span className="text-foreground">for Modern Entrepreneurs</span>
+            </h1>
+
+            <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
+              Access powerful AI-driven apps for e-commerce, automation, analytics, and growth. 
+              One platform, unlimited possibilities.
+            </p>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+              <a href="#apps">
+                <Button size="lg" className="bg-primary hover:bg-primary/90 text-lg px-8 py-6 glow-blue">
+                  Explore Apps
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
+              </a>
+              <a href="#pricing">
+                <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-2">
+                  View Pricing
+                </Button>
+              </a>
+            </div>
+
+            <div className="mt-12 flex items-center justify-center space-x-8 text-sm text-muted-foreground">
+              <div className="flex items-center space-x-2">
+                <Check className="w-4 h-4 text-accent" />
+                <span>No credit card required</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Check className="w-4 h-4 text-accent" />
+                <span>Cancel anytime</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Check className="w-4 h-4 text-accent" />
+                <span>14-day free trial</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section id="features" className="py-20 bg-card/30">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Why Choose Synckaiden</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Built for entrepreneurs who demand excellence, security, and scalability
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <Card className="glass-card border-border/50 hover:border-primary/50 transition-all duration-300 card-hover">
+              <CardHeader>
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                  <Zap className="w-6 h-6 text-primary" />
+                </div>
+                <CardTitle>Lightning Fast</CardTitle>
+                <CardDescription>
+                  Built on cutting-edge technology for instant responses and real-time updates
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card className="glass-card border-border/50 hover:border-primary/50 transition-all duration-300 card-hover">
+              <CardHeader>
+                <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
+                  <Shield className="w-6 h-6 text-accent" />
+                </div>
+                <CardTitle>Enterprise Security</CardTitle>
+                <CardDescription>
+                  AES-256 encryption, audit logging, and role-based access control built-in
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card className="glass-card border-border/50 hover:border-primary/50 transition-all duration-300 card-hover">
+              <CardHeader>
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                  <Rocket className="w-6 h-6 text-primary" />
+                </div>
+                <CardTitle>Scale Effortlessly</CardTitle>
+                <CardDescription>
+                  From startup to enterprise, our platform grows with your business needs
+                </CardDescription>
+              </CardHeader>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Apps Catalog */}
+      <section id="apps" className="py-20">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Powerful Apps at Your Fingertips</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Each app is designed to solve real business problems with AI-powered intelligence
+            </p>
+          </div>
+
+          {productsLoading ? (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[1, 2, 3, 4, 5, 6].map(i => (
+                <Card key={i} className="glass-card animate-pulse">
+                  <CardHeader>
+                    <div className="w-12 h-12 bg-muted rounded-lg mb-4" />
+                    <div className="h-6 bg-muted rounded w-3/4 mb-2" />
+                    <div className="h-4 bg-muted rounded w-full" />
+                  </CardHeader>
+                </Card>
+              ))}
+            </div>
+          ) : (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {apps.map((app, index) => {
+                const hasAccess = entitlements?.some(e => e.productId === app.id);
+                
+                return (
+                  <Card 
+                    key={app.id} 
+                    className="glass-card border-border/50 hover:border-primary/50 transition-all duration-300 card-hover"
+                    style={{ animationDelay: `${index * 100}ms` }}
+                  >
+                    <CardHeader>
+                      <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center mb-4">
+                        <Sparkles className="w-6 h-6 text-primary-foreground" />
+                      </div>
+                      <CardTitle className="flex items-center justify-between">
+                        {app.name}
+                        {hasAccess && (
+                          <span className="text-xs bg-accent/20 text-accent px-2 py-1 rounded-full">
+                            Active
+                          </span>
+                        )}
+                      </CardTitle>
+                      <CardDescription>{app.description}</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <Link href={`/apps/${app.slug}`}>
+                        <Button variant="outline" className="w-full">
+                          {hasAccess ? 'Open App' : 'Learn More'}
+                          <ArrowRight className="ml-2 w-4 h-4" />
+                        </Button>
+                      </Link>
+                    </CardContent>
+                  </Card>
+                );
+              })}
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* Pricing Section */}
+      <section id="pricing" className="py-20 bg-card/30">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Simple, Transparent Pricing</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Choose individual apps or get the complete suite with our Sync bundle
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {/* Individual Apps */}
+            <Card className="glass-card border-border/50">
+              <CardHeader>
+                <CardTitle className="text-2xl">Individual Apps</CardTitle>
+                <CardDescription>Perfect for focused needs</CardDescription>
+                <div className="mt-4">
+                  <span className="text-4xl font-bold text-foreground">$9.99</span>
+                  <span className="text-muted-foreground"> - $19.99/mo</span>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-3 mb-6">
+                  <li className="flex items-start space-x-2">
+                    <Check className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
+                    <span>Access to one app of your choice</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <Check className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
+                    <span>Full feature access</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <Check className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
+                    <span>Priority support</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <Check className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
+                    <span>Cancel anytime</span>
+                  </li>
+                </ul>
+                <Button variant="outline" className="w-full">
+                  Browse Apps
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Sync Bundle */}
+            <Card className="glass-card border-primary/50 relative overflow-hidden">
+              <div className="absolute top-0 right-0 bg-accent text-accent-foreground px-4 py-1 text-sm font-semibold">
+                BEST VALUE
+              </div>
+              <CardHeader>
+                <CardTitle className="text-2xl">Sync Bundle</CardTitle>
+                <CardDescription>Unlock everything</CardDescription>
+                <div className="mt-4">
+                  <span className="text-4xl font-bold text-foreground">$39.99</span>
+                  <span className="text-muted-foreground">/month</span>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-3 mb-6">
+                  <li className="flex items-start space-x-2">
+                    <Check className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
+                    <span className="font-semibold">Access to ALL apps</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <Check className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
+                    <span>Unlimited usage across all apps</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <Check className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
+                    <span>Premium support</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <Check className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
+                    <span>Early access to new features</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <Check className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
+                    <span>Save over 50% vs individual apps</span>
+                  </li>
+                </ul>
+                <Button className="w-full bg-primary hover:bg-primary/90 glow-blue">
+                  Get Sync Bundle
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-6">
+          <Card className="glass-card border-primary/30 relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-accent/10" />
+            <CardHeader className="relative z-10 text-center py-16">
+              <CardTitle className="text-4xl md:text-5xl font-bold mb-4">
+                Ready to Transform Your Business?
+              </CardTitle>
+              <CardDescription className="text-lg mb-8 max-w-2xl mx-auto">
+                Join thousands of entrepreneurs who trust Synckaiden to power their growth
+              </CardDescription>
+              <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href={getLoginUrl()}>
+                  <Button size="lg" className="bg-primary hover:bg-primary/90 text-lg px-8 py-6 glow-blue">
+                    Start Free Trial
+                    <ArrowRight className="ml-2 w-5 h-5" />
+                  </Button>
+                </a>
+                <a href="#apps">
+                  <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-2">
+                    Explore Apps
+                  </Button>
+                </a>
+              </div>
+            </CardHeader>
+          </Card>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-border/50 py-12 bg-card/30">
+        <div className="container mx-auto px-6">
+          <div className="grid md:grid-cols-4 gap-8">
+            <div>
+              <div className="flex items-center space-x-2 mb-4">
+                <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center">
+                  <Sparkles className="w-5 h-5 text-primary-foreground" />
+                </div>
+                <span className="text-xl font-bold">Synckaiden</span>
+              </div>
+              <p className="text-sm text-muted-foreground">
+                The unified platform for modern entrepreneurs
+              </p>
+            </div>
+
+            <div>
+              <h3 className="font-semibold mb-4">Product</h3>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li><a href="#apps" className="hover:text-foreground transition-colors">Apps</a></li>
+                <li><a href="#pricing" className="hover:text-foreground transition-colors">Pricing</a></li>
+                <li><a href="#features" className="hover:text-foreground transition-colors">Features</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="font-semibold mb-4">Company</h3>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li><a href="#" className="hover:text-foreground transition-colors">About</a></li>
+                <li><a href="#" className="hover:text-foreground transition-colors">Blog</a></li>
+                <li><a href="#" className="hover:text-foreground transition-colors">Careers</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="font-semibold mb-4">Support</h3>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li><a href="#" className="hover:text-foreground transition-colors">Help Center</a></li>
+                <li><a href="#" className="hover:text-foreground transition-colors">Contact</a></li>
+                <li><a href="#" className="hover:text-foreground transition-colors">Privacy</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-12 pt-8 border-t border-border/50 text-center text-sm text-muted-foreground">
+            <p>&copy; 2026 Synckaiden. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

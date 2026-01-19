@@ -3,7 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { TrendingUp, ShoppingCart, DollarSign, Zap } from "lucide-react";
 import { trpc } from "@/lib/trpc";
-import { formatPrice } from "../../../shared/feature-pricing.config";
+import { formatPrice } from "../../shared/feature-pricing.config";
 
 /**
  * Feature Purchases Analytics Component

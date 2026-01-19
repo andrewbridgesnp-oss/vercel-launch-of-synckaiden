@@ -6,8 +6,8 @@ import { Badge } from "@/components/ui/badge";
 import { CheckCircle, AlertCircle, Loader2, ArrowRight } from "lucide-react";
 import { trpc } from "@/lib/trpc";
 import { toast } from "sonner";
-import { FEATURE_PRICES } from "../../../shared/feature-pricing.config";
-import type { FeatureName } from "../../../shared/features.config";
+import { FEATURE_PRICES } from "../../shared/feature-pricing.config";
+import type { FeatureName } from "../../shared/features.config";
 
 export function PurchaseSuccess() {
   const [, params] = useRoute("/purchase-success?session_id=:sessionId");
@@ -245,3 +245,5 @@ export function PurchaseSuccess() {
     </div>
   );
 }
+
+export default PurchaseSuccess;
