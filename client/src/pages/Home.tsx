@@ -136,7 +136,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="flex flex-col items-center gap-4 mb-8">
+              <div className="flex items-center justify-center gap-6 mt-12">
                 <a href={getLoginUrl()}>
                   <LuxuryButton variant="business">
                     Start Your Empire
@@ -149,10 +149,6 @@ export default function Home() {
                   </LuxuryButton>
                 </Link>
               </div>
-
-              <p className="text-2xl text-white/90 max-w-3xl mx-auto drop-shadow-lg backdrop-blur-sm bg-black/20 px-8 py-4 rounded-2xl border border-white/10">
-                Premium digital products, AI-powered business tools, and professional website hosting—all in one luxurious platform.
-              </p>
             </div>
           </div>
         </section>

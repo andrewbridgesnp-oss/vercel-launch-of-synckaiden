@@ -439,3 +439,6 @@
 - [ ] Test preview mode across all apps
 
 - [x] Make luxury buttons transparent with glass-morphism effect (keep gradient glows and borders)
+
+- [x] Arrange hero buttons horizontally with better spacing toward bottom of hero section
+- [x] Remove tagline paragraph from hero section
