@@ -298,3 +298,9 @@
 - [x] Create Stickers Collection page with all designs
 - [ ] Integrate Printful API for sticker fulfillment (future enhancement)
 - [ ] Update homepage to showcase all 5 collections (Kids, Men's, Women's, Hats, Stickers)
+
+- [x] Copy Bougie Boutique logo video and 5 Kaiden AI videos to public folder
+- [x] Redesign homepage with rotating background videos
+- [x] Implement liquid glass morphism buttons with frosted glass effect
+- [x] Create seamless overlay with proper transparency and blur
+- [x] Add video rotation logic for random background changes
