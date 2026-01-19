@@ -6,6 +6,7 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 
 // Main pages
 import Home from "./pages/Home";
+import PersonalitySync from "./pages/PersonalitySync";
 import CoxAndCo from "./pages/CoxAndCo";
 import CreativeClashLiveMain from "./pages/CreativeClashLive";
 import Dashboard from "./pages/Dashboard";
@@ -130,6 +131,7 @@ function Router() {
     <Switch>
       {/* Main routes */}
       <Route path="/" component={Home} />
+      <Route path="/personality-sync" component={PersonalitySync} />
       <Route path="/apps" component={Home} />
       <Route path="/dashboard" component={Dashboard} />
       <Route path="/dashboard-new" component={DashboardNew} />
