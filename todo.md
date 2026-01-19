@@ -362,3 +362,11 @@
 
 - [x] Slow down all background videos on home page
 - [x] Add premium apps liquid glass button at top of home page featuring: Social Media Auto Pilot, Comprehensive Tax Assistant, Financial Co Pilot, Kaiden House Hack, Elite Studio, Content Creator, AI Receptionist
+
+- [x] Add YouTube Automation and Wealth Builder to Premium Apps page
+- [ ] Complete all remaining unchecked todo.md items in batch parallel mode
+
+- [x] Add category filtering to Premium Apps page
+- [ ] Add database tables for 48 remaining apps to shared schema
+- [ ] Build tRPC routers for 48 apps (Sales CRM, Employee OS, Invoice Generator, + 45 others)
+- [ ] Test all 48 app routers with shared authentication and entitlement system

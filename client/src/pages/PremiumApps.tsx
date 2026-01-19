@@ -1,6 +1,9 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { Link } from "wouter";
+
+type AppCategory = "All" | "Marketing" | "Finance" | "Business" | "Content" | "AI";
 
 const premiumApps = [
   {
@@ -10,6 +13,7 @@ const premiumApps = [
     features: ["Multi-platform posting", "AI content generation", "Analytics dashboard", "Auto-scheduling"],
     gradient: "from-blue-500/20 to-purple-500/20",
     icon: "📱",
+    category: "Marketing" as AppCategory,
   },
   {
     name: "Comprehensive Tax Assistant",
@@ -18,6 +22,7 @@ const premiumApps = [
     features: ["Smart deduction finder", "E-file support", "Audit protection", "Tax strategy planning"],
     gradient: "from-green-500/20 to-emerald-500/20",
     icon: "💰",
+    category: "Finance" as AppCategory,
   },
   {
     name: "Financial Co-Pilot",
@@ -26,6 +31,7 @@ const premiumApps = [
     features: ["Budget automation", "Investment tracking", "Cash flow forecasting", "Financial insights"],
     gradient: "from-amber-500/20 to-orange-500/20",
     icon: "📊",
+    category: "Finance" as AppCategory,
   },
   {
     name: "Kaiden House Hack",
@@ -34,6 +40,7 @@ const premiumApps = [
     features: ["Deal analyzer", "ROI calculator", "Market insights", "Financing options"],
     gradient: "from-rose-500/20 to-pink-500/20",
     icon: "🏠",
+    category: "Finance" as AppCategory,
   },
   {
     name: "Elite Studio",
@@ -42,6 +49,7 @@ const premiumApps = [
     features: ["AI video editing", "Professional effects", "4K rendering", "Cloud storage"],
     gradient: "from-purple-500/20 to-indigo-500/20",
     icon: "🎬",
+    category: "Content" as AppCategory,
   },
   {
     name: "Content Creator",
@@ -50,6 +58,7 @@ const premiumApps = [
     features: ["AI writing assistant", "Image generation", "Video scripts", "SEO optimization"],
     gradient: "from-cyan-500/20 to-blue-500/20",
     icon: "✨",
+    category: "Content" as AppCategory,
   },
   {
     name: "AI Receptionist",
@@ -58,10 +67,37 @@ const premiumApps = [
     features: ["24/7 availability", "Call handling", "Appointment scheduling", "CRM integration"],
     gradient: "from-teal-500/20 to-green-500/20",
     icon: "🤖",
+    category: "AI" as AppCategory,
+  },
+  {
+    name: "YouTube Automation",
+    description: "Complete YouTube channel management with AI-powered video optimization, scheduling, analytics, and audience growth strategies.",
+    price: "$14.99/mo",
+    features: ["Video scheduling", "SEO optimization", "Analytics dashboard", "Thumbnail generation"],
+    gradient: "from-red-500/20 to-pink-500/20",
+    icon: "🎥",
+    category: "Marketing" as AppCategory,
+  },
+  {
+    name: "Wealth Builder",
+    description: "Advanced investment portfolio management with AI-driven insights, asset allocation, and wealth growth strategies.",
+    price: "$14.99/mo",
+    features: ["Portfolio tracking", "Asset allocation", "Risk analysis", "Growth projections"],
+    gradient: "from-emerald-500/20 to-teal-500/20",
+    icon: "💎",
+    category: "Finance" as AppCategory,
   },
 ];
 
 export default function PremiumApps() {
+  const [selectedCategory, setSelectedCategory] = useState<AppCategory>("All");
+  
+  const categories: AppCategory[] = ["All", "Marketing", "Finance", "Business", "Content", "AI"];
+  
+  const filteredApps = selectedCategory === "All" 
+    ? premiumApps 
+    : premiumApps.filter(app => app.category === selectedCategory);
+  
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
       {/* Background Pattern */}
@@ -101,9 +137,26 @@ export default function PremiumApps() {
               Elite Business Apps
             </h1>
             
-            <p className="text-xl text-white/80 max-w-3xl mx-auto mb-12 leading-relaxed">
+            <p className="text-xl text-white/80 max-w-3xl mx-auto mb-8 leading-relaxed">
               Handpicked premium applications designed for entrepreneurs, creators, and business owners who demand excellence.
             </p>
+            
+            {/* Category Filter */}
+            <div className="flex flex-wrap items-center justify-center gap-3 mt-8">
+              {categories.map((category) => (
+                <button
+                  key={category}
+                  onClick={() => setSelectedCategory(category)}
+                  className={`px-6 py-2.5 rounded-xl backdrop-blur-xl transition-all border shadow-lg ${
+                    selectedCategory === category
+                      ? "bg-white/20 border-white/40 text-white shadow-amber-500/30"
+                      : "bg-white/5 border-white/10 text-white/70 hover:bg-white/10 hover:border-white/20"
+                  }`}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -111,7 +164,7 @@ export default function PremiumApps() {
         <section className="pb-24 px-6">
           <div className="container mx-auto">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {premiumApps.map((app, index) => (
+              {filteredApps.map((app, index) => (
                 <div
                   key={index}
                   className="group relative overflow-hidden rounded-3xl bg-white/5 backdrop-blur-3xl border border-white/20 shadow-2xl hover:shadow-amber-500/30 transition-all hover:scale-105 p-8"
