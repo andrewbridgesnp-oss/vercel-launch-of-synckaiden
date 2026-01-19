@@ -17,6 +17,7 @@ import { averyAIRouter } from "./routers/averyAI";
 import { agentSwarmRouter, pantryInventoryRouter, audioMasteringRouter, healthSyncScribeRouter, spamSlayerRouter } from "./routers/remainingApps";
 import { creativeClashLiveRouter } from "./routers/creativeClashLive";
 import { profileRouter } from "./routers/profile";
+import { apparelRouter } from "./routers/apparel";
 import {
   getAllProducts,
   getProductBySlug,
@@ -63,6 +64,7 @@ export const appRouter = router({
   healthSyncScribe: healthSyncScribeRouter,
   spamSlayer: spamSlayerRouter,
   creativeClashLive: creativeClashLiveRouter,
+  apparel: apparelRouter,
   
   auth: router({
     me: publicProcedure.query(opts => opts.ctx.user),

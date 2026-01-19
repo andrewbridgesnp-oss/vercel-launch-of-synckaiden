@@ -358,6 +358,94 @@ export const boutiqueCart = mysqlTable("boutiqueCart", {
 export type BoutiqueCartItem = typeof boutiqueCart.$inferSelect;
 export type InsertBoutiqueCartItem = typeof boutiqueCart.$inferInsert;
 
+// ============= SIGMA STRENGTH CO. E-COMMERCE TABLES =============
+
+export const sigmaProducts = mysqlTable("sigmaProducts", {
+  id: int("id").autoincrement().primaryKey(),
+  name: varchar("name", { length: 255 }).notNull(),
+  description: text("description"),
+  category: varchar("category", { length: 100 }),
+  basePrice: int("basePrice").notNull(), // in cents
+  image: varchar("image", { length: 500 }),
+  printfulProductId: varchar("printfulProductId", { length: 100 }),
+  printfulSyncVariantId: varchar("printfulSyncVariantId", { length: 100 }),
+  printFileUrl: varchar("printFileUrl", { length: 500 }),
+  mockupUrl: varchar("mockupUrl", { length: 500 }),
+  variants: json("variants"),
+  tags: json("tags"),
+  active: boolean("active").default(true).notNull(),
+  mentalHealthFocus: varchar("mentalHealthFocus", { length: 255 }), // e.g., "anxiety", "depression", "self-worth"
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+}, (table) => ({
+  categoryIdx: index("sigma_product_category_idx").on(table.category),
+  printfulProductIdIdx: index("sigma_product_printfulProductId_idx").on(table.printfulProductId),
+}));
+
+export type SigmaProduct = typeof sigmaProducts.$inferSelect;
+export type InsertSigmaProduct = typeof sigmaProducts.$inferInsert;
+
+export const sigmaOrders = mysqlTable("sigmaOrders", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  orderNumber: varchar("orderNumber", { length: 50 }).notNull().unique(),
+  status: mysqlEnum("status", ["pending", "processing", "shipped", "delivered", "canceled"]).default("pending").notNull(),
+  subtotal: int("subtotal").notNull(),
+  tax: int("tax").default(0),
+  shipping: int("shipping").default(0),
+  total: int("total").notNull(),
+  currency: varchar("currency", { length: 3 }).default("USD").notNull(),
+  paymentProvider: mysqlEnum("paymentProvider", ["stripe", "paypal"]).notNull(),
+  paymentId: varchar("paymentId", { length: 255 }),
+  printfulOrderId: varchar("printfulOrderId", { length: 100 }),
+  shippingAddress: json("shippingAddress"),
+  trackingNumber: varchar("trackingNumber", { length: 255 }),
+  trackingUrl: varchar("trackingUrl", { length: 500 }),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+}, (table) => ({
+  userIdIdx: index("sigma_order_userId_idx").on(table.userId),
+  orderNumberIdx: index("sigma_order_orderNumber_idx").on(table.orderNumber),
+  statusIdx: index("sigma_order_status_idx").on(table.status),
+}));
+
+export type SigmaOrder = typeof sigmaOrders.$inferSelect;
+export type InsertSigmaOrder = typeof sigmaOrders.$inferInsert;
+
+export const sigmaOrderItems = mysqlTable("sigmaOrderItems", {
+  id: int("id").autoincrement().primaryKey(),
+  orderId: int("orderId").notNull(),
+  productId: int("productId").notNull(),
+  variantId: varchar("variantId", { length: 100 }),
+  quantity: int("quantity").notNull(),
+  unitPrice: int("unitPrice").notNull(),
+  totalPrice: int("totalPrice").notNull(),
+  printfulItemId: varchar("printfulItemId", { length: 100 }),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+}, (table) => ({
+  orderIdIdx: index("sigma_orderitem_orderId_idx").on(table.orderId),
+  productIdIdx: index("sigma_orderitem_productId_idx").on(table.productId),
+}));
+
+export type SigmaOrderItem = typeof sigmaOrderItems.$inferSelect;
+export type InsertSigmaOrderItem = typeof sigmaOrderItems.$inferInsert;
+
+export const sigmaCart = mysqlTable("sigmaCart", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  productId: int("productId").notNull(),
+  variantId: varchar("variantId", { length: 100 }),
+  quantity: int("quantity").default(1).notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+}, (table) => ({
+  userIdIdx: index("sigma_cart_userId_idx").on(table.userId),
+  userProductUnique: unique("sigma_cart_user_product_unique").on(table.userId, table.productId, table.variantId),
+}));
+
+export type SigmaCartItem = typeof sigmaCart.$inferSelect;
+export type InsertSigmaCartItem = typeof sigmaCart.$inferInsert;
+
 // ============= YOUTUBE AUTOMATION TABLES =============
 
 export const youtubeChannels = mysqlTable("youtubeChannels", {

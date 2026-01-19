@@ -138,8 +138,27 @@ export default function SigmaStrength() {
         </div>
       </nav>
 
+      {/* Hero Image Banner */}
+      <section className="relative pt-24 pb-0">
+        <div className="container mx-auto px-6">
+          <div className="relative h-[500px] overflow-hidden rounded-3xl shadow-2xl">
+            <img
+              src="/sigma-hero.jpg"
+              alt="Sigma Strength Co. - Men's Mental Health Awareness Apparel"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex items-end justify-center pb-12">
+              <div className="text-center text-white">
+                <h1 className="text-6xl font-bold mb-4 drop-shadow-2xl">Sigma Strength Co.</h1>
+                <p className="text-2xl drop-shadow-lg">Strength in Vulnerability</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
+      <section className="relative pt-20 pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=1920')] bg-cover bg-center opacity-5" />
         
         <div className="container relative z-10 mx-auto px-6">

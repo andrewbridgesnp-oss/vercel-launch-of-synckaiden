@@ -218,6 +218,21 @@ export default function BougieBoutique() {
           </Button>
         </div>
 
+        {/* Hero Image Banner */}
+        <div className="relative h-[500px] overflow-hidden rounded-3xl shadow-2xl mb-12">
+          <img
+            src="/bougie-hero.jpg"
+            alt="Bougie Boutique - Children's Mental Health Awareness Apparel"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent flex items-end justify-center pb-12">
+            <div className="text-center text-white">
+              <h1 className="text-6xl font-bold mb-4 drop-shadow-2xl">Bougie Boutique</h1>
+              <p className="text-2xl drop-shadow-lg">Empowering Kids Through Fashion</p>
+            </div>
+          </div>
+        </div>
+
         {/* Hero Section with NEW logo */}
         <div className="text-center mb-12">
           <img 

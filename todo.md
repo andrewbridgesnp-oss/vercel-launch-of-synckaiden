@@ -264,3 +264,24 @@
 - [x] Copy apparel design images to public folder
 - [x] Update Bougie Boutique with new apparel images
 - [x] Add both stores to homepage storefront section
+
+
+## 👕 APPAREL STORES E-COMMERCE DEVELOPMENT
+- [x] Design database schema for products (id, name, description, price, images, sizes, colors, category, store)
+- [x] Design database schema for cart items (user_id, product_id, quantity, size, color)
+- [x] Design database schema for orders (id, user_id, total, status, shipping_address, created_at)
+- [x] Design database schema for order_items (order_id, product_id, quantity, size, color, price)
+- [x] Generate and apply database migration SQL
+- [x] Create backend tRPC router for product listing (getBoutiqueProducts, getSigmaProducts)
+- [x] Create backend tRPC router for cart management (addToCart, removeFromCart, getCart, updateQuantity)
+- [ ] Create backend tRPC router for checkout (createOrder, processPayment)
+- [x] Create backend tRPC router for order management (getOrders, getOrderById, updateOrderStatus)
+- [ ] Add shopping cart UI component with quantity controls
+- [ ] Add product detail modal with size/color selection
+- [ ] Implement checkout page with shipping address form
+- [ ] Add order confirmation page
+- [ ] Add order history page for users
+- [ ] Add admin order management dashboard
+- [ ] Integrate Stripe payment processing
+- [ ] Test complete shopping flow end-to-end
+- [ ] Seed database with all 25+ products from both stores
