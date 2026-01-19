@@ -442,3 +442,6 @@
 
 - [x] Arrange hero buttons horizontally with better spacing toward bottom of hero section
 - [x] Remove tagline paragraph from hero section
+
+- [x] Add Kling AI referral link to Premium Apps page as recommended video generation tool
+- [x] Add Kling AI featured section to Premium Apps page with luxury card design
