@@ -42,7 +42,7 @@ export default function Home() {
           style={{ playbackRate: 0.5 }}
           onLoadedMetadata={(e) => {
             const videoElement = e.currentTarget;
-            videoElement.playbackRate = 0.5; // Slow down to half speed
+            videoElement.playbackRate = 0.3; // Slow down to 30% speed
           }}
           className={`fixed inset-0 w-full h-full object-cover transition-opacity duration-2000 ${
             index === currentVideoIndex ? "opacity-100 z-0" : "opacity-0 z-0"
@@ -76,6 +76,14 @@ export default function Home() {
               </Link>
 
               <div className="flex items-center space-x-4">
+                {/* Premium Apps Button */}
+                <Link href="/premium-apps">
+                  <button className="px-6 py-2.5 rounded-xl bg-gradient-to-br from-white/10 to-white/5 hover:from-white/20 hover:to-white/10 backdrop-blur-2xl transition-all border border-white/30 hover:border-white/40 shadow-2xl hover:shadow-amber-500/40 hover:scale-105 relative overflow-hidden group">
+                    <div className="absolute inset-0 bg-gradient-to-r from-amber-500/20 via-rose-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <span className="relative text-sm font-semibold bg-gradient-to-r from-amber-300 via-rose-300 to-purple-300 bg-clip-text text-transparent">Premium Apps ✨</span>
+                  </button>
+                </Link>
+                
                 {/* Spotify Button */}
                 <a href="https://open.spotify.com" target="_blank" rel="noopener noreferrer">
                   <button className="flex items-center space-x-2 px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 backdrop-blur-xl transition-all border border-white/20 hover:border-white/30 shadow-lg hover:shadow-green-500/20">

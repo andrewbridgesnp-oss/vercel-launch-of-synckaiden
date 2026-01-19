@@ -359,3 +359,6 @@
 - [x] Change Get Started button to create account/signup flow (already links to getLoginUrl)
 - [x] Make Pillars of Success cards almost transparent liquid glass (bg-white/5)
 - [x] Make "Ready to Build Your Empire" CTA section almost transparent liquid glass (bg-white/5)
+
+- [x] Slow down all background videos on home page
+- [x] Add premium apps liquid glass button at top of home page featuring: Social Media Auto Pilot, Comprehensive Tax Assistant, Financial Co Pilot, Kaiden House Hack, Elite Studio, Content Creator, AI Receptionist
