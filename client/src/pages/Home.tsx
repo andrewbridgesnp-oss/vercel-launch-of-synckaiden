@@ -111,34 +111,12 @@ export default function Home() {
         <section className="min-h-screen flex items-center justify-center pt-20 px-6">
           <div className="container mx-auto">
             <div className="text-center mb-12">
-              {/* Bougie Boutique Logo Video */}
-              <div className="mb-8 flex justify-center">
-                <div className="relative w-[400px] h-[300px] rounded-3xl overflow-hidden bg-white/5 backdrop-blur-xl border border-white/20 shadow-2xl">
-                  <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-full object-cover"
-                  >
-                    <source src="/bougie-logo.mp4" type="video/mp4" />
-                  </video>
-                </div>
-              </div>
-
               <div className="inline-block px-6 py-2 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 mb-6 shadow-lg">
                 <div className="flex items-center gap-2">
                   <Sparkles className="w-5 h-5 text-amber-400" />
                   <span className="text-white/90 font-medium">Premium Digital Ecosystem</span>
                 </div>
               </div>
-
-              <h1 className="text-7xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-white via-amber-200 to-white bg-clip-text text-transparent drop-shadow-2xl">
-                Your Complete
-              </h1>
-              <h1 className="text-7xl md:text-8xl font-bold mb-8 bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-400 bg-clip-text text-transparent drop-shadow-2xl">
-                Digital Empire
-              </h1>
 
               <p className="text-2xl text-white/90 mb-12 max-w-3xl mx-auto drop-shadow-lg backdrop-blur-sm bg-black/20 px-8 py-4 rounded-2xl border border-white/10">
                 Premium digital products, AI-powered business tools, and professional website hosting—all in one luxurious platform.
@@ -184,8 +162,19 @@ export default function Home() {
                   <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-pink-500/20 to-purple-500/20 backdrop-blur-2xl border border-white/20 shadow-2xl hover:shadow-pink-500/30 transition-all hover:scale-105 p-8 h-full">
                     <div className="absolute inset-0 bg-gradient-to-br from-pink-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                     <div className="relative z-10">
-                      <div className="w-16 h-16 bg-gradient-to-br from-pink-500/80 to-purple-500/80 backdrop-blur-xl rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform">
-                        <ShoppingBag className="w-8 h-8 text-white" />
+                      {/* Bougie Boutique Logo Video */}
+                      <div className="mb-6 flex justify-center">
+                        <div className="relative w-full h-[200px] rounded-2xl overflow-hidden bg-white/5 backdrop-blur-xl border border-white/20 shadow-lg">
+                          <video
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            className="w-full h-full object-cover"
+                          >
+                            <source src="/bougie-logo.mp4" type="video/mp4" />
+                          </video>
+                        </div>
                       </div>
                       <h3 className="text-3xl font-bold text-white mb-4 drop-shadow-lg">Bougie Boutique</h3>
                       <p className="text-white/80 mb-6 leading-relaxed">

@@ -304,3 +304,7 @@
 - [x] Implement liquid glass morphism buttons with frosted glass effect
 - [x] Create seamless overlay with proper transparency and blur
 - [x] Add video rotation logic for random background changes
+
+- [x] Remove Bougie Boutique logo video from hero section
+- [x] Delete "Your Complete" and "Digital Empire" headline texts
+- [x] Move Bougie Boutique logo video to Bougie Boutique card section
