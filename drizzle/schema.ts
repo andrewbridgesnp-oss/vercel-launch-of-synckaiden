@@ -1709,3 +1709,249 @@ export const wealthGoals = mysqlTable("wealthGoals", {
 
 export type WealthGoal = typeof wealthGoals.$inferSelect;
 export type InsertWealthGoal = typeof wealthGoals.$inferInsert;
+
+
+// ============= SALES CRM TABLES =============
+
+export const salesCrmContacts = mysqlTable("salesCrmContacts", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  firstName: varchar("firstName", { length: 100 }).notNull(),
+  lastName: varchar("lastName", { length: 100 }).notNull(),
+  email: varchar("email", { length: 320 }),
+  phone: varchar("phone", { length: 20 }),
+  company: varchar("company", { length: 255 }),
+  title: varchar("title", { length: 100 }),
+  source: varchar("source", { length: 100 }),
+  status: mysqlEnum("status", ["lead", "prospect", "customer", "inactive"]).default("lead").notNull(),
+  tags: json("tags"),
+  notes: text("notes"),
+  lastContactedAt: timestamp("lastContactedAt"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+}, (table) => ({
+  userIdIdx: index("sales_crm_contact_userId_idx").on(table.userId),
+  emailIdx: index("sales_crm_contact_email_idx").on(table.email),
+  statusIdx: index("sales_crm_contact_status_idx").on(table.status),
+}));
+
+export type SalesCrmContact = typeof salesCrmContacts.$inferSelect;
+export type InsertSalesCrmContact = typeof salesCrmContacts.$inferInsert;
+
+export const salesCrmDeals = mysqlTable("salesCrmDeals", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  contactId: int("contactId"),
+  title: varchar("title", { length: 255 }).notNull(),
+  value: int("value").notNull(), // in cents
+  stage: mysqlEnum("stage", ["prospecting", "qualification", "proposal", "negotiation", "closed_won", "closed_lost"]).default("prospecting").notNull(),
+  probability: int("probability").default(0), // 0-100
+  expectedCloseDate: timestamp("expectedCloseDate"),
+  actualCloseDate: timestamp("actualCloseDate"),
+  description: text("description"),
+  lostReason: text("lostReason"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+}, (table) => ({
+  userIdIdx: index("sales_crm_deal_userId_idx").on(table.userId),
+  contactIdIdx: index("sales_crm_deal_contactId_idx").on(table.contactId),
+  stageIdx: index("sales_crm_deal_stage_idx").on(table.stage),
+}));
+
+export type SalesCrmDeal = typeof salesCrmDeals.$inferSelect;
+export type InsertSalesCrmDeal = typeof salesCrmDeals.$inferInsert;
+
+export const salesCrmProposals = mysqlTable("salesCrmProposals", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  dealId: int("dealId"),
+  title: varchar("title", { length: 255 }).notNull(),
+  content: text("content").notNull(),
+  totalAmount: int("totalAmount").notNull(), // in cents
+  status: mysqlEnum("status", ["draft", "sent", "viewed", "accepted", "rejected"]).default("draft").notNull(),
+  sentAt: timestamp("sentAt"),
+  viewedAt: timestamp("viewedAt"),
+  respondedAt: timestamp("respondedAt"),
+  expiresAt: timestamp("expiresAt"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+}, (table) => ({
+  userIdIdx: index("sales_crm_proposal_userId_idx").on(table.userId),
+  dealIdIdx: index("sales_crm_proposal_dealId_idx").on(table.dealId),
+  statusIdx: index("sales_crm_proposal_status_idx").on(table.status),
+}));
+
+export type SalesCrmProposal = typeof salesCrmProposals.$inferSelect;
+export type InsertSalesCrmProposal = typeof salesCrmProposals.$inferInsert;
+
+
+// ============= EMPLOYEE OS (HR SUITE) TABLES =============
+
+export const employeeOsEmployees = mysqlTable("employeeOsEmployees", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(), // Company owner
+  employeeId: varchar("employeeId", { length: 50 }).notNull(),
+  firstName: varchar("firstName", { length: 100 }).notNull(),
+  lastName: varchar("lastName", { length: 100 }).notNull(),
+  email: varchar("email", { length: 320 }).notNull(),
+  phone: varchar("phone", { length: 20 }),
+  department: varchar("department", { length: 100 }),
+  position: varchar("position", { length: 100 }),
+  hireDate: timestamp("hireDate").notNull(),
+  salary: int("salary"), // in cents, encrypted
+  status: mysqlEnum("status", ["active", "on_leave", "terminated"]).default("active").notNull(),
+  emergencyContact: json("emergencyContact"),
+  documents: json("documents"), // Array of document URLs
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+}, (table) => ({
+  userIdIdx: index("employee_os_employee_userId_idx").on(table.userId),
+  employeeIdIdx: index("employee_os_employee_employeeId_idx").on(table.employeeId),
+  statusIdx: index("employee_os_employee_status_idx").on(table.status),
+}));
+
+export type EmployeeOsEmployee = typeof employeeOsEmployees.$inferSelect;
+export type InsertEmployeeOsEmployee = typeof employeeOsEmployees.$inferInsert;
+
+export const employeeOsPerformanceReviews = mysqlTable("employeeOsPerformanceReviews", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  employeeId: int("employeeId").notNull(),
+  reviewDate: timestamp("reviewDate").notNull(),
+  reviewPeriodStart: timestamp("reviewPeriodStart").notNull(),
+  reviewPeriodEnd: timestamp("reviewPeriodEnd").notNull(),
+  overallRating: int("overallRating").notNull(), // 1-5
+  strengths: text("strengths"),
+  areasForImprovement: text("areasForImprovement"),
+  goals: json("goals"),
+  reviewerNotes: text("reviewerNotes"),
+  employeeComments: text("employeeComments"),
+  status: mysqlEnum("status", ["draft", "completed", "acknowledged"]).default("draft").notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+}, (table) => ({
+  userIdIdx: index("employee_os_review_userId_idx").on(table.userId),
+  employeeIdIdx: index("employee_os_review_employeeId_idx").on(table.employeeId),
+  statusIdx: index("employee_os_review_status_idx").on(table.status),
+}));
+
+export type EmployeeOsPerformanceReview = typeof employeeOsPerformanceReviews.$inferSelect;
+export type InsertEmployeeOsPerformanceReview = typeof employeeOsPerformanceReviews.$inferInsert;
+
+export const employeeOsTimeTracking = mysqlTable("employeeOsTimeTracking", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  employeeId: int("employeeId").notNull(),
+  date: timestamp("date").notNull(),
+  clockIn: timestamp("clockIn").notNull(),
+  clockOut: timestamp("clockOut"),
+  breakMinutes: int("breakMinutes").default(0),
+  totalHours: decimal("totalHours", { precision: 5, scale: 2 }),
+  overtimeHours: decimal("overtimeHours", { precision: 5, scale: 2 }).default("0"),
+  notes: text("notes"),
+  approved: boolean("approved").default(false),
+  approvedBy: int("approvedBy"),
+  approvedAt: timestamp("approvedAt"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+}, (table) => ({
+  userIdIdx: index("employee_os_time_userId_idx").on(table.userId),
+  employeeIdIdx: index("employee_os_time_employeeId_idx").on(table.employeeId),
+  dateIdx: index("employee_os_time_date_idx").on(table.date),
+}));
+
+export type EmployeeOsTimeTracking = typeof employeeOsTimeTracking.$inferSelect;
+export type InsertEmployeeOsTimeTracking = typeof employeeOsTimeTracking.$inferInsert;
+
+export const employeeOsPayroll = mysqlTable("employeeOsPayroll", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  employeeId: int("employeeId").notNull(),
+  payPeriodStart: timestamp("payPeriodStart").notNull(),
+  payPeriodEnd: timestamp("payPeriodEnd").notNull(),
+  grossPay: int("grossPay").notNull(), // in cents
+  deductions: json("deductions"), // {tax, insurance, etc}
+  netPay: int("netPay").notNull(), // in cents
+  paymentMethod: mysqlEnum("paymentMethod", ["direct_deposit", "check", "cash"]).notNull(),
+  paymentDate: timestamp("paymentDate"),
+  status: mysqlEnum("status", ["pending", "processed", "paid"]).default("pending").notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+}, (table) => ({
+  userIdIdx: index("employee_os_payroll_userId_idx").on(table.userId),
+  employeeIdIdx: index("employee_os_payroll_employeeId_idx").on(table.employeeId),
+  statusIdx: index("employee_os_payroll_status_idx").on(table.status),
+}));
+
+export type EmployeeOsPayroll = typeof employeeOsPayroll.$inferSelect;
+export type InsertEmployeeOsPayroll = typeof employeeOsPayroll.$inferInsert;
+
+
+// ============= INVOICE GENERATOR TABLES =============
+
+export const invoiceGenClients = mysqlTable("invoiceGenClients", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  clientName: varchar("clientName", { length: 255 }).notNull(),
+  email: varchar("email", { length: 320 }),
+  phone: varchar("phone", { length: 20 }),
+  company: varchar("company", { length: 255 }),
+  address: text("address"),
+  taxId: varchar("taxId", { length: 50 }),
+  paymentTerms: int("paymentTerms").default(30), // days
+  notes: text("notes"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+}, (table) => ({
+  userIdIdx: index("invoice_gen_client_userId_idx").on(table.userId),
+  emailIdx: index("invoice_gen_client_email_idx").on(table.email),
+}));
+
+export type InvoiceGenClient = typeof invoiceGenClients.$inferSelect;
+export type InsertInvoiceGenClient = typeof invoiceGenClients.$inferInsert;
+
+export const invoiceGenInvoices = mysqlTable("invoiceGenInvoices", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  clientId: int("clientId").notNull(),
+  invoiceNumber: varchar("invoiceNumber", { length: 50 }).notNull(),
+  issueDate: timestamp("issueDate").notNull(),
+  dueDate: timestamp("dueDate").notNull(),
+  subtotal: int("subtotal").notNull(), // in cents
+  taxRate: decimal("taxRate", { precision: 5, scale: 2 }).default("0"),
+  taxAmount: int("taxAmount").default(0), // in cents
+  total: int("total").notNull(), // in cents
+  amountPaid: int("amountPaid").default(0), // in cents
+  status: mysqlEnum("status", ["draft", "sent", "paid", "overdue", "cancelled"]).default("draft").notNull(),
+  notes: text("notes"),
+  terms: text("terms"),
+  lineItems: json("lineItems").notNull(), // Array of {description, quantity, rate, amount}
+  sentAt: timestamp("sentAt"),
+  paidAt: timestamp("paidAt"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+}, (table) => ({
+  userIdIdx: index("invoice_gen_invoice_userId_idx").on(table.userId),
+  clientIdIdx: index("invoice_gen_invoice_clientId_idx").on(table.clientId),
+  statusIdx: index("invoice_gen_invoice_status_idx").on(table.status),
+  invoiceNumberIdx: index("invoice_gen_invoice_number_idx").on(table.invoiceNumber),
+}));
+
+export type InvoiceGenInvoice = typeof invoiceGenInvoices.$inferSelect;
+export type InsertInvoiceGenInvoice = typeof invoiceGenInvoices.$inferInsert;
+
+export const invoiceGenPayments = mysqlTable("invoiceGenPayments", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  invoiceId: int("invoiceId").notNull(),
+  amount: int("amount").notNull(), // in cents
+  paymentMethod: varchar("paymentMethod", { length: 50 }),
+  paymentDate: timestamp("paymentDate").notNull(),
+  transactionId: varchar("transactionId", { length: 255 }),
+  notes: text("notes"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+}, (table) => ({
+  userIdIdx: index("invoice_gen_payment_userId_idx").on(table.userId),
+  invoiceIdIdx: index("invoice_gen_payment_invoiceId_idx").on(table.invoiceId),
+}));
+
+export type InvoiceGenPayment = typeof invoiceGenPayments.$inferSelect;
+export type InsertInvoiceGenPayment = typeof invoiceGenPayments.$inferInsert;

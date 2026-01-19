@@ -21,6 +21,9 @@ import { apparelRouter } from "./routers/apparel";
 import { llcFormationRouter } from "./routers/llcFormation";
 import { dynastyTrustRouter } from "./routers/dynastyTrust";
 import { buildWealthRouter } from "./routers/buildWealth";
+import { salesCrmRouter } from "./routers/salesCrm";
+import { employeeOsRouter } from "./routers/employeeOs";
+import { invoiceGeneratorRouter } from "./routers/invoiceGenerator";
 import {
   getAllProducts,
   getProductBySlug,
@@ -71,6 +74,9 @@ export const appRouter = router({
   llcFormation: llcFormationRouter,
   dynastyTrust: dynastyTrustRouter,
   buildWealth: buildWealthRouter,
+  salesCrm: salesCrmRouter,
+  employeeOs: employeeOsRouter,
+  invoiceGenerator: invoiceGeneratorRouter,
   
   auth: router({
     me: publicProcedure.query(opts => opts.ctx.user),

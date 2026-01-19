@@ -43,6 +43,27 @@
       "when": 1768846021166,
       "tag": "0005_sweet_gladiator",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "5",
+      "when": 1768848363819,
+      "tag": "0006_cuddly_puppet_master",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "5",
+      "when": 1768848489576,
+      "tag": "0007_square_expediter",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "5",
+      "when": 1768848620193,
+      "tag": "0008_gifted_newton_destine",
+      "breakpoints": true
     }
   ]
 }
