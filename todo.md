@@ -372,3 +372,8 @@
 - [ ] Test all 48 app routers with shared authentication and entitlement system
 
 - [x] Increase all background video playback speed from 0.3x to 0.6x for smooth performance
+
+- [x] Move "Premium digital products..." text below "Start Your Empire" button on home page
+- [x] Add "Sneak Peek" button that shows all app capabilities in preview-only mode (no actual execution)
+- [x] Ensure all background videos loop continuously
+- [x] Increase overlay transparency by 15% for better video visibility

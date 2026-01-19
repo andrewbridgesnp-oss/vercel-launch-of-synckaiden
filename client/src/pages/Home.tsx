@@ -127,11 +127,7 @@ export default function Home() {
         <section className="min-h-screen flex items-center justify-center pt-20 px-6">
           <div className="container mx-auto">
             <div className="text-center mb-12">
-              <p className="text-2xl text-white/90 mb-12 max-w-3xl mx-auto drop-shadow-lg backdrop-blur-sm bg-black/20 px-8 py-4 rounded-2xl border border-white/10">
-                Premium digital products, AI-powered business tools, and professional website hosting—all in one luxurious platform.
-              </p>
-
-              <div className="flex flex-wrap items-center justify-center gap-4 mb-12">
+              <div className="flex flex-wrap items-center justify-center gap-4 mb-8">
                 <div className="flex items-center gap-2 text-white/80 bg-white/10 backdrop-blur-xl px-4 py-2 rounded-xl border border-white/20 shadow-lg">
                   <span>No credit card required</span>
                 </div>
@@ -140,12 +136,23 @@ export default function Home() {
                 </div>
               </div>
 
-              <a href={getLoginUrl()}>
-                <Button size="lg" className="bg-white/10 hover:bg-white/20 backdrop-blur-xl border-2 border-white/20 shadow-2xl hover:shadow-white/30 text-white text-lg px-12 py-6 rounded-2xl transition-all hover:scale-105">
-                  Start Your Empire
-                  <ArrowRight className="ml-3 w-6 h-6" />
-                </Button>
-              </a>
+              <div className="flex flex-col items-center gap-4 mb-8">
+                <a href={getLoginUrl()}>
+                  <Button size="lg" className="bg-white/10 hover:bg-white/20 backdrop-blur-xl border-2 border-white/20 shadow-2xl hover:shadow-white/30 text-white text-lg px-12 py-6 rounded-2xl transition-all hover:scale-105">
+                    Start Your Empire
+                    <ArrowRight className="ml-3 w-6 h-6" />
+                  </Button>
+                </a>
+                <Link href="/app-store">
+                  <Button size="lg" variant="outline" className="bg-gradient-to-r from-purple-500/20 to-blue-500/20 hover:from-purple-500/30 hover:to-blue-500/30 backdrop-blur-xl border-2 border-white/30 shadow-2xl hover:shadow-purple-500/30 text-white text-lg px-12 py-6 rounded-2xl transition-all hover:scale-105">
+                    Sneak Peek 👀
+                  </Button>
+                </Link>
+              </div>
+
+              <p className="text-2xl text-white/90 max-w-3xl mx-auto drop-shadow-lg backdrop-blur-sm bg-black/20 px-8 py-4 rounded-2xl border border-white/10">
+                Premium digital products, AI-powered business tools, and professional website hosting—all in one luxurious platform.
+              </p>
             </div>
           </div>
         </section>
@@ -163,7 +170,7 @@ export default function Home() {
               <Link href="/boutique">
                 <div className="group cursor-pointer">
                   <div className="relative overflow-hidden rounded-3xl bg-white/5 backdrop-blur-3xl border border-white/20 shadow-2xl hover:shadow-pink-500/30 transition-all hover:scale-105 p-8 h-full">
-                    <div className="absolute inset-0 bg-gradient-to-br from-pink-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-pink-500/10 to-transparent opacity-0 group-hover:opacity-85 transition-opacity" />
                     <div className="relative z-10">
                       {/* Bougie Boutique Logo Video */}
                       <div className="mb-6 flex justify-center">
@@ -174,6 +181,10 @@ export default function Home() {
                             muted
                             playsInline
                             className="w-full h-full object-cover"
+                            onLoadedMetadata={(e) => {
+                              const video = e.currentTarget;
+                              video.playbackRate = 0.6;
+                            }}
                           >
                             <source src="/bougie-logo.mp4" type="video/mp4" />
                           </video>
@@ -196,12 +207,12 @@ export default function Home() {
               <Link href="/apps">
                 <div className="group cursor-pointer">
                   <div className="relative overflow-hidden rounded-3xl bg-white/5 backdrop-blur-3xl border border-white/20 shadow-2xl hover:shadow-cyan-500/30 transition-all hover:scale-105 p-8 h-full">
-                    <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-transparent opacity-0 group-hover:opacity-85 transition-opacity" />
                     <div className="relative z-10">
                       {/* Kaiden Icon Video 2 */}
                       <div className="mb-6 flex justify-center">
                         <div className="w-32 h-32 rounded-2xl overflow-hidden bg-white/5 backdrop-blur-xl border border-white/20 shadow-lg">
-                          <video autoPlay loop muted playsInline className="w-full h-full object-cover">
+                          <video autoPlay loop muted playsInline className="w-full h-full object-cover" onLoadedMetadata={(e) => { e.currentTarget.playbackRate = 0.6; }}>
                             <source src="/kaiden-icon-2.mp4" type="video/mp4" />
                           </video>
                         </div>
@@ -223,12 +234,12 @@ export default function Home() {
               <Link href="/cox-and-co">
                 <div className="group cursor-pointer">
                   <div className="relative overflow-hidden rounded-3xl bg-white/5 backdrop-blur-3xl border border-white/20 shadow-2xl hover:shadow-amber-500/30 transition-all hover:scale-105 p-8 h-full">
-                    <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 to-transparent opacity-0 group-hover:opacity-85 transition-opacity" />
                     <div className="relative z-10">
                       {/* Kaiden Icon Video 3 */}
                       <div className="mb-6 flex justify-center">
                         <div className="w-32 h-32 rounded-2xl overflow-hidden bg-white/5 backdrop-blur-xl border border-white/20 shadow-lg">
-                          <video autoPlay loop muted playsInline className="w-full h-full object-cover">
+                          <video autoPlay loop muted playsInline className="w-full h-full object-cover" onLoadedMetadata={(e) => { e.currentTarget.playbackRate = 0.6; }}>
                             <source src="/kaiden-icon-3.mp4" type="video/mp4" />
                           </video>
                         </div>
