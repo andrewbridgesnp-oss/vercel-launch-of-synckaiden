@@ -230,7 +230,7 @@ export default function Home() {
                       <CardDescription>{app.description}</CardDescription>
                     </CardHeader>
                     <CardContent>
-                      <Link href={`/apps/${app.slug}`}>
+                      <Link href="/dashboard">
                         <Button variant="outline" className="w-full">
                           {hasAccess ? 'Open App' : 'Learn More'}
                           <ArrowRight className="ml-2 w-4 h-4" />

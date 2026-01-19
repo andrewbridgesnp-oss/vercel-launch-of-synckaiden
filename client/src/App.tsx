@@ -118,6 +118,7 @@ function Router() {
     <Switch>
       {/* Main routes */}
       <Route path="/" component={Home} />
+      <Route path="/apps" component={Home} />
       <Route path="/dashboard" component={Dashboard} />
       <Route path="/dashboard-new" component={DashboardNew} />
       <Route path="/features" component={Features} />
