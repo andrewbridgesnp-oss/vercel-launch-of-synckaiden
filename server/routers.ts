@@ -4,6 +4,7 @@ import { COOKIE_NAME } from "@shared/const";
 import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, protectedProcedure, router } from "./_core/trpc";
+import { printfulRouter } from "./api/routers/printful";
 import {
   getAllProducts,
   getProductBySlug,
@@ -304,6 +305,26 @@ export const appRouter = router({
     videos: protectedProcedure.query(async ({ ctx }) => {
       return await getUserYoutubeVideos(ctx.user.id);
     }),
+  }),
+
+  // ============= PRINTFUL INTEGRATION =============
+  
+  printful: printfulRouter,
+
+  // ============= ORDERS ROUTES =============
+  
+  orders: router({ list: protectedProcedure.query(async ({ ctx }) => {
+      // Get orders from database
+      const db = await import("./db");
+      return await db.getBoutiqueOrdersByUser(ctx.user.id);
+    }),
+    
+    getById: protectedProcedure
+      .input(z.object({ orderId: z.number() }))
+      .query(async ({ ctx, input }) => {
+        const db = await import("./db");
+        return await db.getBoutiqueOrderById(input.orderId, ctx.user.id);
+      }),
   }),
 
   // ============= SOCIAL MEDIA AUTOPILOT ROUTES =============

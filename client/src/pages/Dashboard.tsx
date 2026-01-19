@@ -73,6 +73,87 @@ export default function Dashboard() {
             </p>
           </div>
 
+          {/* Quick Access to Integrated Apps */}
+          {hasBundle && (
+            <div className="mb-12">
+              <h2 className="text-2xl font-bold mb-6">Quick Access</h2>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
+                <Link href="/apps/avery-ai">
+                  <Button variant="outline" className="w-full h-20 flex flex-col items-center justify-center gap-2">
+                    <span className="text-2xl">🤖</span>
+                    <span className="text-xs">Avery AI</span>
+                  </Button>
+                </Link>
+                <Link href="/apps/tax">
+                  <Button variant="outline" className="w-full h-20 flex flex-col items-center justify-center gap-2">
+                    <span className="text-2xl">💰</span>
+                    <span className="text-xs">Tax App</span>
+                  </Button>
+                </Link>
+                <Link href="/apps/ai-funding">
+                  <Button variant="outline" className="w-full h-20 flex flex-col items-center justify-center gap-2">
+                    <span className="text-2xl">💼</span>
+                    <span className="text-xs">AI Funding</span>
+                  </Button>
+                </Link>
+                <Link href="/apps/atlas-academy">
+                  <Button variant="outline" className="w-full h-20 flex flex-col items-center justify-center gap-2">
+                    <span className="text-2xl">🎓</span>
+                    <span className="text-xs">Academy</span>
+                  </Button>
+                </Link>
+                <Link href="/apps/vitalsync">
+                  <Button variant="outline" className="w-full h-20 flex flex-col items-center justify-center gap-2">
+                    <span className="text-2xl">❤️</span>
+                    <span className="text-xs">VitalSync</span>
+                  </Button>
+                </Link>
+                <Link href="/apps/social-media">
+                  <Button variant="outline" className="w-full h-20 flex flex-col items-center justify-center gap-2">
+                    <span className="text-2xl">📱</span>
+                    <span className="text-xs">Social Media</span>
+                  </Button>
+                </Link>
+                <Link href="/boutique">
+                  <Button variant="outline" className="w-full h-20 flex flex-col items-center justify-center gap-2">
+                    <span className="text-2xl">👕</span>
+                    <span className="text-xs">Boutique</span>
+                  </Button>
+                </Link>
+                <Link href="/apps/agent-swarm">
+                  <Button variant="outline" className="w-full h-20 flex flex-col items-center justify-center gap-2">
+                    <span className="text-2xl">🤖</span>
+                    <span className="text-xs">Agent Swarm</span>
+                  </Button>
+                </Link>
+                <Link href="/apps/pantry">
+                  <Button variant="outline" className="w-full h-20 flex flex-col items-center justify-center gap-2">
+                    <span className="text-2xl">📦</span>
+                    <span className="text-xs">Pantry</span>
+                  </Button>
+                </Link>
+                <Link href="/apps/audio-mastering">
+                  <Button variant="outline" className="w-full h-20 flex flex-col items-center justify-center gap-2">
+                    <span className="text-2xl">🎵</span>
+                    <span className="text-xs">Audio</span>
+                  </Button>
+                </Link>
+                <Link href="/apps/healthsync-scribe">
+                  <Button variant="outline" className="w-full h-20 flex flex-col items-center justify-center gap-2">
+                    <span className="text-2xl">📝</span>
+                    <span className="text-xs">HealthSync</span>
+                  </Button>
+                </Link>
+                <Link href="/apps/spam-slayer">
+                  <Button variant="outline" className="w-full h-20 flex flex-col items-center justify-center gap-2">
+                    <span className="text-2xl">🛡️</span>
+                    <span className="text-xs">SpamSlayer</span>
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          )}
+
           {/* Stats Cards */}
           <div className="grid md:grid-cols-3 gap-6 mb-12">
             <Card className="glass-card border-border/50">

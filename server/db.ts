@@ -561,6 +561,29 @@ export async function createBoutiqueOrder(data: {
   return result;
 }
 
+export async function getBoutiqueOrdersByUser(userId: number) {
+  const db = await getDb();
+  if (!db) return [];
+  
+  return await db.select().from(boutiqueOrders)
+    .where(eq(boutiqueOrders.userId, userId))
+    .orderBy(desc(boutiqueOrders.createdAt));
+}
+
+export async function getBoutiqueOrderById(orderId: number, userId: number) {
+  const db = await getDb();
+  if (!db) return null;
+  
+  const result = await db.select().from(boutiqueOrders)
+    .where(and(
+      eq(boutiqueOrders.id, orderId),
+      eq(boutiqueOrders.userId, userId)
+    ))
+    .limit(1);
+  
+  return result.length > 0 ? result[0] : null;
+}
+
 // ============= YOUTUBE AUTOMATION HELPERS =============
 
 export async function getUserYoutubeChannels(userId: number) {
