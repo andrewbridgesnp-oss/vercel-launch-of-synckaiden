@@ -18,6 +18,9 @@ import { agentSwarmRouter, pantryInventoryRouter, audioMasteringRouter, healthSy
 import { creativeClashLiveRouter } from "./routers/creativeClashLive";
 import { profileRouter } from "./routers/profile";
 import { apparelRouter } from "./routers/apparel";
+import { llcFormationRouter } from "./routers/llcFormation";
+import { dynastyTrustRouter } from "./routers/dynastyTrust";
+import { buildWealthRouter } from "./routers/buildWealth";
 import {
   getAllProducts,
   getProductBySlug,
@@ -65,6 +68,9 @@ export const appRouter = router({
   spamSlayer: spamSlayerRouter,
   creativeClashLive: creativeClashLiveRouter,
   apparel: apparelRouter,
+  llcFormation: llcFormationRouter,
+  dynastyTrust: dynastyTrustRouter,
+  buildWealth: buildWealthRouter,
   
   auth: router({
     me: publicProcedure.query(opts => opts.ctx.user),
