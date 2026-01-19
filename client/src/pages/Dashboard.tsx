@@ -144,10 +144,28 @@ export default function Dashboard() {
                     <span className="text-xs">HealthSync</span>
                   </Button>
                 </Link>
-                <Link href="/apps/spam-slayer">
+                <Link href="/app/spam-slayer">
                   <Button variant="outline" className="w-full h-20 flex flex-col items-center justify-center gap-2">
                     <span className="text-2xl">🛡️</span>
                     <span className="text-xs">SpamSlayer</span>
+                  </Button>
+                </Link>
+                <Link href="/app/marketing-os">
+                  <Button variant="outline" className="w-full h-20 flex flex-col items-center justify-center gap-2">
+                    <span className="text-2xl">🎯</span>
+                    <span className="text-xs">Marketing OS</span>
+                  </Button>
+                </Link>
+                <Link href="/app/creative-clash-live">
+                  <Button variant="outline" className="w-full h-20 flex flex-col items-center justify-center gap-2">
+                    <span className="text-2xl">🏆</span>
+                    <span className="text-xs">Creative Clash</span>
+                  </Button>
+                </Link>
+                <Link href="/app/youtube-automation">
+                  <Button variant="outline" className="w-full h-20 flex flex-col items-center justify-center gap-2">
+                    <span className="text-2xl">📺</span>
+                    <span className="text-xs">YouTube</span>
                   </Button>
                 </Link>
               </div>

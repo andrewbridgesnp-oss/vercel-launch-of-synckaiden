@@ -20,7 +20,10 @@ import AgentSwarm from "./pages/apps/AgentSwarm";
 import PantryInventory from "./pages/apps/PantryInventory";
 import AudioMastering from "./pages/apps/AudioMastering";
 import HealthSyncScribe from "./pages/apps/HealthSyncScribe";
-import SpamSlayer from "./pages/apps/SpamSlayer";
+import SpamSlayer from "@/pages/apps/SpamSlayer";
+import MarketingOS from "@/pages/apps/MarketingOS";
+import CreativeClashLive from "@/pages/apps/CreativeClashLive";
+import YouTubeAutomation from "@/pages/apps/YouTubeAutomation";
 
 function Router() {
   return (
@@ -41,7 +44,10 @@ function Router() {
       <Route path={"/apps/pantry"} component={PantryInventory} />
       <Route path={"/apps/audio-mastering"} component={AudioMastering} />
       <Route path={"/apps/healthsync-scribe"} component={HealthSyncScribe} />
-      <Route path={"/apps/spam-slayer"} component={SpamSlayer} />
+       <Route path="/app/spam-slayer" component={SpamSlayer} />
+      <Route path="/app/marketing-os" component={MarketingOS} />
+      <Route path="/app/creative-clash-live" component={CreativeClashLive} />
+      <Route path="/app/youtube-automation" component={YouTubeAutomation} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>
