@@ -28,14 +28,14 @@ const LuxuryButton = forwardRef<HTMLButtonElement, LuxuryButtonProps>(
           "overflow-hidden",
           
           // Glass morphism effect
-          "backdrop-blur-md bg-opacity-90",
+          "backdrop-blur-xl bg-opacity-20",
           
           // Metallic border
           "border-2 border-white/30",
           "shadow-[0_0_20px_rgba(255,255,255,0.3)]",
           
-          // Gradient background
-          variantStyles[variant],
+          // Transparent gradient overlay (only shows on hover)
+          "bg-white/10",
           
           // Glow effect
           "before:absolute before:inset-0 before:rounded-full",
@@ -43,8 +43,12 @@ const LuxuryButton = forwardRef<HTMLButtonElement, LuxuryButtonProps>(
           "before:opacity-0 hover:before:opacity-100",
           "before:transition-opacity before:duration-300",
           
-          // Outer glow on hover
-          "hover:shadow-[0_0_30px_rgba(255,255,255,0.5),0_0_60px_rgba(147,51,234,0.4)]",
+          // Outer glow on hover (variant-specific)
+          variant === "premium" && "hover:shadow-[0_0_30px_rgba(168,85,247,0.6),0_0_60px_rgba(59,130,246,0.4)]",
+          variant === "signin" && "hover:shadow-[0_0_30px_rgba(30,64,175,0.6),0_0_60px_rgba(30,58,138,0.4)]",
+          variant === "getstarted" && "hover:shadow-[0_0_30px_rgba(249,115,22,0.6),0_0_60px_rgba(234,88,12,0.4)]",
+          variant === "business" && "hover:shadow-[0_0_30px_rgba(22,163,74,0.6),0_0_60px_rgba(21,128,61,0.4)]",
+          variant === "brand" && "hover:shadow-[0_0_30px_rgba(168,85,247,0.6),0_0_60px_rgba(236,72,153,0.4)]",
           
           // Scale on hover
           "hover:scale-105",

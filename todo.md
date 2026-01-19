@@ -437,3 +437,5 @@
 - [ ] Allow read-only queries for trial users
 - [ ] Add "Upgrade to unlock" modals on blocked actions
 - [ ] Test preview mode across all apps
+
+- [x] Make luxury buttons transparent with glass-morphism effect (keep gradient glows and borders)
