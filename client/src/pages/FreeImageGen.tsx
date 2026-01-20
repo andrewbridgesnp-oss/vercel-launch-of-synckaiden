@@ -60,11 +60,11 @@ export default function FreeImageGen() {
           <div className="text-center mb-8">
             <div className="inline-flex items-center gap-2 bg-pink-500/20 px-4 py-2 rounded-full border border-pink-500/30 mb-4">
               <Wand2 className="w-4 h-4 text-pink-400" />
-              <span className="text-pink-400 font-semibold">FREE Image Generator</span>
+              <span className="text-pink-400 font-semibold">FREEBIE</span>
             </div>
-            <h1 className="text-5xl font-bold text-white mb-4">AI Image Generator</h1>
+            <h1 className="text-5xl font-bold text-white mb-4">Nano Banana Image Generator</h1>
             <p className="text-white/70 text-lg">
-              Powered by Manus AI - {remainingGenerations} free generations remaining
+              {remainingGenerations} free generations remaining
             </p>
           </div>
 

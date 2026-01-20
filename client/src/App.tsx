@@ -17,10 +17,9 @@ import NotFound from "./pages/NotFound";
 import Gate8 from "./pages/Gate8";
 import SyncedSites from "./pages/SyncedSites";
 import MySubscriptions from "./pages/MySubscriptions";
-import FreeAIChat from "./pages/FreeAIChat";
+import FreeAIArena from "./pages/FreeAIArena";
 import FreeImageGen from "./pages/FreeImageGen";
-import FreeSpeechToText from "./pages/FreeSpeechToText";
-import FreePDFTools from "./pages/FreePDFTools";
+import FreeDocConverter from "./pages/FreeDocConverter";
 import Features from "./pages/Features";
 import Pricing from "./pages/Pricing";
 import PricingNew from "./pages/PricingNew";
@@ -145,10 +144,9 @@ function Router() {
       <Route path="/gate-8" component={Gate8} />
       <Route path="/synced-sites" component={SyncedSites} />
       <Route path="/my-subscriptions" component={MySubscriptions} />
-      <Route path="/free-ai-chat" component={FreeAIChat} />
+      <Route path="/free-ai-arena" component={FreeAIArena} />
       <Route path="/free-image-gen" component={FreeImageGen} />
-      <Route path="/free-speech-to-text" component={FreeSpeechToText} />
-      <Route path="/free-pdf-tools" component={FreePDFTools} />
+      <Route path="/free-doc-converter" component={FreeDocConverter} />
       <Route path="/personality-sync" component={PersonalitySync} />
       <Route path="/apps" component={Home} />
       <Route path="/dashboard" component={Dashboard} />

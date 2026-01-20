@@ -136,18 +136,18 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Free Manus-Powered Tools */}
+              {/* Freebies */}
               <div className="max-w-5xl mx-auto mt-16">
                 <h3 className="text-2xl font-bold text-white text-center mb-8 drop-shadow-lg">
-                  ✨ Try Manus AI Tools - Free
+                  🎁 Try Our Freebies
                 </h3>
-                <div className="grid md:grid-cols-4 gap-4">
-                  <Link href="/free-ai-chat">
+                <div className="grid md:grid-cols-3 gap-6">
+                  <Link href="/free-ai-arena">
                     <div className="group cursor-pointer p-6 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 hover:border-cyan-500/50 hover:bg-white/15 transition-all hover:scale-105">
-                      <div className="text-4xl mb-3">💬</div>
-                      <h4 className="text-lg font-bold text-white mb-2">AI Chat</h4>
-                      <p className="text-white/70 text-sm mb-3">Chat with advanced AI</p>
-                      <p className="text-cyan-400 text-xs font-semibold">10 free messages</p>
+                      <div className="text-4xl mb-3">⚔️</div>
+                      <h4 className="text-lg font-bold text-white mb-2">AI Chat Arena</h4>
+                      <p className="text-white/70 text-sm mb-3">3 AIs debate your question</p>
+                      <p className="text-cyan-400 text-xs font-semibold">1 free question</p>
                     </div>
                   </Link>
                   <Link href="/free-image-gen">
@@ -158,19 +158,11 @@ export default function Home() {
                       <p className="text-pink-400 text-xs font-semibold">3 free generations</p>
                     </div>
                   </Link>
-                  <Link href="/free-speech-to-text">
-                    <div className="group cursor-pointer p-6 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 hover:border-blue-500/50 hover:bg-white/15 transition-all hover:scale-105">
-                      <div className="text-4xl mb-3">🎤</div>
-                      <h4 className="text-lg font-bold text-white mb-2">Speech-to-Text</h4>
-                      <p className="text-white/70 text-sm mb-3">Transcribe audio</p>
-                      <p className="text-blue-400 text-xs font-semibold">5 free transcriptions</p>
-                    </div>
-                  </Link>
-                  <Link href="/free-pdf-tools">
+                  <Link href="/free-doc-converter">
                     <div className="group cursor-pointer p-6 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 hover:border-orange-500/50 hover:bg-white/15 transition-all hover:scale-105">
-                      <div className="text-4xl mb-3">📄</div>
-                      <h4 className="text-lg font-bold text-white mb-2">PDF Tools</h4>
-                      <p className="text-white/70 text-sm mb-3">Convert & merge PDFs</p>
+                      <div className="text-4xl mb-3">🔄</div>
+                      <h4 className="text-lg font-bold text-white mb-2">Doc Converter</h4>
+                      <p className="text-white/70 text-sm mb-3">PDF, Word, Excel & more</p>
                       <p className="text-orange-400 text-xs font-semibold">5 free conversions</p>
                     </div>
                   </Link>
