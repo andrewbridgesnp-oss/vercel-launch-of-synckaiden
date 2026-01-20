@@ -119,6 +119,7 @@ import AveryAI from "./pages/apps/AveryAI";
 import AveryAIReceptionist from "./pages/apps/AveryAIReceptionist";
 
 import TaxApp from "./pages/apps/TaxApp";
+import TaxAssistant from "./pages/TaxAssistant";
 import AIFunding from "./pages/apps/AIFunding";
 import AtlasAcademy from "./pages/apps/AtlasAcademy";
 import VitalSync from "./pages/apps/VitalSync";
@@ -267,6 +268,7 @@ function Router() {
       <Route path="/apps/avery-receptionist" component={AveryAIReceptionist} />
 
       <Route path="/apps/tax" component={TaxApp} />
+      <Route path="/apps/tax-assistant" component={TaxAssistant} />
       <Route path="/apps/ai-funding" component={AIFunding} />
       <Route path="/apps/atlas-academy" component={AtlasAcademy} />
       <Route path="/apps/vitalsync" component={VitalSync} />
