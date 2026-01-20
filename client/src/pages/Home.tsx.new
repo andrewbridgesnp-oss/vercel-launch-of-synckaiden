@@ -1,0 +1,470 @@
+import { useState, useEffect, useRef } from "react";
+import { useAuth } from "@/_core/hooks/useAuth";
+import { trpc } from "@/lib/trpc";
+import { Button } from "@/components/ui/button";
+import { PsychologicalSync } from "@/components/PsychologicalSync";
+import { KaidenVerification } from "@/components/KaidenVerification";
+import { PersonalityTypeSelection } from "@/components/PersonalityTypeSelection";
+import { LegalDisclaimers } from "@/components/LegalDisclaimers";
+import { WalkthroughVideo } from "@/components/WalkthroughVideo";
+import { useLocation } from "wouter";
+import { Link } from "wouter";
+import { getLoginUrl } from "@/const";
+import { Play, Zap, Users } from "lucide-react";
+import { ThreePillars } from "@/components/ThreePillars";
+
+export default function Home() {
+  const { user, loading, isAuthenticated } = useAuth();
+  const { data: profile, refetch: refetchProfile } = trpc.profile.getProfile.useQuery(
+    undefined,
+    { enabled: isAuthenticated }
+  );
+
+  const [showContent, setShowContent] = useState(false);
+  const [showButtons, setShowButtons] = useState(false);
+  const [showLanding, setShowLanding] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [, setLocation] = useLocation();
+
+  // SYNC flow state
+  const [syncStep, setSyncStep] = useState<'sync' | 'verify' | 'personality' | 'legal' | 'walkthrough' | null>(null);
+  const [syncData, setSyncData] = useState<{
+    responses: string[];
+    personalityType: string;
+    insights: string[];
+  } | null>(null);
+
+  const completeSyncMutation = trpc.profile.completeOnboarding.useMutation();
+  
+  // Add CSS for gradient animation
+  const styleSheet = document.createElement('style');
+  if (!document.querySelector('style[data-gradient-animation]')) {
+    styleSheet.setAttribute('data-gradient-animation', 'true');
+    styleSheet.textContent = `
+      @keyframes gradient {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      @keyframes slideUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    `;
+    document.head.appendChild(styleSheet);
+  }
+
+  // Show SYNC flow for authenticated users without completed profile
+  if (isAuthenticated && profile !== undefined && !profile?.onboardingCompleted) {
+    // Start SYNC flow
+    if (syncStep === null) {
+      setSyncStep('sync');
+    }
+
+    if (syncStep === 'sync') {
+      return (
+        <PsychologicalSync
+          onComplete={(data) => {
+            setSyncData(data);
+            setSyncStep('verify');
+          }}
+        />
+      );
+    }
+
+    if (syncStep === 'verify' && syncData) {
+      return (
+        <KaidenVerification
+          responses={syncData.responses}
+          personalityType={syncData.personalityType}
+          insights={syncData.insights}
+          onConfirm={() => setSyncStep('personality')}
+          onEdit={() => setSyncStep('sync')}
+        />
+      );
+    }
+
+    if (syncStep === 'personality' && syncData) {
+      return (
+        <PersonalityTypeSelection
+          suggestedType={syncData.personalityType}
+          onConfirm={(selectedType) => {
+            setSyncData({ ...syncData, personalityType: selectedType });
+            setSyncStep('legal');
+          }}
+        />
+      );
+    }
+
+    if (syncStep === 'legal') {
+      return (
+        <LegalDisclaimers
+          onAccept={() => setSyncStep('walkthrough')}
+        />
+      );
+    }
+
+    if (syncStep === 'walkthrough' && syncData) {
+      return (
+        <WalkthroughVideo
+          onComplete={async () => {
+            // Complete onboarding in database
+            await completeSyncMutation.mutateAsync({
+              companyName: "",
+              industry: syncData.personalityType,
+              businessGoals: syncData.insights.join(', '),
+              teamSize: "1",
+            });
+            await refetchProfile();
+            setLocation('/dashboard');
+          }}
+        />
+      );
+    }
+  }
+
+  // Video sequence: play 3s, fade, then show landing
+  useEffect(() => {
+    const contentTimer = setTimeout(() => {
+      setShowContent(true);
+    }, 3000);
+
+    const landingTimer = setTimeout(() => {
+      setShowLanding(true);
+    }, 4500);
+
+    const buttonTimer = setTimeout(() => {
+      setShowButtons(true);
+    }, 5000);
+
+    return () => {
+      clearTimeout(contentTimer);
+      clearTimeout(landingTimer);
+      clearTimeout(buttonTimer);
+    };
+  }, []);
+
+  // Speed up video to 3 seconds total
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 2.0;
+      const fadeTimer = setTimeout(() => {
+        setShowContent(true);
+      }, 3000);
+      return () => clearTimeout(fadeTimer);
+    }
+  }, []);
+
+  return (
+    <div className="relative min-h-screen w-full overflow-hidden bg-black">
+      {/* SEO Headings - Always in DOM for search engines */}
+      <div className="sr-only">
+        <h1>KAIDEN - AI Business Consultant and Automation Platform</h1>
+        <h2>Approval-Gated Business Automation</h2>
+        <h2>AI-Powered Business Operations</h2>
+        <h2>Time Restoration for Entrepreneurs</h2>
+      </div>
+      {/* Video Background - Fades after 3 seconds */}
+      <video
+        ref={videoRef}
+        className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000"
+        style={{ 
+          opacity: showContent ? 0 : 0.9,
+          filter: 'brightness(0.8) contrast(1.1)',
+        }}
+        autoPlay
+        loop={false}
+        muted
+        playsInline
+      >
+        <source src="/kayden-hero-video.mp4" type="video/mp4" />
+      </video>
+      
+      {/* Background Gradient - Appears after video fades */}
+      <div 
+        className="absolute inset-0 w-full h-full transition-opacity duration-1000"
+        style={{
+          opacity: showContent ? 1 : 0,
+          background: 'linear-gradient(135deg, #0a0e27 0%, #1a1f3a 25%, #0f1428 50%, #1a1f3a 75%, #0a0e27 100%)',
+          backgroundSize: '400% 400%',
+          animation: showContent ? 'gradient 15s ease infinite' : 'none',
+        }}
+      />
+
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 transition-opacity duration-1000" style={{ opacity: showContent ? 0.3 : 1 }} />
+      
+      {/* Vignette */}
+      <div className="absolute inset-0" style={{
+        background: 'radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.4) 100%)',
+        opacity: showContent ? 0.2 : 1,
+        transition: 'opacity 1s ease-out',
+      }} />
+
+      {/* LANDING PAGE - Shows after video fades */}
+      {showLanding && (
+        <div className="relative z-20 flex flex-col items-center justify-center min-h-screen px-4 py-20">
+          
+          {/* Logo/Branding */}
+          <div className="mb-12 text-center" style={{ animation: 'slideUp 0.8s ease-out' }}>
+            <div className="text-7xl md:text-8xl font-bold tracking-tighter mb-4"
+              style={{
+                fontFamily: "'Playfair Display', serif",
+                background: 'linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(150,200,255,0.8) 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}
+              role="heading"
+              aria-level={1}
+            >
+              KAIDEN
+            </div>
+            <p className="text-xl md:text-2xl font-light tracking-widest text-cyan-300/80 mb-2">
+              YOUR BUSINESS OPERATOR
+            </p>
+            <p className="text-base md:text-lg text-gray-400 max-w-2xl mx-auto">
+              Approval-gated automation that restores your time and keeps you in control
+            </p>
+          </div>
+
+          {/* Main CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 mb-12 flex-wrap justify-center" 
+            style={{ 
+              opacity: showButtons ? 1 : 0,
+              transform: showButtons ? 'translateY(0)' : 'translateY(20px)',
+              transition: 'all 1s ease-out',
+            }}
+          >
+            {/* SYNC Button - Enter App */}
+            {isAuthenticated ? (
+              <Link href="/dashboard">
+                <Button
+                  size="lg"
+                  className="px-12 py-7 text-lg font-semibold rounded-full transition-all duration-300 hover:scale-105 flex items-center gap-2"
+                  style={{
+                    background: "linear-gradient(135deg, #00d9ff 0%, #0099cc 100%)",
+                    color: "#000",
+                    boxShadow: "0 0 30px rgba(0,217,255,0.4)",
+                  }}
+                >
+                  <Zap className="w-5 h-5" />
+                  SYNC
+                </Button>
+              </Link>
+            ) : (
+              <a href={getLoginUrl()}>
+                <Button
+                  size="lg"
+                  className="px-12 py-7 text-lg font-semibold rounded-full transition-all duration-300 hover:scale-105 flex items-center gap-2"
+                  style={{
+                    background: "linear-gradient(135deg, #00d9ff 0%, #0099cc 100%)",
+                    color: "#000",
+                    boxShadow: "0 0 30px rgba(0,217,255,0.4)",
+                  }}
+                >
+                  <Zap className="w-5 h-5" />
+                  SYNC
+                </Button>
+              </a>
+            )}
+
+            {/* SUBSCRIBE Button - Pricing/Plans */}
+            <Link href="/pricing">
+              <Button
+                size="lg"
+                className="px-12 py-7 text-lg font-semibold rounded-full transition-all duration-300 hover:scale-105"
+                style={{
+                  background: "linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 100%)",
+                  backdropFilter: "blur(20px)",
+                  border: "2px solid rgba(0,217,255,0.5)",
+                  color: "rgba(255,255,255,0.95)",
+                  boxShadow: "0 8px 32px rgba(0,0,0,0.3)",
+                }}
+              >
+                SUBSCRIBE
+              </Button>
+            </Link>
+
+            {/* TOUR Button - Video Tour */}
+            <Link href="/tour">
+              <Button
+                size="lg"
+                className="px-12 py-7 text-lg font-semibold rounded-full transition-all duration-300 hover:scale-105 flex items-center gap-2"
+                style={{
+                  background: "transparent",
+                  border: "2px solid rgba(255,255,255,0.3)",
+                  color: "rgba(255,255,255,0.9)",
+                }}
+              >
+                <Play className="w-5 h-5" />
+                TOUR
+              </Button>
+            </Link>
+          </div>
+
+          {/* Secondary Actions */}
+          <div className="flex flex-col sm:flex-row gap-3 flex-wrap justify-center"
+            style={{ 
+              opacity: showButtons ? 1 : 0,
+              transform: showButtons ? 'translateY(0)' : 'translateY(20px)',
+              transition: 'all 1s ease-out 0.2s',
+            }}
+          >
+            {/* Free Trial */}
+            <Link href="/pricing">
+              <Button
+                variant="outline"
+                className="px-8 py-5 text-sm font-medium rounded-full"
+                style={{
+                  background: "rgba(34,197,94,0.1)",
+                  border: "1px solid rgba(34,197,94,0.5)",
+                  color: "#22c55e",
+                }}
+              >
+                Start Free Trial
+              </Button>
+            </Link>
+
+            {/* Go Shopping */}
+            <Link href="/bougie-boutique">
+              <Button
+                variant="outline"
+                className="px-8 py-5 text-sm font-medium rounded-full flex items-center gap-2"
+                style={{
+                  background: "rgba(236,72,153,0.1)",
+                  border: "1px solid rgba(236,72,153,0.5)",
+                  color: "#ec4899",
+                }}
+              >
+                🛍️ GO SHOPPING
+              </Button>
+            </Link>
+
+            {/* VIPs Post Your Site */}
+            <Link href="/vip-directory">
+              <Button
+                variant="outline"
+                className="px-8 py-5 text-sm font-medium rounded-full flex items-center gap-2"
+                style={{
+                  background: "rgba(168,85,247,0.1)",
+                  border: "1px solid rgba(168,85,247,0.5)",
+                  color: "#a855f7",
+                }}
+              >
+                <Users className="w-4 h-4" />
+                VIPs POST YOUR SITE
+              </Button>
+            </Link>
+          </div>
+
+          {/* Three Pillars Section */}
+          <div className="mt-20 w-full">
+            <ThreePillars />
+          </div>
+
+          {/* Integrated Apps Showcase */}
+          <div className="mt-20 w-full max-w-6xl mx-auto px-4"
+            style={{ 
+              opacity: showButtons ? 1 : 0,
+              transition: 'opacity 1s ease-out 0.6s',
+            }}
+          >
+            <h2 className="text-3xl font-bold text-center mb-4 text-white">Integrated Platforms</h2>
+            <p className="text-center text-gray-400 mb-12">Access powerful tools built right into Kaiden</p>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+              {/* Kaiden Academy */}
+              <Link href="/capabilities">
+                <div className="p-6 rounded-2xl bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border border-cyan-500/30 hover:border-cyan-500/60 transition-all hover:scale-105 cursor-pointer">
+                  <div className="w-12 h-12 bg-cyan-500/20 rounded-lg flex items-center justify-center mb-4">
+                    <svg className="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2 text-white">Kaiden Academy</h3>
+                  <p className="text-gray-400 text-sm">Learn business skills, automation strategies, and growth tactics with curated courses and resources.</p>
+                </div>
+              </Link>
+
+              {/* Where's My Tribe */}
+              <a href="https://wheresmytribe.com" target="_blank" rel="noopener noreferrer">
+                <div className="p-6 rounded-2xl bg-gradient-to-br from-purple-500/10 to-pink-500/10 border border-purple-500/30 hover:border-purple-500/60 transition-all hover:scale-105 cursor-pointer">
+                  <div className="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center mb-4">
+                    <svg className="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2 text-white">Where's My Tribe</h3>
+                  <p className="text-gray-400 text-sm">Connect with like-minded entrepreneurs, find collaborators, and build your business community.</p>
+                </div>
+              </a>
+
+              {/* VitalSync */}
+              <Link href="/medical-billing">
+                <div className="p-6 rounded-2xl bg-gradient-to-br from-green-500/10 to-emerald-500/10 border border-green-500/30 hover:border-green-500/60 transition-all hover:scale-105 cursor-pointer">
+                  <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mb-4">
+                    <svg className="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2 text-white">VitalSync</h3>
+                  <p className="text-gray-400 text-sm">Telehealth platform with medical billing, appointment scheduling, and patient management tools.</p>
+                </div>
+              </Link>
+
+              {/* Social Media Autopilot */}
+              <Link href="/integrations">
+                <div className="p-6 rounded-2xl bg-gradient-to-br from-green-500/10 to-emerald-500/10 border border-green-500/30 hover:border-green-500/60 transition-all hover:scale-105 cursor-pointer">
+                  <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mb-4">
+                    <svg className="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2 text-white">Revenue Engine</h3>
+                  <p className="text-gray-400 text-sm">Monetize content with automated affiliate marketing, sponsorship matching, and revenue optimization.</p>
+                </div>
+              </Link>
+
+              {/* AI YouTube */}
+              <Link href="/youtube-channel">
+                <div className="p-6 rounded-2xl bg-gradient-to-br from-red-500/10 to-pink-500/10 border border-red-500/30 hover:border-red-500/60 transition-all hover:scale-105 cursor-pointer">
+                  <div className="w-12 h-12 bg-red-500/20 rounded-lg flex items-center justify-center mb-4">
+                    <svg className="w-6 h-6 text-red-400" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2 text-white">AI YouTube</h3>
+                  <p className="text-gray-400 text-sm">AI-powered video creation, editing, and optimization for YouTube growth and monetization.</p>
+                </div>
+              </Link>
+
+              {/* Creative Content Engine */}
+              <Link href="/creative-content-engine">
+                <div className="p-6 rounded-2xl bg-gradient-to-br from-purple-500/10 to-pink-500/10 border border-purple-500/30 hover:border-purple-500/60 transition-all hover:scale-105 cursor-pointer">
+                  <div className="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center mb-4">
+                    <svg className="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2 text-white">Creative Content Engine</h3>
+                  <p className="text-gray-400 text-sm">AI-powered content creation with agent swarm for video, copy, graphics, and multi-platform distribution.</p>
+                </div>
+              </Link>
+            </div>
+          </div>
+
+          {/* Trust Indicators */}
+          <div className="mt-16 text-center text-sm text-gray-500"
+            style={{ 
+              opacity: showButtons ? 1 : 0,
+              transition: 'opacity 1s ease-out 0.4s',
+            }}
+          >
+            <p>✓ No credit card required for trial • ✓ Cancel anytime • ✓ 100% approval-gated automation</p>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}

@@ -200,7 +200,7 @@ export default function Home() {
               </Link>
 
               {/* Executive Suite */}
-              <Link href="/apps">
+              <Link href="/gate-8">
                 <div className="group cursor-pointer">
                   <div className="relative overflow-hidden rounded-3xl bg-white/5 backdrop-blur-3xl border border-white/20 shadow-2xl hover:shadow-cyan-500/30 transition-all hover:scale-105 p-8 h-full">
                     <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-transparent opacity-0 group-hover:opacity-85 transition-opacity" />
@@ -227,7 +227,7 @@ export default function Home() {
               </Link>
 
               {/* Synced Sites by Kaiden */}
-              <Link href="/cox-and-co">
+              <Link href="/synced-sites">
                 <div className="group cursor-pointer">
                   <div className="relative overflow-hidden rounded-3xl bg-white/5 backdrop-blur-3xl border border-white/20 shadow-2xl hover:shadow-amber-500/30 transition-all hover:scale-105 p-8 h-full">
                     <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 to-transparent opacity-0 group-hover:opacity-85 transition-opacity" />
