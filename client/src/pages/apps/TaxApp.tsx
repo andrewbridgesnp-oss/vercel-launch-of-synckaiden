@@ -9,7 +9,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { FileText, Calculator, DollarSign, Calendar, Upload, Download, Loader2, TrendingUp, MessageSquare, CheckCircle, Lightbulb } from "lucide-react";
+import { Progress } from "@/components/ui/progress";
+import { FileText, Calculator, DollarSign, Calendar, Upload, Download, Loader2, TrendingUp, MessageSquare, CheckCircle, Lightbulb, ShieldCheck, Clock, Stars } from "lucide-react";
 import { Link } from "wouter";
 import { toast } from "sonner";
 import { getLoginUrl } from "@/const";
@@ -224,24 +225,64 @@ export default function TaxApp() {
     });
   };
 
+  const completedChecklist = checklist.filter((item: any) => item.completed).length;
+  const checklistProgress = checklist.length > 0 ? Math.round((completedChecklist / checklist.length) * 100) : 0;
+  const applicationStatus = taxReturns[0]?.status ?? "Draft";
+
   return (
     <div className="min-h-screen bg-background luxury-gradient">
       {/* Hero */}
       <div className="border-b border-border/50 glass">
         <div className="container mx-auto px-6 py-12">
-          <div className="flex items-center gap-4 mb-6">
-            <div className="p-4 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 border border-border/30">
-              <Calculator className="w-12 h-12 text-primary" />
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+            <div className="flex items-center gap-4">
+              <div className="p-4 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 border border-border/30">
+                <Calculator className="w-12 h-12 text-primary" />
+              </div>
+              <div>
+                <div className="flex flex-wrap items-center gap-2 mb-3">
+                  <Badge variant="outline" className="border-primary/30 text-primary">
+                    Tax Year {selectedYear}
+                  </Badge>
+                  <Badge className="bg-primary/10 text-primary border border-primary/30">
+                    {applicationStatus}
+                  </Badge>
+                  <Badge variant="outline" className="border-border/50">
+                    Filing: {filingStatus.replace(/_/g, " ")}
+                  </Badge>
+                </div>
+                <h1 className="text-4xl font-bold cyan-shimmer mb-2">Comprehensive Tax Application</h1>
+                <p className="text-muted-foreground text-lg">
+                  Guided filing, AI insights, and real-time progress tracking for a complete return.
+                </p>
+              </div>
             </div>
-            <div>
-              <h1 className="text-4xl font-bold cyan-shimmer mb-2">Comprehensive Tax App</h1>
-              <p className="text-muted-foreground text-lg">
-                AI-powered tax filing, deduction finder, and savings analyzer
-              </p>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <Card className="glass border-border/40 p-4">
+                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <Clock className="w-4 h-4 text-primary" />
+                  Deadline
+                </div>
+                <p className="text-lg font-semibold mt-2">Apr 15, {selectedYear + 1}</p>
+              </Card>
+              <Card className="glass border-border/40 p-4">
+                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <ShieldCheck className="w-4 h-4 text-primary" />
+                  Coverage
+                </div>
+                <p className="text-lg font-semibold mt-2">Audit Defense</p>
+              </Card>
+              <Card className="glass border-border/40 p-4">
+                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <Stars className="w-4 h-4 text-primary" />
+                  Confidence
+                </div>
+                <p className="text-lg font-semibold mt-2">Expert Review</p>
+              </Card>
             </div>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+
+          <div className="mt-10 grid grid-cols-1 md:grid-cols-4 gap-4">
             <div className="flex items-center gap-3">
               <FileText className="w-5 h-5 text-primary" />
               <span className="text-sm">E-File Ready</span>
@@ -263,17 +304,66 @@ export default function TaxApp() {
       </div>
 
       <div className="container mx-auto px-6 py-12">
-        <Tabs defaultValue="returns" className="space-y-6">
-          <TabsList className="glass border border-border/50">
-            <TabsTrigger value="returns">Tax Returns</TabsTrigger>
-            <TabsTrigger value="documents">Documents</TabsTrigger>
-            <TabsTrigger value="calculator">Calculator</TabsTrigger>
-            <TabsTrigger value="quarterly">Quarterly</TabsTrigger>
-            <TabsTrigger value="deductions">Deductions</TabsTrigger>
-            <TabsTrigger value="advice">AI Advice</TabsTrigger>
-            <TabsTrigger value="checklist">Checklist</TabsTrigger>
-            <TabsTrigger value="savings">Savings</TabsTrigger>
-          </TabsList>
+        <div className="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-8">
+          <aside className="space-y-6">
+            <Card className="glass premium-card border-border/50 p-6">
+              <h3 className="text-lg font-semibold mb-4">Application Progress</h3>
+              <div className="space-y-3">
+                <div className="flex items-center justify-between text-sm text-muted-foreground">
+                  <span>{completedChecklist} of {checklist.length || 6} tasks complete</span>
+                  <span>{checklistProgress}%</span>
+                </div>
+                <Progress value={checklistProgress} />
+                <div className="space-y-3 pt-3">
+                  {[
+                    { title: "Personal Information", detail: "Identity & filing status" },
+                    { title: "Income Sources", detail: "W-2, 1099, K-1" },
+                    { title: "Deductions", detail: "Eligible write-offs" },
+                    { title: "Documents", detail: "Upload supporting files" },
+                    { title: "Review & Submit", detail: "Final confirmation" },
+                  ].map((step, index) => (
+                    <div key={step.title} className="flex items-start gap-3">
+                      <div className={`mt-1 h-2.5 w-2.5 rounded-full ${index === 0 ? "bg-primary" : "bg-muted"}`} />
+                      <div>
+                        <p className="text-sm font-medium">{step.title}</p>
+                        <p className="text-xs text-muted-foreground">{step.detail}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Card>
+
+            <Card className="glass premium-card border-border/50 p-6">
+              <h3 className="text-lg font-semibold mb-4">Quick Actions</h3>
+              <div className="space-y-3">
+                <Button variant="outline" className="w-full justify-start gap-2">
+                  <Upload className="w-4 h-4" />
+                  Upload W-2 or 1099
+                </Button>
+                <Button variant="outline" className="w-full justify-start gap-2">
+                  <Download className="w-4 h-4" />
+                  Download summary PDF
+                </Button>
+                <Button className="w-full justify-start gap-2">
+                  <MessageSquare className="w-4 h-4" />
+                  Ask AI Tax Advisor
+                </Button>
+              </div>
+            </Card>
+          </aside>
+
+          <Tabs defaultValue="returns" className="space-y-6">
+            <TabsList className="glass border border-border/50 flex flex-wrap gap-2 justify-start">
+              <TabsTrigger value="returns">Tax Returns</TabsTrigger>
+              <TabsTrigger value="documents">Documents</TabsTrigger>
+              <TabsTrigger value="calculator">Calculator</TabsTrigger>
+              <TabsTrigger value="quarterly">Quarterly</TabsTrigger>
+              <TabsTrigger value="deductions">Deductions</TabsTrigger>
+              <TabsTrigger value="advice">AI Advice</TabsTrigger>
+              <TabsTrigger value="checklist">Checklist</TabsTrigger>
+              <TabsTrigger value="savings">Savings</TabsTrigger>
+            </TabsList>
 
           {/* Tax Returns */}
           <TabsContent value="returns" className="space-y-6">
