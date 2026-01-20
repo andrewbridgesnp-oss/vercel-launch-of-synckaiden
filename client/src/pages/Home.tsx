@@ -143,7 +143,7 @@ export default function Home() {
                     <ArrowRight className="ml-3 w-6 h-6" />
                   </LuxuryButton>
                 </a>
-                <Link href="/app-store">
+                <Link href="/premium-apps">
                   <LuxuryButton variant="brand">
                     Sneak Peek 👀
                   </LuxuryButton>
