@@ -136,18 +136,53 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="flex items-center justify-center gap-6 mt-12">
-                <a href={getLoginUrl()}>
-                  <LuxuryButton variant="business">
-                    Start Your Empire
-                    <ArrowRight className="ml-3 w-6 h-6" />
-                  </LuxuryButton>
-                </a>
-                <Link href="/premium-apps">
-                  <LuxuryButton variant="brand">
-                    Sneak Peek 👀
-                  </LuxuryButton>
-                </Link>
+              {/* Free Manus-Powered Tools */}
+              <div className="max-w-5xl mx-auto mt-16">
+                <h3 className="text-2xl font-bold text-white text-center mb-8 drop-shadow-lg">
+                  ✨ Try Manus AI Tools - Free
+                </h3>
+                <div className="grid md:grid-cols-4 gap-4">
+                  <Link href="/free-ai-chat">
+                    <div className="group cursor-pointer p-6 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 hover:border-cyan-500/50 hover:bg-white/15 transition-all hover:scale-105">
+                      <div className="text-4xl mb-3">💬</div>
+                      <h4 className="text-lg font-bold text-white mb-2">AI Chat</h4>
+                      <p className="text-white/70 text-sm mb-3">Chat with advanced AI</p>
+                      <p className="text-cyan-400 text-xs font-semibold">10 free messages</p>
+                    </div>
+                  </Link>
+                  <Link href="/free-image-gen">
+                    <div className="group cursor-pointer p-6 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 hover:border-pink-500/50 hover:bg-white/15 transition-all hover:scale-105">
+                      <div className="text-4xl mb-3">🎨</div>
+                      <h4 className="text-lg font-bold text-white mb-2">Image Generator</h4>
+                      <p className="text-white/70 text-sm mb-3">Create AI images</p>
+                      <p className="text-pink-400 text-xs font-semibold">3 free generations</p>
+                    </div>
+                  </Link>
+                  <Link href="/free-speech-to-text">
+                    <div className="group cursor-pointer p-6 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 hover:border-blue-500/50 hover:bg-white/15 transition-all hover:scale-105">
+                      <div className="text-4xl mb-3">🎤</div>
+                      <h4 className="text-lg font-bold text-white mb-2">Speech-to-Text</h4>
+                      <p className="text-white/70 text-sm mb-3">Transcribe audio</p>
+                      <p className="text-blue-400 text-xs font-semibold">5 free transcriptions</p>
+                    </div>
+                  </Link>
+                  <Link href="/free-pdf-tools">
+                    <div className="group cursor-pointer p-6 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 hover:border-orange-500/50 hover:bg-white/15 transition-all hover:scale-105">
+                      <div className="text-4xl mb-3">📄</div>
+                      <h4 className="text-lg font-bold text-white mb-2">PDF Tools</h4>
+                      <p className="text-white/70 text-sm mb-3">Convert & merge PDFs</p>
+                      <p className="text-orange-400 text-xs font-semibold">5 free conversions</p>
+                    </div>
+                  </Link>
+                </div>
+                <div className="text-center mt-8">
+                  <Link href="/gate-8">
+                    <LuxuryButton variant="business">
+                      Unlock Unlimited Access
+                      <ArrowRight className="ml-3 w-6 h-6" />
+                    </LuxuryButton>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
