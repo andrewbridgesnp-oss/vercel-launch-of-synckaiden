@@ -14,6 +14,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "client", "src"),
+      "@app": path.resolve(import.meta.dirname, "src", "app"),
       "@shared": path.resolve(import.meta.dirname, "shared"),
       "@assets": path.resolve(import.meta.dirname, "attached_assets"),
     },
@@ -42,6 +43,7 @@ export default defineConfig({
     },
     fs: {
       strict: true,
+      allow: [path.resolve(import.meta.dirname, "src")],
       deny: ["**/.*"],
     },
   },
