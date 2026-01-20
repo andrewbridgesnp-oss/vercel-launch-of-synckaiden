@@ -113,15 +113,61 @@ export default function BougieBoutiqueNew() {
     setSelectedSize("");
   };
 
+  const [isCheckingOut, setIsCheckingOut] = useState(false);
+  const [showShippingForm, setShowShippingForm] = useState(false);
+  const [shippingInfo, setShippingInfo] = useState({
+    name: "",
+    email: "",
+    address: "",
+    city: "",
+    state: "",
+    zip: "",
+    country: "US",
+  });
+
   const handleCheckout = () => {
     if (cart.length === 0) {
       toast.error("Cart is empty");
       return;
     }
+    setShowShippingForm(true);
+  };
+
+  const handleSubmitCheckout = async () => {
+    if (!shippingInfo.name || !shippingInfo.email || !shippingInfo.address) {
+      toast.error("Please fill in all shipping information");
+      return;
+    }
+
+    setIsCheckingOut(true);
     
-    toast.info("Checkout coming soon!", {
-      description: "Stripe integration in progress",
-    });
+    try {
+      const response = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          cart,
+          shippingInfo,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.url) {
+        // Redirect to Stripe checkout
+        window.location.href = data.url;
+      } else {
+        throw new Error('No checkout URL returned');
+      }
+    } catch (error) {
+      console.error('Checkout error:', error);
+      toast.error("Checkout failed", {
+        description: "Please try again or contact support",
+      });
+      setIsCheckingOut(false);
+    }
   };
 
   return (
