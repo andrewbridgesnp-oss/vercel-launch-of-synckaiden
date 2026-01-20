@@ -185,6 +185,11 @@ export const appRouter = router({
     check: protectedProcedure
       .input(z.object({ productId: z.number() }))
       .query(async ({ ctx, input }) => {
+        // Admin users bypass all subscription gates
+        if (ctx.user.role === 'admin') {
+          return { hasAccess: true };
+        }
+        
         const hasAccess = await checkUserEntitlement(ctx.user.id, input.productId);
         return { hasAccess };
       }),
@@ -192,6 +197,11 @@ export const appRouter = router({
     checkBySlug: protectedProcedure
       .input(z.object({ slug: z.string() }))
       .query(async ({ ctx, input }) => {
+        // Admin users bypass all subscription gates
+        if (ctx.user.role === 'admin') {
+          return { hasAccess: true };
+        }
+        
         const product = await getProductBySlug(input.slug);
         if (!product) {
           return { hasAccess: false };
