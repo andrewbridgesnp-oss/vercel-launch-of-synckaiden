@@ -141,12 +141,14 @@ export default function Dashboard() {
   const [activeTab, setActiveTab] = useState("business");
 
   // Load real data from backend with fallback to mock data
-  const { data: crmStats } = trpc.crm.getStats.useQuery({ workspaceId: 1 });
+  // TODO: Add crm.getStats procedure
+  // const { data: crmStats } = trpc.crm.getStats.useQuery({ workspaceId: 1 });
   const { data: orders } = trpc.orders.list.useQuery();
-  const { data: conversations } = trpc.chat.getConversations.useQuery();
+  // TODO: Add chat.getConversations procedure
+  // const { data: conversations } = trpc.chat.getConversations.useQuery();
 
   // Use mock data as fallback if API returns empty
-  const stats = (crmStats && Object.keys(crmStats).length > 0) ? crmStats : mockStats;
+  const stats = mockStats; // TODO: Replace with real crmStats when procedure is added
   const orderList = (orders && orders.length > 0) ? orders : mockOrders;
 
   // Calculate dashboard metrics
