@@ -141,7 +141,7 @@ export default function Home() {
                 <h3 className="text-2xl font-bold text-white text-center mb-8 drop-shadow-lg">
                   🎁 Try Our Freebies
                 </h3>
-                <div className="grid md:grid-cols-3 gap-6">
+                <div className="grid md:grid-cols-4 gap-6">
                   <Link href="/free-ai-arena">
                     <div className="group cursor-pointer p-6 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 hover:border-cyan-500/50 hover:bg-white/15 transition-all hover:scale-105">
                       <div className="text-4xl mb-3">⚔️</div>
@@ -164,6 +164,14 @@ export default function Home() {
                       <h4 className="text-lg font-bold text-white mb-2">Doc Converter</h4>
                       <p className="text-white/70 text-sm mb-3">PDF, Word, Excel & more</p>
                       <p className="text-orange-400 text-xs font-semibold">5 free conversions</p>
+                    </div>
+                  </Link>
+                  <Link href="/free-kling-video">
+                    <div className="group cursor-pointer p-6 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 hover:border-purple-500/50 hover:bg-white/15 transition-all hover:scale-105">
+                      <div className="text-4xl mb-3">🎬</div>
+                      <h4 className="text-lg font-bold text-white mb-2">Video Generator</h4>
+                      <p className="text-white/70 text-sm mb-3">AI-powered videos</p>
+                      <p className="text-purple-400 text-xs font-semibold">3 free generations</p>
                     </div>
                   </Link>
                 </div>
