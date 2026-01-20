@@ -1,0 +1,76 @@
+{
+  "name": "kaiden-ai-swarm",
+  "version": "2026.1.0",
+  "description": "Kaiden AI Swarm - Autonomous AI agent platform for predictive business operations with Kayden AI integration",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint:fix": "eslint . --ext ts,tsx --fix",
+    "format": "prettier --write \"**/*.{ts,tsx,json,css,md}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,json,css,md}\"",
+    "type-check": "tsc --noEmit",
+    "deploy": "gh-pages -d dist",
+    "analyze": "vite-bundle-visualizer"
+  },
+  "keywords": [
+    "kaiden-ai",
+    "ai",
+    "agents",
+    "automation",
+    "business-intelligence",
+    "workflow",
+    "n8n",
+    "kayden-ai",
+    "predictive-analytics",
+    "no-code",
+    "2026"
+  ],
+  "author": {
+    "name": "Kaiden AI Team",
+    "email": "team@kaidenaiswarm.com",
+    "url": "https://kaidenaiswarm.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/kaiden-ai-swarm.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/kaiden-ai-swarm/issues"
+  },
+  "homepage": "https://kaidenaiswarm.com",
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "recharts": "^2.10.3",
+    "lucide-react": "^0.344.0",
+    "react-dnd": "^16.0.1",
+    "react-dnd-html5-backend": "^16.0.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "prettier": "^3.2.5",
+    "vite": "^5.1.4",
+    "vite-bundle-visualizer": "^1.0.0",
+    "typescript": "^5.3.3",
+    "tailwindcss": "^4.0.0",
+    "gh-pages": "^6.1.1",
+    "web-vitals": "^3.5.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}

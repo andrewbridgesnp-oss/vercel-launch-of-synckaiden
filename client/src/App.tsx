@@ -132,6 +132,8 @@ import MarketingOS from "@/pages/apps/MarketingOS";
 import CreativeClashLiveApp from "@/pages/apps/CreativeClashLive";
 import YouTubeAutomation from "@/pages/apps/YouTubeAutomation";
 import LLCFormationApp from "@/pages/apps/LLCFormation";
+import AIFundingBrokerage from "./pages/apps/AIFundingBrokerage";
+// import Academy from "./pages/apps/Academy"; // TODO: Fix Academy dependencies
 import Contact from "./pages/Contact";
 import RequestApp from "./pages/RequestApp";
 import AdminDashboard from "./pages/AdminDashboard";
@@ -275,6 +277,8 @@ function Router() {
       <Route path="/creative-clash" component={CreativeClashLiveMain} />
       <Route path="/apps/youtube" component={YouTubeAutomation} />
       <Route path="/apps/llc-formation" component={LLCFormationApp} />
+      <Route path="/apps/ai-funding-brokerage" component={AIFundingBrokerage} />
+      {/* <Route path="/apps/academy" component={Academy} /> */}
       
       {/* 404 */}
       <Route path="/404" component={NotFound} />
