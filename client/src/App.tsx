@@ -16,6 +16,7 @@ import AppDetail from "./pages/AppDetail";
 import NotFound from "./pages/NotFound";
 import Gate8 from "./pages/Gate8";
 import SyncedSites from "./pages/SyncedSites";
+import MySubscriptions from "./pages/MySubscriptions";
 import Features from "./pages/Features";
 import Pricing from "./pages/Pricing";
 import PricingNew from "./pages/PricingNew";
@@ -139,6 +140,7 @@ function Router() {
           <Route path="/premium-apps" component={PremiumApps} />
       <Route path="/gate-8" component={Gate8} />
       <Route path="/synced-sites" component={SyncedSites} />
+      <Route path="/my-subscriptions" component={MySubscriptions} />
       <Route path="/personality-sync" component={PersonalitySync} />
       <Route path="/apps" component={Home} />
       <Route path="/dashboard" component={Dashboard} />
