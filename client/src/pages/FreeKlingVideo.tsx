@@ -16,22 +16,30 @@ export default function FreeKlingVideo() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
-      {/* Animated Background */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/20 rounded-full filter blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-pink-500/20 rounded-full filter blur-3xl animate-pulse delay-1000" />
-      </div>
+    <div className="min-h-screen relative overflow-hidden">
+      {/* Video Background */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="fixed inset-0 w-full h-full object-cover z-0"
+      >
+        <source src="/videos/kling-background.mp4" type="video/mp4" />
+      </video>
+      
+      {/* Dark Overlay for Readability */}
+      <div className="fixed inset-0 bg-black/50 backdrop-blur-[2px] z-[1]" />
 
       <div className="relative z-10 container mx-auto px-6 py-12">
         {/* Header */}
         <div className="flex justify-between items-center mb-12">
           <Link href="/">
-            <Button variant="ghost" className="text-white hover:bg-white/10">
+            <Button variant="ghost" className="text-white hover:bg-white/20 bg-white/10 backdrop-blur-xl border border-white/20">
               ← Back to Home
             </Button>
           </Link>
-          <div className="px-4 py-2 rounded-full bg-white/10 backdrop-blur-xl border border-white/20">
+          <div className="px-4 py-2 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-lg">
             <span className="text-white/90 text-sm font-medium">
               {FREE_LIMIT - usageCount} free generations left
             </span>
@@ -46,7 +54,7 @@ export default function FreeKlingVideo() {
               <span className="text-purple-200 font-semibold">AI Video Generator</span>
             </div>
             <h1 className="text-6xl font-bold text-white mb-6 drop-shadow-2xl">
-              🎬 Kling AI Video Generator
+              Kling AI Video Generator
             </h1>
             <p className="text-2xl text-white/80 max-w-2xl mx-auto leading-relaxed">
               Create stunning AI-generated videos from text prompts. Professional quality, cinematic results.
@@ -81,7 +89,7 @@ export default function FreeKlingVideo() {
                   <Button
                     onClick={handleKlingRedirect}
                     size="lg"
-                    className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white text-xl px-12 py-8 rounded-2xl shadow-2xl hover:shadow-purple-500/50 transition-all hover:scale-105"
+                    className="bg-white/10 hover:bg-white/20 backdrop-blur-xl border-2 border-white/30 text-white text-xl px-12 py-8 rounded-2xl shadow-2xl hover:shadow-purple-500/50 transition-all hover:scale-105"
                   >
                     <Video className="mr-3 w-7 h-7" />
                     Generate Video with Kling AI
@@ -121,7 +129,7 @@ export default function FreeKlingVideo() {
                   <Link href="/gate-8">
                     <Button
                       size="lg"
-                      className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white text-xl px-12 py-8 rounded-2xl shadow-2xl hover:shadow-amber-500/50 transition-all hover:scale-105"
+                      className="bg-white/10 hover:bg-white/20 backdrop-blur-xl border-2 border-amber-400/50 text-white text-xl px-12 py-8 rounded-2xl shadow-2xl hover:shadow-amber-500/50 transition-all hover:scale-105"
                     >
                       Unlock Unlimited Access - $39.99/mo
                       <ArrowRight className="ml-3 w-7 h-7" />
