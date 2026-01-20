@@ -74,7 +74,7 @@ const premiumApps = [
     gradient: "from-teal-500/20 to-green-500/20",
     icon: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=400&h=400&fit=crop",
     category: "AI" as AppCategory,
-    route: "/apps/ai-receptionist",
+    route: "/apps/avery-receptionist",
   },
   {
     name: "YouTube Automation",

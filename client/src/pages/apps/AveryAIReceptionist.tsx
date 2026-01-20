@@ -32,7 +32,7 @@ export default function AveryAIReceptionist() {
   };
 
   return (
-    <PlatformAccessGate platformSlug="customer-experience-suite">
+    <PlatformAccessGate platformSlug="customer-experience">
       <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
         {/* Navigation */}
         <nav className="bg-black/20 backdrop-blur-xl border-b border-white/10">
