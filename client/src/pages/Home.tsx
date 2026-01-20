@@ -142,7 +142,7 @@ export default function Home() {
                       </div>
                       <h4 className="text-lg font-bold text-white mb-2">AI Chat Arena</h4>
                       <p className="text-white/70 text-sm mb-3">3 AIs debate your question</p>
-                      <p className="text-cyan-400 text-xs font-semibold">1 free question</p>
+                      <p className="text-cyan-400 text-xs font-semibold">3 free uses</p>
                     </div>
                   </Link>
                   <Link href="/free-image-gen">
@@ -154,7 +154,7 @@ export default function Home() {
                       </div>
                       <h4 className="text-lg font-bold text-white mb-2">Image Generator</h4>
                       <p className="text-white/70 text-sm mb-3">Create AI images</p>
-                      <p className="text-pink-400 text-xs font-semibold">3 free generations</p>
+                      <p className="text-pink-400 text-xs font-semibold">3 free uses</p>
                     </div>
                   </Link>
                   <Link href="/free-doc-converter">
@@ -164,7 +164,7 @@ export default function Home() {
                       </div>
                       <h4 className="text-lg font-bold text-white mb-2">Doc Converter</h4>
                       <p className="text-white/70 text-sm mb-3">PDF, Word, Excel & more</p>
-                      <p className="text-orange-400 text-xs font-semibold">5 free conversions</p>
+                      <p className="text-orange-400 text-xs font-semibold">3 free uses</p>
                     </div>
                   </Link>
                   <Link href="/free-kling-video">
@@ -174,7 +174,7 @@ export default function Home() {
                       </div>
                       <h4 className="text-lg font-bold text-white mb-2">Video Generator</h4>
                       <p className="text-white/70 text-sm mb-3">AI-powered videos</p>
-                      <p className="text-purple-400 text-xs font-semibold">3 free generations</p>
+                      <p className="text-purple-400 text-xs font-semibold">3 free uses</p>
                     </div>
                   </Link>
                 </div>
