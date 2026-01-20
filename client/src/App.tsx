@@ -195,6 +195,7 @@ function Router() {
       
       {/* Business Apps */}
       <Route path="/business" component={BusinessHub} />
+      <Route path="/business/receptionist" component={AveryAIReceptionist} />
       <Route path="/business-command" component={BusinessCommand} />
       <Route path="/business-credit" component={BusinessCredit} />
       <Route path="/business-tools" component={BusinessTools} />
@@ -265,6 +266,7 @@ function Router() {
       {/* Specific app dashboards */}
       <Route path="/apps/avery-ai" component={AveryAI} />
       <Route path="/apps/avery-receptionist" component={AveryAIReceptionist} />
+      <Route path="/apps/ai-receptionist" component={AveryAIReceptionist} />
 
       <Route path="/apps/tax" component={TaxApp} />
       <Route path="/apps/ai-funding" component={AIFunding} />
