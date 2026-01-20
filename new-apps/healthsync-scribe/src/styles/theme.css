@@ -1,0 +1,298 @@
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 16px;
+  
+  /* Dark Navy & Silver Luxury Theme */
+  --navy-950: #020617;
+  --navy-900: #0a1628;
+  --navy-800: #0f172a;
+  --navy-700: #1e293b;
+  --navy-600: #334155;
+  --navy-500: #475569;
+  --navy-400: #64748b;
+  --navy-300: #94a3b8;
+  --navy-200: #cbd5e1;
+  --navy-100: #e2e8f0;
+  --navy-50: #f1f5f9;
+  
+  --silver-950: #0f1419;
+  --silver-900: #18181b;
+  --silver-800: #27272a;
+  --silver-700: #3f3f46;
+  --silver-600: #52525b;
+  --silver-500: #71717a;
+  --silver-400: #a1a1aa;
+  --silver-300: #d4d4d8;
+  --silver-200: #e4e4e7;
+  --silver-100: #f4f4f5;
+  --silver-50: #fafafa;
+  
+  --gold-accent: #d4af37;
+  --gold-light: #f0d98f;
+  
+  /* Luxury Color System - Dark Navy Base */
+  --background: var(--silver-50);
+  --foreground: var(--navy-900);
+  --card: #ffffff;
+  --card-foreground: var(--navy-900);
+  --popover: #ffffff;
+  --popover-foreground: var(--navy-900);
+  
+  --primary: var(--navy-800);
+  --primary-foreground: #ffffff;
+  --secondary: var(--silver-200);
+  --secondary-foreground: var(--navy-900);
+  
+  --muted: var(--silver-100);
+  --muted-foreground: var(--silver-600);
+  --accent: var(--navy-100);
+  --accent-foreground: var(--navy-900);
+  
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  
+  --border: var(--silver-300);
+  --input: transparent;
+  --input-background: var(--silver-50);
+  --switch-background: var(--silver-400);
+  
+  --font-weight-medium: 600;
+  --font-weight-normal: 400;
+  --ring: var(--navy-400);
+  
+  /* Luxury Chart Colors - Dark Navy & Silver palette */
+  --chart-1: var(--navy-700);
+  --chart-2: var(--navy-500);
+  --chart-3: var(--silver-600);
+  --chart-4: var(--navy-300);
+  --chart-5: var(--gold-accent);
+  
+  --radius: 0.75rem;
+  
+  /* Luxury Sidebar - Dark Navy with Silver accents */
+  --sidebar: var(--navy-900);
+  --sidebar-foreground: var(--silver-100);
+  --sidebar-primary: var(--navy-700);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: var(--navy-800);
+  --sidebar-accent-foreground: var(--silver-100);
+  --sidebar-border: var(--navy-800);
+  --sidebar-ring: var(--navy-400);
+  
+  /* Luxury Effects */
+  --shadow-luxury: 0 4px 20px rgba(2, 6, 23, 0.12);
+  --shadow-luxury-lg: 0 8px 30px rgba(2, 6, 23, 0.18);
+  --gradient-navy: linear-gradient(135deg, var(--navy-900) 0%, var(--navy-700) 100%);
+  --gradient-silver: linear-gradient(135deg, var(--silver-200) 0%, var(--silver-50) 100%);
+}
+
+.dark {
+  --background: var(--navy-950);
+  --foreground: var(--silver-100);
+  --card: var(--navy-900);
+  --card-foreground: var(--silver-100);
+  --popover: var(--navy-900);
+  --popover-foreground: var(--silver-100);
+  
+  --primary: var(--navy-400);
+  --primary-foreground: var(--navy-950);
+  --secondary: var(--navy-800);
+  --secondary-foreground: var(--silver-100);
+  
+  --muted: var(--navy-800);
+  --muted-foreground: var(--silver-400);
+  --accent: var(--navy-700);
+  --accent-foreground: var(--silver-100);
+  
+  --destructive: #e63950;
+  --destructive-foreground: #ffffff;
+  
+  --border: var(--navy-700);
+  --input: var(--navy-800);
+  --ring: var(--navy-400);
+  
+  --font-weight-medium: 600;
+  --font-weight-normal: 400;
+  
+  --chart-1: var(--navy-400);
+  --chart-2: var(--navy-300);
+  --chart-3: var(--silver-400);
+  --chart-4: var(--navy-200);
+  --chart-5: var(--gold-light);
+  
+  --sidebar: var(--navy-950);
+  --sidebar-foreground: var(--silver-100);
+  --sidebar-primary: var(--navy-500);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: var(--navy-900);
+  --sidebar-accent-foreground: var(--silver-100);
+  --sidebar-border: var(--navy-800);
+  --sidebar-ring: var(--navy-400);
+  
+  --shadow-luxury: 0 4px 20px rgba(0, 0, 0, 0.3);
+  --shadow-luxury-lg: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  
+  /* Luxury Navy tokens */
+  --color-navy-950: var(--navy-950);
+  --color-navy-900: var(--navy-900);
+  --color-navy-800: var(--navy-800);
+  --color-navy-700: var(--navy-700);
+  --color-navy-600: var(--navy-600);
+  --color-navy-500: var(--navy-500);
+  --color-navy-400: var(--navy-400);
+  --color-navy-300: var(--navy-300);
+  --color-navy-200: var(--navy-200);
+  --color-navy-100: var(--navy-100);
+  --color-navy-50: var(--navy-50);
+  
+  /* Luxury Silver tokens */
+  --color-silver-950: var(--silver-950);
+  --color-silver-900: var(--silver-900);
+  --color-silver-800: var(--silver-800);
+  --color-silver-700: var(--silver-700);
+  --color-silver-600: var(--silver-600);
+  --color-silver-500: var(--silver-500);
+  --color-silver-400: var(--silver-400);
+  --color-silver-300: var(--silver-300);
+  --color-silver-200: var(--silver-200);
+  --color-silver-100: var(--silver-100);
+  --color-silver-50: var(--silver-50);
+  
+  /* Gold accent */
+  --color-gold: var(--gold-accent);
+  --color-gold-light: var(--gold-light);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "liga" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /**
+  * Luxury typography styles for HTML elements (h1-h4, p, label, button, input).
+  * These are in @layer base, so Tailwind utility classes (like text-sm, text-lg) automatically override them.
+  */
+
+  html {
+    font-size: var(--font-size);
+  }
+
+  h1 {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+    letter-spacing: -0.02em;
+  }
+
+  h2 {
+    font-size: var(--text-xl);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+  }
+
+  h3 {
+    font-size: var(--text-lg);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  h4 {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  label {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  button {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  input {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-normal);
+    line-height: 1.5;
+  }
+}
+
+/* Luxury utility classes */
+@layer utilities {
+  .luxury-shadow {
+    box-shadow: var(--shadow-luxury);
+  }
+  
+  .luxury-shadow-lg {
+    box-shadow: var(--shadow-luxury-lg);
+  }
+  
+  .gradient-navy {
+    background: var(--gradient-navy);
+  }
+  
+  .gradient-silver {
+    background: var(--gradient-silver);
+  }
+  
+  .text-gradient-navy {
+    background: var(--gradient-navy);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}

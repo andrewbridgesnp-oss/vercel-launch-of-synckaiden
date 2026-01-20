@@ -1,0 +1,156 @@
+{
+  "design_system": {
+    "name": "SYNDICA FORGE Design System",
+    "theme": "dark",
+    "aesthetic": "Encrypted Corporate / High-Frequency Trading Terminal",
+    "description": "A hyper-professional, secure, and dense interface designed for high-volume video production and distribution. It combines the utility of a Bloomberg terminal with the sleekness of a cyber-security dashboard.",
+    "typography": {
+      "font_family": {
+        "headings": "Azeret Mono, monospace",
+        "body": "Manrope, sans-serif",
+        "code": "JetBrains Mono, monospace"
+      },
+      "weights": {
+        "light": 300,
+        "regular": 400,
+        "medium": 500,
+        "bold": 700,
+        "black": 900
+      },
+      "usage": {
+        "h1": "text-4xl md:text-5xl font-black tracking-tighter uppercase font-mono",
+        "h2": "text-2xl md:text-3xl font-bold tracking-tight font-mono",
+        "h3": "text-xl font-semibold tracking-tight font-mono",
+        "body": "text-base font-normal leading-relaxed text-muted-foreground",
+        "label": "text-xs font-medium uppercase tracking-widest text-muted-foreground/70 font-mono",
+        "data": "text-sm font-mono font-medium text-foreground"
+      }
+    },
+    "colors": {
+      "palette": {
+        "background": {
+          "default": "#050505",
+          "surface": "#0A0A0A",
+          "card": "#0F0F0F",
+          "overlay": "rgba(5, 5, 5, 0.8)"
+        },
+        "foreground": {
+          "default": "#FAFAFA",
+          "muted": "#A1A1AA",
+          "subtle": "#52525B"
+        },
+        "border": {
+          "default": "#27272A",
+          "active": "#3F3F46",
+          "subtle": "#18181B"
+        },
+        "primary": {
+          "default": "#0EA5E9",
+          "foreground": "#FFFFFF",
+          "hover": "#0284C7",
+          "glow": "0 0 20px rgba(14, 165, 233, 0.3)"
+        },
+        "status": {
+          "success": "#10B981",
+          "warning": "#F59E0B",
+          "error": "#EF4444",
+          "info": "#3B82F6"
+        }
+      },
+      "gradients": {
+        "subtle_glow": "radial-gradient(circle at center, rgba(14, 165, 233, 0.15) 0%, rgba(0, 0, 0, 0) 70%)",
+        "scanline": "linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.2))"
+      }
+    },
+    "layout": {
+      "grid_system": {
+        "dashboard": "grid grid-cols-1 md:grid-cols-12 gap-4 p-4 md:p-6",
+        "card_grid": "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
+      },
+      "spacing": {
+        "container_padding": "p-6 md:p-8",
+        "section_gap": "gap-8",
+        "component_gap": "gap-4"
+      },
+      "containers": {
+        "card": "bg-card border border-border rounded-sm p-5 hover:border-primary/50 transition-colors duration-300",
+        "panel": "bg-background border-r border-border h-full",
+        "modal": "bg-background/95 backdrop-blur-xl border border-border shadow-2xl rounded-lg"
+      }
+    },
+    "components": {
+      "buttons": {
+        "primary": "bg-primary text-primary-foreground hover:bg-primary/90 rounded-sm font-mono text-xs uppercase tracking-wider px-6 py-2.5 shadow-[0_0_10px_rgba(14,165,233,0.2)] transition-all hover:shadow-[0_0_20px_rgba(14,165,233,0.4)]",
+        "secondary": "bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-sm font-mono text-xs uppercase tracking-wider px-6 py-2.5 border border-border",
+        "ghost": "hover:bg-accent hover:text-accent-foreground rounded-sm font-mono text-xs uppercase tracking-wider px-4 py-2"
+      },
+      "inputs": {
+        "default": "bg-background border border-border rounded-sm px-3 py-2 text-sm focus:ring-1 focus:ring-primary focus:border-primary transition-all font-mono placeholder:text-muted-foreground/50"
+      },
+      "cards": {
+        "stat_card": "relative overflow-hidden bg-card border border-border p-6 rounded-sm group hover:border-primary/30 transition-all",
+        "video_card": "aspect-[9/16] bg-black border border-border rounded-sm overflow-hidden relative group hover:ring-1 hover:ring-primary transition-all"
+      }
+    },
+    "visual_enhancers": {
+      "glassmorphism": "backdrop-blur-md bg-background/80 border-b border-white/5",
+      "grid_lines": "bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]",
+      "tech_borders": "relative before:absolute before:top-0 before:left-0 before:w-2 before:h-2 before:border-t before:border-l before:border-primary before:content-[''] after:absolute after:bottom-0 after:right-0 after:w-2 after:h-2 after:border-b after:border-r after:border-primary after:content-['']"
+    },
+    "motion": {
+      "hover": "transition-all duration-200 ease-out",
+      "page_transition": "animate-in fade-in slide-in-from-bottom-4 duration-500",
+      "micro_interaction": "active:scale-95 transition-transform duration-100"
+    }
+  },
+  "assets": {
+    "images": {
+      "login_background": {
+        "url": "https://images.unsplash.com/photo-1639503547276-90230c4a4198?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "alt": "Abstract Digital Security Lock",
+        "category": "auth"
+      },
+      "dashboard_header": {
+        "url": "https://images.unsplash.com/photo-1750969185331-e03829f72c7d?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "alt": "Abstract Network Nodes",
+        "category": "dashboard"
+      },
+      "video_placeholder_1": {
+        "url": "https://images.unsplash.com/flagged/photo-1564161231394-4ace8c4aa680?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "alt": "Vertical Video Abstract 1",
+        "category": "video_queue"
+      },
+      "video_placeholder_2": {
+        "url": "https://images.unsplash.com/photo-1689004624325-6edf074228dd?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "alt": "Vertical Video Abstract 2",
+        "category": "video_queue"
+      },
+      "trend_brief_bg": {
+        "url": "https://images.unsplash.com/photo-1765445665883-085301570c87?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "alt": "Glitch Art Data Stream",
+        "category": "trends"
+      }
+    },
+    "icons": {
+      "library": "lucide-react",
+      "style": "stroke-width: 1.5px; size: 18px;"
+    }
+  },
+  "implementation_guide": {
+    "steps": [
+      "1. Install dependencies: `npm install @fontsource/azeret-mono @fontsource/manrope @fontsource/jetbrains-mono lucide-react framer-motion clsx tailwind-merge`",
+      "2. Update `tailwind.config.js` with the color palette and font families defined above.",
+      "3. Create a `Layout` component that enforces the 'Control Room' grid structure.",
+      "4. Customize Shadcn components in `components/ui` to remove rounded-xl and replace with rounded-sm, and update border colors.",
+      "5. Implement the `Sidebar` with a 'glassmorphism' effect and 'tech_borders' on active items."
+    ],
+    "universal_rules": [
+      "DO NOT use gradients for backgrounds unless specified (use solid deep blacks).",
+      "DO NOT use rounded corners larger than 8px (sm or md only).",
+      "ALWAYS use `Azeret Mono` for headings to maintain the 'Terminal' aesthetic.",
+      "ALWAYS add `data-testid` to interactive elements.",
+      "Use `sonner` for all toast notifications.",
+      "Ensure all text has a contrast ratio of at least 4.5:1 against the background."
+    ]
+  }
+}

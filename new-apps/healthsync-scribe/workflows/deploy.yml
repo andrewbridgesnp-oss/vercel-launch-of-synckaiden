@@ -1,0 +1,131 @@
+name: Build and Deploy to Manus AI
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'apps/**'
+      - 'packages/**'
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      app:
+        description: 'Specific app to deploy (leave empty for all)'
+        required: false
+        type: string
+
+jobs:
+  # Detect which apps changed
+  detect-changes:
+    runs-on: ubuntu-latest
+    outputs:
+      apps: ${{ steps.changes.outputs.apps }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Detect changed apps
+        id: changes
+        run: |
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ] && [ -n "${{ inputs.app }}" ]; then
+            echo "apps=[\"${{ inputs.app }}\"]" >> $GITHUB_OUTPUT
+          else
+            # Get list of changed apps
+            CHANGED_APPS=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep '^apps/' | cut -d/ -f2 | sort -u | jq -R -s -c 'split("\n")[:-1]')
+            echo "apps=${CHANGED_APPS}" >> $GITHUB_OUTPUT
+          fi
+
+  # Build and test
+  build:
+    needs: detect-changes
+    if: needs.detect-changes.outputs.apps != '[]'
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        app: ${{ fromJson(needs.detect-changes.outputs.apps) }}
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+          run_install: false
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - name: Setup pnpm cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build app
+        run: pnpm --filter @figma-apps/${{ matrix.app }} build
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ matrix.app }}-dist
+          path: apps/${{ matrix.app }}/dist/
+          retention-days: 7
+
+  # Deploy to Manus AI
+  deploy:
+    needs: [detect-changes, build]
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        app: ${{ fromJson(needs.detect-changes.outputs.apps) }}
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: ${{ matrix.app }}-dist
+          path: apps/${{ matrix.app }}/dist/
+
+      - name: Deploy to Manus AI
+        env:
+          MANUS_API_KEY: ${{ secrets.MANUS_API_KEY }}
+          MANUS_ORG_ID: ${{ secrets.MANUS_ORG_ID }}
+        run: |
+          echo "Deploying ${{ matrix.app }} to Manus AI..."
+          # Add your Manus AI deployment commands here
+          # Example:
+          # manus deploy apps/${{ matrix.app }}/dist --app ${{ matrix.app }}
+          
+          # For now, just echo
+          echo "Build artifacts ready at: apps/${{ matrix.app }}/dist/"
+          echo "Note: Configure Manus AI CLI for actual deployment"
+
+      - name: Deployment summary
+        run: |
+          echo "### Deployment Summary :rocket:" >> $GITHUB_STEP_SUMMARY
+          echo "**App:** ${{ matrix.app }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Status:** ✅ Success" >> $GITHUB_STEP_SUMMARY
+          echo "**Commit:** ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY

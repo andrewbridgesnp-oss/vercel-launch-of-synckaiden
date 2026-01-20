@@ -122,7 +122,7 @@ import TaxApp from "./pages/apps/TaxApp";
 import AIFunding from "./pages/apps/AIFunding";
 import AtlasAcademy from "./pages/apps/AtlasAcademy";
 import VitalSync from "./pages/apps/VitalSync";
-import SocialMediaAutopilot from "./pages/apps/SocialMediaAutopilot";
+// import SocialMediaAutopilot from "./pages/apps/SocialMediaAutopilot"; // TODO: Fix react-router-dom dependency
 import AgentSwarm from "./pages/apps/AgentSwarm";
 import PantryInventory from "./pages/apps/PantryInventory";
 import AudioMastering from "./pages/apps/AudioMastering";
@@ -133,7 +133,11 @@ import CreativeClashLiveApp from "@/pages/apps/CreativeClashLive";
 import YouTubeAutomation from "@/pages/apps/YouTubeAutomation";
 import LLCFormationApp from "@/pages/apps/LLCFormation";
 import AIFundingBrokerage from "./pages/apps/AIFundingBrokerage";
-// import Academy from "./pages/apps/Academy"; // TODO: Fix Academy dependencies
+// import FinancialCoPilot from "./pages/apps/FinancialCoPilot"; // TODO: Fix react-router-dom dependency
+// import HouseHack from "./pages/apps/HouseHack"; // TODO: Fix react-router-dom dependency
+// import PersonalitySync from "./pages/apps/PersonalitySync"; // TODO: Fix react-router-dom dependency
+import RealitySync from "./pages/apps/RealitySync";
+// import Academy from "./pages/apps/Academy"; // TODO: Fix Academy dependencies (Codex handling)
 import Contact from "./pages/Contact";
 import RequestApp from "./pages/RequestApp";
 import AdminDashboard from "./pages/AdminDashboard";
@@ -266,7 +270,7 @@ function Router() {
       <Route path="/apps/ai-funding" component={AIFunding} />
       <Route path="/apps/atlas-academy" component={AtlasAcademy} />
       <Route path="/apps/vitalsync" component={VitalSync} />
-      <Route path="/apps/social-media" component={SocialMediaAutopilot} />
+      {/* <Route path="/apps/social-media" component={SocialMediaAutopilot} /> */}
       <Route path="/apps/agent-swarm" component={AgentSwarm} />
       <Route path="/apps/pantry" component={PantryInventory} />
       <Route path="/apps/audio-mastering" component={AudioMastering} />
@@ -278,6 +282,10 @@ function Router() {
       <Route path="/apps/youtube" component={YouTubeAutomation} />
       <Route path="/apps/llc-formation" component={LLCFormationApp} />
       <Route path="/apps/ai-funding-brokerage" component={AIFundingBrokerage} />
+      {/* <Route path="/apps/financial-copilot" component={FinancialCoPilot} /> */}
+      {/* <Route path="/apps/house-hack" component={HouseHack} /> */}
+      {/* <Route path="/apps/personality-sync" component={PersonalitySync} /> */}
+      <Route path="/apps/reality-sync" component={RealitySync} />
       {/* <Route path="/apps/academy" component={Academy} /> */}
       
       {/* 404 */}
