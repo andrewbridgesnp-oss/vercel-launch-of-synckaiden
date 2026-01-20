@@ -9,12 +9,13 @@ export default function Home() {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   
   const backgroundVideos = [
-    "/kaiden-bg-1.mp4",
-    "/kaiden-bg-2.mp4",
-    "/kaiden-bg-3.mp4",
-    "/kaiden-bg-4.mp4",
-    "/kaiden-bg-5.mp4",
-    "/kaiden-bg-6.mp4", // Added video 9 from uploads
+    "/videos/hero-video-1.mp4",
+    "/videos/hero-video-2.mp4",
+    "/videos/hero-video-3.mp4",
+    "/videos/hero-video-4.mp4",
+    "/videos/hero-video-5.mp4",
+    "/videos/hero-video-6.mp4",
+    "/videos/hero-video-7.mp4",
   ];
 
   useEffect(() => {
@@ -40,10 +41,9 @@ export default function Home() {
           loop
           muted
           playsInline
-          style={{ playbackRate: 0.5 }}
           onLoadedMetadata={(e) => {
             const videoElement = e.currentTarget;
-            videoElement.playbackRate = 0.6; // Smooth 60% speed
+            videoElement.playbackRate = 0.8; // Upgraded quality at 80% speed
           }}
           className={`fixed inset-0 w-full h-full object-cover transition-opacity duration-2000 ${
             index === currentVideoIndex ? "opacity-100 z-0" : "opacity-0 z-0"
