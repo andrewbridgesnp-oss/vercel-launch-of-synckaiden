@@ -117,6 +117,7 @@ import Tools from "./pages/Tools";
 // App-specific pages
 import AveryAI from "./pages/apps/AveryAI";
 import AveryAIReceptionist from "./pages/apps/AveryAIReceptionist";
+import KaidenTaxApp from "./pages/apps/KaidenTaxApp";
 import TaxApp from "./pages/apps/TaxApp";
 import AIFunding from "./pages/apps/AIFunding";
 import AtlasAcademy from "./pages/apps/AtlasAcademy";
@@ -258,6 +259,7 @@ function Router() {
       {/* Specific app dashboards */}
       <Route path="/apps/avery-ai" component={AveryAI} />
       <Route path="/apps/avery-receptionist" component={AveryAIReceptionist} />
+      <Route path="/apps/kaiden-tax" component={KaidenTaxApp} />
       <Route path="/apps/tax" component={TaxApp} />
       <Route path="/apps/ai-funding" component={AIFunding} />
       <Route path="/apps/atlas-academy" component={AtlasAcademy} />
