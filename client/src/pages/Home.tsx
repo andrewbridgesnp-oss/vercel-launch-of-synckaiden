@@ -80,7 +80,7 @@ export default function Home() {
                 {/* Premium Apps Button */}
                 <Link href="/premium-apps">
                   <LuxuryButton variant="premium" className="text-sm px-6 py-2">
-                    Premium Apps ✨
+                    Premium Apps
                   </LuxuryButton>
                 </Link>
                 
@@ -127,24 +127,19 @@ export default function Home() {
         <section className="min-h-screen flex items-center justify-center pt-20 px-6">
           <div className="container mx-auto">
             <div className="text-center mb-12">
-              <div className="flex flex-wrap items-center justify-center gap-4 mb-8">
-                <div className="flex items-center gap-2 text-white/80 bg-white/10 backdrop-blur-xl px-4 py-2 rounded-xl border border-white/20 shadow-lg">
-                  <span>No credit card required</span>
-                </div>
-                <div className="flex items-center gap-2 text-white/80 bg-white/10 backdrop-blur-xl px-4 py-2 rounded-xl border border-white/20 shadow-lg">
-                  <span>Cancel anytime</span>
-                </div>
-              </div>
+
 
               {/* Freebies */}
               <div className="max-w-5xl mx-auto mt-16">
                 <h3 className="text-2xl font-bold text-white text-center mb-8 drop-shadow-lg">
-                  🎁 Try Our Freebies
+                  Experience Our Free Tools
                 </h3>
                 <div className="grid md:grid-cols-4 gap-6">
                   <Link href="/free-ai-arena">
                     <div className="group cursor-pointer p-6 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 hover:border-cyan-500/50 hover:bg-white/15 transition-all hover:scale-105">
-                      <div className="text-4xl mb-3">⚔️</div>
+                      <div className="w-full h-32 mb-3 rounded-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=300&fit=crop" alt="AI Chat" className="w-full h-full object-cover" />
+                      </div>
                       <h4 className="text-lg font-bold text-white mb-2">AI Chat Arena</h4>
                       <p className="text-white/70 text-sm mb-3">3 AIs debate your question</p>
                       <p className="text-cyan-400 text-xs font-semibold">1 free question</p>
@@ -152,7 +147,9 @@ export default function Home() {
                   </Link>
                   <Link href="/free-image-gen">
                     <div className="group cursor-pointer p-6 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 hover:border-pink-500/50 hover:bg-white/15 transition-all hover:scale-105">
-                      <div className="text-4xl mb-3">🎨</div>
+                      <div className="w-full h-32 mb-3 rounded-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1686191128892-c0557e5a4b3e?w=400&h=300&fit=crop" alt="AI Image" className="w-full h-full object-cover" />
+                      </div>
                       <h4 className="text-lg font-bold text-white mb-2">Image Generator</h4>
                       <p className="text-white/70 text-sm mb-3">Create AI images</p>
                       <p className="text-pink-400 text-xs font-semibold">3 free generations</p>
@@ -160,7 +157,9 @@ export default function Home() {
                   </Link>
                   <Link href="/free-doc-converter">
                     <div className="group cursor-pointer p-6 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 hover:border-orange-500/50 hover:bg-white/15 transition-all hover:scale-105">
-                      <div className="text-4xl mb-3">🔄</div>
+                      <div className="w-full h-32 mb-3 rounded-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1568667256549-094345857637?w=400&h=300&fit=crop" alt="Documents" className="w-full h-full object-cover" />
+                      </div>
                       <h4 className="text-lg font-bold text-white mb-2">Doc Converter</h4>
                       <p className="text-white/70 text-sm mb-3">PDF, Word, Excel & more</p>
                       <p className="text-orange-400 text-xs font-semibold">5 free conversions</p>
@@ -168,7 +167,9 @@ export default function Home() {
                   </Link>
                   <Link href="/free-kling-video">
                     <div className="group cursor-pointer p-6 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 hover:border-purple-500/50 hover:bg-white/15 transition-all hover:scale-105">
-                      <div className="text-4xl mb-3">🎬</div>
+                      <div className="w-full h-32 mb-3 rounded-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=400&h=300&fit=crop" alt="Video Production" className="w-full h-full object-cover" />
+                      </div>
                       <h4 className="text-lg font-bold text-white mb-2">Video Generator</h4>
                       <p className="text-white/70 text-sm mb-3">AI-powered videos</p>
                       <p className="text-purple-400 text-xs font-semibold">3 free generations</p>
@@ -178,7 +179,7 @@ export default function Home() {
                 <div className="text-center mt-8">
                   <Link href="/gate-8">
                     <LuxuryButton variant="business">
-                      Unlock Unlimited Access
+                      Enter Gate 8
                       <ArrowRight className="ml-3 w-6 h-6" />
                     </LuxuryButton>
                   </Link>
