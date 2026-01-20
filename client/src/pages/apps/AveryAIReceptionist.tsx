@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import PlatformAccessGate from '@/components/PlatformAccessGate';
 
-// Import Avery pages - using absolute path from project root
-import { DashboardPage } from '@/../src/app/pages/dashboard';
-import { CallsPage } from '@/../src/app/pages/calls';
-import { BookingsPage } from '@/../src/app/pages/bookings';
-import { AnalyticsPage } from '@/../src/app/pages/analytics';
-import { IntegrationsPage } from '@/../src/app/pages/integrations';
-import { SettingsPage } from '@/../src/app/pages/settings';
+// Import Avery pages from the shared app bundle
+import { DashboardPage } from '@app/pages/dashboard';
+import { CallsPage } from '@app/pages/calls';
+import { BookingsPage } from '@app/pages/bookings';
+import { AnalyticsPage } from '@app/pages/analytics';
+import { IntegrationsPage } from '@app/pages/integrations';
+import { SettingsPage } from '@app/pages/settings';
 
 export default function AveryAIReceptionist() {
   const [currentPage, setCurrentPage] = useState('dashboard');
