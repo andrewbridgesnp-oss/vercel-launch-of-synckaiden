@@ -1,0 +1,3670 @@
+{
+  "Lowkey Struggling, Highkey Surviving|Hoodie": {
+    "designName": "Lowkey Struggling, Highkey Surviving",
+    "productType": "Hoodie",
+    "printfulProductId": 415079360,
+    "variants": {
+      "S|Black": {
+        "sync_variant_id": 5112632915,
+        "size": "S",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "M|Black": {
+        "sync_variant_id": 5112632916,
+        "size": "M",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "L|Black": {
+        "sync_variant_id": 5112632917,
+        "size": "L",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "XL|Black": {
+        "sync_variant_id": 5112632918,
+        "size": "XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "2XL|Black": {
+        "sync_variant_id": 5112632919,
+        "size": "2XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "S|White": {
+        "sync_variant_id": 5112632920,
+        "size": "S",
+        "color": "White",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "M|White": {
+        "sync_variant_id": 5112632921,
+        "size": "M",
+        "color": "White",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "L|White": {
+        "sync_variant_id": 5112632922,
+        "size": "L",
+        "color": "White",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "XL|White": {
+        "sync_variant_id": 5112632923,
+        "size": "XL",
+        "color": "White",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "2XL|White": {
+        "sync_variant_id": 5112632924,
+        "size": "2XL",
+        "color": "White",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "S|Light Pink": {
+        "sync_variant_id": 5112632925,
+        "size": "S",
+        "color": "Light Pink",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "M|Light Pink": {
+        "sync_variant_id": 5112632926,
+        "size": "M",
+        "color": "Light Pink",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "L|Light Pink": {
+        "sync_variant_id": 5112632927,
+        "size": "L",
+        "color": "Light Pink",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "XL|Light Pink": {
+        "sync_variant_id": 5112632928,
+        "size": "XL",
+        "color": "Light Pink",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "2XL|Light Pink": {
+        "sync_variant_id": 5112632929,
+        "size": "2XL",
+        "color": "Light Pink",
+        "retail_price": "44.99",
+        "sku": null
+      }
+    }
+  },
+  "Rent Free Self-Love|Hoodie": {
+    "designName": "Rent Free Self-Love",
+    "productType": "Hoodie",
+    "printfulProductId": 415079346,
+    "variants": {
+      "S|Black": {
+        "sync_variant_id": 5153803594,
+        "size": "S",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "M|Black": {
+        "sync_variant_id": 5153803595,
+        "size": "M",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "L|Black": {
+        "sync_variant_id": 5153803596,
+        "size": "L",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "XL|Black": {
+        "sync_variant_id": 5153803597,
+        "size": "XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "2XL|Black": {
+        "sync_variant_id": 5153803598,
+        "size": "2XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      }
+    }
+  },
+  "Sigma Kindness Grindset|Hoodie": {
+    "designName": "Sigma Kindness Grindset",
+    "productType": "Hoodie",
+    "printfulProductId": 415079335,
+    "variants": {
+      "S|Black": {
+        "sync_variant_id": 5112634281,
+        "size": "S",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "M|Black": {
+        "sync_variant_id": 5112634282,
+        "size": "M",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "L|Black": {
+        "sync_variant_id": 5112634283,
+        "size": "L",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "XL|Black": {
+        "sync_variant_id": 5112634284,
+        "size": "XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "2XL|Black": {
+        "sync_variant_id": 5112634285,
+        "size": "2XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "S|White": {
+        "sync_variant_id": 5112634286,
+        "size": "S",
+        "color": "White",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "M|White": {
+        "sync_variant_id": 5112634287,
+        "size": "M",
+        "color": "White",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "L|White": {
+        "sync_variant_id": 5112634288,
+        "size": "L",
+        "color": "White",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "XL|White": {
+        "sync_variant_id": 5112634289,
+        "size": "XL",
+        "color": "White",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "2XL|White": {
+        "sync_variant_id": 5112634290,
+        "size": "2XL",
+        "color": "White",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "S|Light Pink": {
+        "sync_variant_id": 5112634291,
+        "size": "S",
+        "color": "Light Pink",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "M|Light Pink": {
+        "sync_variant_id": 5112634292,
+        "size": "M",
+        "color": "Light Pink",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "L|Light Pink": {
+        "sync_variant_id": 5112634293,
+        "size": "L",
+        "color": "Light Pink",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "XL|Light Pink": {
+        "sync_variant_id": 5112634294,
+        "size": "XL",
+        "color": "Light Pink",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "2XL|Light Pink": {
+        "sync_variant_id": 5112634295,
+        "size": "2XL",
+        "color": "Light Pink",
+        "retail_price": "44.99",
+        "sku": null
+      }
+    }
+  },
+  "Hits Different When You're Kind|Hoodie": {
+    "designName": "Hits Different When You're Kind",
+    "productType": "Hoodie",
+    "printfulProductId": 415079304,
+    "variants": {
+      "S|Black": {
+        "sync_variant_id": 5153802765,
+        "size": "S",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "M|Black": {
+        "sync_variant_id": 5153802770,
+        "size": "M",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "L|Black": {
+        "sync_variant_id": 5153802771,
+        "size": "L",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "XL|Black": {
+        "sync_variant_id": 5153802773,
+        "size": "XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "2XL|Black": {
+        "sync_variant_id": 5153802794,
+        "size": "2XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      }
+    }
+  },
+  "Delulu? Nah, Hopeful|Hoodie": {
+    "designName": "Delulu? Nah, Hopeful",
+    "productType": "Hoodie",
+    "printfulProductId": 415079280,
+    "variants": {
+      "S|Black": {
+        "sync_variant_id": 5153802547,
+        "size": "S",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "M|Black": {
+        "sync_variant_id": 5153802548,
+        "size": "M",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "L|Black": {
+        "sync_variant_id": 5153802549,
+        "size": "L",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "XL|Black": {
+        "sync_variant_id": 5153802550,
+        "size": "XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "2XL|Black": {
+        "sync_variant_id": 5153802551,
+        "size": "2XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      }
+    }
+  },
+  "Rizz with Respect|Hoodie": {
+    "designName": "Rizz with Respect",
+    "productType": "Hoodie",
+    "printfulProductId": 415079249,
+    "variants": {
+      "S|Black": {
+        "sync_variant_id": 5153802209,
+        "size": "S",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "M|Black": {
+        "sync_variant_id": 5153802210,
+        "size": "M",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "L|Black": {
+        "sync_variant_id": 5153802211,
+        "size": "L",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "XL|Black": {
+        "sync_variant_id": 5153802212,
+        "size": "XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "2XL|Black": {
+        "sync_variant_id": 5153802213,
+        "size": "2XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      }
+    }
+  },
+  "Caught in 4K Being Kind|Hoodie": {
+    "designName": "Caught in 4K Being Kind",
+    "productType": "Hoodie",
+    "printfulProductId": 415079214,
+    "variants": {
+      "S|Black": {
+        "sync_variant_id": 5153801906,
+        "size": "S",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "M|Black": {
+        "sync_variant_id": 5153801907,
+        "size": "M",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "L|Black": {
+        "sync_variant_id": 5153801950,
+        "size": "L",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "XL|Black": {
+        "sync_variant_id": 5153801951,
+        "size": "XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "2XL|Black": {
+        "sync_variant_id": 5153801952,
+        "size": "2XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      }
+    }
+  },
+  "Fanum Tax the Negativity|Hoodie": {
+    "designName": "Fanum Tax the Negativity",
+    "productType": "Hoodie",
+    "printfulProductId": 415079190,
+    "variants": {
+      "S|Black": {
+        "sync_variant_id": 5153801588,
+        "size": "S",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "M|Black": {
+        "sync_variant_id": 5153801589,
+        "size": "M",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "L|Black": {
+        "sync_variant_id": 5153801590,
+        "size": "L",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "XL|Black": {
+        "sync_variant_id": 5153801591,
+        "size": "XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "2XL|Black": {
+        "sync_variant_id": 5153801592,
+        "size": "2XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      }
+    }
+  },
+  "Understood the Assignment|Hoodie": {
+    "designName": "Understood the Assignment",
+    "productType": "Hoodie",
+    "printfulProductId": 415079165,
+    "variants": {
+      "S|Black": {
+        "sync_variant_id": 5153801335,
+        "size": "S",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "M|Black": {
+        "sync_variant_id": 5153801336,
+        "size": "M",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "L|Black": {
+        "sync_variant_id": 5153801337,
+        "size": "L",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "XL|Black": {
+        "sync_variant_id": 5153801338,
+        "size": "XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "2XL|Black": {
+        "sync_variant_id": 5153801339,
+        "size": "2XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      }
+    }
+  },
+  "Slay the Hate Away|Hoodie": {
+    "designName": "Slay the Hate Away",
+    "productType": "Hoodie",
+    "printfulProductId": 415079137,
+    "variants": {
+      "S|Black": {
+        "sync_variant_id": 5153801094,
+        "size": "S",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "M|Black": {
+        "sync_variant_id": 5153801095,
+        "size": "M",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "L|Black": {
+        "sync_variant_id": 5153801096,
+        "size": "L",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "XL|Black": {
+        "sync_variant_id": 5153801097,
+        "size": "XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "2XL|Black": {
+        "sync_variant_id": 5153801098,
+        "size": "2XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      }
+    }
+  },
+  "It's Giving Kindness|Hoodie": {
+    "designName": "It's Giving Kindness",
+    "productType": "Hoodie",
+    "printfulProductId": 415079105,
+    "variants": {
+      "S|Black": {
+        "sync_variant_id": 5153800673,
+        "size": "S",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "M|Black": {
+        "sync_variant_id": 5153800674,
+        "size": "M",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "L|Black": {
+        "sync_variant_id": 5153800675,
+        "size": "L",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "XL|Black": {
+        "sync_variant_id": 5153800676,
+        "size": "XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "2XL|Black": {
+        "sync_variant_id": 5153800677,
+        "size": "2XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      }
+    }
+  },
+  "Main Character Energy|Hoodie": {
+    "designName": "Main Character Energy",
+    "productType": "Hoodie",
+    "printfulProductId": 415079087,
+    "variants": {
+      "S|Black": {
+        "sync_variant_id": 5153800502,
+        "size": "S",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "M|Black": {
+        "sync_variant_id": 5153800503,
+        "size": "M",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "L|Black": {
+        "sync_variant_id": 5153800504,
+        "size": "L",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "XL|Black": {
+        "sync_variant_id": 5153800505,
+        "size": "XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "2XL|Black": {
+        "sync_variant_id": 5153800506,
+        "size": "2XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      }
+    }
+  },
+  "Be the Reason Someone Smiles|Hoodie": {
+    "designName": "Be the Reason Someone Smiles",
+    "productType": "Hoodie",
+    "printfulProductId": 415079047,
+    "variants": {
+      "S|Black": {
+        "sync_variant_id": 5153799872,
+        "size": "S",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "M|Black": {
+        "sync_variant_id": 5153799874,
+        "size": "M",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "L|Black": {
+        "sync_variant_id": 5153799877,
+        "size": "L",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "XL|Black": {
+        "sync_variant_id": 5153799880,
+        "size": "XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "2XL|Black": {
+        "sync_variant_id": 5153799882,
+        "size": "2XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      }
+    }
+  },
+  "Ate and Left No Crumbs|Hoodie": {
+    "designName": "Ate and Left No Crumbs",
+    "productType": "Hoodie",
+    "printfulProductId": 415079003,
+    "variants": {
+      "S|Black": {
+        "sync_variant_id": 5153799575,
+        "size": "S",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "M|Black": {
+        "sync_variant_id": 5153799576,
+        "size": "M",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "L|Black": {
+        "sync_variant_id": 5153799577,
+        "size": "L",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "XL|Black": {
+        "sync_variant_id": 5153799578,
+        "size": "XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "2XL|Black": {
+        "sync_variant_id": 5153799579,
+        "size": "2XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      }
+    }
+  },
+  "Bussin' Boundaries|Hoodie": {
+    "designName": "Bussin' Boundaries",
+    "productType": "Hoodie",
+    "printfulProductId": 415078990,
+    "variants": {
+      "S|Black": {
+        "sync_variant_id": 5153799473,
+        "size": "S",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "M|Black": {
+        "sync_variant_id": 5153799474,
+        "size": "M",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "L|Black": {
+        "sync_variant_id": 5153799475,
+        "size": "L",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "XL|Black": {
+        "sync_variant_id": 5153799476,
+        "size": "XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "2XL|Black": {
+        "sync_variant_id": 5153799477,
+        "size": "2XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      }
+    }
+  },
+  "W Friend, L Bully|Hoodie": {
+    "designName": "W Friend, L Bully",
+    "productType": "Hoodie",
+    "printfulProductId": 415078975,
+    "variants": {
+      "S|Black": {
+        "sync_variant_id": 5153799080,
+        "size": "S",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "M|Black": {
+        "sync_variant_id": 5153799081,
+        "size": "M",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "L|Black": {
+        "sync_variant_id": 5153799082,
+        "size": "L",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "XL|Black": {
+        "sync_variant_id": 5153799083,
+        "size": "XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "2XL|Black": {
+        "sync_variant_id": 5153799084,
+        "size": "2XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      }
+    }
+  },
+  "Era of Healing|Hoodie": {
+    "designName": "Era of Healing",
+    "productType": "Hoodie",
+    "printfulProductId": 415078947,
+    "variants": {
+      "S|Black": {
+        "sync_variant_id": 5153798960,
+        "size": "S",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "M|Black": {
+        "sync_variant_id": 5153798961,
+        "size": "M",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "L|Black": {
+        "sync_variant_id": 5153798963,
+        "size": "L",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "XL|Black": {
+        "sync_variant_id": 5153798964,
+        "size": "XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "2XL|Black": {
+        "sync_variant_id": 5153798965,
+        "size": "2XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      }
+    }
+  },
+  "You're Valid, Bestie|Hoodie": {
+    "designName": "You're Valid, Bestie",
+    "productType": "Hoodie",
+    "printfulProductId": 415078922,
+    "variants": {
+      "S|Black": {
+        "sync_variant_id": 5153798821,
+        "size": "S",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "M|Black": {
+        "sync_variant_id": 5153798822,
+        "size": "M",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "L|Black": {
+        "sync_variant_id": 5153798823,
+        "size": "L",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "XL|Black": {
+        "sync_variant_id": 5153798824,
+        "size": "XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "2XL|Black": {
+        "sync_variant_id": 5153798825,
+        "size": "2XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      }
+    }
+  },
+  "Ohio? Nah, I Choose Peace|Hoodie": {
+    "designName": "Ohio? Nah, I Choose Peace",
+    "productType": "Hoodie",
+    "printfulProductId": 415078898,
+    "variants": {
+      "S|Black": {
+        "sync_variant_id": 5153798545,
+        "size": "S",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "M|Black": {
+        "sync_variant_id": 5153798554,
+        "size": "M",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "L|Black": {
+        "sync_variant_id": 5153798555,
+        "size": "L",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "XL|Black": {
+        "sync_variant_id": 5153798556,
+        "size": "XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "2XL|Black": {
+        "sync_variant_id": 5153798557,
+        "size": "2XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      }
+    }
+  },
+  "NPC Energy? I Think Not|Hoodie": {
+    "designName": "NPC Energy? I Think Not",
+    "productType": "Hoodie",
+    "printfulProductId": 415078877,
+    "variants": {
+      "S|Black": {
+        "sync_variant_id": 5153798402,
+        "size": "S",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "M|Black": {
+        "sync_variant_id": 5153798403,
+        "size": "M",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "L|Black": {
+        "sync_variant_id": 5153798404,
+        "size": "L",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "XL|Black": {
+        "sync_variant_id": 5153798405,
+        "size": "XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "2XL|Black": {
+        "sync_variant_id": 5153798406,
+        "size": "2XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      }
+    }
+  },
+  "Lowkey Struggling, Highkey Surviving|Sticker": {
+    "designName": "Lowkey Struggling, Highkey Surviving",
+    "productType": "Sticker",
+    "printfulProductId": 415078610,
+    "variants": {
+      "3″×3″|White": {
+        "sync_variant_id": 5153796228,
+        "size": "3″×3″",
+        "color": "White",
+        "retail_price": "4.99",
+        "sku": null
+      }
+    }
+  },
+  "Rent Free Self-Love|Sticker": {
+    "designName": "Rent Free Self-Love",
+    "productType": "Sticker",
+    "printfulProductId": 415078592,
+    "variants": {
+      "3″×3″|White": {
+        "sync_variant_id": 5153796101,
+        "size": "3″×3″",
+        "color": "White",
+        "retail_price": "4.99",
+        "sku": null
+      }
+    }
+  },
+  "Sigma Kindness Grindset|Sticker": {
+    "designName": "Sigma Kindness Grindset",
+    "productType": "Sticker",
+    "printfulProductId": 415078575,
+    "variants": {
+      "3″×3″|White": {
+        "sync_variant_id": 5153795891,
+        "size": "3″×3″",
+        "color": "White",
+        "retail_price": "4.99",
+        "sku": null
+      }
+    }
+  },
+  "Hits Different When You're Kind|Sticker": {
+    "designName": "Hits Different When You're Kind",
+    "productType": "Sticker",
+    "printfulProductId": 415078563,
+    "variants": {
+      "3″×3″|White": {
+        "sync_variant_id": 5153795782,
+        "size": "3″×3″",
+        "color": "White",
+        "retail_price": "4.99",
+        "sku": null
+      }
+    }
+  },
+  "W Friend, L Bully|Sticker": {
+    "designName": "W Friend, L Bully",
+    "productType": "Sticker",
+    "printfulProductId": 415078369,
+    "variants": {
+      "3″×3″|White": {
+        "sync_variant_id": 5153793561,
+        "size": "3″×3″",
+        "color": "White",
+        "retail_price": "4.99",
+        "sku": null
+      }
+    }
+  },
+  "Era of Healing|Sticker": {
+    "designName": "Era of Healing",
+    "productType": "Sticker",
+    "printfulProductId": 415078350,
+    "variants": {
+      "3″×3″|White": {
+        "sync_variant_id": 5153793538,
+        "size": "3″×3″",
+        "color": "White",
+        "retail_price": "4.99",
+        "sku": null
+      }
+    }
+  },
+  "You're Valid, Bestie|Sticker": {
+    "designName": "You're Valid, Bestie",
+    "productType": "Sticker",
+    "printfulProductId": 415078343,
+    "variants": {
+      "3″×3″|White": {
+        "sync_variant_id": 5153793531,
+        "size": "3″×3″",
+        "color": "White",
+        "retail_price": "4.99",
+        "sku": null
+      }
+    }
+  },
+  "Ohio? Nah, I Choose Peace|Sticker": {
+    "designName": "Ohio? Nah, I Choose Peace",
+    "productType": "Sticker",
+    "printfulProductId": 415078322,
+    "variants": {
+      "3″×3″|White": {
+        "sync_variant_id": 5153793442,
+        "size": "3″×3″",
+        "color": "White",
+        "retail_price": "4.99",
+        "sku": null
+      }
+    }
+  },
+  "NPC Energy? I Think Not|Sticker": {
+    "designName": "NPC Energy? I Think Not",
+    "productType": "Sticker",
+    "printfulProductId": 415078307,
+    "variants": {
+      "3″×3″|White": {
+        "sync_variant_id": 5153793381,
+        "size": "3″×3″",
+        "color": "White",
+        "retail_price": "4.99",
+        "sku": null
+      }
+    }
+  },
+  "Lowkey Struggling, Highkey Surviving|T-Shirt": {
+    "designName": "Lowkey Struggling, Highkey Surviving",
+    "productType": "T-Shirt",
+    "printfulProductId": 415077975,
+    "variants": {
+      "M|White": {
+        "sync_variant_id": 5153791980,
+        "size": "M",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "L|White": {
+        "sync_variant_id": 5153791981,
+        "size": "L",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "XL|White": {
+        "sync_variant_id": 5153791982,
+        "size": "XL",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "S|Black": {
+        "sync_variant_id": 5153791983,
+        "size": "S",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "M|Black": {
+        "sync_variant_id": 5153791984,
+        "size": "M",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "L|Black": {
+        "sync_variant_id": 5153791985,
+        "size": "L",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "XL|Black": {
+        "sync_variant_id": 5153791986,
+        "size": "XL",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      }
+    }
+  },
+  "Rent Free Self-Love|T-Shirt": {
+    "designName": "Rent Free Self-Love",
+    "productType": "T-Shirt",
+    "printfulProductId": 415077967,
+    "variants": {
+      "M|White": {
+        "sync_variant_id": 5153791959,
+        "size": "M",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "L|White": {
+        "sync_variant_id": 5153791960,
+        "size": "L",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "XL|White": {
+        "sync_variant_id": 5153791961,
+        "size": "XL",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "S|Black": {
+        "sync_variant_id": 5153791963,
+        "size": "S",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "M|Black": {
+        "sync_variant_id": 5153791965,
+        "size": "M",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "L|Black": {
+        "sync_variant_id": 5153791966,
+        "size": "L",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "XL|Black": {
+        "sync_variant_id": 5153791967,
+        "size": "XL",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      }
+    }
+  },
+  "Sigma Kindness Grindset|T-Shirt": {
+    "designName": "Sigma Kindness Grindset",
+    "productType": "T-Shirt",
+    "printfulProductId": 415077951,
+    "variants": {
+      "M|White": {
+        "sync_variant_id": 5153791923,
+        "size": "M",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "L|White": {
+        "sync_variant_id": 5153791924,
+        "size": "L",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "XL|White": {
+        "sync_variant_id": 5153791925,
+        "size": "XL",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "S|Black": {
+        "sync_variant_id": 5153791926,
+        "size": "S",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "M|Black": {
+        "sync_variant_id": 5153791927,
+        "size": "M",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "L|Black": {
+        "sync_variant_id": 5153791928,
+        "size": "L",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "XL|Black": {
+        "sync_variant_id": 5153791929,
+        "size": "XL",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      }
+    }
+  },
+  "Hits Different When You're Kind|T-Shirt": {
+    "designName": "Hits Different When You're Kind",
+    "productType": "T-Shirt",
+    "printfulProductId": 415077942,
+    "variants": {
+      "M|White": {
+        "sync_variant_id": 5112636264,
+        "size": "M",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "L|White": {
+        "sync_variant_id": 5112636265,
+        "size": "L",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "XL|White": {
+        "sync_variant_id": 5112636267,
+        "size": "XL",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "S|Black": {
+        "sync_variant_id": 5112636256,
+        "size": "S",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "M|Black": {
+        "sync_variant_id": 5112636257,
+        "size": "M",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "L|Black": {
+        "sync_variant_id": 5112636260,
+        "size": "L",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "XL|Black": {
+        "sync_variant_id": 5112636261,
+        "size": "XL",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "2XL|Black": {
+        "sync_variant_id": 5112636262,
+        "size": "2XL",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "S|White": {
+        "sync_variant_id": 5112636263,
+        "size": "S",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "2XL|White": {
+        "sync_variant_id": 5112636268,
+        "size": "2XL",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      }
+    }
+  },
+  "W Friend, L Bully|T-Shirt": {
+    "designName": "W Friend, L Bully",
+    "productType": "T-Shirt",
+    "printfulProductId": 415077629,
+    "variants": {
+      "M|White": {
+        "sync_variant_id": 5112632946,
+        "size": "M",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "L|White": {
+        "sync_variant_id": 5112632947,
+        "size": "L",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "XL|White": {
+        "sync_variant_id": 5112632948,
+        "size": "XL",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "S|Black": {
+        "sync_variant_id": 5112632940,
+        "size": "S",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "M|Black": {
+        "sync_variant_id": 5112632941,
+        "size": "M",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "L|Black": {
+        "sync_variant_id": 5112632942,
+        "size": "L",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "XL|Black": {
+        "sync_variant_id": 5112632943,
+        "size": "XL",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "2XL|Black": {
+        "sync_variant_id": 5112632944,
+        "size": "2XL",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "S|White": {
+        "sync_variant_id": 5112632945,
+        "size": "S",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "2XL|White": {
+        "sync_variant_id": 5112632949,
+        "size": "2XL",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      }
+    }
+  },
+  "Era of Healing|T-Shirt": {
+    "designName": "Era of Healing",
+    "productType": "T-Shirt",
+    "printfulProductId": 415077621,
+    "variants": {
+      "M|White": {
+        "sync_variant_id": 5153791076,
+        "size": "M",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "L|White": {
+        "sync_variant_id": 5153791077,
+        "size": "L",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "XL|White": {
+        "sync_variant_id": 5153791078,
+        "size": "XL",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "S|Black": {
+        "sync_variant_id": 5153791079,
+        "size": "S",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "M|Black": {
+        "sync_variant_id": 5153791080,
+        "size": "M",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "L|Black": {
+        "sync_variant_id": 5153791081,
+        "size": "L",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "XL|Black": {
+        "sync_variant_id": 5153791086,
+        "size": "XL",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      }
+    }
+  },
+  "You're Valid, Bestie|T-Shirt": {
+    "designName": "You're Valid, Bestie",
+    "productType": "T-Shirt",
+    "printfulProductId": 415077611,
+    "variants": {
+      "M|White": {
+        "sync_variant_id": 5153791060,
+        "size": "M",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "L|White": {
+        "sync_variant_id": 5153791061,
+        "size": "L",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "XL|White": {
+        "sync_variant_id": 5153791062,
+        "size": "XL",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "S|Black": {
+        "sync_variant_id": 5153791063,
+        "size": "S",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "M|Black": {
+        "sync_variant_id": 5153791064,
+        "size": "M",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "L|Black": {
+        "sync_variant_id": 5153791065,
+        "size": "L",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "XL|Black": {
+        "sync_variant_id": 5153791066,
+        "size": "XL",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      }
+    }
+  },
+  "Ohio? Nah, I Choose Peace|T-Shirt": {
+    "designName": "Ohio? Nah, I Choose Peace",
+    "productType": "T-Shirt",
+    "printfulProductId": 415077601,
+    "variants": {
+      "M|White": {
+        "sync_variant_id": 5112634209,
+        "size": "M",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "L|White": {
+        "sync_variant_id": 5112634210,
+        "size": "L",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "XL|White": {
+        "sync_variant_id": 5112634211,
+        "size": "XL",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "S|Black": {
+        "sync_variant_id": 5112634203,
+        "size": "S",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "M|Black": {
+        "sync_variant_id": 5112634204,
+        "size": "M",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "L|Black": {
+        "sync_variant_id": 5112634205,
+        "size": "L",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "XL|Black": {
+        "sync_variant_id": 5112634206,
+        "size": "XL",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "2XL|Black": {
+        "sync_variant_id": 5112634207,
+        "size": "2XL",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "S|White": {
+        "sync_variant_id": 5112634208,
+        "size": "S",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "2XL|White": {
+        "sync_variant_id": 5112634212,
+        "size": "2XL",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      }
+    }
+  },
+  "NPC Energy? I Think Not|T-Shirt": {
+    "designName": "NPC Energy? I Think Not",
+    "productType": "T-Shirt",
+    "printfulProductId": 415077586,
+    "variants": {
+      "M|White": {
+        "sync_variant_id": 5112634315,
+        "size": "M",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "L|White": {
+        "sync_variant_id": 5112634316,
+        "size": "L",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "XL|White": {
+        "sync_variant_id": 5112634317,
+        "size": "XL",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "S|Black": {
+        "sync_variant_id": 5112634309,
+        "size": "S",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "M|Black": {
+        "sync_variant_id": 5112634310,
+        "size": "M",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "L|Black": {
+        "sync_variant_id": 5112634311,
+        "size": "L",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "XL|Black": {
+        "sync_variant_id": 5112634312,
+        "size": "XL",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "2XL|Black": {
+        "sync_variant_id": 5112634313,
+        "size": "2XL",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "S|White": {
+        "sync_variant_id": 5112634314,
+        "size": "S",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "2XL|White": {
+        "sync_variant_id": 5112634318,
+        "size": "2XL",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      }
+    }
+  },
+  "Unalive The Stigma|Hoodie": {
+    "designName": "Unalive The Stigma",
+    "productType": "Hoodie",
+    "printfulProductId": 408162185,
+    "variants": {
+      "S|Black": {
+        "sync_variant_id": 5112636304,
+        "size": "S",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "M|Black": {
+        "sync_variant_id": 5112636305,
+        "size": "M",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "L|Black": {
+        "sync_variant_id": 5112636306,
+        "size": "L",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "XL|Black": {
+        "sync_variant_id": 5112636307,
+        "size": "XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "2XL|Black": {
+        "sync_variant_id": 5112636308,
+        "size": "2XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "S|White": {
+        "sync_variant_id": 5112636309,
+        "size": "S",
+        "color": "White",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "M|White": {
+        "sync_variant_id": 5112636310,
+        "size": "M",
+        "color": "White",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "L|White": {
+        "sync_variant_id": 5112636311,
+        "size": "L",
+        "color": "White",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "XL|White": {
+        "sync_variant_id": 5112636312,
+        "size": "XL",
+        "color": "White",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "2XL|White": {
+        "sync_variant_id": 5112636313,
+        "size": "2XL",
+        "color": "White",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "S|Light Pink": {
+        "sync_variant_id": 5112636314,
+        "size": "S",
+        "color": "Light Pink",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "M|Light Pink": {
+        "sync_variant_id": 5112636315,
+        "size": "M",
+        "color": "Light Pink",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "L|Light Pink": {
+        "sync_variant_id": 5112636316,
+        "size": "L",
+        "color": "Light Pink",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "XL|Light Pink": {
+        "sync_variant_id": 5112636317,
+        "size": "XL",
+        "color": "Light Pink",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "2XL|Light Pink": {
+        "sync_variant_id": 5112636318,
+        "size": "2XL",
+        "color": "Light Pink",
+        "retail_price": "44.99",
+        "sku": null
+      }
+    }
+  },
+  "Syndica Solutions|Hoodie": {
+    "designName": "Syndica Solutions",
+    "productType": "Hoodie",
+    "printfulProductId": 408162092,
+    "variants": {
+      "S|Black": {
+        "sync_variant_id": 5112635520,
+        "size": "S",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "M|Black": {
+        "sync_variant_id": 5112635521,
+        "size": "M",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "L|Black": {
+        "sync_variant_id": 5112635522,
+        "size": "L",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "XL|Black": {
+        "sync_variant_id": 5112635523,
+        "size": "XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "2XL|Black": {
+        "sync_variant_id": 5112635524,
+        "size": "2XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "S|White": {
+        "sync_variant_id": 5112635525,
+        "size": "S",
+        "color": "White",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "M|White": {
+        "sync_variant_id": 5112635526,
+        "size": "M",
+        "color": "White",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "L|White": {
+        "sync_variant_id": 5112635527,
+        "size": "L",
+        "color": "White",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "XL|White": {
+        "sync_variant_id": 5112635528,
+        "size": "XL",
+        "color": "White",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "2XL|White": {
+        "sync_variant_id": 5112635529,
+        "size": "2XL",
+        "color": "White",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "S|Light Pink": {
+        "sync_variant_id": 5112635530,
+        "size": "S",
+        "color": "Light Pink",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "M|Light Pink": {
+        "sync_variant_id": 5112635531,
+        "size": "M",
+        "color": "Light Pink",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "L|Light Pink": {
+        "sync_variant_id": 5112635532,
+        "size": "L",
+        "color": "Light Pink",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "XL|Light Pink": {
+        "sync_variant_id": 5112635533,
+        "size": "XL",
+        "color": "Light Pink",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "2XL|Light Pink": {
+        "sync_variant_id": 5112635534,
+        "size": "2XL",
+        "color": "Light Pink",
+        "retail_price": "44.99",
+        "sku": null
+      }
+    }
+  },
+  "kAIden Logo|T-Shirt": {
+    "designName": "kAIden Logo",
+    "productType": "T-Shirt",
+    "printfulProductId": 408162084,
+    "variants": {
+      "S|Black": {
+        "sync_variant_id": 5112635448,
+        "size": "S",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "M|Black": {
+        "sync_variant_id": 5112635450,
+        "size": "M",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "L|Black": {
+        "sync_variant_id": 5112635451,
+        "size": "L",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "XL|Black": {
+        "sync_variant_id": 5112635452,
+        "size": "XL",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "2XL|Black": {
+        "sync_variant_id": 5112635453,
+        "size": "2XL",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "S|White": {
+        "sync_variant_id": 5112635454,
+        "size": "S",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "M|White": {
+        "sync_variant_id": 5112635455,
+        "size": "M",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "L|White": {
+        "sync_variant_id": 5112635456,
+        "size": "L",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "XL|White": {
+        "sync_variant_id": 5112635457,
+        "size": "XL",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "2XL|White": {
+        "sync_variant_id": 5112635458,
+        "size": "2XL",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      }
+    }
+  },
+  "Bougie Boutique Logo|Hoodie": {
+    "designName": "Bougie Boutique Logo",
+    "productType": "Hoodie",
+    "printfulProductId": 408162057,
+    "variants": {
+      "S|Black": {
+        "sync_variant_id": 5112635372,
+        "size": "S",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "M|Black": {
+        "sync_variant_id": 5112635375,
+        "size": "M",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "L|Black": {
+        "sync_variant_id": 5112635376,
+        "size": "L",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "XL|Black": {
+        "sync_variant_id": 5112635377,
+        "size": "XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "2XL|Black": {
+        "sync_variant_id": 5112635378,
+        "size": "2XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "S|White": {
+        "sync_variant_id": 5112635379,
+        "size": "S",
+        "color": "White",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "M|White": {
+        "sync_variant_id": 5112635380,
+        "size": "M",
+        "color": "White",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "L|White": {
+        "sync_variant_id": 5112635381,
+        "size": "L",
+        "color": "White",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "XL|White": {
+        "sync_variant_id": 5112635382,
+        "size": "XL",
+        "color": "White",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "2XL|White": {
+        "sync_variant_id": 5112635383,
+        "size": "2XL",
+        "color": "White",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "S|Light Pink": {
+        "sync_variant_id": 5112635384,
+        "size": "S",
+        "color": "Light Pink",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "M|Light Pink": {
+        "sync_variant_id": 5112635385,
+        "size": "M",
+        "color": "Light Pink",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "L|Light Pink": {
+        "sync_variant_id": 5112635386,
+        "size": "L",
+        "color": "Light Pink",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "XL|Light Pink": {
+        "sync_variant_id": 5112635388,
+        "size": "XL",
+        "color": "Light Pink",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "2XL|Light Pink": {
+        "sync_variant_id": 5112635389,
+        "size": "2XL",
+        "color": "Light Pink",
+        "retail_price": "44.99",
+        "sku": null
+      }
+    }
+  },
+  "Mental Health Check|T-Shirt": {
+    "designName": "Mental Health Check",
+    "productType": "T-Shirt",
+    "printfulProductId": 408162038,
+    "variants": {
+      "S|Black": {
+        "sync_variant_id": 5112635232,
+        "size": "S",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "M|Black": {
+        "sync_variant_id": 5112635233,
+        "size": "M",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "L|Black": {
+        "sync_variant_id": 5112635234,
+        "size": "L",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "XL|Black": {
+        "sync_variant_id": 5112635235,
+        "size": "XL",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "2XL|Black": {
+        "sync_variant_id": 5112635236,
+        "size": "2XL",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "S|White": {
+        "sync_variant_id": 5112635237,
+        "size": "S",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "M|White": {
+        "sync_variant_id": 5112635238,
+        "size": "M",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "L|White": {
+        "sync_variant_id": 5112635239,
+        "size": "L",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "XL|White": {
+        "sync_variant_id": 5112635240,
+        "size": "XL",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "2XL|White": {
+        "sync_variant_id": 5112635241,
+        "size": "2XL",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      }
+    }
+  },
+  "Delulu? Nah, Hopeful|T-Shirt": {
+    "designName": "Delulu? Nah, Hopeful",
+    "productType": "T-Shirt",
+    "printfulProductId": 408161935,
+    "variants": {
+      "S|Black": {
+        "sync_variant_id": 5112634613,
+        "size": "S",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "M|Black": {
+        "sync_variant_id": 5112634614,
+        "size": "M",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "L|Black": {
+        "sync_variant_id": 5112634615,
+        "size": "L",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "XL|Black": {
+        "sync_variant_id": 5112634616,
+        "size": "XL",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "2XL|Black": {
+        "sync_variant_id": 5112634617,
+        "size": "2XL",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "S|White": {
+        "sync_variant_id": 5112634618,
+        "size": "S",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "M|White": {
+        "sync_variant_id": 5112634619,
+        "size": "M",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "L|White": {
+        "sync_variant_id": 5112634620,
+        "size": "L",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "XL|White": {
+        "sync_variant_id": 5112634621,
+        "size": "XL",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "2XL|White": {
+        "sync_variant_id": 5112634622,
+        "size": "2XL",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      }
+    }
+  },
+  "Ate & Left No Crumbs (Self-Worth)|T-Shirt": {
+    "designName": "Ate & Left No Crumbs (Self-Worth)",
+    "productType": "T-Shirt",
+    "printfulProductId": 408161907,
+    "variants": {
+      "S|Black": {
+        "sync_variant_id": 5112634448,
+        "size": "S",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "M|Black": {
+        "sync_variant_id": 5112634449,
+        "size": "M",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "L|Black": {
+        "sync_variant_id": 5112634450,
+        "size": "L",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "XL|Black": {
+        "sync_variant_id": 5112634451,
+        "size": "XL",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "2XL|Black": {
+        "sync_variant_id": 5112634452,
+        "size": "2XL",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "S|White": {
+        "sync_variant_id": 5112634457,
+        "size": "S",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "M|White": {
+        "sync_variant_id": 5112634460,
+        "size": "M",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "L|White": {
+        "sync_variant_id": 5112634461,
+        "size": "L",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "XL|White": {
+        "sync_variant_id": 5112634463,
+        "size": "XL",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "2XL|White": {
+        "sync_variant_id": 5112634464,
+        "size": "2XL",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      }
+    }
+  },
+  "Rent Free: Self-Love|Hoodie": {
+    "designName": "Rent Free: Self-Love",
+    "productType": "Hoodie",
+    "printfulProductId": 408161886,
+    "variants": {
+      "S|Black": {
+        "sync_variant_id": 5112634382,
+        "size": "S",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "M|Black": {
+        "sync_variant_id": 5112634384,
+        "size": "M",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "L|Black": {
+        "sync_variant_id": 5112634386,
+        "size": "L",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "XL|Black": {
+        "sync_variant_id": 5112634388,
+        "size": "XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "2XL|Black": {
+        "sync_variant_id": 5112634390,
+        "size": "2XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "S|White": {
+        "sync_variant_id": 5112634392,
+        "size": "S",
+        "color": "White",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "M|White": {
+        "sync_variant_id": 5112634394,
+        "size": "M",
+        "color": "White",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "L|White": {
+        "sync_variant_id": 5112634396,
+        "size": "L",
+        "color": "White",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "XL|White": {
+        "sync_variant_id": 5112634398,
+        "size": "XL",
+        "color": "White",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "2XL|White": {
+        "sync_variant_id": 5112634400,
+        "size": "2XL",
+        "color": "White",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "S|Light Pink": {
+        "sync_variant_id": 5112634402,
+        "size": "S",
+        "color": "Light Pink",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "M|Light Pink": {
+        "sync_variant_id": 5112634404,
+        "size": "M",
+        "color": "Light Pink",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "L|Light Pink": {
+        "sync_variant_id": 5112634406,
+        "size": "L",
+        "color": "Light Pink",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "XL|Light Pink": {
+        "sync_variant_id": 5112634408,
+        "size": "XL",
+        "color": "Light Pink",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "2XL|Light Pink": {
+        "sync_variant_id": 5112634409,
+        "size": "2XL",
+        "color": "Light Pink",
+        "retail_price": "44.99",
+        "sku": null
+      }
+    }
+  },
+  "Caught in 4K Being Kind|T-Shirt": {
+    "designName": "Caught in 4K Being Kind",
+    "productType": "T-Shirt",
+    "printfulProductId": 408161883,
+    "variants": {
+      "S|Black": {
+        "sync_variant_id": 5112634341,
+        "size": "S",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "M|Black": {
+        "sync_variant_id": 5112634342,
+        "size": "M",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "L|Black": {
+        "sync_variant_id": 5112634343,
+        "size": "L",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "XL|Black": {
+        "sync_variant_id": 5112634344,
+        "size": "XL",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "2XL|Black": {
+        "sync_variant_id": 5112634345,
+        "size": "2XL",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "S|White": {
+        "sync_variant_id": 5112634346,
+        "size": "S",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "M|White": {
+        "sync_variant_id": 5112634347,
+        "size": "M",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "L|White": {
+        "sync_variant_id": 5112634348,
+        "size": "L",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "XL|White": {
+        "sync_variant_id": 5112634349,
+        "size": "XL",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "2XL|White": {
+        "sync_variant_id": 5112634350,
+        "size": "2XL",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      }
+    }
+  },
+  "Fanum Tax The Negativity|Hoodie": {
+    "designName": "Fanum Tax The Negativity",
+    "productType": "Hoodie",
+    "printfulProductId": 408161689,
+    "variants": {
+      "S|Black": {
+        "sync_variant_id": 5112632950,
+        "size": "S",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "M|Black": {
+        "sync_variant_id": 5112632951,
+        "size": "M",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "L|Black": {
+        "sync_variant_id": 5112632952,
+        "size": "L",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "XL|Black": {
+        "sync_variant_id": 5112632953,
+        "size": "XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "2XL|Black": {
+        "sync_variant_id": 5112632954,
+        "size": "2XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "S|White": {
+        "sync_variant_id": 5112632955,
+        "size": "S",
+        "color": "White",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "M|White": {
+        "sync_variant_id": 5112632956,
+        "size": "M",
+        "color": "White",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "L|White": {
+        "sync_variant_id": 5112632957,
+        "size": "L",
+        "color": "White",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "XL|White": {
+        "sync_variant_id": 5112632958,
+        "size": "XL",
+        "color": "White",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "2XL|White": {
+        "sync_variant_id": 5112632959,
+        "size": "2XL",
+        "color": "White",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "S|Light Pink": {
+        "sync_variant_id": 5112632960,
+        "size": "S",
+        "color": "Light Pink",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "M|Light Pink": {
+        "sync_variant_id": 5112632961,
+        "size": "M",
+        "color": "Light Pink",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "L|Light Pink": {
+        "sync_variant_id": 5112632962,
+        "size": "L",
+        "color": "Light Pink",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "XL|Light Pink": {
+        "sync_variant_id": 5112632963,
+        "size": "XL",
+        "color": "Light Pink",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "2XL|Light Pink": {
+        "sync_variant_id": 5112632964,
+        "size": "2XL",
+        "color": "Light Pink",
+        "retail_price": "44.99",
+        "sku": null
+      }
+    }
+  },
+  "Gyatt Gratitude|T-Shirt": {
+    "designName": "Gyatt Gratitude",
+    "productType": "T-Shirt",
+    "printfulProductId": 408161687,
+    "variants": {
+      "S|Black": {
+        "sync_variant_id": 5112632930,
+        "size": "S",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "M|Black": {
+        "sync_variant_id": 5112632931,
+        "size": "M",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "L|Black": {
+        "sync_variant_id": 5112632932,
+        "size": "L",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "XL|Black": {
+        "sync_variant_id": 5112632933,
+        "size": "XL",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "2XL|Black": {
+        "sync_variant_id": 5112632934,
+        "size": "2XL",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "S|White": {
+        "sync_variant_id": 5112632935,
+        "size": "S",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "M|White": {
+        "sync_variant_id": 5112632936,
+        "size": "M",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "L|White": {
+        "sync_variant_id": 5112632937,
+        "size": "L",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "XL|White": {
+        "sync_variant_id": 5112632938,
+        "size": "XL",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "2XL|White": {
+        "sync_variant_id": 5112632939,
+        "size": "2XL",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      }
+    }
+  },
+  "That's So Not Skibidi (Anti-Bully)|T-Shirt": {
+    "designName": "That's So Not Skibidi (Anti-Bully)",
+    "productType": "T-Shirt",
+    "printfulProductId": 408161685,
+    "variants": {
+      "S|Black": {
+        "sync_variant_id": 5112632905,
+        "size": "S",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "M|Black": {
+        "sync_variant_id": 5112632906,
+        "size": "M",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "L|Black": {
+        "sync_variant_id": 5112632907,
+        "size": "L",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "XL|Black": {
+        "sync_variant_id": 5112632908,
+        "size": "XL",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "2XL|Black": {
+        "sync_variant_id": 5112632909,
+        "size": "2XL",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "S|White": {
+        "sync_variant_id": 5112632910,
+        "size": "S",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "M|White": {
+        "sync_variant_id": 5112632911,
+        "size": "M",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "L|White": {
+        "sync_variant_id": 5112632912,
+        "size": "L",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "XL|White": {
+        "sync_variant_id": 5112632913,
+        "size": "XL",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "2XL|White": {
+        "sync_variant_id": 5112632914,
+        "size": "2XL",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      }
+    }
+  },
+  "Bussin' Boundaries|T-Shirt": {
+    "designName": "Bussin' Boundaries",
+    "productType": "T-Shirt",
+    "printfulProductId": 408161684,
+    "variants": {
+      "S|Black": {
+        "sync_variant_id": 5112632895,
+        "size": "S",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "M|Black": {
+        "sync_variant_id": 5112632896,
+        "size": "M",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "L|Black": {
+        "sync_variant_id": 5112632897,
+        "size": "L",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "XL|Black": {
+        "sync_variant_id": 5112632898,
+        "size": "XL",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "2XL|Black": {
+        "sync_variant_id": 5112632899,
+        "size": "2XL",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "S|White": {
+        "sync_variant_id": 5112632900,
+        "size": "S",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "M|White": {
+        "sync_variant_id": 5112632901,
+        "size": "M",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "L|White": {
+        "sync_variant_id": 5112632902,
+        "size": "L",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "XL|White": {
+        "sync_variant_id": 5112632903,
+        "size": "XL",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "2XL|White": {
+        "sync_variant_id": 5112632904,
+        "size": "2XL",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      }
+    }
+  },
+  "Understood The Assignment (Self-Care)|Hoodie": {
+    "designName": "Understood The Assignment (Self-Care)",
+    "productType": "Hoodie",
+    "printfulProductId": 408161682,
+    "variants": {
+      "S|Black": {
+        "sync_variant_id": 5112632879,
+        "size": "S",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "M|Black": {
+        "sync_variant_id": 5112632880,
+        "size": "M",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "L|Black": {
+        "sync_variant_id": 5112632881,
+        "size": "L",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "XL|Black": {
+        "sync_variant_id": 5112632882,
+        "size": "XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "2XL|Black": {
+        "sync_variant_id": 5112632883,
+        "size": "2XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "S|White": {
+        "sync_variant_id": 5112632884,
+        "size": "S",
+        "color": "White",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "M|White": {
+        "sync_variant_id": 5112632885,
+        "size": "M",
+        "color": "White",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "L|White": {
+        "sync_variant_id": 5112632886,
+        "size": "L",
+        "color": "White",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "XL|White": {
+        "sync_variant_id": 5112632887,
+        "size": "XL",
+        "color": "White",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "2XL|White": {
+        "sync_variant_id": 5112632888,
+        "size": "2XL",
+        "color": "White",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "S|Light Pink": {
+        "sync_variant_id": 5112632889,
+        "size": "S",
+        "color": "Light Pink",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "M|Light Pink": {
+        "sync_variant_id": 5112632890,
+        "size": "M",
+        "color": "Light Pink",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "L|Light Pink": {
+        "sync_variant_id": 5112632891,
+        "size": "L",
+        "color": "Light Pink",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "XL|Light Pink": {
+        "sync_variant_id": 5112632892,
+        "size": "XL",
+        "color": "Light Pink",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "2XL|Light Pink": {
+        "sync_variant_id": 5112632893,
+        "size": "2XL",
+        "color": "Light Pink",
+        "retail_price": "44.99",
+        "sku": null
+      }
+    }
+  },
+  "It's Giving... Kindness|T-Shirt": {
+    "designName": "It's Giving... Kindness",
+    "productType": "T-Shirt",
+    "printfulProductId": 408161681,
+    "variants": {
+      "S|Black": {
+        "sync_variant_id": 5112632869,
+        "size": "S",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "M|Black": {
+        "sync_variant_id": 5112632870,
+        "size": "M",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "L|Black": {
+        "sync_variant_id": 5112632871,
+        "size": "L",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "XL|Black": {
+        "sync_variant_id": 5112632872,
+        "size": "XL",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "2XL|Black": {
+        "sync_variant_id": 5112632873,
+        "size": "2XL",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "S|White": {
+        "sync_variant_id": 5112632874,
+        "size": "S",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "M|White": {
+        "sync_variant_id": 5112632875,
+        "size": "M",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "L|White": {
+        "sync_variant_id": 5112632876,
+        "size": "L",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "XL|White": {
+        "sync_variant_id": 5112632877,
+        "size": "XL",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "2XL|White": {
+        "sync_variant_id": 5112632878,
+        "size": "2XL",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      }
+    }
+  },
+  "Main Character Energy (Kind Edition)|T-Shirt": {
+    "designName": "Main Character Energy (Kind Edition)",
+    "productType": "T-Shirt",
+    "printfulProductId": 408161680,
+    "variants": {
+      "S|Black": {
+        "sync_variant_id": 5112632859,
+        "size": "S",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "M|Black": {
+        "sync_variant_id": 5112632860,
+        "size": "M",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "L|Black": {
+        "sync_variant_id": 5112632861,
+        "size": "L",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "XL|Black": {
+        "sync_variant_id": 5112632862,
+        "size": "XL",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "2XL|Black": {
+        "sync_variant_id": 5112632863,
+        "size": "2XL",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "S|White": {
+        "sync_variant_id": 5112632864,
+        "size": "S",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "M|White": {
+        "sync_variant_id": 5112632865,
+        "size": "M",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "L|White": {
+        "sync_variant_id": 5112632866,
+        "size": "L",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "XL|White": {
+        "sync_variant_id": 5112632867,
+        "size": "XL",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "2XL|White": {
+        "sync_variant_id": 5112632868,
+        "size": "2XL",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      }
+    }
+  },
+  "Slay The Hate Away|Hoodie": {
+    "designName": "Slay The Hate Away",
+    "productType": "Hoodie",
+    "printfulProductId": 408161679,
+    "variants": {
+      "S|Black": {
+        "sync_variant_id": 5112632844,
+        "size": "S",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "M|Black": {
+        "sync_variant_id": 5112632845,
+        "size": "M",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "L|Black": {
+        "sync_variant_id": 5112632846,
+        "size": "L",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "XL|Black": {
+        "sync_variant_id": 5112632847,
+        "size": "XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "2XL|Black": {
+        "sync_variant_id": 5112632848,
+        "size": "2XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "S|White": {
+        "sync_variant_id": 5112632849,
+        "size": "S",
+        "color": "White",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "M|White": {
+        "sync_variant_id": 5112632850,
+        "size": "M",
+        "color": "White",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "L|White": {
+        "sync_variant_id": 5112632851,
+        "size": "L",
+        "color": "White",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "XL|White": {
+        "sync_variant_id": 5112632852,
+        "size": "XL",
+        "color": "White",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "2XL|White": {
+        "sync_variant_id": 5112632853,
+        "size": "2XL",
+        "color": "White",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "S|Light Pink": {
+        "sync_variant_id": 5112632854,
+        "size": "S",
+        "color": "Light Pink",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "M|Light Pink": {
+        "sync_variant_id": 5112632855,
+        "size": "M",
+        "color": "Light Pink",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "L|Light Pink": {
+        "sync_variant_id": 5112632856,
+        "size": "L",
+        "color": "Light Pink",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "XL|Light Pink": {
+        "sync_variant_id": 5112632857,
+        "size": "XL",
+        "color": "Light Pink",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "2XL|Light Pink": {
+        "sync_variant_id": 5112632858,
+        "size": "2XL",
+        "color": "Light Pink",
+        "retail_price": "44.99",
+        "sku": null
+      }
+    }
+  },
+  "Be The Reason Someone Smiles|T-Shirt": {
+    "designName": "Be The Reason Someone Smiles",
+    "productType": "T-Shirt",
+    "printfulProductId": 408156754,
+    "variants": {
+      "S|Black": {
+        "sync_variant_id": 5112044470,
+        "size": "S",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "M|Black": {
+        "sync_variant_id": 5112044471,
+        "size": "M",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "L|Black": {
+        "sync_variant_id": 5112044472,
+        "size": "L",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "XL|Black": {
+        "sync_variant_id": 5112044473,
+        "size": "XL",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "2XL|Black": {
+        "sync_variant_id": 5112044474,
+        "size": "2XL",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "S|White": {
+        "sync_variant_id": 5112044475,
+        "size": "S",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "M|White": {
+        "sync_variant_id": 5112044476,
+        "size": "M",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "L|White": {
+        "sync_variant_id": 5112044477,
+        "size": "L",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "XL|White": {
+        "sync_variant_id": 5112044478,
+        "size": "XL",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "2XL|White": {
+        "sync_variant_id": 5112044479,
+        "size": "2XL",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      }
+    }
+  },
+  "Era: Healing|T-Shirt": {
+    "designName": "Era: Healing",
+    "productType": "T-Shirt",
+    "printfulProductId": 408156752,
+    "variants": {
+      "S|Black": {
+        "sync_variant_id": 5112044453,
+        "size": "S",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "M|Black": {
+        "sync_variant_id": 5112044454,
+        "size": "M",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "L|Black": {
+        "sync_variant_id": 5112044455,
+        "size": "L",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "XL|Black": {
+        "sync_variant_id": 5112044456,
+        "size": "XL",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "2XL|Black": {
+        "sync_variant_id": 5112044457,
+        "size": "2XL",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "S|White": {
+        "sync_variant_id": 5112044458,
+        "size": "S",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "M|White": {
+        "sync_variant_id": 5112044459,
+        "size": "M",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "L|White": {
+        "sync_variant_id": 5112044460,
+        "size": "L",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "XL|White": {
+        "sync_variant_id": 5112044461,
+        "size": "XL",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "2XL|White": {
+        "sync_variant_id": 5112044462,
+        "size": "2XL",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      }
+    }
+  },
+  "You're Valid Bestie|T-Shirt": {
+    "designName": "You're Valid Bestie",
+    "productType": "T-Shirt",
+    "printfulProductId": 408156750,
+    "variants": {
+      "S|Black": {
+        "sync_variant_id": 5112044442,
+        "size": "S",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "M|Black": {
+        "sync_variant_id": 5112044443,
+        "size": "M",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "L|Black": {
+        "sync_variant_id": 5112044444,
+        "size": "L",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "XL|Black": {
+        "sync_variant_id": 5112044445,
+        "size": "XL",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "2XL|Black": {
+        "sync_variant_id": 5112044446,
+        "size": "2XL",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "S|White": {
+        "sync_variant_id": 5112044447,
+        "size": "S",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "M|White": {
+        "sync_variant_id": 5112044448,
+        "size": "M",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "L|White": {
+        "sync_variant_id": 5112044449,
+        "size": "L",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "XL|White": {
+        "sync_variant_id": 5112044450,
+        "size": "XL",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "2XL|White": {
+        "sync_variant_id": 5112044451,
+        "size": "2XL",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      }
+    }
+  },
+  "Rizz With Respect|Hoodie": {
+    "designName": "Rizz With Respect",
+    "productType": "Hoodie",
+    "printfulProductId": 408156749,
+    "variants": {
+      "S|Black": {
+        "sync_variant_id": 5112044427,
+        "size": "S",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "M|Black": {
+        "sync_variant_id": 5112044428,
+        "size": "M",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "L|Black": {
+        "sync_variant_id": 5112044429,
+        "size": "L",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "XL|Black": {
+        "sync_variant_id": 5112044430,
+        "size": "XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "2XL|Black": {
+        "sync_variant_id": 5112044431,
+        "size": "2XL",
+        "color": "Black",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "S|White": {
+        "sync_variant_id": 5112044432,
+        "size": "S",
+        "color": "White",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "M|White": {
+        "sync_variant_id": 5112044433,
+        "size": "M",
+        "color": "White",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "L|White": {
+        "sync_variant_id": 5112044434,
+        "size": "L",
+        "color": "White",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "XL|White": {
+        "sync_variant_id": 5112044435,
+        "size": "XL",
+        "color": "White",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "2XL|White": {
+        "sync_variant_id": 5112044436,
+        "size": "2XL",
+        "color": "White",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "S|Light Pink": {
+        "sync_variant_id": 5112044437,
+        "size": "S",
+        "color": "Light Pink",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "M|Light Pink": {
+        "sync_variant_id": 5112044438,
+        "size": "M",
+        "color": "Light Pink",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "L|Light Pink": {
+        "sync_variant_id": 5112044439,
+        "size": "L",
+        "color": "Light Pink",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "XL|Light Pink": {
+        "sync_variant_id": 5112044440,
+        "size": "XL",
+        "color": "Light Pink",
+        "retail_price": "44.99",
+        "sku": null
+      },
+      "2XL|Light Pink": {
+        "sync_variant_id": 5112044441,
+        "size": "2XL",
+        "color": "Light Pink",
+        "retail_price": "44.99",
+        "sku": null
+      }
+    }
+  },
+  "No Cap, Be Kind|T-Shirt": {
+    "designName": "No Cap, Be Kind",
+    "productType": "T-Shirt",
+    "printfulProductId": 408156748,
+    "variants": {
+      "S|Black": {
+        "sync_variant_id": 5112044417,
+        "size": "S",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "M|Black": {
+        "sync_variant_id": 5112044418,
+        "size": "M",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "L|Black": {
+        "sync_variant_id": 5112044419,
+        "size": "L",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "XL|Black": {
+        "sync_variant_id": 5112044420,
+        "size": "XL",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "2XL|Black": {
+        "sync_variant_id": 5112044421,
+        "size": "2XL",
+        "color": "Black",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "S|White": {
+        "sync_variant_id": 5112044422,
+        "size": "S",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "M|White": {
+        "sync_variant_id": 5112044423,
+        "size": "M",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "L|White": {
+        "sync_variant_id": 5112044424,
+        "size": "L",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "XL|White": {
+        "sync_variant_id": 5112044425,
+        "size": "XL",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      },
+      "2XL|White": {
+        "sync_variant_id": 5112044426,
+        "size": "2XL",
+        "color": "White",
+        "retail_price": "24.99",
+        "sku": null
+      }
+    }
+  }
+}
