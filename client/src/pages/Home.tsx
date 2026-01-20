@@ -134,11 +134,11 @@ export default function Home() {
                 <h3 className="text-2xl font-bold text-white text-center mb-8 drop-shadow-lg">
                   Experience Our Free Tools
                 </h3>
-                <div className="grid md:grid-cols-4 gap-6">
+                <div className="grid md:grid-cols-4 gap-4">
                   <Link href="/free-ai-arena">
-                    <div className="group cursor-pointer p-6 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 hover:border-cyan-500/50 hover:bg-white/15 transition-all hover:scale-105">
-                      <div className="w-full h-32 mb-3 rounded-lg overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=300&fit=crop" alt="AI Chat" className="w-full h-full object-cover" />
+                    <div className="group cursor-pointer p-4 rounded-xl bg-white/10 backdrop-blur-xl border border-white/20 hover:border-cyan-500/50 hover:bg-white/15 transition-all hover:scale-105">
+                      <div className="w-full h-24 mb-2 rounded-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=300&fit=crop" alt="AI Chat" className="w-full h-full object-cover opacity-60" />
                       </div>
                       <h4 className="text-lg font-bold text-white mb-2">AI Chat Arena</h4>
                       <p className="text-white/70 text-sm mb-3">3 AIs debate your question</p>
@@ -146,9 +146,9 @@ export default function Home() {
                     </div>
                   </Link>
                   <Link href="/free-image-gen">
-                    <div className="group cursor-pointer p-6 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 hover:border-pink-500/50 hover:bg-white/15 transition-all hover:scale-105">
-                      <div className="w-full h-32 mb-3 rounded-lg overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1686191128892-c0557e5a4b3e?w=400&h=300&fit=crop" alt="AI Image" className="w-full h-full object-cover" />
+                    <div className="group cursor-pointer p-4 rounded-xl bg-white/10 backdrop-blur-xl border border-white/20 hover:border-pink-500/50 hover:bg-white/15 transition-all hover:scale-105">
+                      <div className="w-full h-24 mb-2 rounded-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1686191128892-c0557e5a4b3e?w=400&h=300&fit=crop" alt="AI Image" className="w-full h-full object-cover opacity-60" />
                       </div>
                       <h4 className="text-lg font-bold text-white mb-2">Image Generator</h4>
                       <p className="text-white/70 text-sm mb-3">Create AI images</p>
@@ -156,9 +156,9 @@ export default function Home() {
                     </div>
                   </Link>
                   <Link href="/free-doc-converter">
-                    <div className="group cursor-pointer p-6 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 hover:border-orange-500/50 hover:bg-white/15 transition-all hover:scale-105">
-                      <div className="w-full h-32 mb-3 rounded-lg overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1568667256549-094345857637?w=400&h=300&fit=crop" alt="Documents" className="w-full h-full object-cover" />
+                    <div className="group cursor-pointer p-4 rounded-xl bg-white/10 backdrop-blur-xl border border-white/20 hover:border-orange-500/50 hover:bg-white/15 transition-all hover:scale-105">
+                      <div className="w-full h-24 mb-2 rounded-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1568667256549-094345857637?w=400&h=300&fit=crop" alt="Documents" className="w-full h-full object-cover opacity-60" />
                       </div>
                       <h4 className="text-lg font-bold text-white mb-2">Doc Converter</h4>
                       <p className="text-white/70 text-sm mb-3">PDF, Word, Excel & more</p>
@@ -166,9 +166,9 @@ export default function Home() {
                     </div>
                   </Link>
                   <Link href="/free-kling-video">
-                    <div className="group cursor-pointer p-6 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 hover:border-purple-500/50 hover:bg-white/15 transition-all hover:scale-105">
-                      <div className="w-full h-32 mb-3 rounded-lg overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=400&h=300&fit=crop" alt="Video Production" className="w-full h-full object-cover" />
+                    <div className="group cursor-pointer p-4 rounded-xl bg-white/10 backdrop-blur-xl border border-white/20 hover:border-purple-500/50 hover:bg-white/15 transition-all hover:scale-105">
+                      <div className="w-full h-24 mb-2 rounded-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=400&h=300&fit=crop" alt="Video Production" className="w-full h-full object-cover opacity-60" />
                       </div>
                       <h4 className="text-lg font-bold text-white mb-2">Video Generator</h4>
                       <p className="text-white/70 text-sm mb-3">AI-powered videos</p>

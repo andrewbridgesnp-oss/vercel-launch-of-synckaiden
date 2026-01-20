@@ -12,8 +12,9 @@ const premiumApps = [
     price: "$19.99/mo",
     features: ["Multi-platform posting", "AI content generation", "Analytics dashboard", "Auto-scheduling"],
     gradient: "from-blue-500/20 to-purple-500/20",
-    icon: "📱",
+    icon: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=400&h=400&fit=crop",
     category: "Marketing" as AppCategory,
+    route: "/apps/social-media-autopilot",
   },
   {
     name: "Comprehensive Tax Assistant",
@@ -21,8 +22,9 @@ const premiumApps = [
     price: "$24.99/mo",
     features: ["Smart deduction finder", "E-file support", "Audit protection", "Tax strategy planning"],
     gradient: "from-green-500/20 to-emerald-500/20",
-    icon: "💰",
+    icon: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=400&h=400&fit=crop",
     category: "Finance" as AppCategory,
+    route: "/apps/tax-assistant",
   },
   {
     name: "Financial Co-Pilot",
@@ -30,8 +32,9 @@ const premiumApps = [
     price: "$14.99/mo",
     features: ["Budget automation", "Investment tracking", "Cash flow forecasting", "Financial insights"],
     gradient: "from-amber-500/20 to-orange-500/20",
-    icon: "📊",
+    icon: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=400&fit=crop",
     category: "Finance" as AppCategory,
+    route: "/apps/financial-copilot",
   },
   {
     name: "Kaiden House Hack",
@@ -39,8 +42,9 @@ const premiumApps = [
     price: "$14.99/mo",
     features: ["Deal analyzer", "ROI calculator", "Market insights", "Financing options"],
     gradient: "from-rose-500/20 to-pink-500/20",
-    icon: "🏠",
+    icon: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&h=400&fit=crop",
     category: "Finance" as AppCategory,
+    route: "/apps/house-hack",
   },
   {
     name: "Elite Studio",
@@ -48,8 +52,9 @@ const premiumApps = [
     price: "$24.99/mo",
     features: ["AI video editing", "Professional effects", "4K rendering", "Cloud storage"],
     gradient: "from-purple-500/20 to-indigo-500/20",
-    icon: "🎬",
+    icon: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=400&h=400&fit=crop",
     category: "Content" as AppCategory,
+    route: "/apps/elite-studio",
   },
   {
     name: "Content Creator",
@@ -57,8 +62,9 @@ const premiumApps = [
     price: "$19.99/mo",
     features: ["AI writing assistant", "Image generation", "Video scripts", "SEO optimization"],
     gradient: "from-cyan-500/20 to-blue-500/20",
-    icon: "✨",
+    icon: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop",
     category: "Content" as AppCategory,
+    route: "/apps/content-creator",
   },
   {
     name: "AI Receptionist",
@@ -66,8 +72,9 @@ const premiumApps = [
     price: "$29.99/mo",
     features: ["24/7 availability", "Call handling", "Appointment scheduling", "CRM integration"],
     gradient: "from-teal-500/20 to-green-500/20",
-    icon: "🤖",
+    icon: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=400&h=400&fit=crop",
     category: "AI" as AppCategory,
+    route: "/apps/ai-receptionist",
   },
   {
     name: "YouTube Automation",
@@ -75,8 +82,9 @@ const premiumApps = [
     price: "$14.99/mo",
     features: ["Video scheduling", "SEO optimization", "Analytics dashboard", "Thumbnail generation"],
     gradient: "from-red-500/20 to-pink-500/20",
-    icon: "🎥",
+    icon: "https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=400&h=400&fit=crop",
     category: "Marketing" as AppCategory,
+    route: "/apps/youtube-automation",
   },
   {
     name: "Wealth Builder",
@@ -84,8 +92,9 @@ const premiumApps = [
     price: "$14.99/mo",
     features: ["Portfolio tracking", "Asset allocation", "Risk analysis", "Growth projections"],
     gradient: "from-emerald-500/20 to-teal-500/20",
-    icon: "💎",
+    icon: "https://images.unsplash.com/photo-1621416894569-0f39ed31d247?w=400&h=400&fit=crop",
     category: "Finance" as AppCategory,
+    route: "/apps/wealth-builder",
   },
 ];
 
@@ -174,7 +183,9 @@ export default function PremiumApps() {
                   
                   <div className="relative z-10">
                     {/* Icon */}
-                    <div className="text-6xl mb-6">{app.icon}</div>
+                    <div className="w-full h-48 mb-6 rounded-xl overflow-hidden">
+                      <img src={app.icon} alt={app.name} className="w-full h-full object-cover opacity-80" />
+                    </div>
                     
                     {/* App Name */}
                     <h3 className="text-2xl font-bold text-white mb-3">{app.name}</h3>
@@ -195,7 +206,7 @@ export default function PremiumApps() {
                     {/* Price & CTA */}
                     <div className="flex items-center justify-between">
                       <span className="text-2xl font-bold text-white">{app.price}</span>
-                      <Link href="/dashboard">
+                      <Link href={app.route || "/dashboard"}>
                         <Button className="bg-white/10 hover:bg-white/20 backdrop-blur-xl border border-white/20 text-white">
                           Get Started
                           <ArrowRight className="ml-2 w-4 h-4" />
