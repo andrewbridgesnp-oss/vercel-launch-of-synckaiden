@@ -28,6 +28,7 @@ const PRODUCT_PRICING = {
   "Sweatshirt": { base: 26.50, retail: 34.99, sizes: ["YS", "YM", "YL", "S", "M", "L", "XL", "2XL"] },
   "Hat": { base: 15.50, retail: 19.99, sizes: ["Youth", "Adult"] },
   "Trucker Hat": { base: 12.50, retail: 16.99, sizes: ["One Size"] },
+  "Sticker": { base: 2.50, retail: 4.99, sizes: ["3x3 inch"] },
 };
 
 const COLORS = [
@@ -68,45 +69,57 @@ export default function BougieBoutique() {
     return () => clearInterval(timer);
   }, []);
 
-  // Products - T-Shirts and Hoodies only as requested
-  // LAUNCH COLLECTION: 5 products ready to ship, rest coming soon
-  const products = [
-    // ✅ AVAILABLE NOW - Verified with Printful (T-Shirts & Hoodies in Black/White/Pink)
-    { id: 1, name: "No Cap, Be Kind", category: "T-Shirt", design: "Bold text with heart icon", image: "/products/no-cap-be-kind-tshirt.png", available: true },
-    { id: 2, name: "Rizz With Respect", category: "Hoodie", design: "Stylish script with sparkles", image: "/products/rizz-with-respect-hoodie.png", available: true },
-    { id: 6, name: "You're Valid Bestie", category: "T-Shirt", design: "Heart hands illustration", image: "/products/youre-valid-bestie-tshirt.png", available: true },
-    { id: 9, name: "Era: Healing", category: "T-Shirt", design: "Butterfly transformation", image: "/products/era-healing-tshirt.png", available: true },
-    { id: 25, name: "Be The Reason Someone Smiles", category: "T-Shirt", design: "Smiley with sparkles", image: "/products/be-the-reason-tshirt.png", available: true },
-    // ✅ ALL PRODUCTS NOW AVAILABLE - Full collection live!
-    { id: 3, name: "Slay The Hate Away", category: "Hoodie", design: "Crown and sword crossed out", image: "/products/slay-the-hate-hoodie.png", available: true },
-    { id: 4, name: "Main Character Energy (Kind Edition)", category: "T-Shirt", design: "Star burst design", image: "/products/main-character-energy-tshirt.png", available: true },
-    { id: 5, name: "It's Giving... Kindness", category: "T-Shirt", design: "Retro bubble letters", image: "/products/its-giving-kindness-tshirt.png", available: true },
-    { id: 7, name: "Understood The Assignment (Self-Care)", category: "Hoodie", design: "Checkmark with stars", image: "/products/understood-assignment-hoodie.png", available: true },
-    { id: 8, name: "Bussin' Boundaries", category: "T-Shirt", design: "Shield icon design", image: "/products/bussin-boundaries-tshirt.png", available: true },
-    { id: 10, name: "That's So Not Skibidi (Anti-Bully)", category: "T-Shirt", design: "Stop sign style", image: "/products/that-not-skibidi-tshirt.png", available: true },
-    { id: 11, name: "Lowkey Struggling, Highkey Surviving", category: "Hoodie", design: "Mountain peak design", image: "/products/lowkey-struggling-hoodie.png", available: true },
-    { id: 12, name: "Gyatt Gratitude", category: "T-Shirt", design: "Grateful heart burst", image: "/products/gyatt-gratitude-tshirt.png", available: true },
-    { id: 13, name: "W Friend, L Bully", category: "T-Shirt", design: "Gaming style scoreboard", image: "/products/w-friend-l-bully-tshirt.png", available: true },
-    { id: 14, name: "Fanum Tax The Negativity", category: "Hoodie", design: "Trash can with negativity", image: "/products/fanum-tax-hoodie.png", available: true },
-    { id: 15, name: "Ohio? Nah, I Choose Peace", category: "T-Shirt", design: "Peace sign with state", image: "/products/ohio-peace-tshirt.png", available: true },
-    { id: 16, name: "Sigma Kindness Grindset", category: "Hoodie", design: "Lion with heart", image: "/products/sigma-kindness-hoodie.png", available: true },
-    { id: 17, name: "NPC Energy? I Think Not", category: "T-Shirt", design: "Character level up", image: "/products/npc-energy-tshirt.png", available: true },
-    { id: 18, name: "Caught in 4K Being Kind", category: "T-Shirt", design: "Camera with hearts", image: "/products/caught-4k-tshirt.png", available: true },
-    { id: 19, name: "Rent Free: Self-Love", category: "Hoodie", design: "House with heart roof", image: "/products/rent-free-hoodie.png", available: true },
-    { id: 20, name: "Ate & Left No Crumbs (Self-Worth)", category: "T-Shirt", design: "Crown and plate", image: "/products/ate-no-crumbs-tshirt.png", available: true },
-    { id: 21, name: "Delulu? Nah, Hopeful", category: "T-Shirt", design: "Rainbow clouds", image: "/products/delulu-hopeful-tshirt.png", available: true },
-    { id: 22, name: "Hits Different When You're Kind", category: "T-Shirt", design: "Music note hearts", image: "/products/hits-different-tshirt.png", available: true },
-    { id: 23, name: "Unalive The Stigma", category: "Hoodie", design: "Breaking chains", image: "/products/unalive-stigma-hoodie.png", available: true },
-    { id: 24, name: "Mental Health Check", category: "T-Shirt", design: "Checklist with hearts", image: "/bougie-products.png", available: true },
-    { id: 26, name: "Bougie Boutique Logo", category: "Hoodie", design: "Official Bougie Boutique branding", image: "/products/bougie-boutique-logo-hoodie.png", available: true },
-    { id: 27, name: "No Cap (67)", category: "Trucker Hat", design: "Unisex trucker hat with 67 embroidery", image: "/products/no-cap-67-trucker-hat.png", available: true },
-    { id: 29, name: "kaiden Logo", category: "T-Shirt", design: "Official kaiden AI branding", image: "/products/kayden-ai-logo-tshirt.png", available: true },
-    { id: 28, name: "Syndica Solutions Logo", category: "Hoodie", design: "Official Syndica Solutions branding", image: "/products/syndica-solutions-hoodie.png", available: true },
-  ].map(p => ({
-    ...p,
-    price: PRODUCT_PRICING[p.category as keyof typeof PRODUCT_PRICING].retail,
-    sizes: PRODUCT_PRICING[p.category as keyof typeof PRODUCT_PRICING].sizes,
-  }));
+  // ALL DESIGNS - Daily rotation system picks 12 products per day
+  const allDesigns = [
+    { id: 1, name: "NPC Energy? I Think Not", image: "/boutique-designs/cIZb9ZwmabiXzdGXrtD79I_1768858506130_na1fn_L2hvbWUvdWJ1bnR1L2xvZ29zL25wY19lbmVyZ3lfaV90aGlua19ub3RfbG9nbw-Copy.webp" },
+    { id: 2, name: "Ohio? Nah, I Choose Peace", image: "/boutique-designs/ohio-Copy.webp" },
+    { id: 3, name: "You're Valid, Bestie", image: "/boutique-designs/youre_valid_bestie_logo.png" },
+    { id: 4, name: "Era of Healing", image: "/boutique-designs/era_healing_logo.png" },
+    { id: 5, name: "W Friend, L Bully", image: "/boutique-designs/w_friend_l_bully_logo.png" },
+    { id: 6, name: "Bussin' Boundaries", image: "/boutique-designs/bussin_boundaries_logo.png" },
+    { id: 7, name: "Ate and Left No Crumbs", image: "/boutique-designs/ate_and_left_no_crumbs_logo.png" },
+    { id: 8, name: "Be the Reason Someone Smiles", image: "/boutique-designs/be_the_reason_someone_smiles_logo.png" },
+    { id: 9, name: "Main Character Energy", image: "/boutique-designs/main_character_energy_logo.png" },
+    { id: 10, name: "It's Giving Kindness", image: "/boutique-designs/its_giving_kindness_logo.png" },
+    { id: 11, name: "Slay the Hate Away", image: "/boutique-designs/slay_the_hate_away_logo.png" },
+    { id: 12, name: "Understood the Assignment", image: "/boutique-designs/understood_the_assignment_logo-Copy.png" },
+    { id: 13, name: "Fanum Tax the Negativity", image: "/boutique-designs/fanum_tax_the_negativity_logo-Copy.png" },
+    { id: 14, name: "Caught in 4K Being Kind", image: "/boutique-designs/caught_in_4k_being_kind_logo.png" },
+    { id: 15, name: "Rizz with Respect", image: "/boutique-designs/rizz_with_respect_logo.png" },
+    { id: 16, name: "Delulu? Nah, Hopeful", image: "/boutique-designs/delulu_nah_hopeful_logo.png" },
+    { id: 17, name: "Hits Different When You're Kind", image: "/boutique-designs/hits_different_when_youre_kind_logo-Copy.png" },
+    { id: 18, name: "Sigma Kindness Grindset", image: "/boutique-designs/sigma_kindness_grindset_logo-Copy.png" },
+    { id: 19, name: "Rent Free Self-Love", image: "/boutique-designs/rent_free_self_love_logo.png" },
+    { id: 20, name: "Lowkey Struggling, Highkey Surviving", image: "/boutique-designs/lowkey_struggling_highkey_surviving_logo.png" },
+  ];
+
+  // Daily rotation: picks 12 designs based on today's date
+  const getDailyProducts = () => {
+    const today = new Date().toISOString().split('T')[0];
+    const seed = today.split('-').reduce((acc, val) => acc + parseInt(val), 0);
+    
+    const shuffled = [...allDesigns].sort((a, b) => {
+      const hashA = (a.id + today).split('').reduce((acc, char) => acc + char.charCodeAt(0), seed);
+      const hashB = (b.id + today).split('').reduce((acc, char) => acc + char.charCodeAt(0), seed);
+      return hashA - hashB;
+    });
+    
+    const selected = shuffled.slice(0, 12);
+    const categories = ["T-Shirt", "T-Shirt", "T-Shirt", "Hoodie", "Hoodie", "Hoodie", "Hat", "Hat", "Hat", "Sticker", "Sticker", "Sticker"];
+    
+    return selected.map((design, i) => ({
+      id: design.id * 100 + i,
+      name: design.name,
+      category: categories[i],
+      design: design.name,
+      image: design.image,
+      available: true,
+      price: PRODUCT_PRICING[categories[i] as keyof typeof PRODUCT_PRICING]?.retail || 24.99,
+      sizes: PRODUCT_PRICING[categories[i] as keyof typeof PRODUCT_PRICING]?.sizes || ["S", "M", "L", "XL"],
+    }));
+  };
+
+  const products = getDailyProducts();
 
   const handleAddToCart = () => {
     if (!selectedSize || !selectedColor) {

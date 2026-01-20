@@ -1,0 +1,30 @@
+{
+  "designs": [
+    { "id": "npc-energy", "name": "NPC Energy? I Think Not", "file": "cIZb9ZwmabiXzdGXrtD79I_1768858506130_na1fn_L2hvbWUvdWJ1bnR1L2xvZ29zL25wY19lbmVyZ3lfaV90aGlua19ub3RfbG9nbw-Copy.webp" },
+    { "id": "ohio-peace", "name": "Ohio? Nah, I Choose Peace", "file": "ohio-Copy.webp" },
+    { "id": "valid-bestie", "name": "You're Valid, Bestie", "file": "youre_valid_bestie_logo.png" },
+    { "id": "era-healing", "name": "Era of Healing", "file": "era_healing_logo.png" },
+    { "id": "w-friend", "name": "W Friend, L Bully", "file": "w_friend_l_bully_logo.png" },
+    { "id": "bussin-boundaries", "name": "Bussin' Boundaries", "file": "bussin_boundaries_logo.png" },
+    { "id": "ate-no-crumbs", "name": "Ate and Left No Crumbs", "file": "ate_and_left_no_crumbs_logo.png" },
+    { "id": "smile-reason", "name": "Be the Reason Someone Smiles", "file": "be_the_reason_someone_smiles_logo.png" },
+    { "id": "main-character", "name": "Main Character Energy", "file": "main_character_energy_logo.png" },
+    { "id": "giving-kindness", "name": "It's Giving Kindness", "file": "its_giving_kindness_logo.png" },
+    { "id": "slay-hate", "name": "Slay the Hate Away", "file": "slay_the_hate_away_logo.png" },
+    { "id": "understood-assignment", "name": "Understood the Assignment", "file": "understood_the_assignment_logo-Copy.png" },
+    { "id": "fanum-tax", "name": "Fanum Tax the Negativity", "file": "fanum_tax_the_negativity_logo-Copy.png" },
+    { "id": "caught-4k", "name": "Caught in 4K Being Kind", "file": "caught_in_4k_being_kind_logo.png" },
+    { "id": "rizz-respect", "name": "Rizz with Respect", "file": "rizz_with_respect_logo.png" },
+    { "id": "delulu-hopeful", "name": "Delulu? Nah, Hopeful", "file": "delulu_nah_hopeful_logo.png" },
+    { "id": "hits-different", "name": "Hits Different When You're Kind", "file": "hits_different_when_youre_kind_logo-Copy.png" },
+    { "id": "sigma-kindness", "name": "Sigma Kindness Grindset", "file": "sigma_kindness_grindset_logo-Copy.png" },
+    { "id": "rent-free", "name": "Rent Free Self-Love", "file": "rent_free_self_love_logo.png" },
+    { "id": "lowkey-highkey", "name": "Lowkey Struggling, Highkey Surviving", "file": "lowkey_struggling_highkey_surviving_logo.png" }
+  ],
+  "productTypes": [
+    { "type": "tshirt", "name": "T-Shirt", "basePrice": 24.99, "printfulId": "71" },
+    { "type": "hoodie", "name": "Hoodie", "basePrice": 39.99, "printfulId": "146" },
+    { "type": "hat", "name": "Hat", "basePrice": 19.99, "printfulId": "206" },
+    { "type": "sticker", "name": "Sticker Pack", "basePrice": 4.99, "printfulId": "229" }
+  ]
+}
