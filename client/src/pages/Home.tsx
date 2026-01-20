@@ -148,7 +148,9 @@ export default function Home() {
                   <Link href="/free-image-gen">
                     <div className="group cursor-pointer p-4 rounded-xl bg-white/10 backdrop-blur-xl border border-white/20 hover:border-pink-500/50 hover:bg-white/15 transition-all hover:scale-105">
                       <div className="w-full h-24 mb-2 rounded-lg overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1686191128892-c0557e5a4b3e?w=400&h=300&fit=crop" alt="AI Image" className="w-full h-full object-cover opacity-60" />
+                        <video autoPlay loop muted playsInline className="w-full h-full object-cover opacity-60">
+                          <source src="/videos/image-generator.mp4" type="video/mp4" />
+                        </video>
                       </div>
                       <h4 className="text-lg font-bold text-white mb-2">Image Generator</h4>
                       <p className="text-white/70 text-sm mb-3">Create AI images</p>
