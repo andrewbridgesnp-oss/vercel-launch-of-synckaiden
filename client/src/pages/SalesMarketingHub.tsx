@@ -91,7 +91,7 @@ export default function SalesMarketingHub() {
       name: "Social Media Autopilot",
       description: "Schedule and manage social posts",
       icon: MessageSquare,
-      href: "/social-media",
+      href: "/apps/social-media",
       stats: socialStats ? [
         { label: "Scheduled", value: socialStats.scheduledPosts || 0 },
         { label: "Published", value: socialStats.publishedPosts || 0 },
@@ -254,7 +254,7 @@ export default function SalesMarketingHub() {
                     New Campaign
                   </Button>
                 </Link>
-                <Link href="/social-media">
+                <Link href="/apps/social-media">
                   <Button variant="outline" className="w-full">
                     <MessageSquare className="mr-2 h-4 w-4" />
                     Schedule Post
