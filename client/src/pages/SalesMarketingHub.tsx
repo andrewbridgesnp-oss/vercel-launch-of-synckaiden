@@ -136,7 +136,7 @@ export default function SalesMarketingHub() {
   const totalContacts = (crmStats?.totalContacts || 0) + (leadStats?.totalLeads || 0);
   const totalRevenue = crmStats?.totalRevenue || 0;
   const totalEngagement = (socialStats?.totalEngagement || 0) + (youtubeStats?.totalViews || 0);
-  const activeC ampaigns = (emailStats?.totalCampaigns || 0) + (socialStats?.scheduledPosts || 0);
+  const activeCampaigns = (emailStats?.totalCampaigns || 0) + (socialStats?.scheduledPosts || 0);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
