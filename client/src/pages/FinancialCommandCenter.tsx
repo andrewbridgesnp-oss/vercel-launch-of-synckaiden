@@ -106,15 +106,6 @@ export default function FinancialCommandCenter() {
       href: "/apps/ai-funding-brokerage",
       stats: [],
       color: "bg-indigo-500"
-    },
-    {
-      id: "build-wealth",
-      name: "BuildWealth Pro",
-      description: "Investment and wealth building strategies",
-      icon: PieChart,
-      href: "/apps/build-wealth",
-      stats: [],
-      color: "bg-teal-500"
     }
   ];
 
