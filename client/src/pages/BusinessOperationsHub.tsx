@@ -8,7 +8,6 @@ import {
   Workflow,
   BarChart3,
   FileText,
-  Clock,
   Target,
   Briefcase,
   ArrowRight,
@@ -22,7 +21,8 @@ export default function BusinessOperationsHub() {
   // Mock stats data - replace with actual API calls when backend is ready
   const projectStats = { activeProjects: 12, totalTasks: 48, completionRate: 87.5 };
   const employeeStats = { totalEmployees: 24, activeEmployees: 22, departmentCount: 5 };
-  const timeStats = { weeklyHours: 156.5, billableHours: 132.0, avgRate: 85 };
+  // TODO: Uncomment when TimeTracker component is added
+  // const timeStats = { weeklyHours: 156.5, billableHours: 132.0, avgRate: 85 };
 
   const apps = [
     {
@@ -78,19 +78,20 @@ export default function BusinessOperationsHub() {
       ],
       color: "bg-cyan-500"
     },
-    {
-      id: "time-tracker",
-      name: "Time Tracker",
-      description: "Track time and productivity",
-      icon: Clock,
-      href: "/time-tracker",
-      stats: [
-        { label: "This Week", value: `${timeStats.weeklyHours.toFixed(1)}h` },
-        { label: "Billable", value: `${timeStats.billableHours.toFixed(1)}h` },
-        { label: "Rate", value: `$${timeStats.avgRate.toFixed(0)}/h` }
-      ],
-      color: "bg-indigo-500"
-    },
+    // TODO: Uncomment when TimeTracker component is created and route is added to App.tsx
+    // {
+    //   id: "time-tracker",
+    //   name: "Time Tracker",
+    //   description: "Track time and productivity",
+    //   icon: Clock,
+    //   href: "/time-tracker",
+    //   stats: [
+    //     { label: "This Week", value: `${timeStats.weeklyHours.toFixed(1)}h` },
+    //     { label: "Billable", value: `${timeStats.billableHours.toFixed(1)}h` },
+    //     { label: "Rate", value: `${timeStats.avgRate.toFixed(0)}/h` }
+    //   ],
+    //   color: "bg-indigo-500"
+    // },
     {
       id: "analytics",
       name: "Business Analytics",
