@@ -244,4 +244,25 @@ Write a professional follow-up email with subject line and body.`
       
       return stats;
     }),
+
+  getStats: protectedProcedure
+    .input(z.object({
+      workspaceId: z.number().optional(),
+    }))
+    .query(async ({ ctx }) => {
+      const db = getDb();
+      
+      const [stats] = await db.select({
+        total: sql<number>`COUNT(*)`,
+        qualified: sql<number>`SUM(CASE WHEN ${leadManagementLeads.status} = 'qualified' THEN 1 ELSE 0 END)`,
+        conversionRate: sql<number>`COALESCE(SUM(CASE WHEN ${leadManagementLeads.status} IN ('won', 'proposal') THEN 1 ELSE 0 END) * 100.0 / COUNT(*), 0)`,
+      }).from(leadManagementLeads)
+        .where(eq(leadManagementLeads.userId, ctx.user.id));
+      
+      return {
+        totalLeads: stats.total || 0,
+        qualifiedLeads: stats.qualified || 0,
+        conversionRate: stats.conversionRate || 0,
+      };
+    }),
 });

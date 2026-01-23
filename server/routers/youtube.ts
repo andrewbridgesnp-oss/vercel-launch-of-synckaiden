@@ -132,4 +132,17 @@ export const youtubeRouter = router({
         throw new Error(error.message || 'Failed to update video');
       }
     }),
+
+  // Stats/Analytics
+  getStats: protectedProcedure
+    .input(z.object({
+      workspaceId: z.number().optional(),
+    }))
+    .query(async ({ ctx, input }) => {
+      try {
+        return await youtubeService.getStats(ctx.user.id);
+      } catch (error: any) {
+        throw new Error(error.message || 'Failed to fetch YouTube stats');
+      }
+    }),
 });

@@ -100,4 +100,13 @@ export const socialMediaRouter = router({
     .query(async () => {
       return await socialMediaService.getAffiliateOffers();
     }),
+
+  // Stats/Analytics
+  getStats: protectedProcedure
+    .input(z.object({
+      workspaceId: z.number().optional(),
+    }))
+    .query(async ({ ctx, input }) => {
+      return await socialMediaService.getStats(ctx.user.id);
+    }),
 });

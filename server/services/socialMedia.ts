@@ -1,5 +1,5 @@
 import { getDb } from '../db';
-import { eq, and, desc } from 'drizzle-orm';
+import { eq, and, desc, sql } from 'drizzle-orm';
 import { videoDrafts, postPlans, affiliateOffers, platformCredentials } from '../../drizzle/schema';
 import { decrypt } from '../encryption';
 
@@ -362,6 +362,46 @@ export async function getAffiliateOffers(): Promise<AffiliateOffer[]> {
     affiliateLink: offer.affiliateLink,
     active: offer.active,
   })) as AffiliateOffer[];
+}
+
+/**
+ * Get stats for social media dashboard
+ */
+export async function getStats(userId: number): Promise<{
+  scheduledPosts: number;
+  publishedPosts: number;
+  totalEngagement: number;
+}> {
+  const db = await getDb();
+  if (!db) throw new Error('Database not available');
+
+  // Get scheduled posts count
+  const [scheduledResult] = await db
+    .select({
+      count: sql<number>`COUNT(*)`,
+    })
+    .from(postPlans)
+    .where(and(
+      eq(postPlans.userId, userId),
+      eq(postPlans.status, 'scheduled')
+    ));
+
+  // Get published posts count
+  const [publishedResult] = await db
+    .select({
+      count: sql<number>`COUNT(*)`,
+    })
+    .from(postPlans)
+    .where(and(
+      eq(postPlans.userId, userId),
+      eq(postPlans.status, 'posted')
+    ));
+
+  return {
+    scheduledPosts: scheduledResult?.count || 0,
+    publishedPosts: publishedResult?.count || 0,
+    totalEngagement: 0, // This would come from actual platform analytics APIs
+  };
 }
 
 // Platform-specific publishing functions
