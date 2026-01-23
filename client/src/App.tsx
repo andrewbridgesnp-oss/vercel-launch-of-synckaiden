@@ -48,6 +48,9 @@ import SubscriptionManagement from "./pages/SubscriptionManagement";
 import Settings from "./pages/Settings";
 import CapabilityStore from "./pages/CapabilityStore";
 
+// Platform Hubs
+import BusinessOperationsHub from "./pages/BusinessOperationsHub";
+
 // Business Apps
 import BusinessHub from "./pages/BusinessHub";
 import BusinessCommand from "./pages/BusinessCommand";
@@ -60,6 +63,7 @@ import CostReduction from "./pages/CostReduction";
 import SideHustle from "./pages/SideHustle";
 
 // Finance Apps
+import FinancialCommandCenter from "./pages/FinancialCommandCenter";
 import Finance from "./pages/Finance";
 import TaxManagement from "./pages/TaxManagement";
 import DynastyTrust from "./pages/DynastyTrust";
@@ -89,6 +93,7 @@ import Integrations from "./pages/Integrations";
 import ShopifySettings from "./pages/ShopifySettings";
 
 // AI & Tools
+import AIIntelligenceSuite from "./pages/AIIntelligenceSuite";
 import Chat from "./pages/Chat";
 import AIArena from "./pages/AIArena";
 import VoiceAuth from "./pages/VoiceAuth";
@@ -195,6 +200,10 @@ function Router() {
       <Route path="/settings" component={Settings} />
       <Route path="/store" component={CapabilityStore} />
       
+      {/* Platform Hubs */}
+      <Route path="/business-operations-hub" component={BusinessOperationsHub} />
+      <Route path="/ai-intelligence-suite" component={AIIntelligenceSuite} />
+      
       {/* Business Apps */}
       <Route path="/business" component={BusinessHub} />
       <Route path="/business/receptionist" component={AveryAIReceptionist} />
@@ -208,6 +217,7 @@ function Router() {
       <Route path="/side-hustle" component={SideHustle} />
       
       {/* Finance Apps */}
+      <Route path="/financial-command-center" component={FinancialCommandCenter} />
       <Route path="/finance" component={Finance} />
       <Route path="/tax" component={TaxManagement} />
       <Route path="/dynasty-trust" component={DynastyTrust} />
