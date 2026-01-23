@@ -61,6 +61,8 @@ import LLCFormation from "./pages/LLCFormation";
 import Employees from "./pages/Employees";
 import CostReduction from "./pages/CostReduction";
 import SideHustle from "./pages/SideHustle";
+import ProjectManager from "./pages/ProjectManager";
+import TimeTracker from "./pages/TimeTracker";
 
 // Finance Apps
 import FinancialCommandCenter from "./pages/FinancialCommandCenter";
@@ -213,6 +215,8 @@ function Router() {
       <Route path="/new-business" component={NewBusinessGuide} />
       <Route path="/llc-formation" component={LLCFormation} />
       <Route path="/employees" component={Employees} />
+      <Route path="/project-manager" component={ProjectManager} />
+      <Route path="/time-tracker" component={TimeTracker} />
       <Route path="/cost-reduction" component={CostReduction} />
       <Route path="/side-hustle" component={SideHustle} />
       
