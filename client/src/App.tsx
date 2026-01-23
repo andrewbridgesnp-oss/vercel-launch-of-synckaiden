@@ -142,6 +142,7 @@ import CreativeClashLiveApp from "@/pages/apps/CreativeClashLive";
 import YouTubeAutomation from "@/pages/apps/YouTubeAutomation";
 import LLCFormationApp from "@/pages/apps/LLCFormation";
 import AIFundingBrokerage from "./pages/apps/AIFundingBrokerage";
+import BuildWealth from "./pages/apps/BuildWealth";
 // import FinancialCoPilot from "./pages/apps/FinancialCoPilot"; // TODO: Fix react-router-dom dependency
 // import HouseHack from "./pages/apps/HouseHack"; // TODO: Fix react-router-dom dependency
 // import PersonalitySync from "./pages/apps/PersonalitySync"; // TODO: Fix react-router-dom dependency
@@ -302,6 +303,7 @@ function Router() {
       <Route path="/apps/youtube" component={YouTubeAutomation} />
       <Route path="/apps/llc-formation" component={LLCFormationApp} />
       <Route path="/apps/ai-funding-brokerage" component={AIFundingBrokerage} />
+      <Route path="/apps/build-wealth" component={BuildWealth} />
       {/* <Route path="/apps/financial-copilot" component={FinancialCoPilot} /> */}
       {/* <Route path="/apps/house-hack" component={HouseHack} /> */}
       {/* <Route path="/apps/personality-sync" component={PersonalitySync} /> */}
