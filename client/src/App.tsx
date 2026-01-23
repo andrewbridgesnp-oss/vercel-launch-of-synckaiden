@@ -66,6 +66,7 @@ import DynastyTrust from "./pages/DynastyTrust";
 import ContractsInvoices from "./pages/ContractsInvoices";
 
 // CRM & Sales
+import SalesMarketingHub from "./pages/SalesMarketingHub";
 import CRM from "./pages/CRM";
 import Sales from "./pages/Sales";
 import Leads from "./pages/Leads";
@@ -213,6 +214,7 @@ function Router() {
       <Route path="/contracts" component={ContractsInvoices} />
       
       {/* CRM & Sales */}
+      <Route path="/sales-marketing-hub" component={SalesMarketingHub} />
       <Route path="/crm" component={CRM} />
       <Route path="/sales" component={Sales} />
       <Route path="/leads" component={Leads} />
