@@ -25,8 +25,10 @@ VITE_FRONTEND_FORGE_API_URL=https://api.manus.im
 
 #### Optional: Analytics & Payments
 ```
-VITE_MIXPANEL_TOKEN=your-mixpanel-token (optional)
-VITE_STRIPE_PUBLISHABLE_KEY=your-stripe-key (optional)
+VITE_MIXPANEL_TOKEN=your-mixpanel-token (optional - for Mixpanel analytics)
+VITE_STRIPE_PUBLISHABLE_KEY=your-stripe-key (optional - for payments)
+VITE_ANALYTICS_ENDPOINT=https://analytics.yourdomain.com (optional - for Umami analytics)
+VITE_ANALYTICS_WEBSITE_ID=your-website-id (optional - for Umami analytics)
 ```
 
 ### 3. Apply to All Environments
