@@ -24,7 +24,7 @@ const RETRY_DELAY_MS = 1000;
  * This should be called at application startup
  */
 export async function initializeDatabase(): Promise<void> {
-  if (_db || !process.env.DATABASE_URL) {
+  if (_db && _pool || !process.env.DATABASE_URL) {
     return;
   }
 
@@ -49,7 +49,7 @@ export async function initializeDatabase(): Promise<void> {
 
       _db = drizzle(_pool);
       console.log("[Database] Connection pool initialized successfully");
-      _connectionRetries = 0;
+      _connectionRetries = 0; // Reset on successful connection
       return;
     } catch (error) {
       _connectionRetries++;
@@ -59,9 +59,11 @@ export async function initializeDatabase(): Promise<void> {
         console.error("[Database] Max retries reached. Database will be unavailable.");
         _db = null;
         _pool = null;
+        _connectionRetries = 0; // Reset for future attempts
         return;
       }
       
+      // Linear backoff: 1s, 2s, 3s
       await new Promise(resolve => setTimeout(resolve, RETRY_DELAY_MS * _connectionRetries));
     }
   }
@@ -185,12 +187,21 @@ export async function getUserById(userId: number) {
 
 // ============= PRODUCT & PRICING HELPERS =============
 
+// Cache imported modules to avoid repeated dynamic imports
+let cacheModule: any = null;
+
+async function getCacheModule() {
+  if (!cacheModule) {
+    cacheModule = await import('./_core/cache');
+  }
+  return cacheModule;
+}
+
 export async function getAllProducts() {
   const db = await getDb();
   if (!db) return [];
   
-  // Import cache at runtime to avoid circular dependencies
-  const { cache, allProductsCacheKey } = await import('./_core/cache');
+  const { cache, allProductsCacheKey } = await getCacheModule();
   
   return cache.getOrSet(
     allProductsCacheKey(),
@@ -205,7 +216,7 @@ export async function getProductBySlug(slug: string) {
   const db = await getDb();
   if (!db) return undefined;
   
-  const { cache, productCacheKey } = await import('./_core/cache');
+  const { cache, productCacheKey } = await getCacheModule();
   
   return cache.getOrSet(
     productCacheKey(`slug:${slug}`),
@@ -221,7 +232,7 @@ export async function getProductById(productId: number) {
   const db = await getDb();
   if (!db) return undefined;
   
-  const { cache, productCacheKey } = await import('./_core/cache');
+  const { cache, productCacheKey } = await getCacheModule();
   
   return cache.getOrSet(
     productCacheKey(productId),

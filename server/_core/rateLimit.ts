@@ -13,7 +13,7 @@ interface RateLimitEntry {
 
 class RateLimiter {
   private store = new Map<string, RateLimitEntry>();
-  private cleanupInterval: NodeJS.Timeout;
+  private cleanupInterval: NodeJS.Timeout | null = null;
 
   constructor() {
     // Clean up expired entries every minute
@@ -25,6 +25,10 @@ class RateLimiter {
         }
       }
     }, 60000);
+    
+    if (process.env.NODE_ENV === 'production') {
+      console.warn('[RateLimit] Using in-memory rate limiter in production. Rate limits will not be shared across instances. Consider using Redis for production deployments.');
+    }
   }
 
   check(identifier: string, maxRequests: number, windowMs: number): boolean {
@@ -87,17 +91,25 @@ export function createRateLimiter(options?: {
   const maxRequests = options?.maxRequests || config.maxRequests;
   
   const keyGenerator = options?.keyGenerator || ((req: Request) => {
-    // Default: use IP address
+    // Try to get real IP from proxy headers first
+    const forwarded = req.headers['x-forwarded-for'];
+    if (forwarded) {
+      const ips = typeof forwarded === 'string' ? forwarded.split(',') : forwarded;
+      return ips[0].trim();
+    }
     return req.ip || req.socket.remoteAddress || 'unknown';
   });
 
   const skip = options?.skip || (() => false);
   
   const handler = options?.handler || ((req: Request, res: Response) => {
+    const resetTime = rateLimiter.getResetTime(keyGenerator(req));
+    const retryAfter = resetTime ? Math.ceil(Math.max(0, resetTime - Date.now()) / 1000) : 60;
+    
     res.status(429).json({
       error: 'Too Many Requests',
       message: 'Rate limit exceeded. Please try again later.',
-      retryAfter: Math.ceil((rateLimiter.getResetTime(keyGenerator(req)) || Date.now()) - Date.now()) / 1000,
+      retryAfter,
     });
   });
 

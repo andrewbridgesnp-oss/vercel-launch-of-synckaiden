@@ -8,10 +8,26 @@ interface CacheEntry<T> {
   expiresAt: number;
 }
 
+interface CacheOptions {
+  maxSize?: number;
+  onEviction?: (key: string, value: any) => void;
+}
+
 class Cache {
   private store = new Map<string, CacheEntry<any>>();
   private hitCount = 0;
   private missCount = 0;
+  private maxSize: number;
+  private onEviction?: (key: string, value: any) => void;
+
+  constructor(options: CacheOptions = {}) {
+    this.maxSize = options.maxSize || 1000; // Default: 1000 items
+    this.onEviction = options.onEviction;
+    
+    if (process.env.NODE_ENV === 'production' && !process.env.REDIS_URL) {
+      console.warn('[Cache] Using in-memory cache in production without Redis. Cache will not be shared across instances.');
+    }
+  }
 
   /**
    * Get value from cache
@@ -41,6 +57,16 @@ class Cache {
    * @param ttlSeconds Time to live in seconds (default: 300 = 5 minutes)
    */
   set<T>(key: string, data: T, ttlSeconds: number = 300): void {
+    // Evict oldest entry if at capacity (simple FIFO eviction)
+    if (this.store.size >= this.maxSize) {
+      const firstKey = this.store.keys().next().value;
+      const evicted = this.store.get(firstKey);
+      this.store.delete(firstKey);
+      if (this.onEviction && evicted) {
+        this.onEviction(firstKey, evicted.data);
+      }
+    }
+    
     const expiresAt = Date.now() + ttlSeconds * 1000;
     this.store.set(key, { data, expiresAt });
   }

@@ -53,7 +53,7 @@ export function getServerConfig(): ServerConfig {
     port: parseInt(process.env.PORT || '3000', 10),
     host: process.env.HOST || 'localhost',
     nodeEnv: (process.env.NODE_ENV || 'development') as ServerConfig['nodeEnv'],
-    corsOrigins: (process.env.CORS_ORIGINS || '*').split(','),
+    corsOrigins: (process.env.CORS_ORIGINS || '*').split(',').map(s => s.trim()),
   };
 }
 
@@ -73,7 +73,7 @@ export function getAuthConfig(): AuthConfig {
 export function getUploadConfig(): UploadConfig {
   return {
     maxFileSize: parseInt(process.env.MAX_UPLOAD_SIZE || '52428800', 10), // 50MB default
-    allowedTypes: (process.env.ALLOWED_UPLOAD_TYPES || 'image/*,application/pdf,video/*').split(','),
+    allowedTypes: (process.env.ALLOWED_UPLOAD_TYPES || 'image/*,application/pdf,video/*').split(',').map(s => s.trim()),
     s3Bucket: process.env.S3_BUCKET,
   };
 }

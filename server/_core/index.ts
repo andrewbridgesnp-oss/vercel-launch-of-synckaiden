@@ -94,12 +94,23 @@ async function startServer() {
   // Graceful shutdown handler
   const shutdown = async () => {
     console.log("\nShutting down gracefully...");
-    server.close(() => {
+    
+    // Stop accepting new connections
+    server.close(async () => {
       console.log("HTTP server closed");
+      
+      // Clean up resources
+      cleanupRateLimiter();
+      await closeDatabase();
+      
+      process.exit(0);
     });
-    cleanupRateLimiter();
-    await closeDatabase();
-    process.exit(0);
+    
+    // Force shutdown after 10 seconds if graceful shutdown fails
+    setTimeout(() => {
+      console.error("Forced shutdown after timeout");
+      process.exit(1);
+    }, 10000);
   };
 
   process.on("SIGTERM", shutdown);

@@ -31,9 +31,11 @@ export function requestId() {
 export function requestLogger(options?: {
   skipPaths?: string[];
   logBody?: boolean;
+  slowThresholdMs?: number;
 }) {
   const skipPaths = options?.skipPaths || [];
   const logBody = options?.logBody ?? false;
+  const slowThresholdMs = options?.slowThresholdMs ?? 1000;
 
   return (req: Request, res: Response, next: NextFunction) => {
     // Skip certain paths (e.g., health checks, static assets)
@@ -69,7 +71,7 @@ export function requestLogger(options?: {
       });
 
       // Log slow requests as warnings
-      if (duration > 1000) {
+      if (duration > slowThresholdMs) {
         logger.warn(`Slow request detected: ${req.method} ${req.path}`, {
           requestId,
           duration,

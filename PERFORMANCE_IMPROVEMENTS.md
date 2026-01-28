@@ -283,9 +283,9 @@ FEATURE_TRACING=true
 
 ## 📚 Documentation
 
-- **[APP_INTEGRATION_PATTERNS.md](./APP_INTEGRATION_PATTERNS.md)** - Comprehensive guide for integrating new apps
-- **[API_INTEGRATION_GUIDE.md](./API_INTEGRATION_GUIDE.md)** - API integration patterns
-- **[BACKEND_IMPLEMENTATION.md](./BACKEND_IMPLEMENTATION.md)** - Backend architecture
+- **[APP_INTEGRATION_PATTERNS.md](./APP_INTEGRATION_PATTERNS.md)** - Comprehensive guide for integrating new apps with performance best practices
+- **[NEW_APPS_INTEGRATION_PLAN.md](./NEW_APPS_INTEGRATION_PLAN.md)** - Plan for integrating new apps
+- **[PRODUCTION_READY.md](./PRODUCTION_READY.md)** - Production readiness checklist
 
 ## 🔧 Utilities Reference
 
