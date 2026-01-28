@@ -95,22 +95,36 @@ async function startServer() {
   const shutdown = async () => {
     console.log("\nShutting down gracefully...");
     
-    // Stop accepting new connections
-    server.close(async () => {
-      console.log("HTTP server closed");
+    const GRACEFUL_SHUTDOWN_TIMEOUT = 30000; // 30 seconds
+    let shutdownComplete = false;
+    
+    // Wrap server.close() with proper timeout handling
+    const serverClosePromise = new Promise<void>((resolve) => {
+      server.close(async () => {
+        console.log("HTTP server closed - waiting for in-flight requests to finish...");
+        
+        // Clean up resources only after server has stopped accepting connections
+        cleanupRateLimiter();
+        await closeDatabase();
+        
+        shutdownComplete = true;
+        resolve();
+      });
       
-      // Clean up resources
-      cleanupRateLimiter();
-      await closeDatabase();
-      
-      process.exit(0);
+      // Force shutdown if graceful shutdown takes too long
+      // Only exit if shutdown hasn't already completed
+      setTimeout(() => {
+        if (!shutdownComplete) {
+          console.warn("Graceful shutdown timeout exceeded, forcing exit");
+          shutdownComplete = true;
+          resolve();
+        }
+      }, GRACEFUL_SHUTDOWN_TIMEOUT);
     });
     
-    // Force shutdown after 10 seconds if graceful shutdown fails
-    setTimeout(() => {
-      console.error("Forced shutdown after timeout");
-      process.exit(1);
-    }, 10000);
+    // Wait for either graceful shutdown to complete or timeout
+    await serverClosePromise;
+    process.exit(0);
   };
 
   process.on("SIGTERM", shutdown);
