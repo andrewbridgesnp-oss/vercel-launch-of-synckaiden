@@ -1,16 +1,16 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { AuthProvider, useAuth } from './context/AuthContext';
+import { AuthProvider, useAuth } from './context/AuthContext.jsx';
 import { Toaster } from 'sonner';
-import Login from './pages/Login';
-import Dashboard from './pages/Dashboard';
-import TrendBrief from './pages/TrendBrief';
-import VideoQueue from './pages/VideoQueue';
-import Scheduler from './pages/Scheduler';
-import Affiliates from './pages/Affiliates';
-import Capabilities from './pages/Capabilities';
-import Settings from './pages/Settings';
-import Layout from './components/Layout';
+import Login from './pages/Login.jsx';
+import Dashboard from './pages/Dashboard.jsx';
+import TrendBrief from './pages/TrendBrief.jsx';
+import VideoQueue from './pages/VideoQueue.jsx';
+import Scheduler from './pages/Scheduler.jsx';
+import Affiliates from './pages/Affiliates.jsx';
+import Capabilities from './pages/Capabilities.jsx';
+import Settings from './pages/Settings.jsx';
+import Layout from './components/Layout.jsx';
 import './App.css';
 
 function PrivateRoute({ children }) {

@@ -4,6 +4,19 @@ import mixpanel from "mixpanel-browser";
 const MIXPANEL_TOKEN = import.meta.env.VITE_MIXPANEL_TOKEN || "demo-token";
 const isProduction = import.meta.env.PROD;
 
+// Umami Analytics (optional)
+const UMAMI_ENDPOINT = import.meta.env.VITE_ANALYTICS_ENDPOINT;
+const UMAMI_WEBSITE_ID = import.meta.env.VITE_ANALYTICS_WEBSITE_ID;
+
+// Load Umami analytics if configured
+if (UMAMI_ENDPOINT && UMAMI_WEBSITE_ID) {
+  const script = document.createElement('script');
+  script.defer = true;
+  script.src = `${UMAMI_ENDPOINT}/umami.js`;
+  script.setAttribute('data-website-id', UMAMI_WEBSITE_ID);
+  document.head.appendChild(script);
+}
+
 if (isProduction && MIXPANEL_TOKEN !== "demo-token") {
   mixpanel.init(MIXPANEL_TOKEN, {
     debug: !isProduction,

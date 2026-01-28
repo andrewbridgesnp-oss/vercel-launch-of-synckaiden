@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { dashboardAPI } from '../utils/api';
-import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
 import { Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
 
