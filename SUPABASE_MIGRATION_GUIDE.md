@@ -1,8 +1,22 @@
-# Supabase Database Migration Guide
+# ℹ️ Supabase Migration Guide (For Reference Only)
 
-## Your Supabase Project
+## ⚠️ Note: This Guide is Not Needed
+
+Your site is hosted on **Manus**, not Supabase. Manus provides MySQL, which is already compatible with your code.
+
+**See `MANUS_HOSTING_GUIDE.md` instead.**
+
+---
+
+## Original Supabase Guide (For Reference)
+
+*This information is preserved for reference but is not applicable to your Manus-hosted setup.*
+
+### Your Supabase Project
 Project ID: `awshrwknsvbfiuziwvpi`
 Dashboard: https://supabase.com/dashboard/project/awshrwknsvbfiuziwvpi
+
+**Note:** This project information was provided but is not needed since Manus hosts the site.
 
 ## Step 1: Get Your Database Connection String
 

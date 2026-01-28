@@ -1,6 +1,30 @@
 # Windows Quick Start - Database Migration
 
-## For Windows Users 🪟
+## ✅ For Manus-Hosted Sites (You!)
+
+Your site is hosted on **Manus**, which already provides the database!
+
+### Super Simple - Just Run:
+
+```powershell
+# PowerShell
+pnpm run db:push
+```
+
+```cmd
+# Command Prompt
+pnpm run db:push
+```
+
+That's it! Manus provides the `DATABASE_URL` automatically.
+
+**See `MANUS_HOSTING_GUIDE.md` for full details.**
+
+---
+
+## For Other Windows Users (Non-Manus)
+
+If you're NOT using Manus hosting, follow these steps:
 
 ### Step 1: Set Your Database URL
 

@@ -1,6 +1,23 @@
 # How to Run Database Migrations
 
-This guide explains how to apply the database schema changes, particularly the new composite indexes.
+## ✅ For Manus-Hosted Sites (Recommended Path)
+
+If your site is hosted on **Manus** (which provides TiDB/MySQL):
+
+```powershell
+# Windows PowerShell or CMD
+pnpm run db:push
+```
+
+**That's it!** Manus automatically provides the DATABASE_URL.
+
+**See `MANUS_HOSTING_GUIDE.md` for complete Manus instructions.**
+
+---
+
+## For Other Hosting Platforms
+
+If you're NOT using Manus, follow the platform-specific instructions below:
 
 ## Quick Start
 
