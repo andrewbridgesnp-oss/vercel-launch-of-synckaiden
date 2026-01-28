@@ -9,6 +9,8 @@ import { createContext } from "./context";
 import { serveStatic, setupVite } from "./vite";
 import freebiesRouter from "../routes/freebies";
 import { initializeDatabase, closeDatabase } from "../db";
+import { standardRateLimiter, strictRateLimiter, cleanupRateLimiter } from "./rateLimit";
+import { requestId, requestLogger, errorTracker } from "./tracing";
 
 function isPortAvailable(port: number): Promise<boolean> {
   return new Promise(resolve => {
@@ -36,11 +38,24 @@ async function startServer() {
   const app = express();
   const server = createServer(app);
   
+  // Request tracing - add request ID to all requests
+  app.use(requestId());
+  
+  // Request logging
+  app.use(requestLogger({
+    skipPaths: ['/health', '/favicon.ico'],
+    logBody: process.env.NODE_ENV === 'development',
+  }));
+  
   // Configure body parser with larger size limit for file uploads
   app.use(express.json({ limit: "50mb" }));
   app.use(express.urlencoded({ limit: "50mb", extended: true }));
   
-  // OAuth callback under /api/oauth/callback
+  // Apply rate limiting to all routes
+  app.use(standardRateLimiter);
+  
+  // OAuth callback under /api/oauth/callback (with stricter rate limit)
+  app.use("/api/oauth", strictRateLimiter);
   registerOAuthRoutes(app);
   
   // Freebies API endpoints
@@ -61,6 +76,9 @@ async function startServer() {
   } else {
     serveStatic(app);
   }
+  
+  // Error tracking middleware (must be last)
+  app.use(errorTracker());
 
   const preferredPort = parseInt(process.env.PORT || "3000");
   const port = await findAvailablePort(preferredPort);
@@ -79,6 +97,7 @@ async function startServer() {
     server.close(() => {
       console.log("HTTP server closed");
     });
+    cleanupRateLimiter();
     await closeDatabase();
     process.exit(0);
   };

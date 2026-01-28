@@ -473,10 +473,16 @@ export async function getAuditLogs(filters?: {
   action?: string;
   resource?: string;
   severity?: 'info' | 'warning' | 'critical';
+  page?: number;
   limit?: number;
 }) {
   const db = await getDb();
-  if (!db) return [];
+  if (!db) return { logs: [], meta: { page: 1, limit: 30, hasMore: false } };
+  
+  const { page, limit, offset } = getPaginationParams({ 
+    page: filters?.page, 
+    limit: filters?.limit 
+  });
   
   let query = db.select().from(auditLogs);
   
@@ -495,11 +501,19 @@ export async function getAuditLogs(filters?: {
   
   query = query.orderBy(desc(auditLogs.createdAt)) as any;
   
-  if (filters?.limit) {
-    query = query.limit(filters.limit) as any;
-  }
+  // Fetch one extra to check if there are more pages
+  const logs = await query.limit(limit + 1).offset(offset);
+  const hasMore = logs.length > limit;
+  if (hasMore) logs.pop();
   
-  return await query;
+  return {
+    logs,
+    meta: {
+      page,
+      limit,
+      hasMore,
+    },
+  };
 }
 
 // ============= API KEY VAULT HELPERS =============
