@@ -48,6 +48,9 @@ import SubscriptionManagement from "./pages/SubscriptionManagement";
 import Settings from "./pages/Settings";
 import CapabilityStore from "./pages/CapabilityStore";
 
+// Platform Hubs
+import BusinessOperationsHub from "./pages/BusinessOperationsHub";
+
 // Business Apps
 import BusinessHub from "./pages/BusinessHub";
 import BusinessCommand from "./pages/BusinessCommand";
@@ -58,14 +61,18 @@ import LLCFormation from "./pages/LLCFormation";
 import Employees from "./pages/Employees";
 import CostReduction from "./pages/CostReduction";
 import SideHustle from "./pages/SideHustle";
+import ProjectManager from "./pages/ProjectManager";
+import TimeTracker from "./pages/TimeTracker";
 
 // Finance Apps
+import FinancialCommandCenter from "./pages/FinancialCommandCenter";
 import Finance from "./pages/Finance";
 import TaxManagement from "./pages/TaxManagement";
 import DynastyTrust from "./pages/DynastyTrust";
 import ContractsInvoices from "./pages/ContractsInvoices";
 
 // CRM & Sales
+import SalesMarketingHub from "./pages/SalesMarketingHub";
 import CRM from "./pages/CRM";
 import Sales from "./pages/Sales";
 import Leads from "./pages/Leads";
@@ -88,6 +95,7 @@ import Integrations from "./pages/Integrations";
 import ShopifySettings from "./pages/ShopifySettings";
 
 // AI & Tools
+import AIIntelligenceSuite from "./pages/AIIntelligenceSuite";
 import Chat from "./pages/Chat";
 import AIArena from "./pages/AIArena";
 import VoiceAuth from "./pages/VoiceAuth";
@@ -123,7 +131,7 @@ import TaxAssistant from "./pages/TaxAssistant";
 import AIFunding from "./pages/apps/AIFunding";
 import AtlasAcademy from "./pages/apps/AtlasAcademy";
 import VitalSync from "./pages/apps/VitalSync";
-// import SocialMediaAutopilot from "./pages/apps/SocialMediaAutopilot"; // TODO: Fix react-router-dom dependency
+import SocialMediaAutopilot from "./pages/apps/SocialMediaAutopilot";
 import AgentSwarm from "./pages/apps/AgentSwarm";
 import PantryInventory from "./pages/apps/PantryInventory";
 import AudioMastering from "./pages/apps/AudioMastering";
@@ -134,6 +142,7 @@ import CreativeClashLiveApp from "@/pages/apps/CreativeClashLive";
 import YouTubeAutomation from "@/pages/apps/YouTubeAutomation";
 import LLCFormationApp from "@/pages/apps/LLCFormation";
 import AIFundingBrokerage from "./pages/apps/AIFundingBrokerage";
+import BuildWealth from "./pages/apps/BuildWealth";
 // import FinancialCoPilot from "./pages/apps/FinancialCoPilot"; // TODO: Fix react-router-dom dependency
 // import HouseHack from "./pages/apps/HouseHack"; // TODO: Fix react-router-dom dependency
 // import PersonalitySync from "./pages/apps/PersonalitySync"; // TODO: Fix react-router-dom dependency
@@ -194,6 +203,10 @@ function Router() {
       <Route path="/settings" component={Settings} />
       <Route path="/store" component={CapabilityStore} />
       
+      {/* Platform Hubs */}
+      <Route path="/business-operations-hub" component={BusinessOperationsHub} />
+      <Route path="/ai-intelligence-suite" component={AIIntelligenceSuite} />
+      
       {/* Business Apps */}
       <Route path="/business" component={BusinessHub} />
       <Route path="/business/receptionist" component={AveryAIReceptionist} />
@@ -203,16 +216,20 @@ function Router() {
       <Route path="/new-business" component={NewBusinessGuide} />
       <Route path="/llc-formation" component={LLCFormation} />
       <Route path="/employees" component={Employees} />
+      <Route path="/project-manager" component={ProjectManager} />
+      <Route path="/time-tracker" component={TimeTracker} />
       <Route path="/cost-reduction" component={CostReduction} />
       <Route path="/side-hustle" component={SideHustle} />
       
       {/* Finance Apps */}
+      <Route path="/financial-command-center" component={FinancialCommandCenter} />
       <Route path="/finance" component={Finance} />
       <Route path="/tax" component={TaxManagement} />
       <Route path="/dynasty-trust" component={DynastyTrust} />
       <Route path="/contracts" component={ContractsInvoices} />
       
       {/* CRM & Sales */}
+      <Route path="/sales-marketing-hub" component={SalesMarketingHub} />
       <Route path="/crm" component={CRM} />
       <Route path="/sales" component={Sales} />
       <Route path="/leads" component={Leads} />
@@ -274,7 +291,7 @@ function Router() {
       <Route path="/apps/ai-funding" component={AIFunding} />
       <Route path="/apps/atlas-academy" component={AtlasAcademy} />
       <Route path="/apps/vitalsync" component={VitalSync} />
-      {/* <Route path="/apps/social-media" component={SocialMediaAutopilot} /> */}
+      <Route path="/apps/social-media" component={SocialMediaAutopilot} />
       <Route path="/apps/agent-swarm" component={AgentSwarm} />
       <Route path="/apps/pantry" component={PantryInventory} />
       <Route path="/apps/audio-mastering" component={AudioMastering} />
@@ -286,6 +303,7 @@ function Router() {
       <Route path="/apps/youtube" component={YouTubeAutomation} />
       <Route path="/apps/llc-formation" component={LLCFormationApp} />
       <Route path="/apps/ai-funding-brokerage" component={AIFundingBrokerage} />
+      <Route path="/apps/build-wealth" component={BuildWealth} />
       {/* <Route path="/apps/financial-copilot" component={FinancialCoPilot} /> */}
       {/* <Route path="/apps/house-hack" component={HouseHack} /> */}
       {/* <Route path="/apps/personality-sync" component={PersonalitySync} /> */}

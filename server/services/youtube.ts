@@ -359,3 +359,29 @@ export async function updateVideo(
     },
   });
 }
+
+/**
+ * Get YouTube stats for dashboard
+ */
+export async function getStats(userId: number): Promise<{
+  totalVideos: number;
+  totalViews: number;
+  totalSubscribers: number;
+}> {
+  try {
+    const channel = await getChannelInfo(userId);
+    return {
+      totalVideos: channel.videoCount,
+      totalViews: channel.viewCount,
+      totalSubscribers: channel.subscriberCount,
+    };
+  } catch (error) {
+    // If there's an error getting stats, return default values
+    // This prevents the dashboard from crashing if YouTube API is unavailable
+    return {
+      totalVideos: 0,
+      totalViews: 0,
+      totalSubscribers: 0,
+    };
+  }
+}

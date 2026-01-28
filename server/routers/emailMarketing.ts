@@ -356,4 +356,28 @@ export const emailMarketingRouter = router({
         bounceRate: Math.round(bounceRate * 100) / 100,
       };
     }),
+
+  getStats: protectedProcedure
+    .input(z.object({
+      workspaceId: z.number().optional(),
+    }))
+    .query(async ({ ctx }) => {
+      const db = getDb();
+      
+      const [stats] = await db.select({
+        totalCampaigns: sql<number>`COUNT(*)`,
+        totalSent: sql<number>`COALESCE(SUM(${emailMarketingCampaigns.sentCount}), 0)`,
+        avgOpenRate: sql<number>`COALESCE(AVG(CASE WHEN ${emailMarketingCampaigns.sentCount} > 0 THEN ${emailMarketingCampaigns.openCount} * 100.0 / ${emailMarketingCampaigns.sentCount} ELSE 0 END), 0)`,
+      }).from(emailMarketingCampaigns)
+        .where(and(
+          eq(emailMarketingCampaigns.userId, ctx.user.id),
+          eq(emailMarketingCampaigns.status, "sent")
+        ));
+      
+      return {
+        totalCampaigns: stats.totalCampaigns || 0,
+        totalSent: stats.totalSent || 0,
+        avgOpenRate: stats.avgOpenRate || 0,
+      };
+    }),
 });

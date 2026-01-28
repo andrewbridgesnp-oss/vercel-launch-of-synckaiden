@@ -3,7 +3,7 @@ import { router, protectedProcedure } from "../_core/trpc";
 import { TRPCError } from "@trpc/server";
 import { getDb } from "../db";
 import { salesCrmContacts, salesCrmDeals, salesCrmProposals } from "../../drizzle/schema";
-import { eq, and, desc } from "drizzle-orm";
+import { eq, and, desc, sql } from "drizzle-orm";
 import { invokeLLM } from "../_core/llm";
 
 export const salesCrmRouter = router({
@@ -324,5 +324,34 @@ export const salesCrmRouter = router({
 
       const emailContent = response.choices[0]?.message?.content || "";
       return { emailContent };
+    }),
+
+  // ============= STATS/ANALYTICS =============
+  
+  getStats: protectedProcedure
+    .input(z.object({
+      workspaceId: z.number().optional(),
+    }))
+    .query(async ({ ctx }) => {
+      const db = getDb();
+      
+      // Get total contacts
+      const contactsResult = await db.select({
+        count: sql<number>`COUNT(*)`,
+      }).from(salesCrmContacts)
+        .where(eq(salesCrmContacts.userId, ctx.user.id));
+      
+      // Get deals statistics
+      const dealsResult = await db.select({
+        activeCount: sql<number>`SUM(CASE WHEN ${salesCrmDeals.stage} NOT IN ('closed_won', 'closed_lost') THEN 1 ELSE 0 END)`,
+        totalRevenue: sql<number>`COALESCE(SUM(CASE WHEN ${salesCrmDeals.stage} = 'closed_won' THEN ${salesCrmDeals.value} ELSE 0 END), 0)`,
+      }).from(salesCrmDeals)
+        .where(eq(salesCrmDeals.userId, ctx.user.id));
+      
+      return {
+        totalContacts: contactsResult[0]?.count || 0,
+        activeDeals: dealsResult[0]?.activeCount || 0,
+        totalRevenue: dealsResult[0]?.totalRevenue || 0,
+      };
     }),
 });
