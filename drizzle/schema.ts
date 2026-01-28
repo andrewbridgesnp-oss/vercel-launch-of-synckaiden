@@ -126,6 +126,8 @@ export const subscriptions = mysqlTable("subscriptions", {
   productIdIdx: index("subscription_productId_idx").on(table.productId),
   statusIdx: index("subscription_status_idx").on(table.status),
   providerSubscriptionIdIdx: index("subscription_providerSubscriptionId_idx").on(table.providerSubscriptionId),
+  // Composite index for common query: get active subscriptions by user
+  userStatusIdx: index("subscription_userId_status_idx").on(table.userId, table.status),
 }));
 
 export type Subscription = typeof subscriptions.$inferSelect;
@@ -146,6 +148,8 @@ export const entitlements = mysqlTable("entitlements", {
   productIdIdx: index("entitlement_productId_idx").on(table.productId),
   statusIdx: index("entitlement_status_idx").on(table.status),
   userProductUnique: unique("entitlement_user_product_unique").on(table.userId, table.productId),
+  // Composite index for common query: check user entitlement for product
+  userProductStatusIdx: index("entitlement_userId_productId_status_idx").on(table.userId, table.productId, table.status),
 }));
 
 export type Entitlement = typeof entitlements.$inferSelect;
@@ -215,6 +219,8 @@ export const userApiKeys = mysqlTable("userApiKeys", {
   userIdIdx: index("apikey_userId_idx").on(table.userId),
   serviceIdx: index("apikey_service_idx").on(table.service),
   userServiceUnique: unique("apikey_user_service_unique").on(table.userId, table.service, table.keyName),
+  // Composite index for querying active keys by user and service
+  userServiceActiveIdx: index("apikey_userId_service_active_idx").on(table.userId, table.service, table.active),
 }));
 
 export type UserApiKey = typeof userApiKeys.$inferSelect;
@@ -237,6 +243,8 @@ export const auditLogs = mysqlTable("auditLogs", {
   userIdIdx: index("audit_userId_idx").on(table.userId),
   actionIdx: index("audit_action_idx").on(table.action),
   createdAtIdx: index("audit_createdAt_idx").on(table.createdAt),
+  // Composite index for pagination queries: get audit logs by user, sorted by time
+  userCreatedAtIdx: index("audit_userId_createdAt_idx").on(table.userId, table.createdAt),
 }));
 
 export type AuditLog = typeof auditLogs.$inferSelect;

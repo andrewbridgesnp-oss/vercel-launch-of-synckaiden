@@ -8,6 +8,7 @@ import { appRouter } from "../routers";
 import { createContext } from "./context";
 import { serveStatic, setupVite } from "./vite";
 import freebiesRouter from "../routes/freebies";
+import { initializeDatabase, closeDatabase } from "../db";
 
 function isPortAvailable(port: number): Promise<boolean> {
   return new Promise(resolve => {
@@ -29,15 +30,22 @@ async function findAvailablePort(startPort: number = 3000): Promise<number> {
 }
 
 async function startServer() {
+  // Initialize database connection pool before starting server
+  await initializeDatabase();
+
   const app = express();
   const server = createServer(app);
+  
   // Configure body parser with larger size limit for file uploads
   app.use(express.json({ limit: "50mb" }));
   app.use(express.urlencoded({ limit: "50mb", extended: true }));
+  
   // OAuth callback under /api/oauth/callback
   registerOAuthRoutes(app);
+  
   // Freebies API endpoints
   app.use("/api", freebiesRouter);
+  
   // tRPC API
   app.use(
     "/api/trpc",
@@ -46,6 +54,7 @@ async function startServer() {
       createContext,
     })
   );
+  
   // development mode uses Vite, production mode uses static files
   if (process.env.NODE_ENV === "development") {
     await setupVite(app, server);
@@ -63,6 +72,19 @@ async function startServer() {
   server.listen(port, () => {
     console.log(`Server running on http://localhost:${port}/`);
   });
+
+  // Graceful shutdown handler
+  const shutdown = async () => {
+    console.log("\nShutting down gracefully...");
+    server.close(() => {
+      console.log("HTTP server closed");
+    });
+    await closeDatabase();
+    process.exit(0);
+  };
+
+  process.on("SIGTERM", shutdown);
+  process.on("SIGINT", shutdown);
 }
 
 startServer().catch(console.error);
