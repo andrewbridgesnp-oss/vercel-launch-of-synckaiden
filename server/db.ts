@@ -12,6 +12,7 @@ import {
   type AuditLog, type UserApiKey
 } from "../drizzle/schema";
 import { ENV } from './_core/env';
+import { getDatabaseConfig } from './_core/config';
 
 let _db: ReturnType<typeof drizzle> | null = null;
 let _pool: mysql.Pool | null = null;
@@ -39,9 +40,10 @@ export async function initializeDatabase(): Promise<void> {
       console.log("[Database] Initializing connection pool...");
       
       // Create connection pool for better performance
+      const dbConfig = getDatabaseConfig();
       _pool = mysql.createPool({
         uri: process.env.DATABASE_URL,
-        connectionLimit: 10,
+        connectionLimit: dbConfig.poolSize,
         waitForConnections: true,
         queueLimit: 0,
         enableKeepAlive: true,
