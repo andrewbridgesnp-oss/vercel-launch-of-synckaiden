@@ -1,5 +1,6 @@
 import { eq, and, desc, sql } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
+import mysql from 'mysql2/promise';
 import { 
   InsertUser, users, profiles, products, prices, subscriptions, entitlements,
   payments, webhookEvents, userApiKeys, auditLogs, appRegistry,
@@ -11,20 +12,93 @@ import {
   type AuditLog, type UserApiKey
 } from "../drizzle/schema";
 import { ENV } from './_core/env';
+import { getDatabaseConfig } from './_core/config';
 
 let _db: ReturnType<typeof drizzle> | null = null;
+let _pool: mysql.Pool | null = null;
+let _connectionRetries = 0;
+const MAX_RETRIES = 3;
+const RETRY_DELAY_MS = 1000;
 
-// Lazily create the drizzle instance so local tooling can run without a DB.
-export async function getDb() {
-  if (!_db && process.env.DATABASE_URL) {
+/**
+ * Initialize database connection pool with retry logic
+ * This should be called at application startup
+ */
+export async function initializeDatabase(): Promise<void> {
+  if (_db && _pool) {
+    return;
+  }
+
+  if (!process.env.DATABASE_URL) {
+    const errorMessage = "[Database] DATABASE_URL environment variable is not set. Database initialization failed.";
+    console.error(errorMessage);
+    throw new Error(errorMessage);
+  }
+
+  while (_connectionRetries < MAX_RETRIES) {
     try {
-      _db = drizzle(process.env.DATABASE_URL);
+      console.log("[Database] Initializing connection pool...");
+      
+      // Create connection pool for better performance
+      const dbConfig = getDatabaseConfig();
+      _pool = mysql.createPool({
+        uri: process.env.DATABASE_URL,
+        connectionLimit: dbConfig.poolSize,
+        waitForConnections: true,
+        queueLimit: 0,
+        enableKeepAlive: true,
+        keepAliveInitialDelay: 0,
+      });
+
+      // Test connection
+      const connection = await _pool.getConnection();
+      await connection.ping();
+      connection.release();
+
+      _db = drizzle(_pool);
+      console.log("[Database] Connection pool initialized successfully");
+      _connectionRetries = 0; // Reset on successful connection
+      return;
     } catch (error) {
-      console.warn("[Database] Failed to connect:", error);
-      _db = null;
+      _connectionRetries++;
+      console.error(`[Database] Connection attempt ${_connectionRetries}/${MAX_RETRIES} failed:`, error);
+      
+      if (_connectionRetries >= MAX_RETRIES) {
+        console.error("[Database] Max retries reached. Database will be unavailable.");
+        _db = null;
+        _pool = null;
+        _connectionRetries = 0; // Reset for future attempts
+        return;
+      }
+      
+      // Linear backoff: 1s, 2s, 3s
+      await new Promise(resolve => setTimeout(resolve, RETRY_DELAY_MS * _connectionRetries));
     }
   }
+}
+
+/**
+ * Get database instance. For backwards compatibility, this function
+ * attempts to initialize the database if not already done.
+ * @deprecated Use initializeDatabase() at startup instead
+ */
+export async function getDb() {
+  if (!_db && process.env.DATABASE_URL) {
+    await initializeDatabase();
+  }
   return _db;
+}
+
+/**
+ * Gracefully close database connections
+ */
+export async function closeDatabase(): Promise<void> {
+  if (_pool) {
+    await _pool.end();
+    _pool = null;
+    _db = null;
+    console.log("[Database] Connection pool closed");
+  }
 }
 
 // ============= USER & PROFILE HELPERS =============
@@ -121,27 +195,61 @@ export async function getUserById(userId: number) {
 
 // ============= PRODUCT & PRICING HELPERS =============
 
+// Cache imported modules to avoid repeated dynamic imports
+let cacheModule: any = null;
+
+async function getCacheModule() {
+  if (!cacheModule) {
+    cacheModule = await import('./_core/cache');
+  }
+  return cacheModule;
+}
+
 export async function getAllProducts() {
   const db = await getDb();
   if (!db) return [];
   
-  return await db.select().from(products).where(eq(products.status, 'active')).orderBy(products.sortOrder);
+  const { cache, allProductsCacheKey } = await getCacheModule();
+  
+  return cache.getOrSet(
+    allProductsCacheKey(),
+    async () => {
+      return await db.select().from(products).where(eq(products.status, 'active')).orderBy(products.sortOrder);
+    },
+    300 // Cache for 5 minutes
+  );
 }
 
 export async function getProductBySlug(slug: string) {
   const db = await getDb();
   if (!db) return undefined;
   
-  const result = await db.select().from(products).where(eq(products.slug, slug)).limit(1);
-  return result.length > 0 ? result[0] : undefined;
+  const { cache, productCacheKey } = await getCacheModule();
+  
+  return cache.getOrSet(
+    productCacheKey(`slug:${slug}`),
+    async () => {
+      const result = await db.select().from(products).where(eq(products.slug, slug)).limit(1);
+      return result.length > 0 ? result[0] : undefined;
+    },
+    600 // Cache for 10 minutes
+  );
 }
 
 export async function getProductById(productId: number) {
   const db = await getDb();
   if (!db) return undefined;
   
-  const result = await db.select().from(products).where(eq(products.id, productId)).limit(1);
-  return result.length > 0 ? result[0] : undefined;
+  const { cache, productCacheKey } = await getCacheModule();
+  
+  return cache.getOrSet(
+    productCacheKey(productId),
+    async () => {
+      const result = await db.select().from(products).where(eq(products.id, productId)).limit(1);
+      return result.length > 0 ? result[0] : undefined;
+    },
+    600 // Cache for 10 minutes
+  );
 }
 
 export async function getPricesByProductId(productId: number) {
@@ -384,10 +492,16 @@ export async function getAuditLogs(filters?: {
   action?: string;
   resource?: string;
   severity?: 'info' | 'warning' | 'critical';
+  page?: number;
   limit?: number;
 }) {
   const db = await getDb();
-  if (!db) return [];
+  if (!db) return { logs: [], meta: { page: 1, limit: 30, hasMore: false } };
+  
+  const { page, limit, offset } = getPaginationParams({ 
+    page: filters?.page, 
+    limit: filters?.limit 
+  });
   
   let query = db.select().from(auditLogs);
   
@@ -406,11 +520,19 @@ export async function getAuditLogs(filters?: {
   
   query = query.orderBy(desc(auditLogs.createdAt)) as any;
   
-  if (filters?.limit) {
-    query = query.limit(filters.limit) as any;
-  }
+  // Fetch one extra to check if there are more pages
+  const logs = await query.limit(limit + 1).offset(offset);
+  const hasMore = logs.length > limit;
+  if (hasMore) logs.pop();
   
-  return await query;
+  return {
+    logs,
+    meta: {
+      page,
+      limit,
+      hasMore,
+    },
+  };
 }
 
 // ============= API KEY VAULT HELPERS =============
@@ -639,4 +761,52 @@ export async function getScheduledPostPlans(userId: number) {
       eq(postPlans.status, 'scheduled')
     ))
     .orderBy(postPlans.scheduledFor);
+}
+
+// ============= PERFORMANCE UTILITIES =============
+
+/**
+ * Pagination helper to add consistent limit/offset to queries
+ */
+export interface PaginationParams {
+  page?: number;
+  limit?: number;
+}
+
+export interface PaginationMeta {
+  page: number;
+  limit: number;
+  hasMore: boolean;
+  total?: number;
+}
+
+export function getPaginationParams(params?: PaginationParams) {
+  const page = Math.max(1, params?.page || 1);
+  const limit = Math.min(100, Math.max(1, params?.limit || 30));
+  const offset = (page - 1) * limit;
+  
+  return { page, limit, offset };
+}
+
+/**
+ * Execute a database transaction
+ * @param callback Function that receives the database instance and performs operations
+ * @returns Result of the transaction
+ * 
+ * @example
+ * await withTransaction(async (tx) => {
+ *   await tx.insert(subscriptions).values(subData);
+ *   await tx.insert(entitlements).values(entData);
+ *   return { success: true };
+ * });
+ */
+export async function withTransaction<T>(
+  callback: (tx: NonNullable<Awaited<ReturnType<typeof getDb>>>) => Promise<T>
+): Promise<T> {
+  const db = await getDb();
+  if (!db) {
+    throw new Error("Database not available");
+  }
+  
+  return await db.transaction(callback);
 }

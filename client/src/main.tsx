@@ -8,6 +8,21 @@ import App from "./App";
 import { getLoginUrl } from "./const";
 import "./index.css";
 
+// Load analytics if environment variables are set
+const analyticsEndpoint = import.meta.env.VITE_ANALYTICS_ENDPOINT;
+const analyticsWebsiteId = import.meta.env.VITE_ANALYTICS_WEBSITE_ID;
+
+if (analyticsEndpoint && analyticsWebsiteId) {
+  const script = document.createElement('script');
+  script.defer = true;
+  script.src = `${analyticsEndpoint}/umami`;
+  script.setAttribute('data-website-id', analyticsWebsiteId);
+  document.head.appendChild(script);
+  console.log('[Analytics] Umami analytics loaded');
+} else {
+  console.log('[Analytics] Analytics not configured (optional)');
+}
+
 const queryClient = new QueryClient();
 
 const redirectToLoginIfUnauthorized = (error: unknown) => {
