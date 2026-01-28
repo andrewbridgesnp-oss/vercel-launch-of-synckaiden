@@ -1,5 +1,20 @@
 # 🚀 Database Migration - Quick Start
 
+## ⚠️ IMPORTANT: Navigate to Project First!
+
+Before running any commands, open PowerShell/CMD and navigate to your project:
+
+```powershell
+# Go to your project directory (example)
+cd C:\Users\YourName\Documents\vercel-launch-of-synckaiden
+
+# Verify you're in the right place
+dir package.json
+# Should show package.json file
+```
+
+---
+
 ## You're on Manus? Start Here! ✅
 
 Your site is hosted on **Manus**, which makes this super easy:

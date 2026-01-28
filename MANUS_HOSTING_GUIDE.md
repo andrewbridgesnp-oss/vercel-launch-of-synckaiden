@@ -18,7 +18,22 @@ Your site is hosted on **Manus**, which provides a **MySQL-compatible database**
 
 ## How to Run Migrations on Manus
 
-### Option 1: Automatic (Recommended)
+### ⚠️ STEP 0: Navigate to Your Project Folder First!
+
+**Important:** You must be in your project directory, not `C:\WINDOWS\system32` or any other folder!
+
+```powershell
+# Find your project folder (example paths)
+cd C:\Users\YourName\Documents\vercel-launch-of-synckaiden
+# or
+cd C:\Projects\vercel-launch-of-synckaiden
+# or wherever you cloned the repository
+
+# Verify you're in the right place (should show package.json)
+dir package.json
+```
+
+### Option 1: Manual Migration (Recommended)
 
 Manus may automatically run migrations when you deploy. Check your Manus dashboard:
 

@@ -1,5 +1,23 @@
 # Windows Quick Start - Database Migration
 
+## ⚠️ FIRST: Navigate to Your Project!
+
+**CRITICAL:** Open PowerShell or CMD and go to your project folder first:
+
+```powershell
+# Example: Navigate to where you cloned the project
+cd C:\Users\YourName\Documents\vercel-launch-of-synckaiden
+
+# Or wherever your project is located
+cd C:\Projects\vercel-launch-of-synckaiden
+
+# Verify you're in the right place
+dir package.json
+# Should show "package.json" file
+```
+
+---
+
 ## ✅ For Manus-Hosted Sites (You!)
 
 Your site is hosted on **Manus**, which already provides the database!
