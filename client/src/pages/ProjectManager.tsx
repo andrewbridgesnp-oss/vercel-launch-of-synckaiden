@@ -3,14 +3,10 @@ import { Button } from "@/components/ui/button";
 import {
   FolderKanban,
   Users,
-  Calendar,
   CheckSquare,
   TrendingUp,
-  Clock,
   Target,
   FileText,
-  MessageSquare,
-  GitBranch,
   BarChart3,
   Zap
 } from "lucide-react";

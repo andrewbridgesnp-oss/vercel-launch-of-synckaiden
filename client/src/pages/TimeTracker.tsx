@@ -2,11 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import {
   Clock,
-  Play,
-  Pause,
-  Calendar,
   DollarSign,
-  TrendingUp,
   Timer,
   FileText,
   Users,
