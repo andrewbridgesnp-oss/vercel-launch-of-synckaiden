@@ -24,8 +24,14 @@ const RETRY_DELAY_MS = 1000;
  * This should be called at application startup
  */
 export async function initializeDatabase(): Promise<void> {
-  if (_db && _pool || !process.env.DATABASE_URL) {
+  if (_db && _pool) {
     return;
+  }
+
+  if (!process.env.DATABASE_URL) {
+    const errorMessage = "[Database] DATABASE_URL environment variable is not set. Database initialization failed.";
+    console.error(errorMessage);
+    throw new Error(errorMessage);
   }
 
   while (_connectionRetries < MAX_RETRIES) {
