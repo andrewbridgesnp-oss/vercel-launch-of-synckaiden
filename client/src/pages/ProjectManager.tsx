@@ -1,8 +1,5 @@
-import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   FolderKanban,
   Users,
@@ -19,7 +16,6 @@ import {
 } from "lucide-react";
 
 export default function ProjectManager() {
-  const [activeTab, setActiveTab] = useState("overview");
 
   const projectStats = [
     { label: "Active Projects", value: "12", icon: FolderKanban, color: "text-blue-500" },
