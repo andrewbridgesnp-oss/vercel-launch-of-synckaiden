@@ -19,6 +19,7 @@ class Cache {
   private missCount = 0;
   private maxSize: number;
   private onEviction?: (key: string, value: any) => void;
+  private inFlightRequests = new Map<string, Promise<any>>();
 
   constructor(options: CacheOptions = {}) {
     this.maxSize = options.maxSize || 1000; // Default: 1000 items
@@ -83,6 +84,7 @@ class Cache {
    */
   clear(): void {
     this.store.clear();
+    this.inFlightRequests.clear();
     this.hitCount = 0;
     this.missCount = 0;
   }
@@ -119,6 +121,7 @@ class Cache {
 
   /**
    * Get or set pattern: fetch from cache or compute and cache
+   * Prevents thundering herd by tracking in-flight requests
    */
   async getOrSet<T>(
     key: string,
@@ -130,9 +133,26 @@ class Cache {
       return cached;
     }
 
-    const data = await fetcher();
-    this.set(key, data, ttlSeconds);
-    return data;
+    // Check if there's already an in-flight request for this key
+    const inFlight = this.inFlightRequests.get(key);
+    if (inFlight) {
+      return inFlight as Promise<T>;
+    }
+
+    // Create the fetch promise and track it
+    const fetchPromise = (async () => {
+      try {
+        const data = await fetcher();
+        this.set(key, data, ttlSeconds);
+        return data;
+      } finally {
+        // Remove from in-flight tracking when complete
+        this.inFlightRequests.delete(key);
+      }
+    })();
+
+    this.inFlightRequests.set(key, fetchPromise);
+    return fetchPromise;
   }
 }
 
