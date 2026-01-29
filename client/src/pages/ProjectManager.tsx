@@ -1,26 +1,19 @@
 import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Progress } from "@/components/ui/progress";
 import {
   FolderKanban,
   CheckCircle2,
   Clock,
   AlertCircle,
   Users,
-  Calendar,
   TrendingUp,
   FileText,
   Target,
-  GitBranch,
-  MessageSquare,
-  Paperclip
+  GitBranch
 } from "lucide-react";
 
 export default function ProjectManager() {
-  const [activeTab, setActiveTab] = useState("overview");
-
   const projectStats = [
     { label: "Active Projects", value: "12", icon: FolderKanban, color: "text-blue-500" },
     { label: "Completed Tasks", value: "87", icon: CheckCircle2, color: "text-green-500" },

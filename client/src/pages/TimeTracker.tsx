@@ -1,25 +1,17 @@
 import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import {
   Clock,
-  PlayCircle,
-  PauseCircle,
   Calendar,
-  TrendingUp,
   DollarSign,
   CheckCircle2,
   BarChart3,
-  FileText,
   Target,
-  AlertCircle,
   Timer
 } from "lucide-react";
 
 export default function TimeTracker() {
-  const [activeTab, setActiveTab] = useState("overview");
-
   const timeStats = [
     { label: "Hours Today", value: "6.5h", icon: Clock, color: "text-blue-500" },
     { label: "This Week", value: "32h", icon: Calendar, color: "text-green-500" },

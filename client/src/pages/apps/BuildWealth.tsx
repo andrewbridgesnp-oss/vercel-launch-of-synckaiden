@@ -1,4 +1,3 @@
-import { lazy, Suspense } from 'react';
 import PlatformAccessGate from '../../components/PlatformAccessGate';
 
 // Placeholder for BuildWealth app
