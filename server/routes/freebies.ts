@@ -11,8 +11,17 @@ const execAsync = promisify(exec);
 const router = Router();
 const upload = multer({ dest: tmpdir() });
 
-// Initialize OpenAI client (uses OPENAI_API_KEY from environment)
-const openai = new OpenAI();
+// Lazy-initialize OpenAI client only when needed
+let openai: OpenAI | null = null;
+function getOpenAI() {
+  if (!openai) {
+    if (!process.env.OPENAI_API_KEY) {
+      throw new Error('OPENAI_API_KEY environment variable is not set');
+    }
+    openai = new OpenAI();
+  }
+  return openai;
+}
 
 // AI Arena - 3 AIs debate to consensus
 router.post('/ai/arena', async (req, res) => {
@@ -32,7 +41,7 @@ router.post('/ai/arena', async (req, res) => {
 
     const responses = await Promise.all(
       models.map(async (model) => {
-        const completion = await openai.chat.completions.create({
+        const completion = await getOpenAI().chat.completions.create({
           model: model.model,
           messages: [{ role: 'user', content: question }],
           max_tokens: 300,
@@ -50,7 +59,7 @@ router.post('/ai/arena', async (req, res) => {
     // Generate consensus using all responses
     const consensusPrompt = `Based on these three AI responses to the question "${question}":\n\n${responses.map((r, i) => `${i + 1}. ${r.model}: ${r.response}`).join('\n\n')}\n\nProvide a consensus answer that synthesizes the best insights from all three responses in 2-3 sentences.`;
 
-    const consensusCompletion = await openai.chat.completions.create({
+    const consensusCompletion = await getOpenAI().chat.completions.create({
       model: 'gpt-4.1-mini',
       messages: [{ role: 'user', content: consensusPrompt }],
       max_tokens: 200,
@@ -75,7 +84,7 @@ router.post('/generate-image', async (req, res) => {
     }
 
     // Use DALL-E 3 for image generation (Nano Banana)
-    const response = await openai.images.generate({
+    const response = await getOpenAI().images.generate({
       model: 'dall-e-3',
       prompt: prompt,
       n: 1,
