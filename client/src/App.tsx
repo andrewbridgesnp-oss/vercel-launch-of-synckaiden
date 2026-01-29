@@ -131,7 +131,7 @@ import TaxAssistant from "./pages/TaxAssistant";
 import AIFunding from "./pages/apps/AIFunding";
 import AtlasAcademy from "./pages/apps/AtlasAcademy";
 import VitalSync from "./pages/apps/VitalSync";
-import SocialMediaAutopilot from "./pages/apps/SocialMediaAutopilot";
+// import SocialMediaAutopilot from "./pages/apps/SocialMediaAutopilot"; // TODO: Fix react-router-dom dependency
 import AgentSwarm from "./pages/apps/AgentSwarm";
 import PantryInventory from "./pages/apps/PantryInventory";
 import AudioMastering from "./pages/apps/AudioMastering";
@@ -291,7 +291,7 @@ function Router() {
       <Route path="/apps/ai-funding" component={AIFunding} />
       <Route path="/apps/atlas-academy" component={AtlasAcademy} />
       <Route path="/apps/vitalsync" component={VitalSync} />
-      <Route path="/apps/social-media" component={SocialMediaAutopilot} />
+      {/* <Route path="/apps/social-media" component={SocialMediaAutopilot} /> */}
       <Route path="/apps/agent-swarm" component={AgentSwarm} />
       <Route path="/apps/pantry" component={PantryInventory} />
       <Route path="/apps/audio-mastering" component={AudioMastering} />
