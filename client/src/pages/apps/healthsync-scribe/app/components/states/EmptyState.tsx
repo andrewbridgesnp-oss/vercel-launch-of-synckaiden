@@ -49,9 +49,9 @@ export function EmptyState({
       case 'offline':
         return {
           icon: <Wifi className="w-16 h-16 text-orange-500" />,
-          title: 'You're Offline',
-          description: 'Check your internet connection and try again.',
-          actionLabel: 'Retry Connection',
+          title: "You're Offline",
+          description: "Check your internet connection and try again.",
+          actionLabel: "Retry Connection",
         };
     }
   };
